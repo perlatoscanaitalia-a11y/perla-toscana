@@ -1,0 +1,87 @@
+---
+import { getWhatsAppLinks, siteConfig } from '../data/siteConfig';
+import PhoneIcon from './PhoneIcon.astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+interface Props {
+  lang: 'it' | 'en';
+  compact?: boolean;
+}
+
+const { lang } = Astro.props;
+const whatsappLinks = getWhatsAppLinks(lang);
+const labels = {
+  it: {
+    availability: 'Verifica disponibilità',
+    whatsapp: 'WhatsApp',
+    call: 'Chiama',
+    fallback: 'Per camere, posti letto o arrivo, scrivici su WhatsApp o chiamaci direttamente al numero'
+  },
+  en: {
+    availability: 'Check availability',
+    whatsapp: 'WhatsApp',
+    call: 'Call us',
+    fallback: 'For bedrooms, bed setup or arrival, message us on WhatsApp or call us directly at'
+  }
+};
+---
+<div class="cta-button-group">
+  <div class="button-row">
+    <a class="button button--primary" href={siteConfig.placeholders.avaiBookUrl} target="_blank" rel="noopener noreferrer" data-track="availability_click">
+      {labels[lang].availability}
+    </a>
+    <a class="button button--whatsapp button--whatsapp-desktop" href={whatsappLinks.desktop} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" aria-label={lang === 'it' ? 'Scrivi a Perla Toscana su WhatsApp' : 'Message Perla Toscana on WhatsApp'}>
+      <WhatsAppIcon />
+      {labels[lang].whatsapp}
+    </a>
+    <a class="button button--whatsapp button--whatsapp-mobile" href={whatsappLinks.mobile} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" aria-label={lang === 'it' ? 'Scrivi a Perla Toscana su WhatsApp' : 'Message Perla Toscana on WhatsApp'}>
+      <WhatsAppIcon />
+      {labels[lang].whatsapp}
+    </a>
+    <a class="button button--call button--call-desktop" href={siteConfig.placeholders.phoneHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana' : 'Call Perla Toscana'}>
+      <PhoneIcon />
+      {labels[lang].call}
+    </a>
+    <a class="button button--call button--call-mobile" href={siteConfig.placeholders.phoneHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana' : 'Call Perla Toscana'}>
+      <PhoneIcon />
+      {labels[lang].call}
+    </a>
+  </div>
+  <p class="cta-fallback-note">
+    {labels[lang].fallback}{' '}
+    <span class="phone-nowrap">{siteConfig.placeholders.whatsappPhone}</span>.
+  </p>
+</div>
+
+<style>
+  .cta-button-group {
+    display: grid;
+    gap: 9px;
+  }
+
+  .cta-fallback-note {
+    max-width: 620px;
+    color: color-mix(in srgb, currentColor 78%, var(--color-warm-white));
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .button--whatsapp-mobile,
+  .button--call-mobile {
+    display: none;
+  }
+
+  @media (max-width: 820px) {
+    .button--whatsapp-desktop,
+    .button--call-desktop {
+      display: none;
+    }
+
+    .button--whatsapp-mobile,
+    .button--call-mobile {
+      display: inline-flex;
+    }
+  }
+</style>

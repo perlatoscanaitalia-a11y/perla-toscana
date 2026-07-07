@@ -1,0 +1,31 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  lang: 'it' | 'en';
+  alternatePath?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, path, lang, alternatePath, schema } = Astro.props;
+const canonical = new URL(path, siteConfig.siteUrl).toString();
+const alternateLang = lang === 'it' ? 'en' : 'it';
+const alternateUrl = alternatePath ? new URL(alternatePath, siteConfig.siteUrl).toString() : undefined;
+---
+<title>{title}</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="alternate" hreflang={lang} href={canonical} />
+{alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
+{alternateUrl && <link rel="alternate" hreflang="x-default" href={canonical} />}
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

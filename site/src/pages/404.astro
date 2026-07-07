@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  lang="it"
+  title="Pagina non trovata | Perla Toscana"
+  description="La pagina richiesta non esiste. Torna alla home di Perla Toscana."
+  path="/404/"
+>
+  <section class="section">
+    <div class="container not-found">
+      <p class="eyebrow">404</p>
+      <h1>Pagina non trovata</h1>
+      <p class="lead">La pagina richiesta non esiste o e stata spostata.</p>
+      <div class="button-row">
+        <a class="button button--primary" href="/it/">Torna alla home</a>
+        <a class="button button--secondary" href="/en/">English home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    min-height: 50vh;
+    align-content: center;
+    gap: 18px;
+  }
+</style>

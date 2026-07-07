@@ -1,0 +1,38 @@
+---
+import { services } from '../data/siteConfig';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+---
+<div class="grid grid-3">
+  {services.map((service) => (
+    <div class="feature">
+      <span class="mark"></span>
+      <strong>{service[lang]}</strong>
+    </div>
+  ))}
+</div>
+
+<style>
+  .feature {
+    display: flex;
+    min-height: 72px;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-warm-white);
+    padding: 18px;
+  }
+
+  .mark {
+    width: 10px;
+    height: 10px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--color-gold);
+  }
+</style>

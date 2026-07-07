@@ -1,0 +1,126 @@
+---
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  it: {
+    eyebrow: 'Ideale per',
+    title: 'Ideale per',
+    items: [
+      {
+        title: 'Famiglie',
+        text: 'Camere separate, <strong>cucina attrezzata</strong>, <strong>Wi-Fi</strong>, aria condizionata e <strong>parcheggio privato gratuito</strong> davanti alla casa.'
+      },
+      {
+        title: 'Piccoli gruppi',
+        text: '<strong>Fino a 8 ospiti</strong>, <strong>3 camere</strong>, una camera con <strong>due letti singoli</strong>, <strong>divano letto</strong> nel soggiorno con angolo cottura e brandina su richiesta.'
+      },
+      {
+        title: 'Soggiorni di lavoro',
+        text: '<strong>Wi-Fi</strong>, camere separate, <strong>aria condizionata</strong>, cucina attrezzata e parcheggio privato davanti alla casa.'
+      },
+      {
+        title: 'Chi visita la Toscana',
+        text: 'Comoda per Firenze, Chianti, The Mall Firenze, Siena, San Gimignano e Val d’Orcia.'
+      }
+    ]
+  },
+  en: {
+    eyebrow: 'Ideal for',
+    title: 'Ideal for',
+    items: [
+      {
+        title: 'Families',
+        text: 'Separate bedrooms, <strong>equipped kitchen</strong>, <strong>Wi-Fi</strong>, air conditioning and <strong>free private parking</strong> in front of the house.'
+      },
+      {
+        title: 'Small groups',
+        text: '<strong>Sleeps up to 8 guests</strong>, <strong>3 bedrooms</strong>, one bedroom with <strong>two single beds</strong>, <strong>sofa bed</strong> in the living area with kitchenette and folding bed on request.'
+      },
+      {
+        title: 'Business stays',
+        text: '<strong>Wi-Fi</strong>, separate bedrooms, <strong>air conditioning</strong>, equipped kitchen and private parking in front of the house.'
+      },
+      {
+        title: 'Guests visiting Tuscany',
+        text: 'Convenient for Florence, Chianti, The Mall Firenze, Siena, San Gimignano and Val d’Orcia.'
+      }
+    ]
+  }
+} as const;
+
+const t = content[lang];
+---
+<section class="section ideal-for">
+  <div class="container ideal-for__inner">
+    <div class="ideal-for__header">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2>{t.title}</h2>
+    </div>
+
+    <div class="ideal-for__grid">
+      {t.items.map((item) => (
+        <article class="ideal-for-card">
+          <h3>{item.title}</h3>
+          <p set:html={item.text} />
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ideal-for__inner {
+    display: grid;
+    gap: 24px;
+  }
+
+  .ideal-for__header {
+    display: grid;
+    gap: 10px;
+    max-width: 760px;
+  }
+
+  .ideal-for__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .ideal-for-card {
+    display: grid;
+    gap: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-warm-white);
+    box-shadow: 0 12px 28px rgba(51, 37, 29, 0.06);
+    padding: 22px;
+  }
+
+  .ideal-for-card h3 {
+    color: var(--color-terracotta);
+  }
+
+  .ideal-for-card p {
+    color: rgba(47, 42, 36, 0.82);
+  }
+
+  @media (max-width: 1100px) {
+    .ideal-for__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 620px) {
+    .ideal-for__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ideal-for-card {
+      padding: 20px;
+    }
+  }
+</style>

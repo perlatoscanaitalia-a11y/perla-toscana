@@ -1,0 +1,10 @@
+site/node_modules/
+site/dist/
+site/.astro/
+site/.git/
+site/.chrome-qa-*/
+site/qa-screens/
+site/*.log
+
+.DS_Store
+Thumbs.db

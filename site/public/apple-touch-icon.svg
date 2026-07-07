@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Perla Toscana">
+  <rect width="180" height="180" rx="38" fill="#C46E4B"/>
+  <path d="M50 130V50h36.5c20.9 0 32.8 9.7 32.8 25.4 0 16.3-12.8 26.5-33.5 26.5H72.3V130H50Zm25-36.9h8.6c8.9 0 13.3-3.3 13.3-9.5 0-5.8-4.4-8.9-13.1-8.9H75v18.4Z" fill="#F6EFE3"/>
+  <path d="M108.1 50h19.1l-24.1 80H84.2l23.9-80Z" fill="#F6EFE3" opacity=".95"/>
+</svg>

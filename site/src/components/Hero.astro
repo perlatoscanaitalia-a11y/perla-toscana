@@ -1,0 +1,327 @@
+---
+import CTAButtons from './CTAButtons.astro';
+
+interface Props {
+  lang: 'it' | 'en';
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  audienceLine?: string;
+  ctaPrompt?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  slides?: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+    position?: string;
+  }[];
+}
+
+const { lang, eyebrow, title, subtitle, audienceLine, ctaPrompt, imageSrc, imageAlt, slides = [] } = Astro.props;
+const hasSlideshow = slides.length > 0;
+---
+<section class="hero">
+  <div class:list={['container', hasSlideshow ? 'hero-stack' : 'hero-grid']}>
+    {hasSlideshow ? (
+      <>
+        <div class="hero-visual">
+          <div class="hero-media hero-slideshow" data-hero-slideshow>
+            <div class="hero-slideshow__stage">
+              {slides.map((slide, index) => (
+                <img
+                  class:list={['hero-slide', index === 0 && 'is-active']}
+                  src={slide.src}
+                  alt={slide.alt}
+                  width={slide.width}
+                  height={slide.height}
+                  style={`object-position: ${slide.position ?? 'center center'};`}
+                  fetchpriority={index === 0 ? 'high' : 'auto'}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  data-slide={index}
+                />
+              ))}
+            </div>
+            <div class="hero-dots" role="tablist" aria-label={lang === 'it' ? 'Seleziona immagine hero' : 'Select hero image'}>
+              {slides.map((slide, index) => (
+                <button
+                  type="button"
+                  class:list={['hero-dot', index === 0 && 'is-active']}
+                  aria-selected={index === 0 ? 'true' : 'false'}
+                  aria-label={`${lang === 'it' ? 'Mostra immagine' : 'Show image'} ${index + 1}`}
+                  data-dot={index}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div class="hero-copy hero-copy--stacked">
+          <p class:list={['eyebrow', lang === 'it' && 'hero-eyebrow--title-case']}>{eyebrow}</p>
+          <h1>{title}</h1>
+          <p class="lead" set:html={subtitle} />
+          {audienceLine && <p class="audience-line" set:html={audienceLine} />}
+          {ctaPrompt && <p class="cta-prompt">{ctaPrompt}</p>}
+          <div class="hero-actions"><CTAButtons lang={lang} /></div>
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="hero-copy">
+          <p class:list={['eyebrow', lang === 'it' && 'hero-eyebrow--title-case']}>{eyebrow}</p>
+          <h1>{title}</h1>
+          <p class="lead" set:html={subtitle} />
+          {audienceLine && <p class="audience-line" set:html={audienceLine} />}
+          {ctaPrompt && <p class="cta-prompt">{ctaPrompt}</p>}
+          <CTAButtons lang={lang} />
+        </div>
+        {imageSrc ? (
+          <img class="hero-media" src={imageSrc} alt={imageAlt ?? ''} fetchpriority="high" decoding="async" />
+        ) : (
+          <div class="placeholder-media hero-media" aria-hidden="true"></div>
+        )}
+      </>
+    )}
+  </div>
+</section>
+
+<script>
+  const setupHeroSlideshows = () => {
+    const roots = document.querySelectorAll('[data-hero-slideshow]');
+
+    roots.forEach((root) => {
+      const slides = Array.from(root.querySelectorAll('[data-slide]'));
+      const dots = Array.from(root.querySelectorAll('[data-dot]'));
+
+      if (slides.length < 2) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let activeIndex = 0;
+      let timer;
+
+      const setActive = (nextIndex) => {
+        activeIndex = (nextIndex + slides.length) % slides.length;
+
+        slides.forEach((slide, index) => {
+          const isActive = index === activeIndex;
+          slide.classList.toggle('is-active', isActive);
+          slide.toggleAttribute('aria-hidden', !isActive);
+        });
+
+        dots.forEach((dot, index) => {
+          const isActive = index === activeIndex;
+          dot.classList.toggle('is-active', isActive);
+          dot.setAttribute('aria-selected', String(isActive));
+        });
+      };
+
+      const stop = () => {
+        if (timer) {
+          window.clearInterval(timer);
+          timer = undefined;
+        }
+      };
+
+      const start = () => {
+        stop();
+        if (reduceMotion) return;
+        timer = window.setInterval(() => setActive(activeIndex + 1), 3800);
+      };
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          setActive(index);
+          start();
+        });
+      });
+
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      root.addEventListener('focusin', stop);
+      root.addEventListener('focusout', start);
+
+      setActive(0);
+      start();
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupHeroSlideshows, { once: true });
+  } else {
+    setupHeroSlideshows();
+  }
+</script>
+
+<style>
+  .hero {
+    padding: 30px 0 56px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: 42px;
+    align-items: center;
+  }
+
+  .hero-stack {
+    display: grid;
+    width: 100%;
+    justify-items: center;
+    gap: 18px;
+  }
+
+  .hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-copy {
+    display: grid;
+    gap: 18px;
+  }
+
+  .hero-copy--stacked {
+    width: min(100%, 760px);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero-actions {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+  }
+
+  .hero-copy h1 {
+    font-weight: 500;
+    line-height: 1.03;
+  }
+
+  .hero-eyebrow--title-case {
+    text-transform: none;
+  }
+
+  .cta-prompt {
+    max-width: 620px;
+    color: var(--color-olive);
+    font-weight: 700;
+  }
+
+  .audience-line {
+    max-width: 620px;
+    color: var(--color-espresso);
+    font-size: clamp(1.02rem, 1.8vw, 1.18rem);
+    font-weight: 700;
+  }
+
+  .hero-media {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-slideshow {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    width: 100%;
+    max-width: 1160px;
+    margin-inline: auto;
+    height: clamp(420px, 46vw, 520px);
+    background: linear-gradient(180deg, #f5ecdf 0%, #efe1cf 100%);
+  }
+
+  .hero-slideshow__stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 560ms ease;
+  }
+
+  .hero-slide.is-active {
+    opacity: 1;
+  }
+
+  .hero-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    display: flex;
+    gap: 8px;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .hero-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 1px rgba(47, 42, 36, 0.16);
+    cursor: pointer;
+    opacity: 0.85;
+    transition: transform 180ms ease, background 180ms ease, opacity 180ms ease, width 180ms ease;
+  }
+
+  .hero-dot.is-active {
+    width: 22px;
+    background: var(--color-warm-white);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      padding-top: 22px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-stack {
+      gap: 16px;
+    }
+
+    .hero-copy--stacked {
+      width: 100%;
+    }
+
+    .hero-slideshow {
+      width: 100%;
+      max-width: none;
+      margin-inline: 0;
+      height: clamp(300px, 72vw, 390px);
+    }
+
+    .hero-copy h1 {
+      line-height: 1.05;
+    }
+
+    .hero-dots {
+      bottom: 12px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-slide {
+      transition: none;
+    }
+  }
+</style>

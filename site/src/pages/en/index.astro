@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+import CTAButtons from '../../components/CTAButtons.astro';
+import IdealFor from '../../components/IdealFor.astro';
+import GuestReviews from '../../components/GuestReviews.astro';
+import { lodgingSchema } from '../../data/schema';
+
+const title = 'Perla Toscana | Holiday home in Figline Valdarno near Florence';
+const description = 'Holiday home in Figline Valdarno with 3 bedrooms, sleeps up to 8 guests, free private parking, Wi-Fi and air conditioning. Convenient for Florence, Chianti and The Mall Firenze.';
+---
+<BaseLayout lang="en" title={title} description={description} path="/en/" alternatePath="/it/" schema={lodgingSchema('en', '/en/')}>
+  <Hero
+    lang="en"
+    eyebrow="Holiday home in Figline Valdarno"
+    title="Perla Toscana"
+    subtitle="<strong>Holiday home in Figline Valdarno</strong> with <strong>3 bedrooms</strong>, <strong>sleeps up to 8 guests</strong>, <strong>free private parking</strong>, Wi-Fi and air conditioning. Convenient for Florence, Chianti and The Mall Firenze."
+    audienceLine="A practical, quiet base in <strong>Valdarno</strong> for families, groups and business stays."
+    ctaPrompt="Check availability, then message us on WhatsApp or call us for a quick reply."
+    slides={[
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg',
+        alt: 'Elegant double bedroom at Perla Toscana in Figline Valdarno near Florence',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-letto-elegante-2.jpg',
+        alt: 'Carefully arranged double bed at Perla Toscana holiday home',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-camera-due-letti-singoli.jpg',
+        alt: 'Bedroom with two single beds at Perla Toscana holiday home near Florence and Chianti',
+        width: 1600,
+        height: 1067,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-soggiorno-13.jpg',
+        alt: 'Welcoming living room at Perla Toscana with Smart TV and Wi-Fi',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-accoglienza-tavola-3.jpg',
+        alt: 'Welcome detail and set table at Perla Toscana',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-cucina-attrezzata-16.jpg',
+        alt: 'Equipped kitchen in the Perla Toscana holiday home',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-bagno-elegante-17.jpg',
+        alt: 'Modern bathroom at Perla Toscana with illuminated mirror and elegant finishes',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      }
+    ]}
+  />
+
+  <section class="section section--sand">
+    <div class="container home-stack">
+      <div class="intro-block">
+        <p class="eyebrow">Why choose Perla Toscana</p>
+        <h2>A convenient holiday home between Florence, Chianti and The Mall Firenze</h2>
+        <p class="intro-copy"><strong>Perla Toscana</strong> is a <strong>holiday home in Figline Valdarno</strong> designed for guests who want space, comfort and a practical location. It offers <strong>3 bedrooms</strong>, <strong>sleeps up to 8 guests</strong>, free private parking in front of the house, Wi-Fi, air conditioning, Smart TV in every bedroom, Netflix and other streaming services with your own credentials, an equipped kitchen and an easy base for Florence, Chianti, The Mall Firenze and Tuscany.</p>
+      </div>
+      <FeatureGrid lang="en" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container business-note">
+      <p class="eyebrow">Business stays</p>
+      <h2>Also convenient for business trips and small teams</h2>
+      <p>For guests travelling for work, <strong>Perla Toscana</strong> offers separate bedrooms, <strong>Wi-Fi</strong>, an equipped kitchen, air conditioning and <strong>free private parking</strong> in front of the house. A simple, practical solution for <strong>business stays</strong>, technicians and small teams in the area.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2 align-center">
+      <div>
+        <p class="eyebrow">Arriving by car</p>
+        <h2>Visit Florence from a quiet base in Valdarno</h2>
+        <p><strong>Perla Toscana</strong> is designed for guests who want a whole holiday home, private parking for up to 3 cars and an easy base for <strong>Florence</strong>, <strong>Valdarno</strong>, <strong>Chianti</strong> and <strong>The Mall Firenze</strong> without staying in the city-centre crowds.</p>
+      </div>
+      <div class="card">
+        <h3>Why it works</h3>
+        <p>You get comfortable spaces, practical amenities and a direct way to check availability without unnecessary steps.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container home-stack">
+      <div>
+        <p class="eyebrow">Location</p>
+        <h2>Florence, Chianti and The Mall Firenze within easy reach</h2>
+      </div>
+      <div class="grid grid-3">
+        <article class="card"><h3>Florence</h3><p>Visit the city and return to a quieter holiday home in the evening.</p><a href="/en/location/">Explore</a></article>
+        <article class="card"><h3>Chianti</h3><p>A practical base for villages, vineyards and days among the hills.</p><a href="/en/location/">Explore</a></article>
+        <article class="card"><h3>The Mall Firenze</h3><p>Convenient for a shopping day and an easy return to the holiday home.</p><a href="/en/location/">Explore</a></article>
+        <article class="card"><h3>How to reach us</h3><p>Practical directions for car, train, bus, taxi and the correct access road.</p><a href="/en/how-to-reach/">Read directions</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2 align-center">
+      <img class="home-photo" src="/images/perla-toscana/perla-toscana-zona-pranzo-soggiorno.jpg" alt="Dining area with set table inside Perla Toscana holiday home" width="1600" height="1067" loading="lazy" decoding="async" />
+      <div>
+        <p class="eyebrow">The holiday home</p>
+        <h2>3 bedrooms, equipped kitchen and space for up to 8 guests</h2>
+        <p><strong>Equipped kitchen</strong>, <strong>Smart TV in every bedroom</strong>, <strong>Wi-Fi</strong>, hydromassage shower, <strong>air conditioning</strong> in every bedroom, free private parking and guest essentials for a comfortable stay in Tuscany.</p>
+        <div class="spacer"><CTAButtons lang="en" /></div>
+      </div>
+    </div>
+  </section>
+
+  <IdealFor lang="en" />
+
+  <GuestReviews lang="en" />
+
+  <BookingCTA lang="en" />
+</BaseLayout>
+
+<style>
+  .home-stack {
+    display: grid;
+    gap: 28px;
+  }
+
+  .intro-block {
+    display: grid;
+    gap: 12px;
+    max-width: 980px;
+  }
+
+  .intro-copy {
+    max-width: 860px;
+    font-size: 1.04rem;
+    line-height: 1.65;
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .card a {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--color-terracotta);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .spacer {
+    margin-top: 22px;
+  }
+
+  .home-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .business-note {
+    display: grid;
+    max-width: 880px;
+    gap: 14px;
+  }
+</style>

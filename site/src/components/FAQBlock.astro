@@ -1,0 +1,101 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+  links?: { label: string; href: string }[];
+}
+
+interface Props {
+  items: FAQ[];
+}
+
+const { items } = Astro.props;
+---
+<div class="faq-list">
+  {items.map((item) => (
+    <details>
+      <summary>{item.question}</summary>
+      <p set:html={item.answer} />
+      {item.links && (
+        <div class="faq-links">
+          {item.links.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+      )}
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  details {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-warm-white);
+    padding: 18px 20px;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  details p {
+    margin-top: 12px;
+  }
+
+  .faq-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .faq-links a {
+    display: inline-flex;
+    min-height: 34px;
+    align-items: center;
+    border: 1px solid rgba(166, 83, 50, 0.28);
+    border-radius: 999px;
+    background: rgba(251, 244, 232, 0.72);
+    color: var(--color-terracotta);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 7px 12px;
+    text-decoration: none;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+
+  .faq-links a:hover {
+    border-color: var(--color-terracotta);
+    background: var(--color-terracotta);
+    color: var(--color-warm-white);
+  }
+
+  @media (max-width: 620px) {
+    details {
+      padding: 16px;
+    }
+
+    summary {
+      line-height: 1.28;
+    }
+
+    details p {
+      line-height: 1.5;
+    }
+
+    .faq-links a {
+      width: 100%;
+      justify-content: center;
+      border-radius: 8px;
+      text-align: center;
+    }
+  }
+</style>

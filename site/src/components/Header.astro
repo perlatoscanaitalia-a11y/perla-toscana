@@ -1,0 +1,226 @@
+---
+import { nav } from '../data/navigation';
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  lang: 'it' | 'en';
+  alternateHref?: string;
+  showSalesCtas?: boolean;
+}
+
+const { lang, alternateHref, showSalesCtas = true } = Astro.props;
+const alternate = alternateHref ?? (lang === 'it' ? '/en/' : '/it/');
+const pathname = Astro.url.pathname;
+const homeHref = `/${lang}/`;
+const isActive = (href: string) => pathname === href || (href !== homeHref && pathname.startsWith(href));
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={`/${lang}/`} aria-label="Perla Toscana home">
+      <span>Perla Toscana</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      {nav[lang].map((item) => (
+        <a
+          class:list={{ active: isActive(item.href) }}
+          href={item.href}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <div class="header-actions">
+      <a class="lang-link" href={alternate} aria-label={lang === 'it' ? 'Switch to English' : 'Passa all’italiano'}>
+        {lang === 'it' ? 'EN' : 'IT'}
+      </a>
+      {showSalesCtas && <a class="header-book" href={siteConfig.placeholders.avaiBookUrl} target="_blank" rel="noopener noreferrer">{lang === 'it' ? 'Disponibilità' : 'Availability'}</a>}
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(247, 241, 232, 0.94);
+    backdrop-filter: blur(14px);
+  }
+
+  .header-inner {
+    display: flex;
+    min-height: 72px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.92rem;
+  }
+
+  .nav a,
+  .lang-link,
+  .header-book {
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav a {
+    border-radius: 999px;
+    border: 1px solid transparent;
+    color: var(--color-olive);
+    padding: 8px 10px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .nav a:hover,
+  .nav a:focus-visible {
+    background: rgba(208, 187, 165, 0.18);
+    border-color: rgba(184, 142, 97, 0.22);
+    color: var(--color-espresso);
+    outline: none;
+  }
+
+  .nav a.active {
+    background: rgba(184, 142, 97, 0.16);
+    border-color: rgba(184, 142, 97, 0.28);
+    color: var(--color-espresso);
+    box-shadow: inset 0 0 0 1px rgba(184, 142, 97, 0.08);
+  }
+
+  .header-actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .lang-link {
+    border-radius: 999px;
+    border: 1px solid rgba(89, 109, 88, 0.18);
+    background: rgba(247, 241, 232, 0.7);
+    color: var(--color-olive);
+    padding: 8px 11px;
+    line-height: 1;
+  }
+
+  .lang-link:hover,
+  .lang-link:focus-visible {
+    background: rgba(247, 241, 232, 0.95);
+    border-color: rgba(89, 109, 88, 0.28);
+    outline: none;
+  }
+
+  .header-book {
+    border-radius: 999px;
+    background: var(--color-terracotta);
+    color: var(--color-warm-white);
+    padding: 10px 13px;
+    box-shadow: 0 8px 18px rgba(169, 92, 58, 0.16);
+    white-space: nowrap;
+  }
+
+  .header-book:hover,
+  .header-book:focus-visible {
+    background: var(--color-terracotta-dark);
+    box-shadow: 0 10px 22px rgba(169, 92, 58, 0.2);
+    outline: none;
+  }
+
+  @media (max-width: 1060px) {
+    .header-inner {
+      min-height: auto;
+      flex-wrap: wrap;
+      padding-block: 14px;
+    }
+
+    .brand {
+      order: 1;
+    }
+
+    .header-actions {
+      order: 2;
+      flex: 0 0 auto;
+      margin-left: auto;
+    }
+
+    .nav {
+      order: 3;
+      flex: 0 0 100%;
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 2px;
+      font-size: 0.9rem;
+    }
+
+    .nav a {
+      padding: 9px 12px;
+    }
+
+    .header-book {
+      padding: 10px 14px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .header-inner {
+      gap: 12px;
+    }
+
+    .brand {
+      font-size: 1.28rem;
+    }
+
+    .header-actions {
+      flex: 0 0 100%;
+      width: 100%;
+      margin-left: 0;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+
+    .header-book {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      justify-content: stretch;
+      gap: 7px;
+      font-size: 0.8rem;
+    }
+
+    .nav a {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 6px;
+      text-align: center;
+    }
+  }
+</style>

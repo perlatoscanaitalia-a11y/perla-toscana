@@ -1,0 +1,40 @@
+export const siteConfig = {
+  name: 'Perla Toscana',
+  siteUrl: 'https://www.perlatuscana.com',
+  placeholders: {
+    avaiBookUrl: 'AVAI_BOOK_URL',
+    whatsappUrl: 'WHATSAPP_URL',
+    email: 'EMAIL_ADDRESS',
+    phone: 'PHONE_NUMBER',
+    cin: 'CIN_CODE',
+    googleMapsUrl: 'GOOGLE_MAPS_URL',
+    address: 'ADDRESS',
+    reviewsText: 'REVIEWS_TEXT'
+  },
+  languages: {
+    it: 'Italiano',
+    en: 'English'
+  }
+};
+
+export const services = [
+  { it: 'Fino a 8 ospiti', en: 'Up to 8 guests' },
+  { it: '3 camere', en: '3 bedrooms' },
+  { it: 'Parcheggio privato gratuito', en: 'Free private parking' },
+  { it: 'Aria condizionata', en: 'Air conditioning' },
+  { it: 'Wi-Fi', en: 'Wi-Fi' },
+  { it: 'Cucina attrezzata', en: 'Equipped kitchen' },
+  { it: 'Smart TV', en: 'Smart TV' },
+  { it: 'Doccia idromassaggio', en: 'Hydromassage shower' },
+  { it: 'Spazio esterno', en: 'Outdoor space' },
+  { it: 'Casa intera', en: 'Entire home' }
+];
+
+export const imageNeeds = [
+  'Camere',
+  'Cucina e zona giorno',
+  'Bagni',
+  'Esterni',
+  'Parcheggio',
+  'Dettagli comfort'
+];

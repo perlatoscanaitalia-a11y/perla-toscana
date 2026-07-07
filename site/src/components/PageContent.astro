@@ -1,0 +1,547 @@
+---
+import CTAButtons from './CTAButtons.astro';
+import FAQBlock from './FAQBlock.astro';
+import BookingCTA from './BookingCTA.astro';
+import GalleryGrid from './GalleryGrid.astro';
+import MapPinIcon from './MapPinIcon.astro';
+import SocialLinks from './SocialLinks.astro';
+import type { PageContent as Content, Lang } from '../data/pages';
+
+interface Props {
+  lang: Lang;
+  page: Content;
+}
+
+const { lang, page } = Astro.props;
+const hideSalesCtas = ['privacy-policy', 'cookie-policy', 'terms-and-conditions', 'legal-information'].includes(page.slug);
+const initialsFor = (name: string) => name
+  .replace(/[’']/g, ' ')
+  .split(' ')
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((word) => word[0])
+  .join('');
+---
+<section class="section page-hero">
+  <div class="container page-hero-inner">
+    <p class="eyebrow">{page.eyebrow}</p>
+    <h1>{page.h1}</h1>
+    <p class="lead" set:html={page.intro} />
+    {!hideSalesCtas && <CTAButtons lang={lang} />}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-stack">
+    {page.sections.map((section) => (
+      <article class:list={['card', section.variant && `card--${section.variant}`]} id={section.anchor}>
+        {section.image && (
+          <picture>
+            {section.image.webpSrc && <source srcset={section.image.webpSrc} type="image/webp" />}
+            <img
+              class="section-image"
+              src={section.image.src}
+              alt={section.image.alt}
+              width={section.image.width}
+              height={section.image.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        )}
+        {section.caption && <p class="section-caption">{section.caption}</p>}
+        <h2>{section.title}</h2>
+        {section.html ? (
+          <div class="section-html" set:html={section.html} />
+        ) : (
+          <p set:html={section.body ?? ''} />
+        )}
+        {section.attractions && (
+          <div class="attraction-grid">
+            {section.attractions.map((attraction) => (
+              <article class="attraction-card">
+                <div class="attraction-media" aria-hidden={attraction.image ? undefined : 'true'}>
+                  {attraction.image ? (
+                    <picture>
+                      {attraction.image.webpSrc && <source srcset={attraction.image.webpSrc} type="image/webp" />}
+                      <img
+                        src={attraction.image.src}
+                        alt={attraction.image.alt[lang]}
+                        width={attraction.image.width}
+                        height={attraction.image.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                  ) : (
+                    <span>{initialsFor(attraction.name)}</span>
+                  )}
+                </div>
+                <h3>{attraction.name}</h3>
+                {attraction.locality && <p class="attraction-locality">{attraction.locality}</p>}
+                {attraction.badges && (
+                  <ul class="attraction-badges">
+                    {attraction.badges.map((badge) => <li>{badge}</li>)}
+                  </ul>
+                )}
+                {attraction.categories && (
+                  <ul class="attraction-tags">
+                    {attraction.categories.map((category) => <li>{category}</li>)}
+                  </ul>
+                )}
+                {attraction.distance && attraction.drivingTime && (
+                  <p class="attraction-compact">
+                    {attraction.distance} · {attraction.drivingTime} {lang === 'it' ? 'in auto' : 'by car'}
+                  </p>
+                )}
+                {attraction.rating && (
+                  <p class="attraction-rating">
+                    {lang === 'it' ? 'Valutazione indicativa' : 'Indicative rating'}: {attraction.rating}
+                    {attraction.ratingSource && ` · ${attraction.ratingSource}`}
+                  </p>
+                )}
+                {attraction.cuisine && (
+                  <p class="attraction-detail">
+                    <strong>{lang === 'it' ? 'Tipo di cucina' : 'Cuisine'}:</strong> {attraction.cuisine}
+                  </p>
+                )}
+                <p>{attraction.description}</p>
+                {attraction.idealFor && <p class="attraction-ideal">{attraction.idealFor}</p>}
+                {attraction.phone && attraction.phoneVerified && (
+                  <p class="attraction-phone">
+                    <strong>{lang === 'it' ? 'Telefono' : 'Phone'}:</strong> {attraction.phone}
+                  </p>
+                )}
+                {attraction.note && <p class="attraction-note">{attraction.note}</p>}
+                <div class="attraction-actions">
+                  {attraction.phoneHref && attraction.phoneVerified && (
+                    <a href={attraction.phoneHref}>{lang === 'it' ? 'Chiama' : 'Call'}</a>
+                  )}
+                  {attraction.whatsappHref && attraction.whatsappVerified && (
+                    <a href={attraction.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                  )}
+                  {attraction.directionsUrl && (
+                    <a href={attraction.directionsUrl} target="_blank" rel="noopener noreferrer">{lang === 'it' ? 'Indicazioni' : 'Directions'}</a>
+                  )}
+                  {attraction.websiteUrl && (
+                    <a href={attraction.websiteUrl} target="_blank" rel="noopener noreferrer">{lang === 'it' ? 'Sito ufficiale' : 'Official website'}</a>
+                  )}
+                  {attraction.tripadvisorUrl && (
+                    <a href={attraction.tripadvisorUrl} target="_blank" rel="noopener noreferrer">{lang === 'it' ? 'Recensioni Tripadvisor' : 'Tripadvisor reviews'}</a>
+                  )}
+                  {attraction.profileUrl && (
+                    <a href={attraction.profileUrl} target="_blank" rel="noopener noreferrer">{attraction.profileLabel || (lang === 'it' ? 'Vedi profilo' : 'View profile')}</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+        {section.note && <p class="section-note">{section.note}</p>}
+        {section.rules && (
+          <ul class="rule-list">
+            {section.rules.map((rule) => <li>{rule}</li>)}
+          </ul>
+        )}
+        {section.links && (
+          <div class="inline-links">
+            {section.links.map((link) => (
+              <a class:list={['inline-pill', link.external && 'inline-pill--map']} href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined}>
+                {link.external && <MapPinIcon />}
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
+
+{['contatti', 'contact'].includes(page.slug) && (
+  <section class="section section--sand">
+    <div class="container content-stack">
+      <article class="card contact-social-card">
+        <SocialLinks lang={lang} />
+      </article>
+    </div>
+  </section>
+)}
+
+{page.slug.includes('galler') || page.slug === 'gallery' ? (
+  <section class="section section--sand">
+    <div class="container">
+      <GalleryGrid lang={lang} />
+    </div>
+  </section>
+) : null}
+
+{page.faqs && (
+  <section class="section section--sand">
+    <div class="container faq-section">
+      <div>
+        <p class="eyebrow">FAQ</p>
+        <h2>{lang === 'it' ? 'Domande frequenti' : 'Frequently asked questions'}</h2>
+      </div>
+      <FAQBlock items={page.faqs} />
+    </div>
+  </section>
+)}
+
+{!hideSalesCtas && <BookingCTA lang={lang} />}
+
+<style>
+  .page-hero {
+    background: var(--color-sand);
+  }
+
+  .page-hero-inner,
+  .content-stack,
+  .faq-section {
+    display: grid;
+    gap: 22px;
+  }
+
+  .content-stack {
+    max-width: 920px;
+  }
+
+  .page-hero-inner > *,
+  .content-stack > * {
+    min-width: 0;
+  }
+
+  .card h2 {
+    margin-bottom: 12px;
+  }
+
+  .section-html {
+    display: grid;
+    gap: 16px;
+  }
+
+  .section-html h3 {
+    color: var(--color-terracotta-dark);
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+  }
+
+  .arrival-block {
+    display: grid;
+    gap: 6px;
+  }
+
+  .section-html p {
+    margin: 0;
+  }
+
+  .card--callout {
+    border: 1px solid rgba(166, 83, 50, 0.28);
+    background:
+      linear-gradient(180deg, rgba(255, 248, 240, 0.96), rgba(247, 233, 216, 0.96)),
+      var(--color-warm-white);
+    box-shadow: 0 12px 28px rgba(166, 83, 50, 0.08);
+  }
+
+  .card--callout h2 {
+    color: var(--color-terracotta);
+  }
+
+  .card--callout p {
+    color: rgba(47, 42, 36, 0.84);
+  }
+
+  .card[id] {
+    scroll-margin-top: 96px;
+  }
+
+  .section-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: calc(var(--radius) - 2px);
+    margin-bottom: 18px;
+    object-fit: cover;
+  }
+
+  .section-caption {
+    margin: -6px 0 0;
+    font-size: 0.94rem;
+    color: rgba(47, 42, 36, 0.72);
+    font-style: italic;
+  }
+
+  .contact-social-card {
+    background: var(--color-espresso);
+    color: var(--color-warm-white);
+  }
+
+  .rule-list {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 0;
+    padding-left: 22px;
+  }
+
+  .rule-list li {
+    padding-left: 4px;
+  }
+
+  .attraction-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .attraction-card {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: calc(var(--radius) - 2px);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(251, 244, 232, 0.62)),
+      rgba(251, 244, 232, 0.58);
+    overflow: hidden;
+    padding: 0 18px 18px;
+  }
+
+  .attraction-media {
+    display: grid;
+    min-height: 96px;
+    place-items: center;
+    margin-inline: -18px;
+    background:
+      radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.5), transparent 28%),
+      linear-gradient(135deg, rgba(102, 114, 77, 0.18), rgba(184, 142, 97, 0.22)),
+      var(--color-sand);
+  }
+
+  .attraction-media img {
+    width: 100%;
+    height: 148px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .attraction-media picture {
+    width: 100%;
+  }
+
+  .attraction-media span {
+    display: inline-grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    border: 1px solid rgba(47, 42, 36, 0.18);
+    border-radius: 50%;
+    background: rgba(251, 244, 232, 0.78);
+    color: var(--color-espresso);
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .attraction-card h3 {
+    color: var(--color-espresso);
+  }
+
+  .attraction-locality,
+  .attraction-detail,
+  .attraction-phone,
+  .attraction-rating {
+    color: rgba(47, 42, 36, 0.76);
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+
+  .attraction-locality {
+    color: var(--color-olive);
+    font-weight: 800;
+  }
+
+  .attraction-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .attraction-tags li {
+    border: 1px solid rgba(102, 114, 77, 0.18);
+    border-radius: 999px;
+    background: rgba(102, 114, 77, 0.08);
+    color: var(--color-olive);
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1.2;
+    padding: 6px 9px;
+  }
+
+  .attraction-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .attraction-badges li {
+    border: 1px solid rgba(166, 83, 50, 0.25);
+    border-radius: 999px;
+    background: rgba(166, 83, 50, 0.1);
+    color: var(--color-terracotta);
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1.2;
+    padding: 6px 9px;
+  }
+
+  .attraction-ideal {
+    color: rgba(47, 42, 36, 0.8);
+    font-size: 0.94rem;
+    font-weight: 700;
+  }
+
+  .attraction-compact {
+    color: var(--color-terracotta);
+    font-weight: 800;
+  }
+
+  .attraction-note {
+    color: rgba(47, 42, 36, 0.76);
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  .attraction-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+    gap: 8px;
+    margin-top: 2px;
+  }
+
+  .attraction-actions a {
+    display: inline-flex;
+    min-height: 34px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(166, 83, 50, 0.26);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.48);
+    color: var(--color-terracotta);
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1.15;
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+
+  .attraction-actions a:hover {
+    border-color: var(--color-terracotta);
+    background: var(--color-terracotta);
+    color: var(--color-warm-white);
+  }
+
+  .section-note {
+    margin-top: 18px;
+    color: rgba(47, 42, 36, 0.78);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .inline-pill {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(166, 83, 50, 0.28);
+    border-radius: 999px;
+    background: rgba(251, 244, 232, 0.72);
+    color: var(--color-terracotta);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 8px 14px;
+    text-decoration: none;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+
+  .inline-pill:hover {
+    border-color: var(--color-terracotta);
+    background: var(--color-terracotta);
+    color: var(--color-warm-white);
+  }
+
+  .inline-pill--map {
+    border-color: rgba(102, 114, 77, 0.5);
+    background: rgba(102, 114, 77, 0.12);
+    color: var(--color-olive);
+  }
+
+  .inline-pill--map:hover {
+    border-color: var(--color-olive);
+    background: var(--color-olive);
+    color: var(--color-warm-white);
+  }
+
+  @media (max-width: 720px) {
+    .page-hero h1 {
+      max-width: 100%;
+      font-size: clamp(1.95rem, 9vw, 2.2rem);
+    }
+
+    .page-hero .lead {
+      max-width: 100%;
+    }
+
+    .attraction-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-image {
+      aspect-ratio: 4 / 3;
+    }
+
+    .attraction-card {
+      padding: 0 16px 16px;
+    }
+
+    .attraction-media {
+      margin-inline: -16px;
+    }
+
+    .attraction-media img {
+      height: 170px;
+    }
+
+    .attraction-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .inline-links {
+      gap: 10px;
+    }
+
+    .inline-pill {
+      width: 100%;
+      justify-content: center;
+      border-radius: 8px;
+      text-align: center;
+    }
+  }
+</style>

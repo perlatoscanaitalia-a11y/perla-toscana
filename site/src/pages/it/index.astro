@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+import CTAButtons from '../../components/CTAButtons.astro';
+import IdealFor from '../../components/IdealFor.astro';
+import GuestReviews from '../../components/GuestReviews.astro';
+import { lodgingSchema } from '../../data/schema';
+
+const title = 'Perla Toscana | Casa vacanza a Figline Valdarno vicino Firenze';
+const description = 'Casa vacanza a Figline Valdarno con 3 camere, fino a 8 ospiti, parcheggio privato gratuito, Wi-Fi e aria condizionata. Comoda per Firenze, Chianti e The Mall Firenze.';
+---
+<BaseLayout lang="it" title={title} description={description} path="/it/" alternatePath="/en/" schema={lodgingSchema('it', '/it/')}>
+  <Hero
+    lang="it"
+    eyebrow="Perla Toscana | Casa Vacanza a Figline Valdarno"
+    title="Perla Toscana"
+    subtitle="<strong>Casa vacanza a Figline Valdarno</strong> con <strong>3 camere</strong>, <strong>fino a 8 ospiti</strong>, <strong>parcheggio privato gratuito</strong>, Wi-Fi e aria condizionata. Comoda per Firenze, Chianti e The Mall Firenze."
+    audienceLine="Una base tranquilla e pratica nel <strong>Valdarno</strong> per famiglie, gruppi e soggiorni di lavoro."
+    ctaPrompt="Verifica disponibilità, poi scrivici su WhatsApp o chiamaci per ricevere informazioni rapide."
+    slides={[
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg',
+        alt: 'Camera matrimoniale elegante di Perla Toscana a Figline Valdarno vicino Firenze',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-letto-elegante-2.jpg',
+        alt: 'Letto matrimoniale curato nella casa vacanza Perla Toscana',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-camera-due-letti-singoli.jpg',
+        alt: 'Camera con due letti singoli a Perla Toscana, casa vacanza a Figline Valdarno vicino Firenze e Chianti',
+        width: 1600,
+        height: 1067,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-soggiorno-13.jpg',
+        alt: 'Soggiorno accogliente di Perla Toscana con Smart TV e Wi-Fi',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-accoglienza-tavola-3.jpg',
+        alt: 'Dettaglio accoglienza e tavola apparecchiata a Perla Toscana',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-cucina-attrezzata-16.jpg',
+        alt: 'Cucina attrezzata della casa vacanza Perla Toscana',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      },
+      {
+        src: '/images/perla-toscana/perla-toscana-hero-bagno-elegante-17.jpg',
+        alt: 'Bagno moderno di Perla Toscana con specchio luminoso e finiture eleganti',
+        width: 1800,
+        height: 1200,
+        position: 'center center'
+      }
+    ]}
+  />
+
+  <section class="section section--sand">
+    <div class="container home-stack">
+      <div class="intro-block">
+        <p class="eyebrow">Perché scegliere Perla Toscana</p>
+        <h2>Casa vacanza comoda tra Firenze, Chianti e The Mall Firenze</h2>
+        <p class="intro-copy"><strong>Perla Toscana</strong> è una <strong>casa vacanza a Figline Valdarno</strong> pensata per chi cerca spazio, comfort e una posizione pratica. Offre <strong>3 camere</strong>, <strong>fino a 8 ospiti</strong>, parcheggio privato gratuito davanti alla casa, Wi-Fi, aria condizionata, Smart TV in ogni camera, Netflix e altri servizi streaming con le proprie credenziali, cucina attrezzata e una base comoda per Firenze, Chianti, The Mall Firenze e la Toscana.</p>
+      </div>
+      <FeatureGrid lang="it" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container business-note">
+      <p class="eyebrow">Soggiorni di lavoro</p>
+      <h2>Comoda anche per trasferte e piccoli team</h2>
+      <p>Per chi viaggia per lavoro, <strong>Perla Toscana</strong> offre camere separate, <strong>Wi-Fi</strong>, cucina attrezzata, aria condizionata e <strong>parcheggio privato gratuito</strong> davanti alla casa. Una soluzione semplice e funzionale per <strong>trasferte</strong>, tecnici e piccoli team in zona.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2 align-center">
+      <div>
+        <p class="eyebrow">Arrivi in auto</p>
+        <h2>Visitare Firenze con una base tranquilla nel Valdarno</h2>
+        <p><strong>Perla Toscana</strong> è pensata per chi desidera una casa vacanza intera, parcheggio privato fino a 3 auto e una base comoda per muoversi tra <strong>Firenze</strong>, <strong>Valdarno</strong>, <strong>Chianti</strong> e <strong>The Mall Firenze</strong> senza rinunciare alla calma del rientro.</p>
+      </div>
+      <div class="card">
+        <h3>Perché funziona</h3>
+        <p>Hai spazi comodi, servizi concreti e la possibilità di verificare subito la disponibilità con un contatto diretto, senza passaggi inutili.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container home-stack">
+      <div>
+        <p class="eyebrow">Posizione</p>
+        <h2>Firenze, Chianti e The Mall Firenze a portata di auto</h2>
+      </div>
+      <div class="grid grid-3">
+        <article class="card"><h3>Firenze</h3><p>Per visitare la città d’arte e rientrare in una casa vacanza più tranquilla.</p><a href="/it/posizione/">Scopri di più</a></article>
+        <article class="card"><h3>Chianti</h3><p>Una base pratica per borghi, colline, cantine e giornate nel verde.</p><a href="/it/posizione/">Scopri di più</a></article>
+        <article class="card"><h3>The Mall Firenze</h3><p>Perfetto per una giornata di shopping con rientro comodo in casa vacanza.</p><a href="/it/posizione/">Scopri di più</a></article>
+        <article class="card"><h3>Come arrivare</h3><p>Indicazioni pratiche per auto, treno, autobus, taxi e accesso corretto alla casa.</p><a href="/it/come-arrivare/">Leggi le indicazioni</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2 align-center">
+      <img class="home-photo" src="/images/perla-toscana/perla-toscana-zona-pranzo-soggiorno.jpg" alt="Zona pranzo con tavolo apparecchiato nella casa vacanza Perla Toscana" width="1600" height="1067" loading="lazy" decoding="async" />
+      <div>
+        <p class="eyebrow">Casa vacanza</p>
+        <h2>3 camere, cucina attrezzata e spazi per 8 ospiti</h2>
+        <p><strong>Cucina attrezzata</strong>, <strong>Smart TV in ogni camera</strong>, <strong>Wi-Fi</strong>, doccia idromassaggio, <strong>aria condizionata</strong> in ogni camera, parcheggio privato gratuito e servizi inclusi per un soggiorno comodo in Toscana.</p>
+        <div class="spacer"><CTAButtons lang="it" /></div>
+      </div>
+    </div>
+  </section>
+
+  <IdealFor lang="it" />
+
+  <GuestReviews lang="it" />
+
+  <BookingCTA lang="it" />
+</BaseLayout>
+
+<style>
+  .home-stack {
+    display: grid;
+    gap: 28px;
+  }
+
+  .intro-block {
+    display: grid;
+    gap: 12px;
+    max-width: 980px;
+  }
+
+  .intro-copy {
+    max-width: 860px;
+    font-size: 1.04rem;
+    line-height: 1.65;
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .card a {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--color-terracotta);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .spacer {
+    margin-top: 22px;
+  }
+
+  .home-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .business-note {
+    display: grid;
+    max-width: 880px;
+    gap: 14px;
+  }
+</style>

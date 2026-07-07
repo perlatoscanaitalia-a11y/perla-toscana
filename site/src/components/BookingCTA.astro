@@ -1,0 +1,116 @@
+---
+import { siteConfig } from '../data/siteConfig';
+import CTAButtons from './CTAButtons.astro';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+const labels = {
+  it: {
+    eyebrow: 'Disponibilità',
+    title: 'Verifica disponibilità per Perla Toscana',
+    text: 'Controlla le date disponibili e inviaci una richiesta diretta in modo semplice e sicuro. Per dubbi su camere, posti letto, arrivo o servizi puoi scriverci su WhatsApp o chiamarci.'
+  },
+  en: {
+    eyebrow: 'Availability',
+    title: 'Check availability for Perla Toscana',
+    text: 'Check available dates and send us a direct request simply and securely. For questions about bedrooms, bed setup, arrival or amenities, message us on WhatsApp or call us.'
+  }
+};
+---
+<section class="section booking-cta" id="contact">
+  <div class="container booking-box">
+    <div>
+      <p class="eyebrow">{labels[lang].eyebrow}</p>
+      <h2>{labels[lang].title}</h2>
+      <p>{labels[lang].text}</p>
+      <div class="booking-phone-list" aria-label={lang === 'it' ? 'Numeri di telefono e WhatsApp' : 'Phone and WhatsApp numbers'}>
+        <div>
+          <span>WhatsApp</span>
+          <span class="phone-number phone-nowrap">{siteConfig.placeholders.whatsappPhone}</span>
+        </div>
+        <div>
+          <span>{lang === 'it' ? 'Telefono' : 'Phone'}</span>
+          <span class="phone-number phone-nowrap">{siteConfig.placeholders.phone}</span>
+        </div>
+      </div>
+    </div>
+    <div class="booking-actions">
+      <CTAButtons lang={lang} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .booking-cta {
+    background: var(--color-olive);
+    color: var(--color-warm-white);
+  }
+
+  .booking-box {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .booking-box p {
+    max-width: 720px;
+    margin-top: 12px;
+  }
+
+  .booking-phone-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 18px;
+  }
+
+  .booking-phone-list div {
+    display: grid;
+    gap: 3px;
+  }
+
+  .booking-phone-list span:first-child {
+    color: rgba(255, 249, 240, 0.78);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .phone-number {
+    color: var(--color-warm-white);
+    font-size: 1.02rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .phone-number.phone-nowrap {
+    display: inline-block;
+  }
+
+  .booking-cta .eyebrow {
+    color: var(--color-sand);
+  }
+
+  .booking-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 820px) {
+    .booking-box {
+      grid-template-columns: 1fr;
+    }
+
+    .booking-actions {
+      justify-content: stretch;
+    }
+
+    .booking-phone-list {
+      display: grid;
+      gap: 12px;
+    }
+  }
+</style>

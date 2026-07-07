@@ -1,0 +1,228 @@
+---
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  it: {
+    eyebrow: 'Recensioni degli ospiti',
+    title: 'Cosa dicono gli ospiti',
+    subtitle: 'Le recensioni degli ospiti raccontano <strong>Perla Toscana</strong>: una casa vacanza curata e comoda a <strong>Figline Valdarno</strong>, perfetta per visitare Firenze, il Chianti e la Toscana.',
+    emptyTitle: 'Recensioni verificate da aggiungere',
+    emptyText: 'Appena saranno disponibili estratti pubblici verificabili da Airbnb, Booking o Google, questa sezione potrà mostrare recensioni reali degli ospiti senza dati personali sensibili.'
+  },
+  en: {
+    eyebrow: 'Guest reviews',
+    title: 'What guests say',
+    subtitle: 'Guest reviews describe <strong>Perla Toscana</strong> as a clean, comfortable holiday home in <strong>Figline Valdarno</strong> for visiting Florence, Chianti and Tuscany.',
+    emptyTitle: 'Verified reviews to add',
+    emptyText: 'Once verified public excerpts from Airbnb, Booking or Google are available, this section can show real guest reviews without sensitive personal data.'
+  }
+};
+
+const reviews: {
+  quote: { it: string; en: string };
+  platform: string;
+  rating?: string;
+  guest?: { it: string; en: string };
+}[] = [
+  {
+    quote: {
+      it: 'È stato davvero facile da trovare. Abbiamo apprezzato molto il parcheggio gratuito, le camere erano enormi e bellissime. Gli host sono stati davvero gentili e reattivi.',
+      en: 'It was really easy to find. We appreciated the free parking, and the rooms were huge and beautiful. The hosts were very kind and responsive.'
+    },
+    platform: 'Airbnb',
+    rating: '5 stelle',
+    guest: { it: 'Jasmina', en: 'Jasmina' }
+  },
+  {
+    quote: {
+      it: 'È uno dei posti migliori in cui abbiamo soggiornato. Le camere, il bagno e il soggiorno sono tutti spettacolari. Elena ci ha aiutato molto e si è presa cura di noi.',
+      en: 'One of the best places we have stayed. The bedrooms, bathroom and living room are all spectacular. Elena helped us a lot and took great care of us.'
+    },
+    platform: 'Airbnb',
+    rating: '5 stelle',
+    guest: { it: 'Kensy', en: 'Kensy' }
+  },
+  {
+    quote: {
+      it: 'Un posto fantastico se ti piacciono la pace, la tranquillità e un ambiente piacevole. L’alloggio è pulitissimo, completamente rifornito e spazioso. Tutto sembra nuovo.',
+      en: 'A fantastic place if you enjoy peace, quiet and a pleasant atmosphere. The accommodation is spotless, fully equipped and spacious. Everything feels new.'
+    },
+    platform: 'Airbnb',
+    rating: '5 stelle',
+    guest: { it: 'Jacek', en: 'Jacek' }
+  },
+  {
+    quote: {
+      it: 'La casa è fornitissima di tutto, con accessori e comfort che fanno davvero la differenza. Cucina attrezzata, prodotti di cortesia e un’atmosfera raffinata ma accogliente.',
+      en: 'The house is fully equipped, with amenities and comforts that truly make a difference. Equipped kitchen, courtesy products and an elegant yet welcoming atmosphere.'
+    },
+    platform: 'Airbnb',
+    rating: '5 stelle',
+    guest: { it: 'Daria', en: 'Daria' }
+  },
+  {
+    quote: {
+      it: 'La casa è davvero splendida, in una zona tranquilla ideale per riposare. Tre stanze da letto splendide, curate, pulite e modernissime. Parcheggio ampio disponibile.',
+      en: 'The house is truly beautiful, in a quiet area ideal for resting. Three lovely, well-kept, clean and modern bedrooms. Spacious parking available.'
+    },
+    platform: 'Airbnb',
+    rating: '5 stelle',
+    guest: { it: 'Jo', en: 'Jo' }
+  },
+  {
+    quote: {
+      it: 'Posizione ottima, punti di interesse facilmente raggiungibili. Appartamento pulito, profumato e rispettava perfettamente le foto. Elena e Roberto gentilissimi.',
+      en: 'Excellent location, with points of interest easily reachable. The apartment was clean, fresh and exactly as shown in the photos. Elena and Roberto were very kind.'
+    },
+    platform: 'Airbnb',
+    rating: '5 stelle',
+    guest: { it: 'Letizia', en: 'Letizia' }
+  }
+];
+
+const t = content[lang];
+---
+<section class="section guest-reviews" aria-labelledby="guest-reviews-title">
+  <div class="container guest-reviews__inner">
+    <div class="guest-reviews__header">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="guest-reviews-title">{t.title}</h2>
+      <p set:html={t.subtitle} />
+    </div>
+
+    {reviews.length > 0 ? (
+      <div class="guest-reviews__grid">
+        {reviews.map((review) => (
+          <article class="guest-review-card">
+            <div class="guest-review-card__stars" role="img" aria-label={lang === 'it' ? 'Valutazione 5 stelle su Airbnb' : '5-star rating on Airbnb'}>
+              ★★★★★
+            </div>
+            <p class="guest-review-card__quote">“{review.quote[lang]}”</p>
+            <footer class="guest-review-card__meta">
+              <span>{review.guest?.[lang] ?? (lang === 'it' ? 'Ospite' : 'Guest')}</span>
+              <span>{review.platform}{review.rating ? ` · ${lang === 'en' && review.rating === '5 stelle' ? '5 stars' : review.rating}` : ''}</span>
+            </footer>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="guest-reviews__empty">
+        <h3>{t.emptyTitle}</h3>
+        <p>{t.emptyText}</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .guest-reviews {
+    background: var(--color-sand);
+  }
+
+  .guest-reviews__inner {
+    display: grid;
+    gap: 26px;
+  }
+
+  .guest-reviews__header {
+    display: grid;
+    max-width: 820px;
+    gap: 12px;
+  }
+
+  .guest-reviews__header p:last-child {
+    color: rgba(47, 42, 36, 0.82);
+  }
+
+  .guest-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .guest-review-card,
+  .guest-reviews__empty {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-warm-white);
+    box-shadow: 0 14px 32px rgba(51, 37, 29, 0.08);
+  }
+
+  .guest-review-card {
+    display: grid;
+    align-content: space-between;
+    min-height: 270px;
+    gap: 14px;
+    padding: 24px;
+  }
+
+  .guest-review-card__stars {
+    color: #C6923A;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .guest-review-card__quote {
+    color: var(--color-espresso);
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    line-height: 1.25;
+  }
+
+  .guest-review-card__meta {
+    display: grid;
+    gap: 4px;
+    color: rgba(47, 42, 36, 0.72);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .guest-review-card__meta span:last-child {
+    color: var(--color-terracotta);
+  }
+
+  .guest-reviews__empty {
+    max-width: 760px;
+    padding: 24px;
+  }
+
+  .guest-reviews__empty h3 {
+    margin-bottom: 8px;
+  }
+
+  .guest-reviews__empty p {
+    color: rgba(47, 42, 36, 0.78);
+  }
+
+  @media (max-width: 900px) {
+    .guest-reviews__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 620px) {
+    .guest-reviews__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guest-review-card,
+    .guest-reviews__empty {
+      padding: 20px;
+    }
+
+    .guest-review-card {
+      min-height: auto;
+    }
+
+    .guest-review-card__quote {
+      font-size: 1.22rem;
+    }
+  }
+</style>
