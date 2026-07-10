@@ -6,30 +6,43 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
 interface Props {
   lang: 'it' | 'en';
   compact?: boolean;
+  bookingPage?: boolean;
 }
 
-const { lang } = Astro.props;
+const { lang, bookingPage = false } = Astro.props;
 const whatsappLinks = getWhatsAppLinks(lang);
+const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
 const labels = {
   it: {
-    availability: 'Verifica disponibilità',
+    availability: bookingPage ? 'Verifica disponibilità online' : 'Verifica disponibilità',
     whatsapp: 'WhatsApp',
-    call: 'Chiama',
+    call: bookingPage ? 'Chiamaci prima di prenotare' : 'Chiama',
     fallback: 'Per camere, posti letto o arrivo, scrivici su WhatsApp o chiamaci direttamente al numero'
   },
   en: {
-    availability: 'Check availability',
+    availability: bookingPage ? 'Check availability online' : 'Check availability',
     whatsapp: 'WhatsApp',
-    call: 'Call us',
+    call: bookingPage ? 'Call us before booking' : 'Call us',
     fallback: 'For bedrooms, bed setup or arrival, message us on WhatsApp or call us directly at'
   }
 };
+const callHref = bookingPage ? siteConfig.placeholders.secondaryPhoneHref : siteConfig.placeholders.phoneHref;
+const availabilityHref = bookingPage ? siteConfig.placeholders.avaiBookUrl : bookingHref;
 ---
 <div class="cta-button-group">
-  <div class="button-row">
-    <a class="button button--primary" href={siteConfig.placeholders.avaiBookUrl} target="_blank" rel="noopener noreferrer" data-track="availability_click">
-      {labels[lang].availability}
-    </a>
+  <div class:list={['button-row', bookingPage && 'button-row--booking-page']}>
+    {bookingPage && (
+      <>
+        <a class="button button--call button--call-featured button--call-desktop" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana prima di prenotare' : 'Call Perla Toscana before booking'}>
+          <PhoneIcon />
+          {labels[lang].call}
+        </a>
+        <a class="button button--call button--call-featured button--call-mobile" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana prima di prenotare' : 'Call Perla Toscana before booking'}>
+          <PhoneIcon />
+          {labels[lang].call}
+        </a>
+      </>
+    )}
     <a class="button button--whatsapp button--whatsapp-desktop" href={whatsappLinks.desktop} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" aria-label={lang === 'it' ? 'Scrivi a Perla Toscana su WhatsApp' : 'Message Perla Toscana on WhatsApp'}>
       <WhatsAppIcon />
       {labels[lang].whatsapp}
@@ -38,14 +51,21 @@ const labels = {
       <WhatsAppIcon />
       {labels[lang].whatsapp}
     </a>
-    <a class="button button--call button--call-desktop" href={siteConfig.placeholders.phoneHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana' : 'Call Perla Toscana'}>
-      <PhoneIcon />
-      {labels[lang].call}
+    <a class="button button--primary" href={availabilityHref} target={bookingPage ? '_blank' : undefined} rel={bookingPage ? 'noopener noreferrer' : undefined} data-track="availability_click">
+      {labels[lang].availability}
     </a>
-    <a class="button button--call button--call-mobile" href={siteConfig.placeholders.phoneHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana' : 'Call Perla Toscana'}>
-      <PhoneIcon />
-      {labels[lang].call}
-    </a>
+    {!bookingPage && (
+      <>
+        <a class="button button--call button--call-desktop" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana' : 'Call Perla Toscana'}>
+          <PhoneIcon />
+          {labels[lang].call}
+        </a>
+        <a class="button button--call button--call-mobile" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana' : 'Call Perla Toscana'}>
+          <PhoneIcon />
+          {labels[lang].call}
+        </a>
+      </>
+    )}
   </div>
   <p class="cta-fallback-note">
     {labels[lang].fallback}{' '}
@@ -71,6 +91,17 @@ const labels = {
   .button--whatsapp-mobile,
   .button--call-mobile {
     display: none;
+  }
+
+  .button-row--booking-page .button--call-featured {
+    border-color: var(--color-terracotta-dark);
+    background: var(--color-terracotta);
+    box-shadow: 0 12px 28px rgba(166, 83, 50, 0.24);
+  }
+
+  .button-row--booking-page .button--call-featured:hover {
+    border-color: var(--color-espresso);
+    background: var(--color-espresso);
   }
 
   @media (max-width: 820px) {

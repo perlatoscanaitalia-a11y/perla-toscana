@@ -1,6 +1,5 @@
 ---
 import { nav } from '../data/navigation';
-import { siteConfig } from '../data/siteConfig';
 
 interface Props {
   lang: 'it' | 'en';
@@ -12,6 +11,8 @@ const { lang, alternateHref, showSalesCtas = true } = Astro.props;
 const alternate = alternateHref ?? (lang === 'it' ? '/en/' : '/it/');
 const pathname = Astro.url.pathname;
 const homeHref = `/${lang}/`;
+const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
+const navItems = nav[lang].filter((item) => item.href !== bookingHref);
 const isActive = (href: string) => pathname === href || (href !== homeHref && pathname.startsWith(href));
 ---
 <header class="site-header">
@@ -20,7 +21,7 @@ const isActive = (href: string) => pathname === href || (href !== homeHref && pa
       <span>Perla Toscana</span>
     </a>
     <nav class="nav" aria-label="Primary navigation">
-      {nav[lang].map((item) => (
+      {navItems.map((item) => (
         <a
           class:list={{ active: isActive(item.href) }}
           href={item.href}
@@ -34,7 +35,7 @@ const isActive = (href: string) => pathname === href || (href !== homeHref && pa
       <a class="lang-link" href={alternate} aria-label={lang === 'it' ? 'Switch to English' : 'Passa all’italiano'}>
         {lang === 'it' ? 'EN' : 'IT'}
       </a>
-      {showSalesCtas && <a class="header-book" href={siteConfig.placeholders.avaiBookUrl} target="_blank" rel="noopener noreferrer">{lang === 'it' ? 'Disponibilità' : 'Availability'}</a>}
+      {showSalesCtas && <a class="header-book" href={bookingHref}>{lang === 'it' ? 'Prenota' : 'Book'}</a>}
     </div>
   </div>
 </header>

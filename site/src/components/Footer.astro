@@ -11,6 +11,7 @@ interface Props {
 
 const { lang, showSalesCtas = true } = Astro.props;
 const whatsappLinks = getWhatsAppLinks(lang);
+const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
 ---
 <footer class="site-footer">
   <div class="container footer-grid">
@@ -28,7 +29,7 @@ const whatsappLinks = getWhatsAppLinks(lang);
       <a class="phone-nowrap" href={siteConfig.placeholders.secondaryPhoneHref} data-track="secondary_phone_click">{siteConfig.placeholders.secondaryPhone}</a>
         <a class="footer-whatsapp footer-whatsapp--desktop" href={whatsappLinks.desktop} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click"><WhatsAppIcon /> WhatsApp</a>
         <a class="footer-whatsapp footer-whatsapp--mobile" href={whatsappLinks.mobile} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click"><WhatsAppIcon /> WhatsApp</a>
-        <a href={siteConfig.placeholders.avaiBookUrl} target="_blank" rel="noopener noreferrer" data-track="availability_click">{lang === 'it' ? 'Verifica disponibilità' : 'Check availability'}</a>
+        <a href={bookingHref} data-track="availability_click">{lang === 'it' ? 'Verifica disponibilità' : 'Check availability'}</a>
       </div>
     )}
     <div>

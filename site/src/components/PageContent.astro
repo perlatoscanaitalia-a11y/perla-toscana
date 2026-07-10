@@ -2,6 +2,7 @@
 import CTAButtons from './CTAButtons.astro';
 import FAQBlock from './FAQBlock.astro';
 import BookingCTA from './BookingCTA.astro';
+import BookingPage from './BookingPage.astro';
 import GalleryGrid from './GalleryGrid.astro';
 import MapPinIcon from './MapPinIcon.astro';
 import SocialLinks from './SocialLinks.astro';
@@ -14,6 +15,7 @@ interface Props {
 
 const { lang, page } = Astro.props;
 const hideSalesCtas = ['privacy-policy', 'cookie-policy', 'terms-and-conditions', 'legal-information'].includes(page.slug);
+const isBookingPage = ['prenota', 'book'].includes(page.slug);
 const initialsFor = (name: string) => name
   .replace(/[’']/g, ' ')
   .split(' ')
@@ -22,12 +24,16 @@ const initialsFor = (name: string) => name
   .map((word) => word[0])
   .join('');
 ---
+{isBookingPage ? (
+  <BookingPage lang={lang} />
+) : (
+<>
 <section class="section page-hero">
   <div class="container page-hero-inner">
     <p class="eyebrow">{page.eyebrow}</p>
     <h1>{page.h1}</h1>
     <p class="lead" set:html={page.intro} />
-    {!hideSalesCtas && <CTAButtons lang={lang} />}
+    {!hideSalesCtas && <CTAButtons lang={lang} bookingPage={isBookingPage} />}
   </div>
 </section>
 
@@ -188,7 +194,9 @@ const initialsFor = (name: string) => name
   </section>
 )}
 
-{!hideSalesCtas && <BookingCTA lang={lang} />}
+{!hideSalesCtas && !isBookingPage && <BookingCTA lang={lang} />}
+</>
+)}
 
 <style>
   .page-hero {

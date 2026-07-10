@@ -1,0 +1,248 @@
+---
+import { siteConfig } from '../data/siteConfig';
+import PhoneIcon from './PhoneIcon.astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+interface Props {
+  lang: 'it' | 'en';
+}
+
+const { lang } = Astro.props;
+const phoneDisplay = '+39 327 003 4324';
+const phoneHref = 'tel:+393270034324';
+const whatsappHref = 'https://wa.me/393270034324';
+const content = {
+  it: {
+    title: 'PRENOTA IL TUO SOGGIORNO',
+    intro: 'Siamo felici di aiutarti a organizzare il tuo soggiorno a Perla Toscana.<br />Contattaci telefonicamente o su WhatsApp per verificare la disponibilità e ricevere assistenza personalizzata.',
+    callTitle: 'PRIMA DI PRENOTARE, CHIAMACI',
+    callText: 'Siamo a tua disposizione per rispondere a ogni domanda<br />e aiutarti a scegliere le date migliori per il tuo soggiorno.',
+    separator: 'oppure',
+    whatsappTitle: 'SCRIVICI SU WHATSAPP',
+    whatsappText: 'Scrivici in qualsiasi momento, ti risponderemo al più presto!',
+    onlineTitle: 'Verifica disponibilità online',
+    onlineText: 'Puoi controllare le disponibilità in tempo reale e prenotare direttamente online in modo sicuro tramite il nostro sistema di prenotazione.',
+    onlineButton: 'Verifica disponibilità online',
+    phoneAria: 'Chiama Perla Toscana',
+    whatsappAria: 'Scrivi a Perla Toscana su WhatsApp'
+  },
+  en: {
+    title: 'BOOK YOUR STAY',
+    intro: 'We are happy to help you organise your stay at Perla Toscana.<br />Contact us by phone or WhatsApp to check availability and receive personalised assistance.',
+    callTitle: 'BEFORE BOOKING, CALL US',
+    callText: 'We are available to answer your questions<br />and help you choose the best dates for your stay.',
+    separator: 'or',
+    whatsappTitle: 'MESSAGE US ON WHATSAPP',
+    whatsappText: 'Message us at any time and we will reply as soon as possible!',
+    onlineTitle: 'Check availability online',
+    onlineText: 'You can check real-time availability and book securely online through our booking system.',
+    onlineButton: 'Check availability online',
+    phoneAria: 'Call Perla Toscana',
+    whatsappAria: 'Message Perla Toscana on WhatsApp'
+  }
+};
+
+const copy = content[lang];
+---
+<section class="booking-hero">
+  <div class="container booking-hero__inner">
+    <h1>{copy.title}</h1>
+    <p set:html={copy.intro} />
+  </div>
+</section>
+
+<section class="booking-contact">
+  <div class="container booking-contact__inner">
+    <article class="booking-method">
+      <div class="booking-icon booking-icon--phone" aria-hidden="true">
+        <PhoneIcon />
+      </div>
+      <h2>{copy.callTitle}</h2>
+      <a class="booking-number" href={phoneHref} aria-label={copy.phoneAria}>{phoneDisplay}</a>
+      <p set:html={copy.callText} />
+    </article>
+
+    <div class="booking-separator" aria-hidden="true">
+      <span>{copy.separator}</span>
+    </div>
+
+    <article class="booking-method">
+      <div class="booking-icon booking-icon--whatsapp" aria-hidden="true">
+        <WhatsAppIcon />
+      </div>
+      <h2>{copy.whatsappTitle}</h2>
+      <a class="booking-number" href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={copy.whatsappAria}>{phoneDisplay}</a>
+      <p>{copy.whatsappText}</p>
+    </article>
+
+    <article class="online-booking-box">
+      <h2>{copy.onlineTitle}</h2>
+      <p>{copy.onlineText}</p>
+      <a class="button button--primary online-booking-button" href={siteConfig.placeholders.avaiBookUrl} target="_blank" rel="noopener noreferrer" data-track="availability_click">
+        {copy.onlineButton}
+      </a>
+    </article>
+  </div>
+</section>
+
+<style>
+  .booking-hero {
+    background: var(--color-sand);
+    padding: clamp(58px, 9vw, 94px) 0 clamp(50px, 7vw, 78px);
+    text-align: center;
+  }
+
+  .booking-hero__inner {
+    display: grid;
+    max-width: 760px;
+    gap: 20px;
+  }
+
+  .booking-hero h1 {
+    color: var(--color-olive);
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 0.98;
+    margin: 0;
+  }
+
+  .booking-hero p {
+    color: rgba(47, 42, 36, 0.78);
+    font-size: clamp(1rem, 1.8vw, 1.16rem);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .booking-contact {
+    background: var(--color-warm-white);
+    padding: clamp(48px, 8vw, 88px) 0;
+  }
+
+  .booking-contact__inner {
+    display: grid;
+    max-width: 760px;
+    gap: 34px;
+    text-align: center;
+  }
+
+  .booking-method {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+  }
+
+  .booking-icon {
+    display: inline-grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 999px;
+    background: rgba(251, 244, 232, 0.9);
+  }
+
+  .booking-icon :global(svg) {
+    width: 25px;
+    height: 25px;
+  }
+
+  .booking-icon--phone {
+    color: var(--color-terracotta);
+  }
+
+  .booking-icon--whatsapp {
+    color: #2E7D4F;
+  }
+
+  .booking-method h2,
+  .online-booking-box h2 {
+    color: var(--color-olive);
+    font-size: clamp(1rem, 2.2vw, 1.22rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .booking-number {
+    color: var(--color-terracotta);
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 6vw, 3.35rem);
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .booking-number:hover,
+  .booking-number:focus-visible {
+    color: var(--color-terracotta-dark);
+    outline: none;
+  }
+
+  .booking-method p,
+  .online-booking-box p {
+    color: rgba(47, 42, 36, 0.72);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .booking-separator {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+    color: rgba(47, 42, 36, 0.42);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+
+  .booking-separator::before,
+  .booking-separator::after {
+    content: '';
+    height: 1px;
+    background: rgba(184, 142, 97, 0.28);
+  }
+
+  .online-booking-box {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    border: 1px solid rgba(184, 142, 97, 0.22);
+    border-radius: 8px;
+    background: rgba(251, 244, 232, 0.45);
+    margin-top: 8px;
+    padding: clamp(24px, 5vw, 38px);
+  }
+
+  .online-booking-box h2 {
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .online-booking-button {
+    margin-top: 4px;
+    border-radius: 999px;
+  }
+
+  @media (max-width: 560px) {
+    .booking-hero {
+      padding-top: 44px;
+    }
+
+    .booking-contact__inner {
+      gap: 30px;
+    }
+
+    .booking-number {
+      overflow-wrap: anywhere;
+    }
+
+    .online-booking-button {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style>

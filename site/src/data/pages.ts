@@ -423,7 +423,7 @@ const it: PageContent[] = [
       },
       {
         title: 'In autobus',
-        body: 'In zona sono presenti collegamenti <strong>autobus</strong> locali. La <strong>fermata Brollo</strong> si trova a circa 200 metri da Perla Toscana. Consigliamo sempre di verificare gli orari aggiornati prima della partenza.',
+        body: 'Perla Toscana è servita dagli autobus di Autolinee Toscane. La fermata <strong>SR69 Deposito Gas V</strong> si trova a circa 200 metri, 2-3 minuti a piedi dalla casa, ed è collegata con Figline Valdarno, Firenze e altre località della zona.<br><br>Per chi arriva in treno, dalla stazione di Figline Valdarno è possibile raggiungere facilmente Perla Toscana in autobus oppure in taxi in pochi minuti.<br><br>Ti consigliamo di verificare sempre gli orari aggiornati prima della partenza.',
         links: [
           { label: 'Linee e orari ufficiali AT', href: 'https://www.at-bus.it/it', external: true },
           { label: 'Linea bus 353', href: 'https://www.at-bus.it/it/linee-e-orari/firenze-extraurbano-353', external: true }
@@ -483,16 +483,15 @@ const it: PageContent[] = [
       },
       {
         title: 'In treno',
-        body: 'La stazione più vicina è Figline Valdarno. Da Firenze Santa Maria Novella partono treni regionali frequenti verso Figline Valdarno. Gli orari possono cambiare, quindi consigliamo di verificare sempre prima della partenza. Dalla stazione di Figline Valdarno puoi raggiungere Perla Toscana in taxi, in circa 7-10 minuti, oppure con autobus locale scendendo alla fermata Brollo, situata a circa 200 metri dalla proprietà.'
+        body: 'La stazione più vicina è Figline Valdarno. Da Firenze Santa Maria Novella partono treni regionali frequenti verso Figline Valdarno. Gli orari possono cambiare, quindi consigliamo di verificare sempre prima della partenza. Dalla stazione di Figline Valdarno puoi raggiungere Perla Toscana in taxi, in circa 7-10 minuti, oppure con autobus locale scendendo alla fermata SR69 Deposito Gas V, situata a circa 200 metri dalla proprietà.'
       },
       {
-        title: 'Autobus',
-        body: 'Per linee e orari aggiornati consigliamo di consultare il sito ufficiale Autolinee Toscane.',
+        title: 'In autobus',
+        body: 'Perla Toscana è servita dagli autobus di Autolinee Toscane. La fermata <strong>SR69 Deposito Gas V</strong> si trova a circa 200 metri, 2-3 minuti a piedi dalla casa, ed è collegata con Figline Valdarno, Firenze e altre località della zona.<br><br>Per chi arriva in treno, dalla stazione di Figline Valdarno è possibile raggiungere facilmente Perla Toscana in autobus oppure in taxi in pochi minuti.<br><br>Ti consigliamo di verificare sempre gli orari aggiornati prima della partenza.',
         links: [
-          { label: 'Cerca linee e orari autobus', href: 'https://www.at-bus.it/it', external: true },
-          { label: 'Linea 353', href: 'https://www.at-bus.it/it/linee-e-orari/firenze-extraurbano-353', external: true }
-        ],
-        note: 'Gli orari degli autobus possono variare in base al giorno, alla stagione e ai festivi. Consigliamo sempre di verificare gli orari aggiornati prima della partenza.'
+          { label: 'Linee e orari ufficiali AT', href: 'https://www.at-bus.it/it', external: true },
+          { label: 'Linea bus 353', href: 'https://www.at-bus.it/it/linee-e-orari/firenze-extraurbano-353', external: true }
+        ]
       },
       {
         title: 'Taxi consigliati',
@@ -801,11 +800,11 @@ const it: PageContent[] = [
     description: 'Verifica la disponibilità di Perla Toscana: controlla le date, contatta via WhatsApp o chiama per informazioni sull’appartamento.',
     eyebrow: 'Disponibilità',
     h1: 'Verifica disponibilità per Perla Toscana',
-    intro: 'Controlla le date disponibili e inviaci una richiesta in modo semplice e sicuro. Se hai bisogno di chiarire arrivo, letti, servizi o regole della casa di <strong>Perla Toscana</strong>, puoi scriverci su WhatsApp o chiamarci.',
+    intro: 'Prima di prenotare, chiamaci o scrivici. Ti aiuteremo a verificare la disponibilità, conoscere la migliore tariffa disponibile e scegliere la configurazione dei letti più adatta. Possiamo anche rispondere alle tue domande sulla casa, sui servizi e sulla zona.',
     sections: [
       {
         title: 'Come funziona',
-        body: 'Dal sito ufficiale puoi controllare la disponibilità aggiornata e inviare una richiesta. Le condizioni effettive vengono confermate durante il processo di richiesta.',
+        body: 'Puoi chiamarci o scriverci su WhatsApp per verificare disponibilità, prezzo e configurazione dei letti. Se preferisci procedere online, puoi utilizzare il nostro sistema di prenotazione sicuro.',
         links: [{ label: 'Come arrivare a Perla Toscana', href: '/it/come-arrivare/' }]
       },
       {
@@ -817,8 +816,8 @@ const it: PageContent[] = [
         body: 'Se organizzi una <strong>trasferta</strong> aziendale o un soggiorno per un piccolo team in zona, scrivici su WhatsApp: possiamo aiutarti a verificare configurazione letti, <strong>parcheggio privato gratuito</strong> e dettagli pratici prima della prenotazione.'
       },
       {
-        title: 'Prima di prenotare',
-        body: 'Per muoversi con maggiore libertà consigliamo l’auto. La casa si trova in una zona tranquilla di <strong>Figline e Incisa Valdarno</strong> e l’accesso finale avviene tramite una strada privata sterrata di circa 200 metri. Il <strong>parcheggio privato gratuito</strong> è disponibile davanti alla casa.'
+        title: 'Prenotazione diretta',
+        body: 'Prenotando direttamente dal sito ufficiale di Perla Toscana puoi trovare tariffe più convenienti rispetto ai principali portali e parlare direttamente con noi prima del soggiorno. Per ricevere assistenza, chiamaci o scrivici su WhatsApp prima di confermare.'
       },
       {
         title: 'Per ricevere una risposta più rapida',
@@ -1324,7 +1323,7 @@ const en: PageContent[] = [
       },
       {
         title: 'By bus',
-        body: 'Local <strong>buses</strong> are available in the area. The <strong>Brollo bus stop</strong> is about 200 meters from Perla Toscana. We always recommend checking updated timetables before departure.',
+        body: 'Perla Toscana is served by Autolinee Toscane local buses. The <strong>SR69 Deposito Gas V</strong> bus stop is about 200 metres, a 2-3 minute walk from the house, with connections to Figline Valdarno, Florence and other nearby towns.<br><br>If you arrive by train, Perla Toscana can be reached easily from Figline Valdarno railway station by bus or by taxi in just a few minutes.<br><br>We recommend checking the latest timetables before travelling.',
         links: [
           { label: 'Official AT lines and timetables', href: 'https://www.at-bus.it/it', external: true },
           { label: 'Bus line 353', href: 'https://www.at-bus.it/it/linee-e-orari/firenze-extraurbano-353', external: true }
@@ -1384,16 +1383,15 @@ const en: PageContent[] = [
       },
       {
         title: 'By train',
-        body: 'The nearest station is Figline Valdarno. Frequent regional trains run from Firenze Santa Maria Novella to Figline Valdarno. Timetables may change, so we recommend checking before departure. From Figline Valdarno station you can reach Perla Toscana by taxi in about 7-10 minutes, or by local bus getting off at the Brollo stop, about 200 metres from the property.'
+        body: 'The nearest station is Figline Valdarno. Frequent regional trains run from Firenze Santa Maria Novella to Figline Valdarno. Timetables may change, so we recommend checking before departure. From Figline Valdarno station you can reach Perla Toscana by taxi in about 7-10 minutes, or by local bus getting off at the SR69 Deposito Gas V stop, about 200 metres from the property.'
       },
       {
-        title: 'Bus',
-        body: 'For updated lines and timetables, we recommend checking the official Autolinee Toscane website.',
+        title: 'By bus',
+        body: 'Perla Toscana is served by Autolinee Toscane local buses. The <strong>SR69 Deposito Gas V</strong> bus stop is about 200 metres, a 2-3 minute walk from the house, with connections to Figline Valdarno, Florence and other nearby towns.<br><br>If you arrive by train, Perla Toscana can be reached easily from Figline Valdarno railway station by bus or by taxi in just a few minutes.<br><br>We recommend checking the latest timetables before travelling.',
         links: [
-          { label: 'Search bus lines and timetables', href: 'https://www.at-bus.it/it', external: true },
-          { label: 'Line 353', href: 'https://www.at-bus.it/it/linee-e-orari/firenze-extraurbano-353', external: true }
-        ],
-        note: 'Bus timetables may vary depending on the day, season and holidays. We always recommend checking updated times before departure.'
+          { label: 'Official AT lines and timetables', href: 'https://www.at-bus.it/it', external: true },
+          { label: 'Bus line 353', href: 'https://www.at-bus.it/it/linee-e-orari/firenze-extraurbano-353', external: true }
+        ]
       },
       {
         title: 'Recommended taxis',
@@ -1672,11 +1670,11 @@ const en: PageContent[] = [
     description: 'Check availability for Perla Toscana: review available dates, message on WhatsApp or call for apartment information.',
     eyebrow: 'Availability',
     h1: 'Check availability for Perla Toscana',
-    intro: 'Check available dates and send us a request simply and securely. If you need to clarify arrival, beds, amenities or house rules at <strong>Perla Toscana</strong>, you can message us on WhatsApp or call us.',
+    intro: 'Before booking, call us or send us a WhatsApp message. We can help you check availability, find the best available rate and choose the most suitable bed configuration. We can also answer your questions about the house, its services and the surrounding area.',
     sections: [
       {
         title: 'How it works',
-        body: 'From the official website you can check updated availability and send a request. Final conditions are confirmed during the request process.',
+        body: 'You can call us or send us a WhatsApp message to check availability, price and bed configuration. If you prefer to proceed online, you can use our secure booking system.',
         links: [{ label: 'How to reach Perla Toscana', href: '/en/how-to-reach/' }]
       },
       {
@@ -1688,8 +1686,8 @@ const en: PageContent[] = [
         body: 'If you are planning a <strong>business stay</strong> or a stay for a small team working in the area, message us on WhatsApp: we can help you check the bed setup, <strong>free private parking</strong> and practical details before booking.'
       },
       {
-        title: 'Before booking',
-        body: 'For greater freedom during your stay, we recommend having a car. The house is located in a quiet area of <strong>Figline e Incisa Valdarno</strong>, and the final access is through a private unpaved road of about 200 metres. <strong>Free private parking</strong> is available in front of the house.'
+        title: 'Direct booking',
+        body: 'By booking directly through the official Perla Toscana website, you may find better rates than on major booking platforms and speak directly with us before your stay. For assistance, call us or send us a WhatsApp message before confirming.'
       },
       {
         title: 'To receive a faster reply',
