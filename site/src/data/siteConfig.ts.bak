@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Perla Toscana',
-  siteUrl: 'https://www.perlatuscana.com',
+  siteUrl: 'https://perla-toscana.it',
   placeholders: {
     avaiBookUrl: 'AVAI_BOOK_URL',
     whatsappUrl: 'WHATSAPP_URL',

@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Perla Toscana',
-  siteUrl: 'https://www.perlatuscana.com',
+  siteUrl: 'https://perla-toscana.it',
   placeholders: {
     avaiBookUrl: 'https://www.avaibook.com/reservas/nueva_reserva.php?cod_alojamiento=398986&lang=it',
     whatsappUrl: 'https://wa.me/393270034324',

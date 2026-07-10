@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.perlatuscana.com/sitemap.xml
+Sitemap: https://perla-toscana.it/sitemap.xml
