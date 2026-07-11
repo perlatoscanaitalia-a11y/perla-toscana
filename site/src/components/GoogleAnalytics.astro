@@ -1,0 +1,51 @@
+---
+const measurementId = 'G-6FTELCM9C9';
+---
+<script is:inline define:vars={{ measurementId }}>
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+  window.gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+  window.gtag('set', 'ads_data_redaction', true);
+
+  let googleTagLoaded = false;
+  const loadGoogleTag = () => {
+    if (googleTagLoaded) return;
+    googleTagLoaded = true;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(script);
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId, {
+      send_page_view: true,
+      anonymize_ip: true
+    });
+  };
+
+  const setAnalyticsConsent = (granted) => {
+    window.gtag('consent', 'update', {
+      analytics_storage: granted ? 'granted' : 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    if (granted) loadGoogleTag();
+  };
+
+  window.perlaToscanaAnalytics = { setConsent: setAnalyticsConsent };
+
+  try {
+    if (localStorage.getItem('perlaToscanaAnalyticsConsent') === 'granted') {
+      setAnalyticsConsent(true);
+    }
+  } catch {
+    // Analytics remains disabled if storage is unavailable.
+  }
+</script>

@@ -6,14 +6,16 @@ interface Props {
 const { lang } = Astro.props;
 const content = {
   it: {
-    text: 'Questo sito utilizza solo cookie tecnici necessari al funzionamento. Non utilizziamo cookie di profilazione o marketing. Puoi leggere la Cookie Policy per maggiori informazioni.',
-    dismiss: 'Ho capito',
+    text: 'Usiamo cookie tecnici e, solo con il tuo consenso, Google Analytics 4 per capire come viene utilizzato il sito. Non usiamo cookie pubblicitari o di profilazione.',
+    accept: 'Accetta analytics',
+    reject: 'Rifiuta',
     policy: 'Cookie Policy',
     policyHref: '/it/cookie-policy/'
   },
   en: {
-    text: 'This website uses only technical cookies necessary for it to work. We do not use profiling or marketing cookies. You can read the Cookie Policy for more information.',
-    dismiss: 'Got it',
+    text: 'We use technical cookies and, only with your consent, Google Analytics 4 to understand how the site is used. We do not use advertising or profiling cookies.',
+    accept: 'Accept analytics',
+    reject: 'Reject',
     policy: 'Cookie Policy',
     policyHref: '/en/cookie-policy/'
   }
@@ -23,8 +25,11 @@ const content = {
   <div class="cookie-banner__inner">
     <p>{content[lang].text}</p>
     <div class="cookie-banner__actions">
-      <button class="button button--primary" type="button" data-cookie-dismiss>
-        {content[lang].dismiss}
+      <button class="button button--primary" type="button" data-cookie-accept>
+        {content[lang].accept}
+      </button>
+      <button class="button button--secondary" type="button" data-cookie-reject>
+        {content[lang].reject}
       </button>
       <a class="button button--secondary cookie-banner__policy" href={content[lang].policyHref}>
         {content[lang].policy}
@@ -35,24 +40,28 @@ const content = {
 
 <script is:inline>
   const cookieBanner = document.querySelector('[data-cookie-banner]');
-  const cookieDismiss = document.querySelector('[data-cookie-dismiss]');
-  const storageKey = 'perlaToscanaCookieInfoSeen';
+  const cookieAccept = document.querySelector('[data-cookie-accept]');
+  const cookieReject = document.querySelector('[data-cookie-reject]');
+  const cookieSettings = document.querySelectorAll('[data-cookie-settings]');
+  const storageKey = 'perlaToscanaAnalyticsConsent';
+
+  const saveChoice = (choice) => {
+    try { localStorage.setItem(storageKey, choice); } catch { /* Keep session-only choice. */ }
+    window.perlaToscanaAnalytics?.setConsent(choice === 'granted');
+    cookieBanner?.setAttribute('hidden', '');
+  };
 
   try {
-    if (cookieBanner && localStorage.getItem(storageKey) !== 'true') {
+    if (cookieBanner && !['granted', 'denied'].includes(localStorage.getItem(storageKey))) {
       cookieBanner.removeAttribute('hidden');
     }
-
-    cookieDismiss?.addEventListener('click', () => {
-      localStorage.setItem(storageKey, 'true');
-      cookieBanner?.setAttribute('hidden', '');
-    });
   } catch {
     cookieBanner?.removeAttribute('hidden');
-    cookieDismiss?.addEventListener('click', () => {
-      cookieBanner?.setAttribute('hidden', '');
-    });
   }
+
+  cookieAccept?.addEventListener('click', () => saveChoice('granted'));
+  cookieReject?.addEventListener('click', () => saveChoice('denied'));
+  cookieSettings.forEach((button) => button.addEventListener('click', () => cookieBanner?.removeAttribute('hidden')));
 </script>
 
 <style>

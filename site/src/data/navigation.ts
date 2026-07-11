@@ -37,3 +37,20 @@ export const footerLinks = {
     { label: 'Legal Information / CIN', href: '/en/legal-information/' }
   ]
 };
+
+export const guideLinks = {
+  it: [
+    { label: 'Guida a Firenze', href: '/it/guide/firenze/' },
+    { label: 'Guida al Chianti', href: '/it/guide/chianti/' },
+    { label: 'Guida a Figline Valdarno', href: '/it/guide/figline-valdarno/' },
+    { label: 'Guida al Valdarno', href: '/it/guide/valdarno/' },
+    { label: 'Itinerari di 1–3 giorni', href: '/it/itinerari/3-giorni/' }
+  ],
+  en: [
+    { label: 'Florence guide', href: '/en/guides/florence/' },
+    { label: 'Chianti guide', href: '/en/guides/chianti/' },
+    { label: 'Figline Valdarno guide', href: '/en/guides/figline-valdarno/' },
+    { label: 'Valdarno guide', href: '/en/guides/valdarno/' },
+    { label: '1–3 day itineraries', href: '/en/itineraries/3-days/' }
+  ]
+};

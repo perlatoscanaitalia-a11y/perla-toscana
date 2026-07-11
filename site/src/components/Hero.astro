@@ -40,6 +40,7 @@ const hasSlideshow = slides.length > 0;
                   fetchpriority={index === 0 ? 'high' : 'auto'}
                   loading={index === 0 ? 'eager' : 'lazy'}
                   decoding="async"
+                  aria-hidden={index === 0 ? undefined : 'true'}
                   data-slide={index}
                 />
               ))}
@@ -48,6 +49,7 @@ const hasSlideshow = slides.length > 0;
               {slides.map((slide, index) => (
                 <button
                   type="button"
+                  role="tab"
                   class:list={['hero-dot', index === 0 && 'is-active']}
                   aria-selected={index === 0 ? 'true' : 'false'}
                   aria-label={`${lang === 'it' ? 'Mostra immagine' : 'Show image'} ${index + 1}`}

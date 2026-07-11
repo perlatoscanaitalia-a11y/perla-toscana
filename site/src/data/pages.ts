@@ -356,6 +356,7 @@ const it: PageContent[] = [
             description: 'La Strada dei Setteponti è uno degli itinerari panoramici più conosciuti del Valdarno, interessante per chi ama pedalare tra paesaggi toscani, borghi e colline. È più adatta a ospiti già abituati a percorsi in bici o e-bike.',
             image: {
               src: '/images/perla-toscana/perla-toscana-strada-setteponti.jpg',
+              webpSrc: '/images/perla-toscana/perla-toscana-strada-setteponti.webp',
               width: 3200,
               height: 2134,
               alt: {
@@ -918,13 +919,15 @@ const it: PageContent[] = [
     path: '/it/privacy-policy/',
     alternatePath: '/en/privacy-policy/',
     title: 'Privacy Policy | Perla Toscana',
-    description: 'Informativa sulla privacy del sito Perla Toscana.',
+    description: 'Informativa privacy di Perla Toscana, inclusi contatti, prenotazioni e uso facoltativo di Google Analytics 4.',
     eyebrow: 'Privacy',
     h1: 'Privacy Policy',
     intro: 'Informazioni sul trattamento dei dati personali.',
     showCtas: false,
     sections: [
-      { title: 'Titolare del trattamento', body: 'Perla Toscana.' }
+      { title: 'Titolare del trattamento', body: 'Perla Toscana.' },
+      { title: 'Google Analytics 4', body: 'Solo dopo il consenso, il sito usa Google Analytics 4 con Measurement ID G-6FTELCM9C9 per raccogliere dati aggregati sull’uso delle pagine, come visualizzazioni, dispositivo, area geografica approssimativa e interazioni. Il consenso può essere rifiutato o modificato in qualsiasi momento tramite “Gestisci cookie” nel footer.' },
+      { title: 'Base giuridica', body: 'La base giuridica del trattamento analitico è il consenso. Google agisce come fornitore del servizio secondo la propria informativa privacy.' }
     ]
   },
   {
@@ -932,13 +935,15 @@ const it: PageContent[] = [
     path: '/it/cookie-policy/',
     alternatePath: '/en/cookie-policy/',
     title: 'Cookie Policy | Perla Toscana',
-    description: 'Informativa cookie del sito Perla Toscana.',
+    description: 'Cookie Policy di Perla Toscana: cookie tecnici e Google Analytics 4 attivato solo dopo consenso.',
     eyebrow: 'Cookie',
     h1: 'Cookie Policy',
-    intro: 'Informazioni sull’uso dei cookie.',
+    intro: 'Informazioni sui cookie tecnici e sull’uso facoltativo di Google Analytics 4.',
     showCtas: false,
     sections: [
-      { title: 'Cookie', body: 'Questo sito può usare cookie tecnici e, se presenti, cookie analitici o di terze parti.' }
+      { title: 'Memorizzazione tecnica', body: 'Il sito usa localStorage per ricordare la preferenza relativa agli analytics e rispettare la scelta dell’utente.' },
+      { title: 'Google Analytics 4', body: 'Google Analytics 4 (Measurement ID G-6FTELCM9C9) viene caricato esclusivamente dopo il consenso. Può impostare cookie come _ga e _ga_* per distinguere le visite e misurare visualizzazioni e interazioni. Advertising, remarketing e personalizzazione degli annunci restano disattivati.' },
+      { title: 'Gestione del consenso', body: 'Puoi accettare o rifiutare gli analytics dal banner e modificare la scelta tramite “Gestisci cookie” nel footer. Senza consenso il tag Google Analytics non viene caricato e non viene inviata alcuna pageview a GA4.' }
     ]
   },
   {
@@ -1256,6 +1261,7 @@ const en: PageContent[] = [
             description: 'The Strada dei Setteponti is one of the best-known scenic routes in the Valdarno area, interesting for guests who enjoy cycling through Tuscan landscapes, villages and hills. It is better suited to guests already used to cycling or e-bike routes.',
             image: {
               src: '/images/perla-toscana/perla-toscana-strada-setteponti.jpg',
+              webpSrc: '/images/perla-toscana/perla-toscana-strada-setteponti.webp',
               width: 3200,
               height: 2134,
               alt: {
@@ -1788,7 +1794,7 @@ const en: PageContent[] = [
     path: '/en/privacy-policy/',
     alternatePath: '/it/privacy-policy/',
     title: 'Privacy Policy | Perla Toscana',
-    description: 'Privacy Policy for the official Perla Toscana website.',
+    description: 'Privacy Policy for Perla Toscana, including contact, booking and optional Google Analytics 4 processing.',
     eyebrow: 'Privacy',
     h1: 'Privacy Policy',
     intro: 'This page explains how we handle data sent through Perla Toscana contact and booking channels.',
@@ -1804,6 +1810,10 @@ const en: PageContent[] = [
       {
         title: 'Purpose of processing',
         body: 'Data is used to respond to requests, manage availability and bookings, communicate with guests, comply with administrative, tax and public security obligations, and improve the service provided.'
+      },
+      {
+        title: 'Optional Google Analytics 4',
+        body: 'Only after consent, this website uses Google Analytics 4 with Measurement ID G-6FTELCM9C9 to collect aggregated information such as page views, device, approximate geographic area and interactions. Consent can be refused or changed at any time through “Manage cookies” in the footer.'
       },
       {
         title: 'Legal basis',
@@ -1831,7 +1841,7 @@ const en: PageContent[] = [
       },
       {
         title: 'Cookies',
-        body: 'If the website only uses technical cookies, profiling cookies are not used. If analytics, marketing tools, pixels or social tracking are added, the Cookie Policy must be updated and, where necessary, a consent banner must be added.'
+        body: 'The website uses technical storage and optional analytics cookies only after consent. Advertising, remarketing, profiling pixels and social tracking are not enabled.'
       }
     ]
   },
@@ -1840,11 +1850,15 @@ const en: PageContent[] = [
     path: '/en/cookie-policy/',
     alternatePath: '/it/cookie-policy/',
     title: 'Cookie Policy | Perla Toscana',
-    description: 'Cookie Policy for the official Perla Toscana website. It explains the use of technical cookies.',
+    description: 'Cookie Policy for Perla Toscana, covering technical storage and consent-based Google Analytics 4.',
     eyebrow: 'Cookies',
     h1: 'Cookie Policy',
-    intro: 'This website uses only technical cookies necessary for it to work.',
-    sections: [{ title: 'Technical cookies', body: 'The static site uses only technical elements needed for functionality. No analytics, pixels, remarketing or Google Maps embed are present.' }]
+    intro: 'This website uses technical storage and optional Google Analytics 4 only after consent.',
+    sections: [
+      { title: 'Technical storage', body: 'The site uses localStorage to remember the analytics preference and retain the visitor’s choice.' },
+      { title: 'Google Analytics 4', body: 'Google Analytics 4 (Measurement ID G-6FTELCM9C9) is loaded only after consent. It may set cookies such as _ga and _ga_* to distinguish visits and measure page views and interactions. Advertising, remarketing and ad personalisation remain disabled.' },
+      { title: 'Managing consent', body: 'You can accept or reject analytics in the banner and later change your choice through “Manage cookies” in the footer. Without consent, the Google Analytics tag is not loaded and no GA4 pageview is sent.' }
+    ]
   },
   {
     slug: 'terms-and-conditions',

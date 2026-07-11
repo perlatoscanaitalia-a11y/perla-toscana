@@ -29,6 +29,27 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 3px solid var(--color-terracotta);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  transform: translateY(-160%);
+  border-radius: 6px;
+  background: var(--color-espresso);
+  color: var(--color-warm-white);
+  padding: 10px 14px;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .phone-nowrap {
   white-space: nowrap;
   word-break: keep-all;

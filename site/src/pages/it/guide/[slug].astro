@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageContent from '../../../components/PageContent.astro';
+import { guides } from '../../../data/guides';
+import { faqSchema, guideSchema, lodgingSchema } from '../../../data/schema';
+
+export function getStaticPaths() {
+  return guides.it.filter(page => page.path.includes('/guide/')).map(page => ({ params: { slug: page.slug }, props: { page } }));
+}
+const { page } = Astro.props;
+const schema = [lodgingSchema('it', page.path), ...guideSchema('it', page), faqSchema(page.faqs)].filter(Boolean);
+---
+<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema}>
+  <PageContent lang="it" page={page} />
+</BaseLayout>

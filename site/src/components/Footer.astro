@@ -1,5 +1,5 @@
 ---
-import { footerLinks } from '../data/navigation';
+import { footerLinks, guideLinks } from '../data/navigation';
 import { getWhatsAppLinks, siteConfig } from '../data/siteConfig';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 import SocialLinks from './SocialLinks.astro';
@@ -35,6 +35,9 @@ const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
     <div>
       <h3>{lang === 'it' ? 'Informazioni' : 'Information'}</h3>
       {footerLinks[lang].map((item) => <a href={item.href}>{item.label}</a>)}
+      <button class="footer-cookie-settings" type="button" data-cookie-settings>{lang === 'it' ? 'Gestisci cookie' : 'Manage cookies'}</button>
+      <h3 class="footer-guides-title">{lang === 'it' ? 'Guide locali' : 'Local guides'}</h3>
+      {guideLinks[lang].map((item) => <a href={item.href}>{item.label}</a>)}
       <a href={lang === 'it' ? '/en/' : '/it/'}>{lang === 'it' ? 'English' : 'Italiano'}</a>
       <div class="footer-social">
         <SocialLinks lang={lang} />
@@ -69,6 +72,22 @@ const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
     text-decoration: none;
   }
 
+  .footer-cookie-settings {
+    display: block;
+    margin: 0 0 8px;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 253, 248, 0.84);
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    text-align: left;
+  }
+
+  .footer-cookie-settings:hover {
+    color: var(--color-warm-white);
+  }
+
   .site-footer a.phone-nowrap {
     display: block;
     width: fit-content;
@@ -91,6 +110,10 @@ const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
   }
 
   .footer-social {
+    margin-top: 22px;
+  }
+
+  .footer-guides-title {
     margin-top: 22px;
   }
 
