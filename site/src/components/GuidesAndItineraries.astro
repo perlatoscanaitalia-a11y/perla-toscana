@@ -6,6 +6,19 @@ interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const items = guides[lang];
 const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/');
+const italianCardImages: Record<string, { src: string; alt: string }> = {
+  '/it/guide/firenze/': { src: '/images/places/firenze-centro.jpg', alt: 'Veduta del centro storico di Firenze' },
+  '/it/guide/chianti/': { src: '/images/places/greve-in-chianti.jpg', alt: 'Paesaggio e borgo di Greve in Chianti' },
+  '/it/guide/the-mall-firenze/': { src: '/images/places/the-mall-firenze.webp', alt: 'Ingresso di The Mall Firenze' },
+  '/it/guide/figline-valdarno/': { src: '/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg', alt: 'Perla Toscana a Figline Valdarno' },
+  '/it/guide/valdarno/': { src: '/images/generated/perla-toscana-paesaggio-valdarno.jpg', alt: 'Paesaggio collinare del Valdarno' },
+  '/it/guide/arezzo/': { src: '/images/places/val-d-orcia.jpg', alt: 'Paesaggio toscano lungo un itinerario verso Arezzo' },
+  '/it/guide/siena/': { src: '/images/places/siena.jpg', alt: 'Piazza del Campo e centro storico di Siena' },
+  '/it/guide/reggello-vallombrosa/': { src: '/images/perla-toscana/perla-toscana-sentiero-verde-valdarno.jpg', alt: 'Sentiero verde nei dintorni di Reggello e Vallombrosa' },
+  '/it/itinerari/1-giorno/': { src: '/images/places/san-gimignano.jpg', alt: 'Torri e paesaggio di San Gimignano in Toscana' },
+  '/it/itinerari/2-giorni/': { src: '/images/perla-toscana/perla-toscana-hero-accoglienza-tavola-3.jpg', alt: 'Accoglienza toscana per un itinerario di due giorni' },
+  '/it/itinerari/3-giorni/': { src: '/images/perla-toscana/perla-toscana-strada-setteponti.webp', alt: 'Strada panoramica per un itinerario di tre giorni in Toscana' }
+};
 ---
 <section class="section section--sand guides-section" aria-labelledby={`guides-title-${lang}`}>
   <div class="container guides-stack">
@@ -16,25 +29,30 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
     </div>
     <div class="guides-grid">
       {lang === 'it' && (
-        <a class="guide-card" href="/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/">
+        <a class="guide-card guide-card--featured" href="/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/">
+          <img class="guide-card__image" src="/images/perla-toscana/perla-toscana-strada-setteponti.jpg" alt="Strada panoramica nella campagna toscana per un viaggio in auto" width="1200" height="800" loading="lazy" />
+          <span class="guide-card__featured-label">In evidenza</span>
           <span class="guide-card__type">Viaggio in auto</span>
           <h3>Dove fermarsi lungo la A1 tra Roma e Milano</h3>
           <p>Una guida pratica per spezzare il viaggio vicino Firenze, con consigli per famiglie, gruppi e trasferte di lavoro.</p>
-          <span class="guide-card__reading">9 min di lettura</span>
+          <span class="guide-card__reading">11 luglio 2026 · 9 min di lettura</span>
           <span class="guide-card__badges" aria-label="Ideale per">
             <span>Famiglie</span><span>Gruppi</span><span>Viaggi di lavoro</span>
           </span>
           <span class="guide-card__action">Leggi la guida <span aria-hidden="true">→</span></span>
         </a>
       )}
-      {items.map((item) => (
+      {items.map((item) => {
+        const image = lang === 'it' ? italianCardImages[item.path] : undefined;
+        return (
         <a class="guide-card" href={item.path}>
+          {image && <img class="guide-card__image" src={image.src} alt={image.alt} width="1200" height="800" loading="lazy" />}
           <span class="guide-card__type">{isItinerary(item.path) ? (lang === 'it' ? 'Itinerario' : 'Itinerary') : (lang === 'it' ? 'Guida locale' : 'Local guide')}</span>
           <h3>{item.h1}</h3>
           <p>{item.description}</p>
           <span class="guide-card__action">{lang === 'it' ? 'Apri la guida' : 'Open guide'} <span aria-hidden="true">→</span></span>
         </a>
-      ))}
+      )})}
     </div>
   </div>
 </section>
@@ -42,7 +60,8 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
 <style>
   .guides-stack,
   .guides-heading {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 14px;
   }
 
@@ -60,7 +79,6 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
   .guide-card {
     display: grid;
     min-width: 0;
-    align-content: start;
     gap: 12px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -70,6 +88,31 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
     padding: 24px;
     text-decoration: none;
     transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .guide-card--featured {
+    border-color: rgba(184, 138, 74, 0.48);
+    background: linear-gradient(180deg, var(--color-warm-white), rgba(255, 249, 240, 0.88));
+  }
+
+  .guide-card__image {
+    width: calc(100% + 48px);
+    height: 176px;
+    max-width: none;
+    margin: -24px -24px 2px;
+    object-fit: cover;
+  }
+
+  .guide-card__featured-label {
+    width: fit-content;
+    border: 1px solid rgba(184, 138, 74, 0.36);
+    border-radius: 999px;
+    background: rgba(184, 138, 74, 0.1);
+    color: var(--color-terracotta-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 9px;
+    text-transform: uppercase;
   }
 
   .guide-card:hover,
@@ -100,7 +143,8 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
     align-self: end;
     color: var(--color-terracotta);
     font-weight: 800;
-    margin-top: 4px;
+    margin-top: auto;
+    padding-top: 4px;
   }
 
   .guide-card__reading {
@@ -132,5 +176,10 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
   @media (max-width: 620px) {
     .guides-grid { grid-template-columns: 1fr; }
     .guide-card { padding: 20px; }
+    .guide-card__image {
+      width: calc(100% + 40px);
+      height: 154px;
+      margin: -20px -20px 2px;
+    }
   }
 </style>
