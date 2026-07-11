@@ -15,6 +15,18 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
       <p>{lang === 'it' ? 'Approfondimenti pratici per organizzare città d’arte, borghi, shopping e giornate nel territorio partendo da Perla Toscana.' : 'Practical local resources for planning art cities, villages, shopping and day trips from Perla Toscana.'}</p>
     </div>
     <div class="guides-grid">
+      {lang === 'it' && (
+        <a class="guide-card" href="/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/">
+          <span class="guide-card__type">Viaggio in auto</span>
+          <h3>Dove fermarsi lungo la A1 tra Roma e Milano</h3>
+          <p>Una guida pratica per spezzare il viaggio vicino Firenze, con consigli per famiglie, gruppi e trasferte di lavoro.</p>
+          <span class="guide-card__reading">9 min di lettura</span>
+          <span class="guide-card__badges" aria-label="Ideale per">
+            <span>Famiglie</span><span>Gruppi</span><span>Viaggi di lavoro</span>
+          </span>
+          <span class="guide-card__action">Leggi la guida <span aria-hidden="true">→</span></span>
+        </a>
+      )}
       {items.map((item) => (
         <a class="guide-card" href={item.path}>
           <span class="guide-card__type">{isItinerary(item.path) ? (lang === 'it' ? 'Itinerario' : 'Itinerary') : (lang === 'it' ? 'Guida locale' : 'Local guide')}</span>
@@ -89,6 +101,28 @@ const isItinerary = (path: string) => path.includes(lang === 'it' ? '/itinerari/
     color: var(--color-terracotta);
     font-weight: 800;
     margin-top: 4px;
+  }
+
+  .guide-card__reading {
+    color: rgba(47, 42, 36, 0.66);
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  .guide-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .guide-card__badges > span {
+    border: 1px solid rgba(102, 114, 77, 0.2);
+    border-radius: 999px;
+    background: rgba(102, 114, 77, 0.08);
+    color: var(--color-olive);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 5px 9px;
   }
 
   @media (max-width: 920px) {
