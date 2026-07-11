@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuideCard from '../../../components/GuideCard.astro';
+const articlePath = '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/';
+---
+<BaseLayout lang="it" title="Guide pratiche per viaggiare | Perla Toscana" description="Consigli pratici per organizzare soste, spostamenti e visite tra Firenze, Valdarno e Chianti con base a Perla Toscana." path="/it/guide/">
+  <section class="section guide-hero"><div class="container hero-inner"><p class="eyebrow">Perla Toscana</p><h1>Guide pratiche per il viaggio</h1><p class="lead">Indicazioni concrete per scegliere dove fermarsi, muoversi con meno stress e usare bene il tempo tra Firenze, Valdarno e Chianti.</p></div></section>
+  <section class="section"><div class="container"><GuideCard href={articlePath} image="/images/generated/perla-toscana-paesaggio-valdarno.jpg" alt="Paesaggio del Valdarno vicino a Perla Toscana" category="Viaggio in auto" title="Dove fermarsi lungo la A1 tra Roma e Milano" description="Una guida per spezzare il viaggio vicino Firenze, con parcheggio comodo e spazio per famiglie, gruppi e trasferte di lavoro." distance="circa 30 km da Firenze" travelTime="variabile secondo traffico e percorso" badges={['Famiglie','Gruppi','Viaggi di lavoro']} date="11 luglio 2026" readingTime="9 min di lettura" /></div></section>
+</BaseLayout>
+<style>.guide-hero{background:var(--color-sand)}.hero-inner{display:grid;gap:18px}</style>
