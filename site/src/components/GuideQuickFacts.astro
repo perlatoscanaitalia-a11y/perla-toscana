@@ -1,0 +1,9 @@
+---
+interface Fact { icon: string; label: string; value: string; }
+interface Props { facts: Fact[]; }
+const { facts } = Astro.props;
+---
+<section class="quick-facts card" aria-label="Informazioni rapide"><div class="quick-facts__grid">{facts.map(fact => <div class="quick-fact"><span class="quick-fact__icon" aria-hidden="true">{fact.icon}</span><div><p>{fact.label}</p><strong>{fact.value}</strong></div></div>)}</div></section>
+<style>
+.quick-facts{padding:20px}.quick-facts__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}.quick-fact{display:flex;min-width:0;gap:12px;padding:8px 18px;border-right:1px solid var(--color-border)}.quick-fact:last-child{border-right:0}.quick-fact__icon{font-size:1.3rem}.quick-fact p{color:var(--color-olive);font-size:.76rem;font-weight:800;text-transform:uppercase}.quick-fact strong{display:block;margin-top:3px;line-height:1.35}@media(max-width:800px){.quick-facts__grid{grid-template-columns:repeat(2,1fr)}.quick-fact:nth-child(2){border-right:0}.quick-fact:nth-child(-n+2){border-bottom:1px solid var(--color-border)}}@media(max-width:480px){.quick-facts__grid{grid-template-columns:1fr}.quick-fact{border-right:0;border-bottom:1px solid var(--color-border)!important;padding:13px 8px}.quick-fact:last-child{border-bottom:0!important}}
+</style>

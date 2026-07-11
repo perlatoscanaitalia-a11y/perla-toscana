@@ -14,9 +14,10 @@ interface Props {
   alternatePath?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  ogType?: 'website' | 'article';
 }
 
-const { lang, title, description, path, alternatePath, schema, noindex = false } = Astro.props;
+const { lang, title, description, path, alternatePath, schema, noindex = false, ogType = 'website' } = Astro.props;
 const hideSalesCtas = [
   '/it/privacy-policy/',
   '/it/cookie-policy/',
@@ -39,7 +40,7 @@ const hideSalesCtas = [
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <GoogleAnalytics />
-    <SeoHead title={title} description={description} path={path} lang={lang} alternatePath={alternatePath} schema={schema} noindex={noindex} />
+    <SeoHead title={title} description={description} path={path} lang={lang} alternatePath={alternatePath} schema={schema} noindex={noindex} ogType={ogType} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">{lang === 'it' ? 'Vai al contenuto principale' : 'Skip to main content'}</a>

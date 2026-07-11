@@ -1,0 +1,12 @@
+---
+interface Props { image: string; alt: string; category: string; title: string; intro: string; }
+const { image, alt, category, title, intro } = Astro.props;
+---
+<header class="guide-hero">
+  <img src={image} alt={alt} width="1600" height="900" fetchpriority="high" />
+  <div class="guide-hero__overlay" aria-hidden="true"></div>
+  <div class="container guide-hero__content"><p class="guide-hero__category">{category}</p><h1>{title}</h1><p>{intro}</p><slot /></div>
+</header>
+<style>
+.guide-hero{position:relative;display:grid;min-height:clamp(480px,68vh,700px);align-items:end;overflow:hidden;background:var(--color-espresso);color:var(--color-warm-white)}.guide-hero>img,.guide-hero__overlay{position:absolute;inset:0;width:100%;height:100%}.guide-hero>img{object-fit:cover}.guide-hero__overlay{background:linear-gradient(180deg,rgba(30,22,17,.08) 15%,rgba(30,22,17,.78) 100%)}.guide-hero__content{position:relative;z-index:1;display:grid;gap:16px;padding-block:72px}.guide-hero__category{font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.guide-hero h1{color:var(--color-warm-white);text-shadow:0 2px 20px rgba(0,0,0,.24)}.guide-hero__content>p:not(.guide-hero__category){max-width:760px;font-size:clamp(1.05rem,2vw,1.25rem)}@media(max-width:700px){.guide-hero{min-height:560px}.guide-hero__content{padding-block:48px}}
+</style>

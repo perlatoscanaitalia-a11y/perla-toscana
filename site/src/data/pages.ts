@@ -326,9 +326,9 @@ const it: PageContent[] = [
             description: 'Un’idea semplice per chi cerca una pausa tranquilla nella natura, lontano dal traffico e dalle visite più impegnative. Prima di andare, consigliamo di verificare sempre accesso, condizioni aggiornate e indicazioni.',
             categories: ['Natura', 'Relax', 'Passeggiata', 'Lago'],
             idealFor: 'Ideale per una pausa rilassante, natura, passeggiate leggere e momenti tranquilli.',
-            distance: 'circa 8 km',
-            drivingTime: 'circa 15 min',
-            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Lago%20di%20San%20Cipriano%20Cavriglia%20Valdarno'
+            distance: 'circa 7 km',
+            drivingTime: 'circa 12 min',
+            directionsUrl: 'https://www.google.com/maps/dir/?api=1&origin=Perla%20Toscana%2C%20Via%20Aretina%20108%2C%2050063%20Figline%20e%20Incisa%20Valdarno%20FI&destination=Lago%20di%20San%20Cipriano%2C%20Cavriglia%20AR&travelmode=driving'
           },
           {
             name: 'Percorsi in bici nel Valdarno',
@@ -1239,9 +1239,9 @@ const en: PageContent[] = [
             description: 'A simple idea for guests looking for a quiet break in nature, away from traffic and busier sightseeing days. Before visiting, we recommend checking access, current conditions and directions.',
             categories: ['Nature', 'Relax', 'Walks', 'Lake'],
             idealFor: 'a relaxing break, nature, light walks and quiet moments.',
-            distance: 'approx. 8 km',
-            drivingTime: 'approx. 15 min',
-            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Lago%20di%20San%20Cipriano%20Cavriglia%20Valdarno'
+            distance: 'approx. 7 km',
+            drivingTime: 'approx. 12 min',
+            directionsUrl: 'https://www.google.com/maps/dir/?api=1&origin=Perla%20Toscana%2C%20Via%20Aretina%20108%2C%2050063%20Figline%20e%20Incisa%20Valdarno%20FI&destination=Lago%20di%20San%20Cipriano%2C%20Cavriglia%20AR&travelmode=driving'
           },
           {
             name: 'Bike routes in the Valdarno area',

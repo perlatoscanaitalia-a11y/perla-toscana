@@ -25,12 +25,14 @@ export const nav = {
 
 export const footerLinks = {
   it: [
+    { label: 'Guide', href: '/guide/' },
     { label: 'Privacy Policy', href: '/it/privacy-policy/' },
     { label: 'Cookie Policy', href: '/it/cookie-policy/' },
     { label: 'Termini e condizioni', href: '/it/termini-condizioni/' },
     { label: 'Informazioni legali / CIN', href: '/it/informazioni-legali/' }
   ],
   en: [
+    { label: 'Guide (Italiano)', href: '/guide/' },
     { label: 'Privacy Policy', href: '/en/privacy-policy/' },
     { label: 'Cookie Policy', href: '/en/cookie-policy/' },
     { label: 'Terms and Conditions', href: '/en/terms-and-conditions/' },

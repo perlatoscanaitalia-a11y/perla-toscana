@@ -20,7 +20,7 @@ const isBookingPage = ['prenota', 'book'].includes(page.slug);
 const initialsFor = (name: string) => name
   .replace(/[’']/g, ' ')
   .split(' ')
-  .filter(Boolean)
+  .filter((word) => word && !['di', 'del', 'della', 'dei', 'of', 'the'].includes(word.toLowerCase()))
   .slice(0, 2)
   .map((word) => word[0])
   .join('');

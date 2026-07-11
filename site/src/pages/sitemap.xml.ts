@@ -8,11 +8,16 @@ export function GET() {
   const allPages = [
     { path: '/it/', alternatePath: '/en/' },
     { path: '/en/', alternatePath: '/it/' },
+    { path: '/guide/', alternatePath: '/guide/' },
+    { path: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', alternatePath: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/' },
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${allPages.map(page => {
+  if (page.path.startsWith('/guide/')) {
+    return `  <url>\n    <loc>${new URL(page.path, siteConfig.siteUrl)}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${new URL(page.path, siteConfig.siteUrl)}" />\n  </url>`;
+  }
   const lang = page.path.startsWith('/it/') ? 'it' : 'en';
   const alternateLang = lang === 'it' ? 'en' : 'it';
   const loc = new URL(page.path, siteConfig.siteUrl);
