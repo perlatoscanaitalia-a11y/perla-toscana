@@ -35,6 +35,29 @@ function destinationPage(d: Destination, lang: Lang): PageContent {
       { title: it ? `Perché visitare ${name}` : `Why visit ${name}`, body: it ? `${name} è una tappa utile per chi cerca ${d.focusIt}. Da Perla Toscana il tempo indicativo è ${d.timeIt}.` : `${name} is a useful destination for travellers interested in ${d.focusEn}. From Perla Toscana, the indicative travel time is ${d.timeEn}.` },
       { title: it ? 'Itinerario consigliato' : 'Suggested itinerary', body: it ? d.planIt : d.planEn },
       { title: it ? 'Consigli pratici' : 'Practical advice', body: it ? d.usefulIt : d.usefulEn, links: [{ label: it ? 'Come arrivare a Perla Toscana' : 'How to reach Perla Toscana', href: it ? '/it/come-arrivare/' : '/en/how-to-reach/' }, { label: it ? 'Dove mangiare in zona' : 'Where to eat nearby', href: it ? '/it/dove-mangiare/' : '/en/where-to-eat/' }] },
+      ...(d.itSlug === 'the-mall-firenze' ? [{
+        title: it ? 'Marchi presenti a The Mall Firenze' : 'Brands at The Mall Firenze',
+        variant: 'callout' as const,
+        body: it
+          ? 'Tra i principali negozi presenti a The Mall Firenze trovi Gucci, Armani, Balenciaga, Burberry, Bottega Veneta, Celine, Alexander McQueen, Saint Laurent, Valentino Garavani, Versace, Zegna, Loro Piana, Tom Ford, Tod’s, Alberta Ferretti, Balmain, Marni e Corneliani. Boutique e disponibilità possono variare: consulta sempre l’elenco ufficiale aggiornato prima della visita.'
+          : 'The principal stores at The Mall Firenze include Gucci, Armani, Balenciaga, Burberry, Bottega Veneta, Celine, Alexander McQueen, Saint Laurent, Valentino Garavani, Versace, Zegna, Loro Piana, Tom Ford, Tod’s, Alberta Ferretti, Balmain, Marni and Corneliani. Boutiques and availability may change, so always check the current official list before visiting.',
+        rules: it ? [
+          'Borse e pelletteria: Gucci, Bottega Veneta, Saint Laurent, Celine.',
+          'Moda uomo e donna: Armani, Burberry, Valentino Garavani, Versace.',
+          'Calzature e accessori: Tod’s, Tom Ford, Balenciaga.',
+          'Lusso classico: Loro Piana, Zegna, Corneliani.'
+        ] : [
+          'Bags and leather goods: Gucci, Bottega Veneta, Saint Laurent, Celine.',
+          'Women’s and men’s fashion: Armani, Burberry, Valentino Garavani, Versace.',
+          'Footwear and accessories: Tod’s, Tom Ford, Balenciaga.',
+          'Classic luxury: Loro Piana, Zegna, Corneliani.'
+        ],
+        links: [{
+          label: it ? 'Consulta tutti i marchi sul sito ufficiale' : 'View all brands on the official website',
+          href: it ? 'https://firenze.themall.it/it/marchi' : 'https://firenze.themall.it/en/brands',
+          external: true
+        }]
+      }] : []),
       { title: it ? 'Continua a esplorare' : 'Keep exploring', body: it ? 'Collega questa tappa alle altre guide locali e agli itinerari costruiti dalla stessa base.' : 'Connect this stop with the other local guides and itineraries built from the same base.', links: [...clusterLinks(lang, slug), { label: it ? 'Itinerario di 1 giorno' : '1-day itinerary', href: it ? '/it/itinerari/1-giorno/' : '/en/itineraries/1-day/' }, { label: it ? 'Itinerario di 2 giorni' : '2-day itinerary', href: it ? '/it/itinerari/2-giorni/' : '/en/itineraries/2-days/' }, { label: it ? 'Itinerario di 3 giorni' : '3-day itinerary', href: it ? '/it/itinerari/3-giorni/' : '/en/itineraries/3-days/' }] }
     ],
     faqs: [

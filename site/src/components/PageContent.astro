@@ -6,6 +6,7 @@ import BookingPage from './BookingPage.astro';
 import GalleryGrid from './GalleryGrid.astro';
 import MapPinIcon from './MapPinIcon.astro';
 import SocialLinks from './SocialLinks.astro';
+import GuidesAndItineraries from './GuidesAndItineraries.astro';
 import type { PageContent as Content, Lang } from '../data/pages';
 
 interface Props {
@@ -193,6 +194,8 @@ const initialsFor = (name: string) => name
     </div>
   </section>
 )}
+
+{['cosa-fare', 'what-to-do'].includes(page.slug) && <GuidesAndItineraries lang={lang} />}
 
 {!hideSalesCtas && !isBookingPage && <BookingCTA lang={lang} />}
 </>

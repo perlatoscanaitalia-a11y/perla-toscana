@@ -922,12 +922,20 @@ const it: PageContent[] = [
     description: 'Informativa privacy di Perla Toscana, inclusi contatti, prenotazioni e uso facoltativo di Google Analytics 4.',
     eyebrow: 'Privacy',
     h1: 'Privacy Policy',
-    intro: 'Informazioni sul trattamento dei dati personali.',
+    intro: 'Questa informativa spiega come vengono trattati i dati inviati attraverso i canali di contatto e prenotazione di Perla Toscana e, previo consenso, i dati analitici del sito.',
     showCtas: false,
     sections: [
-      { title: 'Titolare del trattamento', body: 'Perla Toscana.' },
-      { title: 'Google Analytics 4', body: 'Solo dopo il consenso, il sito usa Google Analytics 4 con Measurement ID G-6FTELCM9C9 per raccogliere dati aggregati sull’uso delle pagine, come visualizzazioni, dispositivo, area geografica approssimativa e interazioni. Il consenso può essere rifiutato o modificato in qualsiasi momento tramite “Gestisci cookie” nel footer.' },
-      { title: 'Base giuridica', body: 'La base giuridica del trattamento analitico è il consenso. Google agisce come fornitore del servizio secondo la propria informativa privacy.' }
+      { title: 'Titolare del trattamento', body: `Il titolare del trattamento è Roberto Castiglioni, titolare di Perla Toscana, con sede operativa in ${siteConfig.placeholders.address}. Contatti: telefono ${siteConfig.placeholders.phone}; WhatsApp ${siteConfig.placeholders.whatsappPhone}.` },
+      { title: 'Dati raccolti', body: 'Possono essere trattati i dati forniti volontariamente tramite telefono, WhatsApp, richiesta di disponibilità o sistema di prenotazione, come nome, cognome, recapito telefonico, indirizzo email se comunicato, date del soggiorno, numero di ospiti e informazioni necessarie a gestire la prenotazione.' },
+      { title: 'Finalità del trattamento', body: 'I dati sono utilizzati per rispondere alle richieste, gestire disponibilità e prenotazioni, comunicare con gli ospiti, adempiere agli obblighi amministrativi, fiscali e di pubblica sicurezza e migliorare il servizio.' },
+      { title: 'Google Analytics 4 facoltativo', body: 'Solo dopo il consenso, il sito usa Google Analytics 4 con Measurement ID G-6FTELCM9C9 per raccogliere informazioni aggregate come visualizzazioni di pagina, dispositivo, area geografica approssimativa e interazioni. Il consenso può essere rifiutato o modificato in qualsiasi momento tramite “Gestisci cookie” nel footer.' },
+      { title: 'Base giuridica', body: 'Il trattamento dei dati di contatto e prenotazione si basa su misure precontrattuali o contrattuali richieste dall’utente, sull’adempimento di obblighi di legge e, quando applicabile, sul legittimo interesse del titolare. Il trattamento dei dati analitici si basa esclusivamente sul consenso.' },
+      { title: 'Canali e fornitori esterni', body: 'Alcuni dati possono essere trattati tramite servizi esterni utilizzati per comunicazioni, prenotazioni, pagamenti, hosting e analisi del sito. I fornitori trattano i dati secondo i rispettivi termini e informative privacy; Google opera come fornitore di Google Analytics 4.' },
+      { title: 'WhatsApp e telefono', body: 'Le comunicazioni tramite WhatsApp o telefono sono gestite attraverso i relativi servizi e possono comportare un trattamento dei dati secondo le condizioni applicate dai rispettivi fornitori.' },
+      { title: 'Conservazione dei dati', body: 'I dati sono conservati per il tempo necessario a gestire la richiesta o la prenotazione e, quando applicabile, per i periodi previsti dagli obblighi amministrativi, fiscali o legali. I dati analitici seguono le impostazioni di conservazione configurate nella proprietà Google Analytics.' },
+      { title: 'Diritti dell’interessato', body: `L’interessato può richiedere accesso, rettifica, cancellazione, limitazione, opposizione e portabilità nei casi previsti dalla legge contattando il titolare ai recapiti indicati: ${siteConfig.placeholders.phone} oppure ${siteConfig.placeholders.whatsappPhone}.` },
+      { title: 'Reclamo', body: 'L’interessato ha il diritto di proporre reclamo al Garante per la protezione dei dati personali o all’autorità di controllo competente.' },
+      { title: 'Cookie e preferenze', body: 'Il sito utilizza memorizzazione tecnica e cookie analitici facoltativi solo dopo il consenso. Advertising, remarketing, pixel di profilazione e tracciamento social non sono attivati. Le preferenze possono essere modificate tramite “Gestisci cookie” nel footer.' }
     ]
   },
   {
@@ -1801,7 +1809,7 @@ const en: PageContent[] = [
     sections: [
       {
         title: 'Data controller',
-        body: 'The data controller is Roberto Castiglioni, connected to Perla Toscana, with operational address at Via Aretina 108, 50063 Figline e Incisa Valdarno FI.'
+        body: `The data controller is Roberto Castiglioni, owner of Perla Toscana, with operational address at ${siteConfig.placeholders.address}. Contact details: telephone ${siteConfig.placeholders.phone}; WhatsApp ${siteConfig.placeholders.whatsappPhone}.`
       },
       {
         title: 'Data collected',
@@ -1817,7 +1825,7 @@ const en: PageContent[] = [
       },
       {
         title: 'Legal basis',
-        body: 'Processing is based on pre-contractual or contractual measures requested by the user, compliance with legal obligations and, where necessary, the legitimate interest of the controller.'
+        body: 'Contact and booking data is processed on the basis of pre-contractual or contractual measures requested by the user, compliance with legal obligations and, where applicable, the legitimate interest of the controller. Analytics data is processed exclusively on the basis of consent.'
       },
       {
         title: 'External channels and providers',
@@ -1829,11 +1837,11 @@ const en: PageContent[] = [
       },
       {
         title: 'Data retention',
-        body: 'Data is kept for the time necessary to manage the request or booking and, where applicable, for the periods required by administrative, tax or legal obligations.'
+        body: 'Data is kept for the time necessary to manage the request or booking and, where applicable, for the periods required by administrative, tax or legal obligations. Analytics data follows the retention settings configured in the Google Analytics property.'
       },
       {
         title: 'Data subject rights',
-        body: 'Users may request access, rectification, deletion, restriction of processing, objection to processing and data portability where provided by applicable law.'
+        body: `Users may request access, rectification, deletion, restriction of processing, objection and data portability where provided by applicable law by contacting the controller at ${siteConfig.placeholders.phone} or ${siteConfig.placeholders.whatsappPhone}.`
       },
       {
         title: 'Complaint',
