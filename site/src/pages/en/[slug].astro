@@ -12,7 +12,8 @@ export function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const schema = [lodgingSchema('en', page.path), faqSchema(page.faqs)].filter(Boolean);
+const allFaqs = [...(page.propertyFaqs ?? []), ...(page.faqs ?? [])];
+const schema = [lodgingSchema('en', page.path), faqSchema(allFaqs)].filter(Boolean);
 ---
 <BaseLayout lang="en" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema}>
   <PageContent lang="en" page={page} />

@@ -43,6 +43,7 @@ const { items } = Astro.props;
   summary {
     cursor: pointer;
     font-weight: 800;
+    overflow-wrap: anywhere;
   }
 
   details p {
@@ -79,6 +80,13 @@ const { items } = Astro.props;
   }
 
   @media (max-width: 620px) {
+    .faq-list,
+    details,
+    summary {
+      min-width: 0;
+      max-width: 100%;
+    }
+
     details {
       padding: 16px;
     }

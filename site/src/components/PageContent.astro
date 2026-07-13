@@ -183,6 +183,18 @@ const initialsFor = (name: string) => name
   </section>
 ) : null}
 
+{page.propertyFaqs && (
+  <section class="section section--sand property-faq-section">
+    <div class="container faq-section">
+      <div>
+        <p class="eyebrow">FAQ</p>
+        <h2>{lang === 'it' ? 'FAQ sulla struttura' : 'Property FAQs'}</h2>
+      </div>
+      <FAQBlock items={page.propertyFaqs} />
+    </div>
+  </section>
+)}
+
 {page.faqs && (
   <section class="section section--sand">
     <div class="container faq-section">
@@ -215,6 +227,10 @@ const initialsFor = (name: string) => name
 
   .content-stack {
     max-width: 920px;
+  }
+
+  .property-faq-section + .section--sand {
+    padding-top: 0;
   }
 
   .page-hero-inner > *,

@@ -63,6 +63,7 @@ export interface PageContent {
     rules?: string[];
     links?: { label: string; href: string; external?: boolean }[];
   }[];
+  propertyFaqs?: { question: string; answer: string; links?: { label: string; href: string }[] }[];
   faqs?: { question: string; answer: string; links?: { label: string; href: string }[] }[];
 }
 
@@ -866,10 +867,19 @@ const it: PageContent[] = [
         links: [{ label: 'Come arrivare', href: '/it/come-arrivare/' }]
       }
     ],
+    propertyFaqs: [
+      { question: 'Dove si trova la casa vacanze Perla Toscana?', answer: 'Perla Toscana si trova a Figline e Incisa Valdarno, in provincia di Firenze, in una posizione comoda per visitare Firenze, il Chianti, il Valdarno e The Mall Firenze.', links: [{ label: 'Posizione', href: '/it/posizione/' }] },
+      { question: 'Quante persone può ospitare Perla Toscana?', answer: 'La casa può ospitare fino a 8 persone. Dispone di 3 camere da letto, soggiorno con divano letto e possibilità di aggiungere una brandina su richiesta.', links: [{ label: 'Camere e servizi', href: '/it/camere-servizi/' }] },
+      { question: 'Perla Toscana è vicina a Firenze?', answer: 'Sì. Perla Toscana si trova a circa 30 km da Firenze ed è una base comoda per raggiungere la città in auto o in treno dalla stazione di Figline Valdarno.', links: [{ label: 'Come arrivare', href: '/it/come-arrivare/' }] },
+      { question: 'Perla Toscana dispone di parcheggio privato?', answer: 'Sì. La struttura offre parcheggio privato gratuito fino a 3 auto davanti alla casa.' },
+      { question: 'Come si prenota direttamente Perla Toscana?', answer: 'Prima di prenotare, consigliamo di chiamare il numero +39 327 003 4324 oppure scrivere su WhatsApp per verificare disponibilità e condizioni.', links: [{ label: 'Verifica disponibilità', href: '/it/prenota/' }] },
+      { question: 'Perla Toscana è adatta a famiglie e gruppi?', answer: 'Sì. La casa è adatta a famiglie, gruppi di amici e soggiorni di lavoro grazie agli ampi spazi, alle 3 camere separate, all’aria condizionata e al Wi-Fi veloce.', links: [{ label: 'Camere e servizi', href: '/it/camere-servizi/' }] },
+      { question: 'Quanto dista Perla Toscana da The Mall Firenze?', answer: 'The Mall Firenze si trova nelle vicinanze ed è facilmente raggiungibile in auto dalla struttura.', links: [{ label: 'Posizione', href: '/it/posizione/' }] },
+      { question: 'Come arrivare a Perla Toscana dalla stazione di Figline Valdarno?', answer: 'Dalla stazione di Figline Valdarno è possibile raggiungere la casa in taxi o con altri collegamenti locali. Nella pagina “Come arrivare” sono disponibili indicazioni dettagliate e il link corretto di Google Maps.', links: [{ label: 'Come arrivare', href: '/it/come-arrivare/' }] }
+    ],
     faqs: [
       { question: 'Dove si trova Perla Toscana?', answer: '<strong>Perla Toscana</strong> si trova in Via Aretina 108, a <strong>Figline e Incisa Valdarno</strong>, in <strong>Toscana</strong>. La posizione è comoda per raggiungere <strong>Firenze</strong>, il Chianti, The Mall Firenze e diverse mete del Valdarno.', links: [{ label: 'Posizione', href: '/it/posizione/' }] },
       { question: 'Perla Toscana è una casa vacanza vicino Firenze?', answer: 'Sì, <strong>Perla Toscana</strong> è una <strong>casa vacanza vicino Firenze</strong>, pensata per chi vuole visitare la città e rientrare in una zona più tranquilla. <strong>Firenze</strong> centro è raggiungibile in auto in circa 45 minuti, in base al traffico.', links: [{ label: 'Posizione', href: '/it/posizione/' }] },
-      { question: 'Quanto dista Perla Toscana da The Mall Firenze?', answer: '<strong>The Mall Firenze</strong> si trova a circa 18 km da <strong>Perla Toscana</strong> ed è raggiungibile in auto in circa 25 minuti. La casa è una soluzione comoda per chi cerca un soggiorno vicino all’outlet e al Chianti.', links: [{ label: 'Posizione', href: '/it/posizione/' }] },
       { question: 'Quanti ospiti può accogliere Perla Toscana?', answer: '<strong>Perla Toscana</strong> può accogliere <strong>fino a 8 ospiti</strong>. La casa dispone di <strong>3 camere</strong>, un <strong>divano letto</strong> e una brandina o letto pieghevole disponibile su richiesta.', links: [{ label: 'Camere', href: '/it/camere-servizi/' }] },
       { question: 'Quante camere ci sono?', answer: 'La casa dispone di 3 camere: una camera con letto king size ortopedico 180 × 200 cm, una camera con letto queen size 160 × 200 cm e una camera con 2 letti singoli. Inoltre sono disponibili un divano letto nel soggiorno con angolo cottura e una brandina o letto pieghevole su richiesta.', links: [{ label: 'Camere', href: '/it/camere-servizi/' }, { label: 'Galleria', href: '/it/galleria/' }] },
       { question: 'C’è il parcheggio privato?', answer: 'Sì, <strong>Perla Toscana</strong> dispone di <strong>parcheggio privato gratuito</strong> davanti alla casa, con spazio fino a 3 auto. Questo rende più semplice organizzare spostamenti verso Firenze, Chianti, The Mall Firenze e altre mete in Toscana.' },
@@ -1749,10 +1759,19 @@ const en: PageContent[] = [
         links: [{ label: 'How to reach us', href: '/en/how-to-reach/' }]
       }
     ],
+    propertyFaqs: [
+      { question: 'Where is the Perla Toscana holiday home located?', answer: 'Perla Toscana is located in Figline e Incisa Valdarno, in the province of Florence, in a convenient position for visiting Florence, Chianti, the Valdarno area and The Mall Firenze.', links: [{ label: 'Location', href: '/en/location/' }] },
+      { question: 'How many people can Perla Toscana accommodate?', answer: 'The house can accommodate up to 8 people. It has 3 bedrooms, a living room with a sofa bed and the option of adding a folding bed on request.', links: [{ label: 'Rooms and amenities', href: '/en/rooms-amenities/' }] },
+      { question: 'Is Perla Toscana close to Florence?', answer: 'Yes. Perla Toscana is about 30 km from Florence and is a convenient base for reaching the city by car or by train from Figline Valdarno station.', links: [{ label: 'How to reach us', href: '/en/how-to-reach/' }] },
+      { question: 'Does Perla Toscana have private parking?', answer: 'Yes. The property offers free private parking for up to 3 cars in front of the house.' },
+      { question: 'How can I book Perla Toscana directly?', answer: 'Before booking, we recommend calling +39 327 003 4324 or messaging us on WhatsApp to check availability and conditions.', links: [{ label: 'Check availability', href: '/en/book/' }] },
+      { question: 'Is Perla Toscana suitable for families and groups?', answer: 'Yes. The house is suitable for families, groups of friends and business stays thanks to its generous spaces, 3 separate bedrooms, air conditioning and fast Wi-Fi.', links: [{ label: 'Rooms and amenities', href: '/en/rooms-amenities/' }] },
+      { question: 'How far is Perla Toscana from The Mall Firenze?', answer: 'The Mall Firenze is nearby and is easy to reach by car from the property.', links: [{ label: 'Location', href: '/en/location/' }] },
+      { question: 'How do I reach Perla Toscana from Figline Valdarno station?', answer: 'From Figline Valdarno station, you can reach the house by taxi or other local transport connections. The “How to reach us” page provides detailed directions and the correct Google Maps link.', links: [{ label: 'How to reach us', href: '/en/how-to-reach/' }] }
+    ],
     faqs: [
       { question: 'Where is Perla Toscana located?', answer: '<strong>Perla Toscana</strong> is located at Via Aretina 108, in <strong>Figline e Incisa Valdarno</strong>, <strong>Tuscany</strong>. The location is convenient for reaching <strong>Florence</strong>, Chianti, The Mall Firenze and several destinations in the Valdarno area.', links: [{ label: 'Location', href: '/en/location/' }] },
       { question: 'Is Perla Toscana a holiday home near Florence?', answer: 'Yes, <strong>Perla Toscana</strong> is a <strong>holiday home near Florence</strong>, ideal for guests who want to visit the city and return to a quieter area. <strong>Florence</strong> city centre is about 45 minutes away by car, depending on traffic.', links: [{ label: 'Location', href: '/en/location/' }] },
-      { question: 'How far is Perla Toscana from The Mall Firenze?', answer: 'The Mall Firenze is about 18 km from Perla Toscana and can be reached by car in about 25 minutes. The house is a convenient option for guests looking for accommodation near the outlet and Chianti.', links: [{ label: 'Location', href: '/en/location/' }] },
       { question: 'How many guests can Perla Toscana accommodate?', answer: '<strong>Perla Toscana</strong> <strong>sleeps up to 8 guests</strong>. The house has <strong>3 bedrooms</strong>, a <strong>sofa bed</strong> and a folding bed available on request.', links: [{ label: 'Rooms', href: '/en/rooms-amenities/' }] },
       { question: 'How many bedrooms are there?', answer: 'The house has 3 bedrooms: one bedroom with an orthopedic king size bed 180 × 200 cm, one bedroom with a queen size bed 160 × 200 cm and one bedroom with 2 single beds. A sofa bed is also available in the living area with kitchenette, and a folding bed is available on request.', links: [{ label: 'Rooms', href: '/en/rooms-amenities/' }, { label: 'Gallery', href: '/en/gallery/' }] },
       { question: 'Is private parking available?', answer: 'Yes, <strong>Perla Toscana</strong> offers <strong>free private parking</strong> in front of the house, with space for up to 3 cars. This makes it easier to explore Florence, Chianti, The Mall Firenze and other Tuscan destinations by car.' },
