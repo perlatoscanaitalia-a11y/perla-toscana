@@ -51,7 +51,8 @@ export const gallerySections: GallerySection[] = [
       image('perla-toscana-camera-king-size-vista-frontale.jpg', 'Camera matrimoniale Queen beige con letto 160 × 200 cm', 'Beige Queen bedroom with 160 × 200 cm bed', 'Vista frontale della Camera Queen nei toni beige.', 'Front view of the Queen bedroom in warm beige tones.'),
       image('perla-toscana-camera-king-size-luce-naturale.jpg', 'Camera Queen beige illuminata dalla luce naturale', 'Beige Queen bedroom filled with natural light', 'Luce naturale e spazio intorno al letto Queen.', 'Natural light and space around the Queen bed.'),
       image('perla-toscana-camera-king-size-dettaglio-letto.jpg', 'Dettaglio del letto Queen 160 × 200 cm con biancheria beige', 'Detail of the 160 × 200 cm Queen bed with beige bed linen', 'Dettagli e biancheria del letto Queen.', 'Details and bed linen of the Queen bed.'),
-      image('perla-toscana-camera-king-size-tende.jpg', 'Camera matrimoniale Queen beige con tende e aria condizionata', 'Beige Queen bedroom with curtains and air conditioning', 'Tende e atmosfera rilassante nella Camera Queen.', 'Curtains and a relaxing atmosphere in the Queen bedroom.')
+      image('perla-toscana-camera-king-size-tende.jpg', 'Camera matrimoniale Queen beige con tende e aria condizionata', 'Beige Queen bedroom with curtains and air conditioning', 'Tende e atmosfera rilassante nella Camera Queen.', 'Curtains and a relaxing atmosphere in the Queen bedroom.'),
+      image('perla-toscana-camera-smart-tv-armadio.jpg', 'Camera Queen beige con armadio bianco e Smart TV', 'Beige Queen bedroom with white wardrobe and Smart TV', 'Armadio bianco e Smart TV nella Camera Queen.', 'White wardrobe and Smart TV in the Queen bedroom.')
     ]
   },
   {
@@ -64,8 +65,7 @@ export const gallerySections: GallerySection[] = [
     images: [
       image('perla-toscana-camera-due-letti-singoli.jpg', 'Camera doppia con due letti singoli e comodino centrale', 'Twin bedroom with two single beds and central bedside table', 'I due letti singoli della camera doppia.', 'The two separate beds in the twin bedroom.'),
       image('perla-toscana-camera-letti-singoli-armadio.jpg', 'Camera doppia con due letti singoli e ampia cabina armadio', 'Twin bedroom with two single beds and spacious walk-in wardrobe', 'Cabina armadio e spazio contenitivo della camera doppia.', 'Walk-in wardrobe and storage space in the twin bedroom.'),
-      image('perla-toscana-letti-singoli-comodini.jpg', 'Letti singoli preparati con biancheria chiara e comodini', 'Single beds prepared with light bed linen and bedside tables', 'Letti separati pronti per l’arrivo degli ospiti.', 'Separate beds prepared for guests’ arrival.'),
-      image('perla-toscana-camera-smart-tv-armadio.jpg', 'Smart TV, armadio e aria condizionata nella camera doppia', 'Smart TV, wardrobe and air conditioning in the twin bedroom', 'Smart TV e dotazioni della camera doppia.', 'Smart TV and amenities in the twin bedroom.')
+      image('perla-toscana-letti-singoli-comodini.jpg', 'Letti singoli preparati con biancheria chiara e comodini', 'Single beds prepared with light bed linen and bedside tables', 'Letti separati pronti per l’arrivo degli ospiti.', 'Separate beds prepared for guests’ arrival.')
     ]
   },
   {
