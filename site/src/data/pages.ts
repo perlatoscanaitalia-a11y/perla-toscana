@@ -10,6 +10,7 @@ export interface PageContent {
   description: string;
   eyebrow: string;
   h1: string;
+  introHeading?: string;
   intro: string;
   showCtas?: boolean;
   showBookingCta?: boolean;
@@ -144,17 +145,13 @@ const it: PageContent[] = [
     slug: 'galleria',
     path: '/it/galleria/',
     alternatePath: '/en/gallery/',
-    title: 'Galleria Perla Toscana | Foto appartamento vicino Firenze',
-    description: 'Galleria fotografica di Perla Toscana: camere, cucina, bagno, giardino, parcheggio e dettagli dell’appartamento.',
+    title: 'Galleria fotografica | Camere e interni di Perla Toscana',
+    description: 'Guarda le foto di Perla Toscana: camera King con materasso ortopedico, camera matrimoniale, camera doppia con cabina armadio, soggiorno con cucina, divano letto e bagno con doccia idromassaggio.',
     eyebrow: 'Galleria',
-    h1: 'Gli spazi di Perla Toscana',
-    intro: 'La galleria mostra gli ambienti principali di <strong>Perla Toscana</strong>: camere, cucina, zona giorno, bagno, giardino, parcheggio e dettagli utili per conoscere meglio la casa vacanza prima del soggiorno.',
-    sections: [
-      {
-        title: 'Foto della casa',
-        body: 'Le immagini mostrano gli ambienti principali dell’appartamento: camere, soggiorno, cucina, bagno, dettagli e spazi nei dintorni.'
-      }
-    ]
+    h1: 'Foto e ambienti di Perla Toscana',
+    introHeading: 'Foto della casa',
+    intro: 'Scopri gli ambienti di Perla Toscana: tre camere da letto, soggiorno con angolo cottura e divano letto, bagno e spazi dedicati a un soggiorno comodo vicino a Firenze, al Chianti e a The Mall Firenze.',
+    sections: []
   },
   {
     slug: 'cosa-fare',
@@ -1071,12 +1068,13 @@ const en: PageContent[] = [
     slug: 'gallery',
     path: '/en/gallery/',
     alternatePath: '/it/galleria/',
-    title: 'Perla Toscana Gallery | Apartment photos near Florence',
-    description: 'Photo gallery for Perla Toscana: bedrooms, kitchen, bathroom, garden, parking and apartment details.',
+    title: 'Photo Gallery | Bedrooms and Interiors at Perla Toscana',
+    description: 'View photos of Perla Toscana: King bedroom with orthopaedic mattress, Queen and twin bedrooms, living room with kitchen, sofa bed and hydromassage shower.',
     eyebrow: 'Gallery',
-    h1: 'The spaces of Perla Toscana',
-    intro: 'The gallery presents the main spaces at <strong>Perla Toscana</strong>: bedrooms, kitchen, living area, bathroom, garden, parking and useful details to help guests choose with confidence.',
-    sections: [{ title: 'House photos', body: 'Images show the main apartment spaces: bedrooms, living area, kitchen, bathroom, details and nearby surroundings.' }]
+    h1: 'Photos and Spaces at Perla Toscana',
+    introHeading: 'Photos of the House',
+    intro: 'Explore Perla Toscana: three bedrooms, a living room with kitchenette and sofa bed, a bathroom and spaces designed for a comfortable stay near Florence, Chianti and The Mall Firenze.',
+    sections: []
   },
   {
     slug: 'what-to-do',

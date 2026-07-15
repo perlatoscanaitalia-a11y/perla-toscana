@@ -1,5 +1,5 @@
 ---
-import { galleryImages } from '../data/galleryImages';
+import { gallerySections } from '../data/galleryImages';
 import type { Lang } from '../data/pages';
 
 interface Props {
@@ -8,16 +8,55 @@ interface Props {
 
 const { lang } = Astro.props;
 ---
-<div class="gallery-grid">
-  {galleryImages.map((image) => (
-    <figure class="gallery-item">
-      <img src={image.src} alt={image.alt[lang]} width="1600" height="1067" loading="lazy" decoding="async" />
-      <figcaption>{image.caption[lang]}</figcaption>
-    </figure>
+<div class="gallery-sections">
+  {gallerySections.map((section) => (
+    <section class="gallery-section" aria-labelledby={`gallery-${section.id}`}>
+      <header class="gallery-section__header">
+        <h2 id={`gallery-${section.id}`}>{section.title[lang]}</h2>
+        <p>{section.description[lang]}</p>
+      </header>
+      <div class="gallery-grid">
+        {section.images.map((item) => (
+          <figure class="gallery-item">
+            <img src={item.src} alt={item.alt[lang]} width="1600" height="1067" loading="lazy" decoding="async" />
+            <figcaption>{item.caption[lang]}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
   ))}
 </div>
 
 <style>
+  .gallery-sections,
+  .gallery-section {
+    display: grid;
+  }
+
+  .gallery-sections {
+    gap: clamp(44px, 7vw, 76px);
+  }
+
+  .gallery-section {
+    gap: 22px;
+    scroll-margin-top: 96px;
+  }
+
+  .gallery-section__header {
+    display: grid;
+    max-width: 760px;
+    gap: 10px;
+  }
+
+  .gallery-section__header h2 {
+    color: var(--color-espresso);
+  }
+
+  .gallery-section__header p {
+    color: rgba(47, 42, 36, 0.8);
+    line-height: 1.65;
+  }
+
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -25,6 +64,8 @@ const { lang } = Astro.props;
   }
 
   .gallery-item {
+    display: grid;
+    grid-template-rows: auto 1fr;
     margin: 0;
     overflow: hidden;
     border-radius: var(--radius);
@@ -35,21 +76,23 @@ const { lang } = Astro.props;
   .gallery-item img {
     width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: cover;
+    background: var(--color-sand);
+    object-fit: contain;
     transition: transform 0.24s ease;
   }
 
   .gallery-item figcaption {
-    min-height: 58px;
     padding: 13px 15px 15px;
     color: rgba(47, 42, 36, 0.78);
     font-size: 0.94rem;
     font-weight: 600;
-    line-height: 1.35;
+    line-height: 1.45;
   }
 
-  .gallery-item:hover img {
-    transform: scale(1.025);
+  @media (hover: hover) {
+    .gallery-item:hover img {
+      transform: scale(1.018);
+    }
   }
 
   @media (max-width: 920px) {
@@ -59,8 +102,21 @@ const { lang } = Astro.props;
   }
 
   @media (max-width: 620px) {
+    .gallery-sections {
+      gap: 46px;
+    }
+
+    .gallery-section {
+      gap: 16px;
+    }
+
     .gallery-grid {
       grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .gallery-section__header p {
+      font-size: 0.98rem;
     }
   }
 </style>

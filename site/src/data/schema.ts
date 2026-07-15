@@ -1,20 +1,10 @@
 import { siteConfig } from './siteConfig';
 import type { Lang } from './pages';
+import { structuredDataGalleryImages } from './galleryImages';
 
 const stripHtml = (value: string) => value.replace(/<[^>]*>/g, '');
 
-const propertyImages = [
-  'perla-toscana-camera-king-size-vista-frontale.jpg',
-  'perla-toscana-camera-queen-size-smart-tv.jpg',
-  'perla-toscana-camera-due-letti-singoli.jpg',
-  'perla-toscana-hero-bagno-elegante-17.jpg',
-  'perla-toscana-doccia-idromassaggio.jpg',
-  'perla-toscana-hero-cucina-attrezzata-16.jpg',
-  'perla-toscana-hero-soggiorno-13.jpg',
-  'perla-toscana-zona-pranzo-soggiorno.jpg',
-  'perla-toscana-soggiorno-divano.jpg',
-  'perla-toscana-tavolo-pranzo-apparecchiato.jpg'
-].map((file) => `${siteConfig.siteUrl}/images/perla-toscana/${file}`);
+const propertyImages = structuredDataGalleryImages.map((src) => new URL(src, siteConfig.siteUrl).toString());
 
 const amenityFeature = [
   { name: 'wifi', value: true },
