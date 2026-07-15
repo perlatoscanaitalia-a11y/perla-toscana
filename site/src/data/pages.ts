@@ -928,14 +928,14 @@ const it: PageContent[] = [
     slug: 'privacy-policy',
     path: '/it/privacy-policy/',
     alternatePath: '/en/privacy-policy/',
-    title: 'Privacy Policy | Perla Toscana',
-    description: 'Informativa privacy di Perla Toscana, inclusi contatti, prenotazioni e uso facoltativo di Google Analytics 4.',
+    title: 'Privacy Policy - Perla Toscana',
+    description: 'Scopri la Privacy Policy di Perla Toscana e le informazioni sul trattamento dei dati personali nel rispetto del GDPR.',
     eyebrow: 'Privacy',
     h1: 'Privacy Policy',
     intro: 'Questa informativa spiega come vengono trattati i dati inviati attraverso i canali di contatto e prenotazione di Perla Toscana e, previo consenso, i dati analitici del sito.',
     showCtas: false,
     sections: [
-      { title: 'Titolare del trattamento', body: `Il titolare del trattamento è Roberto Castiglioni, titolare di Perla Toscana, con sede operativa in ${siteConfig.placeholders.address}. Contatti: telefono ${siteConfig.placeholders.phone}; WhatsApp ${siteConfig.placeholders.whatsappPhone}.` },
+      { title: 'Titolare del trattamento', body: `Il titolare del trattamento dei dati è Perla Toscana, con sede operativa in Via Aretina 108, 50063 Figline e Incisa Valdarno (FI). Contatti: telefono ${siteConfig.placeholders.phone}; WhatsApp ${siteConfig.placeholders.whatsappPhone}.` },
       { title: 'Dati raccolti', body: 'Possono essere trattati i dati forniti volontariamente tramite telefono, WhatsApp, richiesta di disponibilità o sistema di prenotazione, come nome, cognome, recapito telefonico, indirizzo email se comunicato, date del soggiorno, numero di ospiti e informazioni necessarie a gestire la prenotazione.' },
       { title: 'Finalità del trattamento', body: 'I dati sono utilizzati per rispondere alle richieste, gestire disponibilità e prenotazioni, comunicare con gli ospiti, adempiere agli obblighi amministrativi, fiscali e di pubblica sicurezza e migliorare il servizio.' },
       { title: 'Google Analytics 4 facoltativo', body: 'Solo dopo il consenso, il sito usa Google Analytics 4 con Measurement ID G-6FTELCM9C9 per raccogliere informazioni aggregate come visualizzazioni di pagina, dispositivo, area geografica approssimativa e interazioni. Il consenso può essere rifiutato o modificato in qualsiasi momento tramite “Gestisci cookie” nel footer.' },
@@ -1820,7 +1820,7 @@ const en: PageContent[] = [
     slug: 'privacy-policy',
     path: '/en/privacy-policy/',
     alternatePath: '/it/privacy-policy/',
-    title: 'Privacy Policy | Perla Toscana',
+    title: 'Privacy Policy - Perla Toscana',
     description: 'Privacy Policy for Perla Toscana, including contact, booking and optional Google Analytics 4 processing.',
     eyebrow: 'Privacy',
     h1: 'Privacy Policy',
@@ -1828,7 +1828,7 @@ const en: PageContent[] = [
     sections: [
       {
         title: 'Data controller',
-        body: `The data controller is Roberto Castiglioni, owner of Perla Toscana, with operational address at ${siteConfig.placeholders.address}. Contact details: telephone ${siteConfig.placeholders.phone}; WhatsApp ${siteConfig.placeholders.whatsappPhone}.`
+        body: `The data controller is Perla Toscana, with operational address at ${siteConfig.placeholders.address}. Contact details: telephone ${siteConfig.placeholders.phone}; WhatsApp ${siteConfig.placeholders.whatsappPhone}.`
       },
       {
         title: 'Data collected',
