@@ -13,7 +13,14 @@ const pathname = Astro.url.pathname;
 const homeHref = `/${lang}/`;
 const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
 const navItems = nav[lang].filter((item) => item.href !== bookingHref);
-const isActive = (href: string) => pathname === href || (href !== homeHref && pathname.startsWith(href));
+const normalizePath = (value: string) => value === '/' ? value : `${value.replace(/\/+$/, '')}/`;
+const currentPath = normalizePath(pathname);
+const isActive = (href: string) => {
+  const normalizedHref = normalizePath(href);
+  if (lang === 'it' && normalizedHref === '/guide/' && (currentPath.startsWith('/guide/') || currentPath.startsWith('/it/guide/') || currentPath.startsWith('/it/itinerari/'))) return true;
+  if (lang === 'en' && normalizedHref === '/en/guides/' && (currentPath.startsWith('/en/guides/') || currentPath.startsWith('/en/itineraries/'))) return true;
+  return currentPath === normalizedHref || (normalizedHref !== homeHref && currentPath.startsWith(normalizedHref));
+};
 ---
 <header class="site-header">
   <div class="container header-inner">
@@ -73,8 +80,8 @@ const isActive = (href: string) => pathname === href || (href !== homeHref && pa
     min-width: 0;
     justify-content: center;
     align-items: center;
-    gap: 4px;
-    font-size: 0.92rem;
+    gap: 2px;
+    font-size: 0.9rem;
   }
 
   .nav a,
@@ -89,7 +96,7 @@ const isActive = (href: string) => pathname === href || (href !== homeHref && pa
     border-radius: 999px;
     border: 1px solid transparent;
     color: var(--color-olive);
-    padding: 8px 10px;
+    padding: 8px 8px;
     line-height: 1;
     white-space: nowrap;
   }

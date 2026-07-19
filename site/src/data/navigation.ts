@@ -6,6 +6,7 @@ export const nav = {
     { label: 'Galleria', href: '/it/galleria/' },
     { label: 'Come arrivare', href: '/it/posizione/' },
     { label: 'Cosa fare', href: '/it/cosa-fare/' },
+    { label: 'Guide', href: '/guide/' },
     { label: 'Dove mangiare', href: '/it/dove-mangiare/' },
     { label: 'FAQ', href: '/it/regole-informazioni/' },
     { label: 'Prenota', href: '/it/prenota/' }
@@ -17,6 +18,7 @@ export const nav = {
     { label: 'Gallery', href: '/en/gallery/' },
     { label: 'How to Get Here', href: '/en/location/' },
     { label: 'Things to Do', href: '/en/what-to-do/' },
+    { label: 'Guides', href: '/en/guides/' },
     { label: 'Where to Eat', href: '/en/where-to-eat/' },
     { label: 'FAQ', href: '/en/house-rules-info/' },
     { label: 'Book', href: '/en/book/' }
@@ -25,14 +27,14 @@ export const nav = {
 
 export const footerLinks = {
   it: [
-    { label: 'Guide', href: '/it/guide/' },
+    { label: 'Guide', href: '/guide/' },
     { label: 'Privacy Policy', href: '/it/privacy-policy/' },
     { label: 'Cookie Policy', href: '/it/cookie-policy/' },
     { label: 'Termini e condizioni', href: '/it/termini-condizioni/' },
     { label: 'Informazioni legali / CIN', href: '/it/informazioni-legali/' }
   ],
   en: [
-    { label: 'Guide (Italiano)', href: '/it/guide/' },
+    { label: 'Guides', href: '/en/guides/' },
     { label: 'Privacy Policy', href: '/en/privacy-policy/' },
     { label: 'Cookie Policy', href: '/en/cookie-policy/' },
     { label: 'Terms and Conditions', href: '/en/terms-and-conditions/' },

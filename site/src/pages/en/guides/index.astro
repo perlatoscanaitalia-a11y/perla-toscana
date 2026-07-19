@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuideArchive from '../../../components/GuideArchive.astro';
+---
+<BaseLayout lang="en" title="Travel guides and Tuscany itineraries | Perla Toscana" description="Explore practical guides, itineraries, art cities, villages, shopping and nature from Perla Toscana, near Florence." path="/en/guides/" alternatePath="/it/guide/">
+  <section class="section guide-hero"><div class="container hero-inner"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Guides</span></nav><p class="eyebrow">Explore Tuscany</p><h1>Travel guides and Tuscany itineraries</h1><p class="lead">Practical guides for planning a Tuscany stay from Perla Toscana: art cities, villages, shopping, nature and realistic itineraries.</p><p>For an overview of the main destinations, explore <a href="/en/what-to-do/">things to do near Perla Toscana</a>.</p></div></section>
+  <section class="section"><div class="container"><GuideArchive lang="en" /></div></section>
+</BaseLayout>
+<style>.guide-hero{background:var(--color-sand)}.hero-inner{display:grid;gap:16px}.breadcrumb{display:flex;gap:8px;font-size:.88rem}.breadcrumb a{color:var(--color-terracotta)}</style>

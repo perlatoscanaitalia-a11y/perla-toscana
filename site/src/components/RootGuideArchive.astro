@@ -1,0 +1,33 @@
+---
+const guides = [
+  { title: 'Dove fermarsi tra Roma e Milano', description: 'Una sosta pratica nel Valdarno per spezzare il viaggio lungo la A1 vicino a Firenze.', href: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', image: '/images/perla-toscana/perla-toscana-strada-setteponti.jpg' },
+  { title: 'Firenze in 1 giorno', description: 'Una guida pratica per organizzare una giornata tra monumenti, musei e quartieri di Firenze.', href: '/it/guide/firenze/', image: '/images/places/firenze-centro.jpg' },
+  { title: 'The Mall Firenze', description: 'Come organizzare una visita all’outlet e abbinarla alle destinazioni vicine.', href: '/it/guide/the-mall-firenze/', image: '/images/places/the-mall-firenze.webp' },
+  { title: 'Chianti', description: 'Borghi, strade panoramiche e consigli per una giornata nel cuore del Chianti.', href: '/it/guide/chianti/', image: '/images/places/greve-in-chianti.jpg' },
+  { title: 'Figline Valdarno', description: 'Centro storico, stazione, servizi e idee per scoprire la località più vicina alla casa.', href: '/it/guide/figline-valdarno/', image: '/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg' },
+  { title: 'Valdarno', description: 'Borghi, Balze, sentieri e paesaggi tra Firenze e Arezzo.', href: '/it/guide/valdarno/', image: '/images/generated/perla-toscana-paesaggio-valdarno.jpg' },
+  { title: 'Arezzo', description: 'Piazza Grande, centro storico, arte e antiquariato per una gita in giornata.', href: '/it/guide/arezzo/', image: '/images/perla-toscana/perla-toscana-strada-setteponti.jpg' },
+  { title: 'Siena', description: 'Una guida essenziale alla città medievale, da Piazza del Campo al Duomo.', href: '/it/guide/siena/', image: '/images/places/siena.jpg' },
+  { title: 'Reggello e Vallombrosa', description: 'Abbazia, foresta e sentieri per una giornata nella natura del Pratomagno.', href: '/it/guide/reggello-vallombrosa/', image: '/images/perla-toscana/perla-toscana-sentiero-verde-valdarno.jpg' },
+  { title: 'La Verna', description: 'Una futura guida al santuario, alla foresta e ai percorsi dell’Appennino toscano.', image: '/images/perla-toscana/perla-toscana-sentiero-verde-valdarno.jpg' },
+  { title: 'San Gimignano', description: 'Una futura guida alle torri, al centro storico e ai panorami della Val d’Elsa.', image: '/images/places/san-gimignano.jpg' },
+  { title: 'Val d’Orcia', description: 'Una futura guida ai borghi e ai paesaggi più riconoscibili della Toscana meridionale.', image: '/images/places/val-d-orcia.jpg' },
+  { title: 'Itinerario di 1 giorno', description: 'Un programma realistico per scoprire la Toscana partendo da Perla Toscana.', href: '/it/itinerari/1-giorno/', image: '/images/places/firenze-centro.jpg' },
+  { title: 'Itinerario di 2 giorni', description: 'Due giornate tra città d’arte, paesaggi e destinazioni ben collegate.', href: '/it/itinerari/2-giorni/', image: '/images/places/greve-in-chianti.jpg' },
+  { title: 'Itinerario di 3 giorni', description: 'Tre giornate per alternare Firenze, Chianti, Valdarno e altre mete toscane.', href: '/it/itinerari/3-giorni/', image: '/images/places/val-d-orcia.jpg' }
+];
+---
+<div class="guide-grid">
+  {guides.map((guide) => (
+    <article class:list={['guide-card', !guide.href && 'guide-card--pending']}>
+      <img src={guide.image} alt="" width="1200" height="800" loading="lazy" />
+      <div class="guide-card__body">
+        <h2>{guide.title}</h2><p>{guide.description}</p>
+        {guide.href ? <a class="button button--secondary" href={guide.href}>Leggi la guida</a> : <span class="pending-label">In preparazione</span>}
+      </div>
+    </article>
+  ))}
+</div>
+<style>
+.guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.guide-card{display:grid;min-width:0;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-warm-white);box-shadow:var(--shadow-soft)}.guide-card img{width:100%;height:174px;object-fit:cover}.guide-card__body{display:grid;align-content:start;gap:13px;padding:22px}.guide-card h2{font-size:clamp(1.45rem,2.4vw,1.85rem)}.guide-card p{color:rgba(47,42,36,.76);font-size:.94rem;line-height:1.5}.guide-card .button{align-self:end;width:fit-content;margin-top:auto}.guide-card--pending{background:linear-gradient(180deg,var(--color-warm-white),rgba(247,241,232,.72))}.pending-label{align-self:end;width:fit-content;border:1px solid rgba(102,114,77,.24);border-radius:999px;background:rgba(102,114,77,.08);color:var(--color-olive);font-size:.82rem;font-weight:800;padding:8px 12px}@media(max-width:920px){.guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.guide-grid{grid-template-columns:1fr}.guide-card img{height:190px}.guide-card .button{width:100%;text-align:center}}
+</style>

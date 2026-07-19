@@ -1,0 +1,20 @@
+---
+import { guides } from '../data/guides';
+import type { Lang } from '../data/pages';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const local = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/guide/' : '/guides/'));
+const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
+const images: Record<string,string> = {
+  firenze:'/images/places/firenze-centro.jpg',florence:'/images/places/firenze-centro.jpg',chianti:'/images/places/greve-in-chianti.jpg','the-mall-firenze':'/images/places/the-mall-firenze.webp','figline-valdarno':'/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg',valdarno:'/images/generated/perla-toscana-paesaggio-valdarno.jpg',arezzo:'/images/perla-toscana/perla-toscana-strada-setteponti.jpg',siena:'/images/places/siena.jpg','reggello-vallombrosa':'/images/perla-toscana/perla-toscana-sentiero-verde-valdarno.jpg','1-giorno':'/images/places/san-gimignano.jpg','1-day':'/images/places/san-gimignano.jpg','2-giorni':'/images/places/val-d-orcia.jpg','2-days':'/images/places/val-d-orcia.jpg','3-giorni':'/images/perla-toscana/perla-toscana-strada-setteponti.webp','3-days':'/images/perla-toscana/perla-toscana-strada-setteponti.webp'
+};
+const label = lang === 'it' ? 'Apri la guida →' : 'Open guide →';
+---
+<div class="archive-stack">
+  {lang === 'it' && <section class="archive-group"><h2>Viaggi e soste</h2><div class="archive-grid"><a class="archive-card" href="/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/"><img src="/images/perla-toscana/perla-toscana-strada-setteponti.jpg" alt="Strada panoramica in Toscana" width="1200" height="800" loading="lazy"/><span>Viaggi e soste</span><h3>Dove fermarsi lungo la A1 tra Roma e Milano</h3><p>Una guida per spezzare il viaggio vicino Firenze, con parcheggio comodo e spazio per famiglie, gruppi e trasferte di lavoro.</p><strong>{label}</strong></a></div></section>}
+  <section class="archive-group"><h2>{lang === 'it' ? 'Città, borghi e destinazioni' : 'Cities, villages and destinations'}</h2><div class="archive-grid">{local.map((item) => <a class="archive-card" href={item.path}><img src={images[item.slug]} alt="" width="1200" height="800" loading="lazy"/><span>{lang === 'it' ? 'Destinazioni' : 'Destinations'}</span><h3>{item.h1}</h3><p>{item.description}</p><strong>{label}</strong></a>)}</div></section>
+  <section class="archive-group"><h2>{lang === 'it' ? 'Itinerari' : 'Itineraries'}</h2><div class="archive-grid">{itineraries.map((item) => <a class="archive-card" href={item.path}><img src={images[item.slug]} alt="" width="1200" height="800" loading="lazy"/><span>{lang === 'it' ? 'Itinerario' : 'Itinerary'}</span><h3>{item.h1}</h3><p>{item.description}</p><strong>{label}</strong></a>)}</div></section>
+</div>
+<style>
+.archive-stack,.archive-group{display:grid;gap:22px}.archive-stack{gap:48px}.archive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.archive-card{display:grid;min-width:0;gap:11px;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-warm-white);box-shadow:var(--shadow-soft);color:var(--color-espresso);padding:0 22px 22px;text-decoration:none;transition:transform 180ms ease,box-shadow 180ms ease}.archive-card:hover,.archive-card:focus-visible{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,42,36,.13)}.archive-card img{width:calc(100% + 44px);height:172px;margin:0 -22px;object-fit:cover}.archive-card span{color:var(--color-olive);font-size:.76rem;font-weight:800;text-transform:uppercase}.archive-card p{color:rgba(47,42,36,.76);font-size:.92rem;line-height:1.5}.archive-card strong{align-self:end;color:var(--color-terracotta);margin-top:auto}@media(max-width:920px){.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.archive-grid{grid-template-columns:1fr}.archive-stack{gap:38px}}
+</style>
