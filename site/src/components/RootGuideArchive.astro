@@ -3,7 +3,7 @@ const guides = [
   { title: 'Dove dormire vicino a The Mall Firenze', description: 'Zone, hotel, appartamenti, trasporti e criteri pratici per scegliere l’alloggio giusto.', href: '/guide/dove-dormire-vicino-the-mall-firenze/', image: '/images/places/the-mall-firenze.webp' },
   { title: 'Dove fermarsi tra Roma e Milano', description: 'Una sosta pratica nel Valdarno per spezzare il viaggio lungo la A1 vicino a Firenze.', href: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', image: '/images/perla-toscana/perla-toscana-strada-setteponti.jpg' },
   { title: 'Firenze in 1 giorno', description: 'Una guida pratica per organizzare una giornata tra monumenti, musei e quartieri di Firenze.', href: '/it/guide/firenze/', image: '/images/places/firenze-centro.jpg' },
-  { title: 'The Mall Firenze', description: 'Come organizzare una visita all’outlet e abbinarla alle destinazioni vicine.', href: '/it/guide/the-mall-firenze/', image: '/images/places/the-mall-firenze.webp' },
+  { title: 'The Mall Firenze', description: 'Come organizzare una visita all’outlet e abbinarla alle destinazioni vicine.', href: '/it/guide/the-mall-firenze/', image: '/images/places/the-mall-firenze-facciata.webp', alt: 'Facciata di The Mall Firenze a Leccio' },
   { title: 'Chianti', description: 'Borghi, strade panoramiche e consigli per una giornata nel cuore del Chianti.', href: '/it/guide/chianti/', image: '/images/places/greve-in-chianti.jpg' },
   { title: 'Figline Valdarno', description: 'Centro storico, stazione, servizi e idee per scoprire la località più vicina alla casa.', href: '/it/guide/figline-valdarno/', image: '/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg' },
   { title: 'Valdarno', description: 'Borghi, Balze, sentieri e paesaggi tra Firenze e Arezzo.', href: '/it/guide/valdarno/', image: '/images/generated/perla-toscana-paesaggio-valdarno.jpg' },
@@ -21,7 +21,7 @@ const guides = [
 <div class="guide-grid">
   {guides.map((guide) => (
     <article class:list={['guide-card', !guide.href && 'guide-card--pending']}>
-      <img src={guide.image} alt="" width="1200" height="800" loading="lazy" />
+      <img src={guide.image} alt={guide.alt ?? ''} width="1200" height="800" loading="lazy" />
       <div class="guide-card__body">
         <h2>{guide.title}</h2><p>{guide.description}</p>
         {guide.href ? <a class="button button--secondary" href={guide.href}>Leggi la guida</a> : <span class="pending-label">In preparazione</span>}
