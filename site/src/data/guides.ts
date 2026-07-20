@@ -35,6 +35,7 @@ function destinationPage(d: Destination, lang: Lang): PageContent {
       { title: it ? `Perché visitare ${name}` : `Why visit ${name}`, body: it ? `${name} è una tappa utile per chi cerca ${d.focusIt}. Da Perla Toscana il tempo indicativo è ${d.timeIt}.` : `${name} is a useful destination for travellers interested in ${d.focusEn}. From Perla Toscana, the indicative travel time is ${d.timeEn}.` },
       { title: it ? 'Itinerario consigliato' : 'Suggested itinerary', body: it ? d.planIt : d.planEn },
       { title: it ? 'Consigli pratici' : 'Practical advice', body: it ? d.usefulIt : d.usefulEn, links: [{ label: it ? 'Come arrivare a Perla Toscana' : 'How to reach Perla Toscana', href: it ? '/it/come-arrivare/' : '/en/how-to-reach/' }, { label: it ? 'Dove mangiare in zona' : 'Where to eat nearby', href: it ? '/it/dove-mangiare/' : '/en/where-to-eat/' }] },
+      ...(d.itSlug === 'the-mall-firenze' && it ? [{ title: 'Dove dormire vicino a The Mall Firenze', body: 'Confronta Leccio, Reggello, Incisa, Figline Valdarno e Firenze per scegliere una base adatta a mezzo di trasporto, gruppo e programma.', links: [{ label: 'Leggi la guida completa agli alloggi', href: '/guide/dove-dormire-vicino-the-mall-firenze/' }] }] : []),
       ...(d.itSlug === 'the-mall-firenze' ? [{
         title: it ? 'Marchi presenti a The Mall Firenze' : 'Brands at The Mall Firenze',
         variant: 'callout' as const,

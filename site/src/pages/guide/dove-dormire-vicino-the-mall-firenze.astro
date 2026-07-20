@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+import GuideHero from '../../components/GuideHero.astro';
+import GuideQuickFacts from '../../components/GuideQuickFacts.astro';
+import DidYouKnow from '../../components/DidYouKnow.astro';
+import GuideGallery from '../../components/GuideGallery.astro';
+import GuideMap from '../../components/GuideMap.astro';
+import GuideFinalCTA from '../../components/GuideFinalCTA.astro';
+import EditorialSignature from '../../components/EditorialSignature.astro';
+import { siteConfig } from '../../data/siteConfig';
+
+const path = '/guide/dove-dormire-vicino-the-mall-firenze/';
+const title = 'Dove dormire vicino a The Mall Firenze: guida 2026';
+const description = 'Dove dormire vicino a The Mall Firenze: zone, hotel, appartamenti, distanze, trasporti e consigli per scegliere l’alloggio giusto nel Valdarno.';
+const canonical = new URL(path, siteConfig.siteUrl).toString();
+const faqs = [
+  { question: 'Dove conviene dormire per andare a The Mall Firenze?', answer: 'Leccio è la scelta più vicina; Reggello offre campagna e hotel; Incisa è pratica per l’autostrada; Figline Valdarno aggiunge stazione, ristoranti, supermercati e appartamenti adatti anche a famiglie e gruppi. La zona migliore dipende dal mezzo di trasporto e da cosa vuoi fare oltre allo shopping.' },
+  { question: 'È meglio dormire a Firenze o vicino a The Mall?', answer: 'Firenze conviene se il centro storico è la priorità e vuoi usare il bus diretto. Dormire nel Valdarno è più pratico se viaggi in auto, desideri parcheggio, più spazio o vuoi visitare anche Chianti, Arezzo e borghi della zona.' },
+  { question: 'Si può raggiungere The Mall Firenze senza auto?', answer: 'Dal centro di Firenze esiste un collegamento diretto in autobus. Da altre località del Valdarno i collegamenti possono richiedere cambi o un taxi: controlla sempre percorso, orari e ultimo rientro sui canali ufficiali prima di prenotare.' },
+  { question: 'Quanto tempo serve per visitare The Mall Firenze?', answer: 'Per una visita mirata possono bastare tre o quattro ore; per confrontare più boutique, pranzare e gestire eventuali attese è più realistico riservare gran parte della giornata.' },
+  { question: 'Quale alloggio scegliere per una famiglia o un gruppo?', answer: 'Un appartamento o una casa vacanza con cucina, camere separate e parcheggio è spesso più comodo di più camere d’albergo. Verifica il numero reale di letti, i bagni, l’accesso, il check-in e lo spazio per tutte le auto.' },
+  { question: 'The Mall Firenze dispone di parcheggio?', answer: 'Il centro è raggiungibile in auto e dispone di parcheggio. Nei giorni più richiesti conviene arrivare vicino all’apertura e verificare sul sito ufficiale eventuali indicazioni aggiornate.' },
+  { question: 'Quali servizi deve avere un alloggio per un weekend di shopping?', answer: 'Sono particolarmente utili parcheggio, aria condizionata, Wi-Fi, spazio per bagagli e acquisti, check-in chiaro e una posizione semplice da raggiungere. Per soggiorni di più notti, cucina e lavatrice possono fare la differenza.' },
+  { question: 'Perla Toscana è vicina a The Mall Firenze?', answer: 'Perla Toscana si trova a Figline Valdarno: The Mall Firenze è raggiungibile indicativamente in circa 20–25 minuti in auto, a seconda del traffico e del percorso. Prima di partire è sempre opportuno controllare la navigazione aggiornata.' }
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Dove dormire vicino a The Mall Firenze: zone, hotel e appartamenti',
+    description,
+    image: [
+      new URL('/images/places/the-mall-firenze.webp', siteConfig.siteUrl).toString(),
+      new URL('/images/perla-toscana/perla-toscana-zona-pranzo-soggiorno.jpg', siteConfig.siteUrl).toString()
+    ],
+    datePublished: '2026-07-20',
+    dateModified: '2026-07-20',
+    inLanguage: 'it-IT',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+    about: [
+      { '@type': 'Place', name: 'The Mall Firenze', address: 'Via Europa 8, 50066 Leccio Reggello FI' },
+      { '@type': 'Thing', name: 'Alloggi nel Valdarno' }
+    ],
+    author: { '@type': 'Organization', name: 'Perla Toscana', url: siteConfig.siteUrl },
+    publisher: { '@type': 'Organization', name: 'Perla Toscana', url: siteConfig.siteUrl }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Perla Toscana', item: `${siteConfig.siteUrl}/it/` },
+      { '@type': 'ListItem', position: 2, name: 'Guide', item: `${siteConfig.siteUrl}/guide/` },
+      { '@type': 'ListItem', position: 3, name: 'Dove dormire vicino a The Mall Firenze', item: canonical }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ question, answer }) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } }))
+  }
+];
+---
+
+<BaseLayout lang="it" title={title} description={description} path={path} schema={schema} ogType="article">
+  <article>
+    <GuideHero image="/images/places/the-mall-firenze.webp" alt="The Mall Firenze a Leccio, nel comune di Reggello" category="Guida agli alloggi" title="Dove dormire vicino a The Mall Firenze: zone, hotel e appartamenti" intro="Una guida indipendente per scegliere la base giusta nel Valdarno, confrontando distanze, trasporti e servizi prima di prenotare.">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/it/">Home</a><span>/</span><a href="/guide/">Guide</a><span>/</span><span aria-current="page">Dove dormire vicino a The Mall Firenze</span></nav>
+      <p class="byline"><time datetime="2026-07-20">Pubblicato il 20 luglio 2026</time> · <span>Aggiornato a luglio 2026</span> · <span>15 min di lettura</span></p>
+    </GuideHero>
+
+    <div class="container facts-wrap"><GuideQuickFacts facts={[
+      { icon: '📍', label: 'Dove si trova', value: 'Leccio, Reggello' },
+      { icon: '🏡', label: 'Zone da valutare', value: 'Leccio, Reggello, Incisa, Figline' },
+      { icon: '🚗', label: 'Più flessibile', value: 'Auto con parcheggio' },
+      { icon: '🛍️', label: 'Tempo consigliato', value: 'Da mezza giornata a un giorno' }
+    ]} /></div>
+
+    <div class="container article-layout section">
+      <aside class="toc card" aria-labelledby="toc-title">
+        <h2 id="toc-title">In questa guida</h2><p class="toc-meta">Guida completa · 15 min</p>
+        <ol>
+          <li><a href="#risposta-breve">La risposta in breve</a></li><li><a href="#zone">Le zone migliori</a></li><li><a href="#tipologie">Hotel o appartamento?</a></li><li><a href="#trasporti">Auto, bus e treno</a></li><li><a href="#criteri">Come confrontare gli alloggi</a></li><li><a href="#programma">Programma consigliato</a></li><li><a href="#perla">Perla Toscana</a></li><li><a href="#faq">FAQ</a></li>
+        </ol>
+      </aside>
+
+      <div class="article-content">
+        <p>Cercare <strong>dove dormire vicino a The Mall Firenze</strong> sembra semplice finché non si apre una mappa. L’outlet si trova a Leccio, nel comune di Reggello, fuori dal centro di Firenze: alcune strutture dichiarate “vicine” sono davvero a pochi minuti, altre si trovano in città o dall’altra parte della campagna. Una distanza breve in linea d’aria, inoltre, non coincide sempre con un tragitto rapido sulle strade collinari.</p>
+        <p>La scelta migliore non è quindi un nome uguale per tutti. Dipende da quattro fattori: arrivi in auto o con i mezzi, vuoi dedicare allo shopping poche ore o una giornata, viaggi in coppia oppure con famiglia e amici, e quali altre tappe vuoi inserire. Questa guida aiuta a decidere con criteri verificabili, senza trasformare un elenco di strutture in una classifica pubblicitaria.</p>
+
+        <section id="risposta-breve">
+          <h2>Dove dormire vicino a The Mall Firenze: la risposta in breve</h2>
+          <p>Se vuoi essere il più vicino possibile all’outlet, cerca a <strong>Leccio</strong> e nelle immediate vicinanze. Se preferisci un albergo nella campagna toscana, considera <strong>Reggello</strong> e le frazioni circostanti. Se arrivi dall’A1 e vuoi ripartire facilmente, <strong>Incisa</strong> è pratica. Se cerchi un appartamento, servizi quotidiani, stazione e una base utile anche per Firenze e Arezzo, <strong>Figline Valdarno</strong> offre un equilibrio interessante.</p>
+          <div class="comparison" role="region" aria-label="Confronto delle zone dove dormire">
+            <div><h3>Leccio</h3><p><strong>Ideale per:</strong> massima vicinanza e visita centrata sullo shopping.</p><p><strong>Attenzione a:</strong> scelta più limitata e minori servizi serali rispetto ai centri maggiori.</p></div>
+            <div><h3>Reggello</h3><p><strong>Ideale per:</strong> hotel, agriturismi, relax e paesaggio.</p><p><strong>Attenzione a:</strong> frazioni disperse; controlla il percorso reale, non solo il comune.</p></div>
+            <div><h3>Incisa Valdarno</h3><p><strong>Ideale per:</strong> accesso autostradale e soggiorno di passaggio.</p><p><strong>Attenzione a:</strong> verifica ristoranti e servizi raggiungibili a piedi dalla struttura.</p></div>
+            <div><h3>Figline Valdarno</h3><p><strong>Ideale per:</strong> appartamenti, gruppi, stazione, spesa e soggiorni di più giorni.</p><p><strong>Attenzione a:</strong> per l’outlet l’auto resta la soluzione più lineare.</p></div>
+            <div><h3>Firenze centro</h3><p><strong>Ideale per:</strong> chi mette musei e vita cittadina al primo posto e usa il bus diretto.</p><p><strong>Attenzione a:</strong> ZTL, parcheggio, costi e tempo di trasferimento.</p></div>
+          </div>
+        </section>
+
+        <DidYouKnow><p><strong>The Mall Firenze non è nel centro di Firenze.</strong> L’indirizzo ufficiale è Via Europa 8, Leccio Reggello. Controllare questo punto sulla mappa prima di prenotare evita di scegliere un alloggio “a Firenze” che richieda poi un lungo trasferimento.</p></DidYouKnow>
+
+        <section id="zone">
+          <h2>Le zone migliori, con vantaggi e limiti reali</h2>
+          <h3>1. Leccio: dormire a pochi minuti dall’outlet</h3>
+          <p>Leccio è la scelta più intuitiva quando The Mall è il motivo principale del viaggio. Ridurre il trasferimento permette di arrivare all’apertura, tornare in camera per una pausa o lasciare gli acquisti senza attraversare mezza provincia. È particolarmente utile se hai un appuntamento in boutique o prevedi due accessi in giorni diversi.</p>
+          <p>Il rovescio della medaglia è la disponibilità: l’offerta locale è più piccola di quella di Firenze e può riempirsi nei weekend, durante saldi e festività. Non dare per scontato che tutto sia raggiungibile a piedi; marciapiedi, pendenze e strade extraurbane possono rendere l’auto necessaria anche per pochi chilometri.</p>
+
+          <h3>2. Reggello: hotel, agriturismi e campagna</h3>
+          <p>Reggello è il territorio di riferimento per chi vuole abbinare shopping e soggiorno toscano. Qui si trovano hotel, ville, agriturismi e piccoli alloggi distribuiti tra centro e frazioni. È una buona opzione per coppie e per chi apprezza piscina, ristorante interno o panorama più della vicinanza a una stazione.</p>
+          <p>Il nome del comune, però, copre un’area ampia. Due strutture entrambe indicate come “Reggello” possono avere tempi molto diversi verso Leccio. Inserisci sempre i due indirizzi nel navigatore, prova il tragitto nell’orario in cui pensi di muoverti e verifica l’ultimo tratto. Per completare il soggiorno puoi consultare la guida a <a href="/it/guide/reggello-vallombrosa/">Reggello e Vallombrosa</a>.</p>
+
+          <h3>3. Incisa Valdarno: pratica per chi viaggia in A1</h3>
+          <p>Incisa è utile se arrivi da Roma, Milano o Bologna e vuoi limitare le deviazioni. Il casello Incisa–Reggello è il riferimento per raggiungere The Mall in auto; pernottare in zona semplifica sia l’arrivo sia la ripartenza. È una soluzione razionale per una notte, per chi ha molti bagagli o per chi inserisce l’outlet in un viaggio più lungo.</p>
+          <p>Confronta parcheggio, accesso serale e possibilità di cenare senza rimetterti subito alla guida. Se stai attraversando l’Italia, può esserti utile anche la guida su <a href="/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/">dove fermarsi lungo la A1 tra Roma e Milano</a>.</p>
+
+          <h3>4. Figline Valdarno: appartamenti e servizi per più giorni</h3>
+          <p>Figline è interessante quando l’alloggio non serve soltanto per dormire dopo lo shopping. Il centro offre stazione ferroviaria, supermercati, farmacie, bar e ristoranti; la posizione consente di organizzare giornate diverse senza cambiare base. Per famiglie e gruppi, una casa intera può offrire camere separate, cucina e parcheggio con un costo più leggibile rispetto a più camere d’hotel.</p>
+          <p>Da qui The Mall si raggiunge in auto attraversando il Valdarno. I tempi variano con traffico e punto esatto di partenza, quindi vanno controllati per la struttura scelta. Per orientarti fra centro, stazione e servizi, leggi la guida a <a href="/it/guide/figline-valdarno/">Figline Valdarno</a>.</p>
+
+          <h3>5. Firenze: quando ha davvero senso restare in città</h3>
+          <p>Dormire a Firenze è corretto se l’outlet è una sola escursione all’interno di un viaggio dedicato soprattutto alla città. Dal centro esiste un autobus diretto per The Mall; gli orari e il punto di partenza devono essere verificati sul sito ufficiale perché possono cambiare. In questo scenario risparmi il cambio di alloggio e puoi visitare musei e monumenti negli altri giorni.</p>
+          <p>Se viaggi in auto, considera invece ZTL, costo del garage, traffico e gestione delle borse. Un hotel centrale può essere “vicino” nelle pagine dei portali, ma non è vicino in senso operativo. La nostra guida a <a href="/it/guide/firenze/">Firenze in un giorno</a> aiuta a capire se il centro merita la priorità nel tuo programma.</p>
+        </section>
+
+        <GuideGallery title="The Mall Firenze e una base nel Valdarno" images={[
+          { src: '/images/places/the-mall-firenze.webp', alt: 'The Mall Firenze, outlet del lusso a Leccio Reggello' },
+          { src: '/images/perla-toscana/perla-toscana-strada-setteponti.webp', alt: 'Strada panoramica del Valdarno vicino a The Mall Firenze' },
+          { src: '/images/perla-toscana/perla-toscana-zona-pranzo-soggiorno.jpg', alt: 'Appartamento con cucina e zona pranzo a Figline Valdarno' }
+        ]} />
+
+        <section id="tipologie">
+          <h2>Hotel, agriturismo o appartamento vicino a The Mall Firenze?</h2>
+          <h3>Hotel: servizi e soggiorno semplice</h3>
+          <p>Un hotel è adatto a coppie, soggiorni brevi e viaggiatori che preferiscono reception, colazione e riassetto. Prima di scegliere, verifica se il parcheggio è incluso, se il ristorante è aperto nel giorno di arrivo e se la reception accetta check-in tardivi. La categoria in stelle non dice nulla sul tempo per raggiungere l’outlet: la posizione va controllata separatamente.</p>
+
+          <h3>Agriturismo: atmosfera e relax</h3>
+          <p>L’agriturismo funziona bene quando vuoi trasformare lo shopping in un weekend in campagna. Piscina, vista, ristorante e degustazioni possono rendere piacevole il tempo libero, ma alcuni servizi sono stagionali. Chiedi se l’ultimo tratto è asfaltato, se serve l’auto per cenare e se la piscina è disponibile nelle date scelte.</p>
+
+          <h3>Appartamento o casa vacanza: spazio per famiglie e gruppi</h3>
+          <p>Un <strong>appartamento vicino a The Mall Firenze</strong> diventa conveniente quando servono due o tre camere, flessibilità per i pasti e spazio per valigie e acquisti. È spesso la soluzione più comoda per bambini, amici o due nuclei familiari. Il confronto va fatto sul prezzo totale, includendo pulizie, eventuali imposte, parcheggio e numero effettivo di posti letto.</p>
+          <p>Controlla anche ciò che gli annunci sintetici tendono a nascondere: quanti bagni ci sono, quali letti sono permanenti, se l’aria condizionata raggiunge tutte le camere, quanto dista il parcheggio dall’ingresso e come avviene il check-in. Una cucina attrezzata è utile solo se nelle vicinanze è possibile fare la spesa.</p>
+
+          <h3>Villa o resort: privacy e servizi premium</h3>
+          <p>Ville e resort sono indicati per occasioni speciali, gruppi numerosi o soggiorni in cui benessere e ristorazione contano quanto lo shopping. Valuta il rapporto tra servizi realmente utilizzati e costo complessivo. Per una sola notte, una struttura spettacolare ma isolata può aggiungere complessità senza offrire un vantaggio concreto.</p>
+        </section>
+
+        <section id="trasporti">
+          <h2>Come raggiungere The Mall Firenze dall’alloggio</h2>
+          <h3>In auto: la soluzione più flessibile</h3>
+          <p>L’auto permette di arrivare presto, restare quanto vuoi e trasportare gli acquisti senza vincoli. Dall’A1 si utilizza l’uscita Incisa–Reggello e si seguono le indicazioni verso Leccio. Il parcheggio dell’outlet è disponibile, ma nei periodi più richiesti è prudente arrivare vicino all’apertura.</p>
+          <p>Quando confronti gli alloggi, non fermarti ai chilometri. Osserva tempi stimati, tipo di strada e traffico. Se usi un’auto elettrica, il sito ufficiale indica fra i servizi la ricarica: verifica disponibilità e condizioni aggiornate prima della visita.</p>
+
+          <h3>Autobus diretto da Firenze</h3>
+          <p>Il collegamento diretto è la scelta più semplice per chi dorme nel centro di Firenze e non vuole noleggiare un’auto. Controlla punto di partenza, prezzo, acquisto del biglietto e soprattutto ultima corsa di ritorno. Non costruire un programma rigido su orari letti mesi prima in un blog: usa la pagina ufficiale <a href="https://firenze.themall.it/it/vieni-a-trovarci" rel="noopener noreferrer">Vieni a trovarci di The Mall Firenze</a>.</p>
+
+          <h3>Treno più taxi: possibile, ma da pianificare</h3>
+          <p>Il treno è utile per raggiungere Figline o Incisa da Firenze e Arezzo, ma non arriva davanti all’outlet. Serve quindi organizzare l’ultimo tratto con taxi o altro servizio. Chiedi disponibilità e tariffa in anticipo, soprattutto la sera, la domenica o con molte borse. Per un gruppo, il costo condiviso può essere ragionevole; per una persona sola, il bus diretto da Firenze può risultare più lineare.</p>
+        </section>
+
+        <section id="criteri">
+          <h2>Come scegliere l’alloggio senza farsi ingannare dalla parola “vicino”</h2>
+          <p>Apri la scheda della struttura e verifica questi elementi prima di prenotare:</p>
+          <ul>
+            <li><strong>tempo reale in auto:</strong> calcolato tra indirizzi esatti e non in linea d’aria;</li>
+            <li><strong>parcheggio:</strong> privato o pubblico, gratuito o a pagamento, adatto al numero di auto;</li>
+            <li><strong>accesso:</strong> strada finale, scale, illuminazione e arrivo dopo il tramonto;</li>
+            <li><strong>letti e camere:</strong> configurazione reale per ogni ospite, non solo capienza massima;</li>
+            <li><strong>orari:</strong> check-in compatibile con viaggio e chiusura delle boutique;</li>
+            <li><strong>spazio:</strong> sufficiente per valigie, passeggini e sacchetti degli acquisti;</li>
+            <li><strong>servizi quotidiani:</strong> colazione, cucina, ristoranti, supermercato e farmacia;</li>
+            <li><strong>condizioni:</strong> prezzo finale, cancellazione, deposito ed eventuali supplementi.</li>
+          </ul>
+          <p>Le recensioni sono utili se lette per temi. Cerca commenti recenti su pulizia, rumore, parcheggio e precisione delle indicazioni. Una media alta non sostituisce l’informazione che ti serve: una casa amata dalle coppie può non essere pratica per tre auto, mentre un hotel perfetto per una notte può essere scomodo per una famiglia che vuole cucinare.</p>
+
+          <h3>Famiglie con bambini</h3>
+          <p>Riduci gli spostamenti e verifica lettino, seggiolone, cucina e camere comunicanti. Il sito ufficiale dell’outlet indica il noleggio gratuito di passeggini; disponibilità e modalità vanno confermate. Prevedi una pausa e non affidarti a una giornata di shopping senza margini.</p>
+
+          <h3>Gruppi di amici</h3>
+          <p>Confronta una casa intera con il costo di più camere, ma non sacrificare privacy e riposo. Conta letti veri, bagni e chiavi disponibili. Se arrivate separatamente, condividete percorso e istruzioni di accesso prima della partenza.</p>
+
+          <h3>Viaggiatori internazionali e Tax Free</h3>
+          <p>Chi risiede fuori dall’Unione Europea dovrebbe verificare requisiti e documenti per gli acquisti Tax Free sui canali ufficiali e presso i punti assistenza. Scegliere un alloggio con spazio sicuro per bagagli e ricevute rende più ordinata la preparazione della partenza, ma non sostituisce le procedure doganali.</p>
+        </section>
+
+        <section id="programma">
+          <h2>Quanto restare e come organizzare il soggiorno</h2>
+          <h3>Una notte: shopping senza deviazioni</h3>
+          <p>Arriva nel pomeriggio, effettua il check-in e cena vicino all’alloggio. Il mattino seguente raggiungi The Mall all’apertura, dedica alcune ore alle boutique e riparti nel pomeriggio. Questa formula funziona bene per chi percorre l’A1 e vuole evitare una giornata troppo lunga.</p>
+
+          <h3>Due notti: The Mall più Firenze o Valdarno</h3>
+          <p>Con due notti puoi dedicare una giornata allo shopping e una seconda meta al territorio. Da Figline puoi valutare il treno per Firenze; in auto puoi scegliere Reggello, Vallombrosa, borghi del <a href="/it/guide/valdarno/">Valdarno</a> o una tappa nel <a href="/it/guide/chianti/">Chianti</a>. Evita di unire nello stesso giorno outlet, musei prenotati e molte ore di guida.</p>
+
+          <h3>Tre notti: una base unica per la Toscana</h3>
+          <p>Tre notti permettono un ritmo migliore: un giorno a The Mall, uno a Firenze e uno fra Arezzo, Chianti o paesaggi locali. Una base con cucina e parcheggio riduce costi e cambi di valigia. Trovi altre combinazioni nell’<a href="/it/itinerari/3-giorni/">itinerario di tre giorni in Toscana</a>.</p>
+
+          <h3>Quando andare</h3>
+          <p>Weekend, saldi e festività possono aumentare affluenza e domanda di alloggi. Prenota prima se le date sono rigide, ma controlla sempre le condizioni di cancellazione. Gli orari dell’outlet e dei ristoranti possono variare: al momento della stesura il sito ufficiale pubblica apertura quotidiana, ma la fonte ufficiale resta l’unico riferimento da consultare subito prima della visita.</p>
+        </section>
+
+        <section id="perla" class="property-card card">
+          <h2>Quando Perla Toscana è una buona soluzione</h2>
+          <p><strong>Perla Toscana</strong> è una casa vacanza intera a Figline Valdarno, adatta soprattutto a chi raggiunge The Mall in auto e vuole usare lo stesso alloggio per più persone o più giornate. Il tragitto verso l’outlet richiede indicativamente circa 20–25 minuti, variabili con traffico e percorso.</p>
+          <p>La casa ospita fino a 8 persone in 3 camere, con ulteriori soluzioni letto da concordare. Dispone di cucina attrezzata, Wi-Fi, aria condizionata nelle camere, Smart TV, giardino e parcheggio privato gratuito fino a 3 auto. Queste caratteristiche sono utili per famiglie e gruppi che desiderano rientrare dopo lo shopping, sistemare gli acquisti e cenare senza dipendere dal ristorante dell’hotel.</p>
+          <p>Non è la scelta giusta per chi vuole raggiungere The Mall a piedi o preferisce reception e colazione d’albergo. È invece una base pratica per chi cerca autonomia e vuole collegare l’outlet a Firenze, Arezzo e Valdarno. Prima di prenotare controlla <a href="/it/camere-servizi/">camere e servizi</a>, leggi <a href="/it/come-arrivare/">come arrivare</a> e comunica numero di ospiti, auto e disposizione dei letti.</p>
+        </section>
+
+        <section id="faq"><p class="eyebrow">FAQ</p><h2>Domande frequenti su dove dormire vicino a The Mall Firenze</h2><FAQBlock items={faqs} /></section>
+
+        <GuideMap description="The Mall Firenze si trova in Via Europa 8 a Leccio, nel comune di Reggello. Perla Toscana si trova a Figline Valdarno: verifica sempre il percorso e i tempi aggiornati prima di partire." embedUrl="https://www.google.com/maps?q=The%20Mall%20Firenze%2C%20Via%20Europa%208%2C%20Leccio%20Reggello&output=embed" directionsUrl="https://www.google.com/maps/dir/?api=1&destination=The+Mall+Firenze%2C+Via+Europa+8%2C+Leccio+Reggello" />
+
+        <section>
+          <h2>La scelta migliore è quella che semplifica tutto il viaggio</h2>
+          <p>Per dormire vicino a The Mall Firenze non basta ordinare le strutture per distanza. Leccio massimizza la vicinanza, Reggello offre atmosfera rurale, Incisa facilita l’autostrada, Figline aggiunge spazio e servizi, mentre Firenze resta adatta a chi mette la città al centro del viaggio. Parti dal tuo programma, verifica i tragitti reali e scegli il servizio che elimina più complicazioni.</p>
+          <p>Un alloggio ben scelto lascia tempo ed energia per lo shopping e per il territorio. È questo, più di qualsiasi etichetta commerciale, che rende una sistemazione davvero comoda.</p>
+        </section>
+
+        <section class="related-guides" aria-labelledby="related-title"><h2 id="related-title">Continua a organizzare il soggiorno</h2><div class="related-grid">
+          <a class="related-card card" href="/it/guide/the-mall-firenze/"><span>Shopping</span><h3>The Mall Firenze: guida pratica</h3><p>Come arrivare, servizi, boutique e idee per la giornata.</p></a>
+          <a class="related-card card" href="/it/guide/figline-valdarno/"><span>Base locale</span><h3>Guida a Figline Valdarno</h3><p>Stazione, centro, servizi e consigli per il soggiorno.</p></a>
+          <a class="related-card card" href="/it/itinerari/2-giorni/"><span>Itinerario</span><h3>Due giorni in Toscana</h3><p>Un programma realistico tra shopping, città e paesaggio.</p></a>
+        </div></section>
+
+        <p class="pre-cta">Se stai valutando Perla Toscana, verifica che camere, accesso e configurazione dei letti siano adatti al tuo gruppo prima di confermare.</p>
+        <GuideFinalCTA />
+        <EditorialSignature />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;color:var(--color-warm-white);font-size:.9rem;order:-1}.breadcrumb a{font-weight:700;text-decoration:none}.byline{color:rgba(255,249,240,.82);font-size:.92rem}.facts-wrap{position:relative;z-index:2;margin-top:-34px}.article-layout{display:grid;grid-template-columns:260px minmax(0,760px);gap:54px;align-items:start}.toc{position:sticky;top:96px;padding:20px}.toc h2{font-size:1.35rem;margin-bottom:5px}.toc-meta{color:rgba(51,37,29,.62);font-size:.82rem;margin-bottom:14px}.toc ol{display:grid;gap:7px;margin:0;padding-left:20px}.toc a{color:var(--color-olive);font-size:.9rem;text-decoration:none}.article-content{display:grid;gap:42px;font-size:1.04rem}.article-content section{display:grid;gap:16px;scroll-margin-top:100px}.article-content h2{font-size:clamp(1.8rem,4vw,2.55rem)}.article-content h3{margin-top:8px}.article-content p,.article-content li{max-width:72ch}.article-content a:not(.button){color:var(--color-terracotta-dark);font-weight:700}.article-content ul{display:grid;gap:9px;margin:0;padding-left:23px}.comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.comparison>div{padding:20px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-warm-white)}.comparison h3{margin:0 0 8px;font-size:1.35rem}.comparison p{font-size:.92rem}.property-card{padding:28px;border-color:rgba(166,83,50,.28)}.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.related-card{display:grid;align-content:start;gap:9px;padding:20px;text-decoration:none;transition:transform .18s ease,border-color .18s ease}.related-card:hover{border-color:rgba(166,83,50,.45);transform:translateY(-2px)}.related-card span{color:var(--color-olive);font-size:.76rem;font-weight:800;text-transform:uppercase}.related-card h3{color:var(--color-espresso);font-size:1.25rem}.related-card p{color:rgba(51,37,29,.72);font-size:.88rem}.pre-cta{color:rgba(51,37,29,.82)}@media(max-width:850px){.article-layout{grid-template-columns:1fr;gap:30px}.toc{position:static}.facts-wrap{margin-top:18px}.related-grid{grid-template-columns:1fr}}@media(max-width:620px){.comparison{grid-template-columns:1fr}}
+</style>

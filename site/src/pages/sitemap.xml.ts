@@ -11,6 +11,7 @@ export function GET() {
     { path: '/it/guide/', alternatePath: '/en/guides/' },
     { path: '/en/guides/', alternatePath: '/it/guide/' },
     { path: '/guide/', alternatePath: '/en/guides/' },
+    { path: '/guide/dove-dormire-vicino-the-mall-firenze/', alternatePath: '/guide/dove-dormire-vicino-the-mall-firenze/' },
     { path: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', alternatePath: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/' },
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
