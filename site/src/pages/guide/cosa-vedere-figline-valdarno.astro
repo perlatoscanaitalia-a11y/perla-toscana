@@ -22,14 +22,14 @@ const faqs=[
  {question:'Quanto dista Perla Toscana dal centro di Figline?',answer:'La casa si trova nel territorio comunale e il centro è raggiungibile in pochi minuti in auto. Il tempo esatto varia con traffico e destinazione.'}
 ];
 const schema=[
- {'@context':'https://schema.org','@type':'BlogPosting',headline:'Cosa vedere a Figline Valdarno: centro storico, itinerario e consigli utili',description,image:new URL('/images/perla-toscana/perla-toscana-strada-setteponti.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-07-23',inLanguage:'it-IT',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},publisher:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},about:[{'@type':'Place',name:'Figline Valdarno'}]},
+ {'@context':'https://schema.org','@type':'BlogPosting',headline:'Cosa vedere a Figline Valdarno: centro storico, itinerario e consigli utili',description,image:new URL('/images/places/figline-piazza-marsilio-ficino.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-07-23',inLanguage:'it-IT',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},publisher:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},about:[{'@type':'Place',name:'Figline Valdarno'}]},
  {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:`${siteConfig.siteUrl}/it/`},{'@type':'ListItem',position:2,name:'Guide',item:`${siteConfig.siteUrl}/guide/`},{'@type':'ListItem',position:3,name:'Cosa vedere a Figline Valdarno',item:canonical}]},
  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(x=>({'@type':'Question',name:x.question,acceptedAnswer:{'@type':'Answer',text:x.answer}}))}
 ];
 ---
 <BaseLayout lang="it" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article">
 <article>
-<GuideHero image="/images/perla-toscana/perla-toscana-strada-setteponti.webp" alt="Paesaggio nel territorio di Figline e Incisa Valdarno" category="Guida locale" title="Cosa vedere a Figline Valdarno: centro storico, itinerario e consigli utili" intro="Una passeggiata nel cuore del Valdarno fiorentino, tra piazze, arte, botteghe e collegamenti comodi per esplorare la Toscana.">
+<GuideHero image="/images/places/figline-piazza-marsilio-ficino.webp" alt="Piazza Marsilio Ficino nel centro storico di Figline Valdarno" category="Guida locale" title="Cosa vedere a Figline Valdarno: centro storico, itinerario e consigli utili" intro="Una passeggiata nel cuore del Valdarno fiorentino, tra piazze, arte, botteghe e collegamenti comodi per esplorare la Toscana.">
  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/it/">Home</a><span>/</span><a href="/guide/">Guide</a><span>/</span><span>Figline Valdarno</span></nav>
  <p class="byline">A cura di Perla Toscana · <time datetime="2026-07-23">Pubblicato il 23 luglio 2026</time> · <time datetime="2026-07-23">Aggiornato il 23 luglio 2026</time></p>
 </GuideHero>

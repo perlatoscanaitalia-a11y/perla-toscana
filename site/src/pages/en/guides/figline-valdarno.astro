@@ -22,14 +22,14 @@ const faqs=[
  {question:'How far is Perla Toscana from Figline centre?',answer:'The house is in the wider municipality and the centre is a short drive away. Exact time depends on traffic and your destination.'}
 ];
 const schema=[
- {'@context':'https://schema.org','@type':'BlogPosting',headline:'What to see in Figline Valdarno: historic centre, walking route and practical tips',description,image:new URL('/images/perla-toscana/perla-toscana-strada-setteponti.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-07-23',inLanguage:'en-GB',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},publisher:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},about:[{'@type':'Place',name:'Figline Valdarno'}]},
+ {'@context':'https://schema.org','@type':'BlogPosting',headline:'What to see in Figline Valdarno: historic centre, walking route and practical tips',description,image:new URL('/images/places/figline-piazza-marsilio-ficino.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-07-23',inLanguage:'en-GB',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},publisher:{'@type':'Organization',name:'Perla Toscana',url:siteConfig.siteUrl},about:[{'@type':'Place',name:'Figline Valdarno'}]},
  {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:`${siteConfig.siteUrl}/en/`},{'@type':'ListItem',position:2,name:'Guides',item:`${siteConfig.siteUrl}/en/guides/`},{'@type':'ListItem',position:3,name:'Figline Valdarno',item:canonical}]},
  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(x=>({'@type':'Question',name:x.question,acceptedAnswer:{'@type':'Answer',text:x.answer}}))}
 ];
 ---
 <BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article">
 <article>
-<GuideHero image="/images/perla-toscana/perla-toscana-strada-setteponti.webp" alt="Countryside in the Figline e Incisa Valdarno area" category="Local guide" title="What to see in Figline Valdarno: historic centre, walking route and practical tips" intro="A rewarding walk through the Florentine Valdarno, combining a historic square, art, local shops and easy onward travel across Tuscany.">
+<GuideHero image="/images/places/figline-piazza-marsilio-ficino.webp" alt="Piazza Marsilio Ficino in the historic centre of Figline Valdarno" category="Local guide" title="What to see in Figline Valdarno: historic centre, walking route and practical tips" intro="A rewarding walk through the Florentine Valdarno, combining a historic square, art, local shops and easy onward travel across Tuscany.">
  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a><span>/</span><a href="/en/guides/">Guides</a><span>/</span><span>Figline Valdarno</span></nav>
  <p class="byline">By Perla Toscana · <time datetime="2026-07-23">Published 23 July 2026</time> · <time datetime="2026-07-23">Updated 23 July 2026</time></p>
 </GuideHero>
