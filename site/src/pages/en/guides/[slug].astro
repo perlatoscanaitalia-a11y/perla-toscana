@@ -5,7 +5,7 @@ import { guides } from '../../../data/guides';
 import { faqSchema, guideSchema, lodgingSchema } from '../../../data/schema';
 
 export function getStaticPaths() {
-  return guides.en.filter(page => page.path.includes('/guides/')).map(page => ({ params: { slug: page.slug }, props: { page } }));
+  return guides.en.filter(page => page.path.includes('/guides/') && page.slug !== 'figline-valdarno').map(page => ({ params: { slug: page.slug }, props: { page } }));
 }
 const { page } = Astro.props;
 const schema = [lodgingSchema('en', page.path), ...guideSchema('en', page), faqSchema(page.faqs)].filter(Boolean);
