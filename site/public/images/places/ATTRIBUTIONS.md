@@ -4,6 +4,7 @@ Images used in the location attraction cards.
 
 - `the-mall-firenze.jpg` - Source image: "Panoramica di Piazza Daniele Manin Leccio Reggello" by PROPOLI87, Wikimedia Commons, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:Panoramica_di_Piazza_Daniele_Manin_Leccio_Reggello.jpg
 - `firenze-centro.jpg` - Source image: "Ponte Vecchio Arno Florence" by Jebulon, Wikimedia Commons, CC0. Source: https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_Arno_Florence.jpg
+- `duomo-firenze-facciata.webp` - Adapted from "Duomo Florence facade.jpg" by Macieklew, Wikimedia Commons, CC BY-SA 4.0. Resized and converted to WebP by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:Duomo_Florence_facade.jpg — License: https://creativecommons.org/licenses/by-sa/4.0/
 - `greve-in-chianti.jpg` - Source image: "Greve piazza.JPG" by Velvet, Wikimedia Commons, CC BY-SA 3.0. Source: https://commons.wikimedia.org/wiki/File:Greve_piazza.JPG
 - `siena.jpg` - Source image: "Piazza del Campo Siena" by Siegfried Rabanser, Wikimedia Commons, CC BY 2.0. Source: https://commons.wikimedia.org/wiki/File:Piazza_del_Campo_Siena.jpg
 - `san-gimignano.jpg` - Source image: "1 Aerial pano san gimignano (2)a.jpg" by Chensiyuan, Wikimedia Commons, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:1_Aerial_pano_san_gimignano_(2)a.jpg
