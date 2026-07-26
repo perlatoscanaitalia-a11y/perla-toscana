@@ -17,14 +17,8 @@ const amenityFeature = [
 ].map(({ name, value }) => ({ '@type': 'LocationFeatureSpecification', name, value }));
 
 const vacationRentalPaths = new Set([
-  '/it/',
-  '/en/',
   '/it/appartamento/',
-  '/en/the-apartment/',
-  '/it/camere-servizi/',
-  '/en/rooms-amenities/',
-  '/it/galleria/',
-  '/en/gallery/'
+  '/en/rooms-amenities/'
 ]);
 
 const address = {
