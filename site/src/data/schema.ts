@@ -8,23 +8,24 @@ const propertyImages = structuredDataGalleryImages.map((src) => new URL(src, sit
 
 const amenityFeature = [
   { name: 'wifi', value: true },
-  { name: 'internetType', value: 'Free' },
-  { name: 'parkingType', value: 'Free' },
-  { name: 'privateParking', value: true },
-  { name: 'ovenStove', value: true },
-  { name: 'equippedKitchen', value: true },
   { name: 'ac', value: true },
+  { name: 'kitchen', value: true },
+  { name: 'parkingType', value: 'Free' },
   { name: 'tv', value: true },
-  { name: 'smartTv', value: true },
-  { name: 'hydromassageShower', value: true },
-  { name: 'garden', value: true },
-  { name: 'bedLinen', value: true },
-  { name: 'towels', value: true },
-  { name: 'hairDryer', value: true },
   { name: 'petsAllowed', value: false },
-  { name: 'smokingAllowed', value: false },
-  { name: 'licenseNum', value: `Italy CIN: ${siteConfig.placeholders.cin}` }
+  { name: 'smokingAllowed', value: false }
 ].map(({ name, value }) => ({ '@type': 'LocationFeatureSpecification', name, value }));
+
+const vacationRentalPaths = new Set([
+  '/it/',
+  '/en/',
+  '/it/appartamento/',
+  '/en/the-apartment/',
+  '/it/camere-servizi/',
+  '/en/rooms-amenities/',
+  '/it/galleria/',
+  '/en/gallery/'
+]);
 
 const address = {
   '@type': 'PostalAddress',
@@ -42,24 +43,20 @@ const geo = {
 };
 
 export function lodgingSchema(lang: Lang, path: string) {
+  if (!vacationRentalPaths.has(path)) return undefined;
+
   const pageUrl = new URL(path, siteConfig.siteUrl).toString();
-  const lodgingId = `${siteConfig.siteUrl}/#lodging`;
   const vacationRentalId = `${siteConfig.siteUrl}/#vacation-rental`;
-  const isHomePage = path === `/${lang}/`;
-  const roomNames =
-    lang === 'it'
-      ? ['Camera King', 'Camera Queen', 'Camera doppia', 'Cucina', 'Bagno', 'Soggiorno']
-      : ['King bedroom', 'Queen bedroom', 'Twin bedroom', 'Kitchen', 'Bathroom', 'Living room'];
+  const accommodationId = `${siteConfig.siteUrl}/#accommodation`;
 
   const vacationRental = {
     '@type': 'VacationRental',
     '@id': vacationRentalId,
     identifier: siteConfig.placeholders.cin,
     name: siteConfig.name,
+    additionalType: 'House',
     url: pageUrl,
     mainEntityOfPage: pageUrl,
-    brand: { '@type': 'Brand', name: siteConfig.name },
-    provider: { '@id': lodgingId },
     image: propertyImages,
     address,
     geo,
@@ -68,19 +65,19 @@ export function lodgingSchema(lang: Lang, path: string) {
     telephone: siteConfig.placeholders.phone,
     checkinTime: siteConfig.houseRules.checkInTime,
     checkoutTime: siteConfig.houseRules.checkOutTime,
-    knowsLanguage: ['it', 'en'],
+    knowsLanguage: ['it-IT', 'en-GB'],
     description:
       lang === 'it'
         ? 'Casa vacanza a Figline Valdarno con 3 camere, fino a 8 ospiti, parcheggio privato gratuito, Wi-Fi, aria condizionata e posizione comoda per Firenze, Chianti e The Mall Firenze.'
         : 'Holiday home in Figline Valdarno with 3 bedrooms, sleeps up to 8 guests, free private parking, Wi-Fi, air conditioning and a convenient location for Florence, Chianti and The Mall Firenze.',
     containsPlace: {
       '@type': 'Accommodation',
+      '@id': accommodationId,
       additionalType: 'EntirePlace',
       name: lang === 'it' ? 'Intera casa vacanza Perla Toscana' : 'Entire Perla Toscana holiday home',
       occupancy: { '@type': 'QuantitativeValue', value: 8 },
       numberOfBedrooms: 3,
       numberOfBathroomsTotal: 1,
-      numberOfRooms: 6,
       bed: [
         { '@type': 'BedDetails', numberOfBeds: 1, typeOfBed: 'King' },
         { '@type': 'BedDetails', numberOfBeds: 1, typeOfBed: 'Queen' },
@@ -89,48 +86,11 @@ export function lodgingSchema(lang: Lang, path: string) {
       ],
       petsAllowed: false,
       smokingAllowed: false,
-      amenityFeature,
-      containsPlace: roomNames.map((name) => ({ '@type': 'Room', name }))
-    },
-    ...(isHomePage
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: 5,
-            ratingCount: 6,
-            reviewCount: 6,
-            bestRating: 5,
-            worstRating: 1
-          }
-        }
-      : {})
+      amenityFeature
+    }
   };
 
-  const lodgingBusiness = {
-    '@type': 'LodgingBusiness',
-    '@id': lodgingId,
-    identifier: siteConfig.placeholders.cin,
-    name: siteConfig.name,
-    url: siteConfig.siteUrl,
-    image: propertyImages,
-    address,
-    geo,
-    telephone: siteConfig.placeholders.phone,
-    checkinTime: siteConfig.houseRules.checkInTime,
-    checkoutTime: siteConfig.houseRules.checkOutTime,
-    petsAllowed: false,
-    smokingAllowed: false,
-    containsPlace: { '@id': vacationRentalId },
-    sameAs: [
-      siteConfig.social.instagramUrl,
-      siteConfig.social.facebookUrl,
-      siteConfig.social.pinterestUrl,
-      siteConfig.social.tiktokUrl,
-      siteConfig.placeholders.googleMapsUrl
-    ]
-  };
-
-  return { '@context': 'https://schema.org', '@graph': [vacationRental, lodgingBusiness] };
+  return { '@context': 'https://schema.org', ...vacationRental };
 }
 
 export function faqSchema(items?: { question: string; answer: string }[]) {
