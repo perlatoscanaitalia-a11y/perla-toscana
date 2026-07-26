@@ -261,6 +261,10 @@ const initialsFor = (name: string) => name
   .section-html :global(.article-toc) { columns:2; padding-left:20px; }
   .section-html :global(.article-toc li) { margin:0 0 8px; break-inside:avoid; }
   .section-html :global(a) { color:var(--color-terracotta); }
+  .section-html :global(.travel-facts) { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin:0 0 20px; }
+  .section-html :global(.travel-facts div) { display:grid; gap:3px; padding:14px 10px; border:1px solid rgba(102,114,77,.22); border-radius:10px; background:rgba(255,255,255,.55); text-align:center; }
+  .section-html :global(.travel-facts strong) { color:var(--color-terracotta-dark); font-size:1.05rem; }
+  .section-html :global(.travel-facts span) { color:rgba(47,42,36,.72); font-size:.78rem; }
 
   .card h2 {
     margin-bottom: 12px;
@@ -553,6 +557,7 @@ const initialsFor = (name: string) => name
   @media (max-width: 720px) {
     .section-html { overflow-x:auto; }
     .section-html :global(.article-toc) { columns:1; }
+    .section-html :global(.travel-facts) { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .page-hero h1 {
       max-width: 100%;
       font-size: clamp(1.95rem, 9vw, 2.2rem);
