@@ -31,14 +31,16 @@ export const footerLinks = {
     { label: 'Privacy Policy', href: '/it/privacy-policy/' },
     { label: 'Cookie Policy', href: '/it/cookie-policy/' },
     { label: 'Termini e condizioni', href: '/it/termini-condizioni/' },
-    { label: 'Informazioni legali / CIN', href: '/it/informazioni-legali/' }
+    { label: 'Informazioni legali / CIN', href: '/it/informazioni-legali/' },
+    { label: 'Crediti fotografici', href: '/it/crediti-fotografici/' }
   ],
   en: [
     { label: 'Guides', href: '/en/guides/' },
     { label: 'Privacy Policy', href: '/en/privacy-policy/' },
     { label: 'Cookie Policy', href: '/en/cookie-policy/' },
     { label: 'Terms and Conditions', href: '/en/terms-and-conditions/' },
-    { label: 'Legal Information / CIN', href: '/en/legal-information/' }
+    { label: 'Legal Information / CIN', href: '/en/legal-information/' },
+    { label: 'Photo credits', href: '/en/photo-credits/' }
   ]
 };
 
