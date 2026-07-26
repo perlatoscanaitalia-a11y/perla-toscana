@@ -2,6 +2,12 @@
 
 Images used in the location attraction cards.
 
+- `autostrada-a1-valdarno.webp` - Adapted from "A1 motorway - Florence - Rome.jpg" by Kleszczu at Polish Wikipedia, Wikimedia Commons, CC BY-SA 3.0. Converted to WebP and cropped responsively by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:A1_motorway_-_Florence_-_Rome.jpg - License: https://creativecommons.org/licenses/by-sa/3.0/
+- `balze-del-valdarno.webp` - Adapted from "Balze (4).JPG" by Emiliano Burzagli, Wikimedia Commons, CC BY-SA 3.0. Converted to WebP and cropped responsively by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:Balze_(4).JPG - License: https://creativecommons.org/licenses/by-sa/3.0/
+- `arezzo-piazza-grande.webp` - Adapted from "Panoramica di Piazza Grande Arezzo.jpg" by Baldo Simone, Wikimedia Commons, CC BY-SA 4.0. Converted to WebP and cropped responsively by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:Panoramica_di_Piazza_Grande_Arezzo.jpg - License: https://creativecommons.org/licenses/by-sa/4.0/
+- `abbazia-vallombrosa.webp` - Adapted from "La splendida abbazia di Vallombrosa si specchia.jpg" by PROPOLI87, Wikimedia Commons, CC BY-SA 4.0. Converted to WebP and cropped responsively by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:La_splendida_abbazia_di_Vallombrosa_si_specchia.jpg - License: https://creativecommons.org/licenses/by-sa/4.0/
+- `santuario-la-verna.webp` - Adapted from "La Verna, Santuario de la Verna 002.JPG" by Mattana, Wikimedia Commons, CC BY-SA 3.0. Converted to WebP and cropped responsively by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:La_Verna,_Santuario_de_la_Verna_002.JPG - License: https://creativecommons.org/licenses/by-sa/3.0/
+
 - `the-mall-firenze.jpg` - Source image: "Panoramica di Piazza Daniele Manin Leccio Reggello" by PROPOLI87, Wikimedia Commons, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:Panoramica_di_Piazza_Daniele_Manin_Leccio_Reggello.jpg
 - `firenze-centro.jpg` - Source image: "Ponte Vecchio Arno Florence" by Jebulon, Wikimedia Commons, CC0. Source: https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_Arno_Florence.jpg
 - `duomo-firenze-facciata.webp` - Adapted from "Duomo Florence facade.jpg" by Macieklew, Wikimedia Commons, CC BY-SA 4.0. Resized and converted to WebP by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:Duomo_Florence_facade.jpg — License: https://creativecommons.org/licenses/by-sa/4.0/
