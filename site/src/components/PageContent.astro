@@ -31,8 +31,15 @@ const initialsFor = (name: string) => name
 <>
 <section class="section page-hero">
   <div class="container page-hero-inner">
+    {page.publishedAt && <nav class="breadcrumbs" aria-label={lang === 'it' ? 'Percorso di navigazione' : 'Breadcrumb'}><a href={`/${lang}/`}>Perla Toscana</a><span aria-hidden="true">/</span><a href={lang === 'it' ? '/it/guide/' : '/en/guides/'}>{lang === 'it' ? 'Guide' : 'Guides'}</a><span aria-hidden="true">/</span><span aria-current="page">{page.h1}</span></nav>}
     <p class="eyebrow">{page.eyebrow}</p>
     <h1>{page.h1}</h1>
+    {(page.publishedAt || page.updatedAt) && (
+      <p class="article-dates">
+        {page.publishedAt && <span>{lang === 'it' ? 'Pubblicato' : 'Published'}: <time datetime={page.publishedAt}>{new Date(page.publishedAt).toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span>}
+        {page.updatedAt && <span>{lang === 'it' ? 'Aggiornato' : 'Updated'}: <time datetime={page.updatedAt}>{new Date(page.updatedAt).toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span>}
+      </p>
+    )}
     {page.introHeading && <h2 class="intro-heading">{page.introHeading}</h2>}
     <p class="lead" set:html={page.intro} />
     {!hideSalesCtas && <CTAButtons lang={lang} bookingPage={isBookingPage} />}
@@ -244,6 +251,16 @@ const initialsFor = (name: string) => name
     color: var(--color-terracotta-dark);
     font-size: clamp(1.25rem, 2vw, 1.55rem);
   }
+
+  .article-dates { display:flex; flex-wrap:wrap; gap:8px 18px; color:rgba(47,42,36,.7); font-size:.9rem; }
+  .breadcrumbs { display:flex; flex-wrap:wrap; gap:6px; color:rgba(47,42,36,.68); font-size:.84rem; }
+  .breadcrumbs a { color:var(--color-olive); }
+  .section-html :global(.day-table) { width:100%; border-collapse:collapse; font-size:.94rem; }
+  .section-html :global(.day-table th), .section-html :global(.day-table td) { padding:10px; border-bottom:1px solid var(--color-border); text-align:left; vertical-align:top; }
+  .section-html :global(.day-table th) { color:var(--color-olive); }
+  .section-html :global(.article-toc) { columns:2; padding-left:20px; }
+  .section-html :global(.article-toc li) { margin:0 0 8px; break-inside:avoid; }
+  .section-html :global(a) { color:var(--color-terracotta); }
 
   .card h2 {
     margin-bottom: 12px;
@@ -534,6 +551,8 @@ const initialsFor = (name: string) => name
   }
 
   @media (max-width: 720px) {
+    .section-html { overflow-x:auto; }
+    .section-html :global(.article-toc) { columns:1; }
     .page-hero h1 {
       max-width: 100%;
       font-size: clamp(1.95rem, 9vw, 2.2rem);

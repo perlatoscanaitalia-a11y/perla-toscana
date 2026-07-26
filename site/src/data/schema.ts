@@ -149,7 +149,7 @@ export function faqSchema(items?: { question: string; answer: string }[]) {
   };
 }
 
-export function guideSchema(lang: Lang, page: { path: string; h1: string; description: string }) {
+export function guideSchema(lang: Lang, page: { path: string; h1: string; description: string; publishedAt?: string; updatedAt?: string }) {
   const url = new URL(page.path, siteConfig.siteUrl).toString();
   return [
     {
@@ -160,6 +160,8 @@ export function guideSchema(lang: Lang, page: { path: string; h1: string; descri
       inLanguage: lang,
       url,
       mainEntityOfPage: url,
+      ...(page.publishedAt ? { datePublished: page.publishedAt } : {}),
+      ...(page.updatedAt ? { dateModified: page.updatedAt } : {}),
       about: ['Tuscany', 'Figline e Incisa Valdarno', 'Valdarno', 'Florence', 'Chianti'],
       author: { '@type': 'Organization', '@id': `${siteConfig.siteUrl}/#lodging`, name: siteConfig.name },
       publisher: { '@type': 'Organization', '@id': `${siteConfig.siteUrl}/#lodging`, name: siteConfig.name }

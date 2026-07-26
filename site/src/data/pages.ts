@@ -12,6 +12,8 @@ export interface PageContent {
   h1: string;
   introHeading?: string;
   intro: string;
+  publishedAt?: string;
+  updatedAt?: string;
   showCtas?: boolean;
   showBookingCta?: boolean;
   sections: {
