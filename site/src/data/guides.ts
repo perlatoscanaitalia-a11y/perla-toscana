@@ -1,6 +1,7 @@
 import type { Lang, PageContent } from './pages';
 import { florenceOneDayPages } from './guideFlorenceOneDay';
 import { pienzaOneDayPages } from './guidePienzaOneDay';
+import { sanGalganoPages } from './guideSanGalgano';
 
 type Destination = {
   itSlug: string; enSlug: string; itName: string; enName: string;
@@ -98,6 +99,6 @@ function itineraryPage(days: 1 | 2 | 3, lang: Lang): PageContent {
 }
 
 export const guides = {
-  it: [pienzaOneDayPages.it, florenceOneDayPages.it, ...destinations.map(d => destinationPage(d, 'it')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'it'))],
-  en: [pienzaOneDayPages.en, florenceOneDayPages.en, ...destinations.map(d => destinationPage(d, 'en')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'en'))]
+  it: [sanGalganoPages.it, pienzaOneDayPages.it, florenceOneDayPages.it, ...destinations.map(d => destinationPage(d, 'it')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'it'))],
+  en: [sanGalganoPages.en, pienzaOneDayPages.en, florenceOneDayPages.en, ...destinations.map(d => destinationPage(d, 'en')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'en'))]
 };
