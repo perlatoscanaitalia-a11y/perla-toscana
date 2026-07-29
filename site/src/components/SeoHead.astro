@@ -10,13 +10,16 @@ interface Props {
   schema?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
   ogType?: 'website' | 'article';
+  socialImage?: string;
+  socialImageAlt?: string;
 }
 
-const { title, description, path, lang, alternatePath, schema, noindex = false, ogType = 'website' } = Astro.props;
+const { title, description, path, lang, alternatePath, schema, noindex = false, ogType = 'website', socialImage: socialImagePath, socialImageAlt } = Astro.props;
 const canonical = new URL(path, siteConfig.siteUrl).toString();
 const alternateLang = lang === 'it' ? 'en' : 'it';
 const alternateUrl = alternatePath ? new URL(alternatePath, siteConfig.siteUrl).toString() : undefined;
-const socialImage = new URL('/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg', siteConfig.siteUrl).toString();
+const socialImage = new URL(socialImagePath || '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg', siteConfig.siteUrl).toString();
+const resolvedSocialAlt = socialImageAlt || (lang === 'it' ? 'Camera matrimoniale di Perla Toscana a Figline Valdarno' : 'Double bedroom at Perla Toscana in Figline Valdarno');
 ---
 <title>{title}</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
@@ -32,7 +35,7 @@ const socialImage = new URL('/images/perla-toscana/perla-toscana-hero-camera-pri
 <meta property="og:locale" content={lang === 'it' ? 'it_IT' : 'en_US'} />
 <meta property="og:locale:alternate" content={lang === 'it' ? 'en_US' : 'it_IT'} />
 <meta property="og:image" content={socialImage} />
-<meta property="og:image:alt" content={lang === 'it' ? 'Camera matrimoniale di Perla Toscana a Figline Valdarno' : 'Double bedroom at Perla Toscana in Figline Valdarno'} />
+<meta property="og:image:alt" content={resolvedSocialAlt} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />

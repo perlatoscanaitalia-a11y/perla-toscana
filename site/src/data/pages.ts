@@ -14,6 +14,8 @@ export interface PageContent {
   intro: string;
   publishedAt?: string;
   updatedAt?: string;
+  socialImage?: string;
+  socialImageAlt?: string;
   showCtas?: boolean;
   showBookingCta?: boolean;
   sections: {
