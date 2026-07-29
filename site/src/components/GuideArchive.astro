@@ -14,12 +14,15 @@ const local = guides[lang]
   } : item);
 const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
 const images: Record<string,string> = {
+  'luoghi-francescani-toscana-umbria':'/images/places/santuario-la-verna.webp','franciscan-places-tuscany-umbria':'/images/places/santuario-la-verna.webp',
   'abbazia-di-san-galgano':'/images/places/san-galgano/san-galgano-abbey-exterior.webp','san-galgano-abbey':'/images/places/san-galgano/san-galgano-abbey-exterior.webp',
   'cosa-vedere-a-pienza':'/images/places/pienza-piazza-pio-ii.webp','what-to-see-in-pienza':'/images/places/pienza-piazza-pio-ii.webp',
   'firenze-in-un-giorno':'/images/perla-toscana/perla-toscana-tavolo-pranzo-apparecchiato.jpg','florence-in-one-day':'/images/perla-toscana/perla-toscana-tavolo-pranzo-apparecchiato.jpg',
   firenze:'/images/places/firenze-centro.jpg',florence:'/images/places/firenze-centro.jpg',chianti:'/images/places/greve-in-chianti.jpg','the-mall-firenze':'/images/places/the-mall-firenze.webp','figline-valdarno':'/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg',valdarno:'/images/places/balze-del-valdarno.webp',arezzo:'/images/places/arezzo-piazza-grande.webp',siena:'/images/places/siena.jpg','reggello-vallombrosa':'/images/places/abbazia-vallombrosa.webp','1-giorno':'/images/places/san-gimignano.jpg','1-day':'/images/places/san-gimignano.jpg','2-giorni':'/images/places/val-d-orcia.jpg','2-days':'/images/places/val-d-orcia.jpg','3-giorni':'/images/places/montefioralle-chianti-panorama.webp','3-days':'/images/places/montefioralle-chianti-panorama.webp'
 };
 const imageAlts: Record<string,Record<'it'|'en',string>> = {
+  'luoghi-francescani-toscana-umbria': { it: 'Santuario della Verna tra i boschi, tappa dell’itinerario francescano fra Toscana e Umbria', en: 'La Verna Sanctuary in the forest on a Franciscan itinerary through Tuscany and Umbria' },
+  'franciscan-places-tuscany-umbria': { it: 'Santuario della Verna tra i boschi, tappa dell’itinerario francescano fra Toscana e Umbria', en: 'La Verna Sanctuary in the forest on a Franciscan itinerary through Tuscany and Umbria' },
   'abbazia-di-san-galgano': { it: 'Abbazia di San Galgano senza tetto nella campagna di Chiusdino', en: 'Roofless San Galgano Abbey in the countryside near Chiusdino' },
   'san-galgano-abbey': { it: 'Abbazia di San Galgano senza tetto nella campagna di Chiusdino', en: 'Roofless San Galgano Abbey in the countryside near Chiusdino' },
   'cosa-vedere-a-pienza': { it: 'Piazza Pio II nel centro storico rinascimentale di Pienza', en: 'Piazza Pio II in Pienza’s Renaissance historic centre' },
