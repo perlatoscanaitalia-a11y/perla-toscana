@@ -19,3 +19,10 @@ Images used in the location attraction cards.
 - `san-gimignano.jpg` - Source image: "1 Aerial pano san gimignano (2)a.jpg" by Chensiyuan, Wikimedia Commons, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:1_Aerial_pano_san_gimignano_(2)a.jpg
 - `val-d-orcia.jpg` - Source image: "Continua - cypresses (no watermark).jpg" by Iaia quark, Wikimedia Commons, CC0 1.0 Universal Public Domain Dedication. Source: https://commons.wikimedia.org/wiki/File:Continua_-_cypresses_(no_watermark).jpg
 - `figline-piazza-marsilio-ficino.webp` - Adapted from "Figline, piazza marsilio ficino.JPG" by Sailko, Wikimedia Commons, CC BY-SA 3.0. Resized and converted to WebP by Perla Toscana. Source: https://commons.wikimedia.org/wiki/File:Figline,_piazza_marsilio_ficino.JPG — License: https://creativecommons.org/licenses/by-sa/3.0/
+# Lago Trasimeno
+
+- `lago-trasimeno/lago-trasimeno-panorama.webp` (conversione WebP): “Castiglione del Lago, Lago Trasimeno.jpg”, Adbar, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Castiglione_del_Lago,_Lago_Trasimeno.jpg).
+- `lago-trasimeno/castiglione-del-lago.webp` (conversione WebP): “Castiglione del lago.jpg”, Adrian Michael / Parpan05, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Castiglione_del_lago.jpg).
+- `lago-trasimeno/passignano-sul-trasimeno.webp` (conversione e ridimensionamento WebP): “Passignano sul Trasimeno (01).jpg”, Gianni Careddu, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Passignano_sul_Trasimeno_(01).jpg).
+- `lago-trasimeno/isola-maggiore.webp` (conversione WebP): “Isola maggiore e isola minore del Lago Trasimeno.jpg”, PROPOLI87, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Isola_maggiore_e_isola_minore_del_Lago_Trasimeno.jpg).
+- `lago-trasimeno/tramonto-lago-trasimeno.webp` (conversione e ridimensionamento WebP): “Sunset Trasimeno.jpg”, Adrian Michael, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sunset_Trasimeno.jpg).

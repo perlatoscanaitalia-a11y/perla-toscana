@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageContent from '../components/PageContent.astro';
+import { lakeTrasimenoPage as page } from '../data/guideLakeTrasimeno';
+import { faqSchema, guideSchema } from '../data/schema';
+const schema = [...guideSchema('it', page), faqSchema(page.faqs)].filter(Boolean);
+---
+<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt}>
+  <PageContent lang="it" page={page} />
+</BaseLayout>
