@@ -2,6 +2,7 @@ import { pages } from '../data/pages';
 import { guides } from '../data/guides';
 import { siteConfig } from '../data/siteConfig';
 import { lakeTrasimenoPage } from '../data/guideLakeTrasimeno';
+import { lakeTrasimenoPageEn } from '../data/guideLakeTrasimenoEn';
 
 export const prerender = true;
 
@@ -16,6 +17,7 @@ export function GET() {
     { path: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', alternatePath: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/' },
     { path: '/guide/cosa-vedere-figline-valdarno/', alternatePath: '/en/guides/figline-valdarno/' },
     lakeTrasimenoPage,
+    lakeTrasimenoPageEn,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

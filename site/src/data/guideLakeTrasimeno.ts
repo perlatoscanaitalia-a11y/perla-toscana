@@ -3,7 +3,7 @@ import type { PageContent } from './pages';
 export const lakeTrasimenoPage: PageContent = {
   slug: 'lago-trasimeno-cosa-vedere',
   path: '/lago-trasimeno-cosa-vedere/',
-  alternatePath: '/lago-trasimeno-cosa-vedere/',
+  alternatePath: '/en/guides/lake-trasimeno-what-to-see/',
   title: 'Lago Trasimeno: cosa vedere, borghi, isole e itinerario',
   description: 'Cosa vedere al Lago Trasimeno: borghi, isole, traghetti e itinerari di uno o due giorni, con tempi e consigli pratici da Perla Toscana.',
   eyebrow: 'Guida tra Toscana e Umbria',

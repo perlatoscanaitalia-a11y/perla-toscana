@@ -1,11 +1,12 @@
 ---
 import { guides } from '../data/guides';
 import { lakeTrasimenoPage } from '../data/guideLakeTrasimeno';
+import { lakeTrasimenoPageEn } from '../data/guideLakeTrasimenoEn';
 import type { Lang } from '../data/pages';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
-const local = (lang === 'it' ? [lakeTrasimenoPage, ...guides[lang]] : guides[lang])
-  .filter((item) => item.slug !== 'figline-valdarno' && (item.slug === 'lago-trasimeno-cosa-vedere' || item.path.includes(lang === 'it' ? '/guide/' : '/guides/')))
+const local = (lang === 'it' ? [lakeTrasimenoPage, ...guides[lang]] : [lakeTrasimenoPageEn, ...guides[lang]])
+  .filter((item) => item.slug !== 'figline-valdarno' && (['lago-trasimeno-cosa-vedere', 'lake-trasimeno-what-to-see'].includes(item.slug) || item.path.includes(lang === 'it' ? '/guide/' : '/guides/')))
   .map((item) => ['abbazia-di-san-galgano', 'san-galgano-abbey'].includes(item.slug) ? {
     ...item,
     h1: lang === 'it' ? 'Abbazia di San Galgano' : 'San Galgano Abbey',
@@ -16,6 +17,7 @@ const local = (lang === 'it' ? [lakeTrasimenoPage, ...guides[lang]] : guides[lan
 const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
 const images: Record<string,string> = {
   'lago-trasimeno-cosa-vedere':'/images/places/lago-trasimeno/lago-trasimeno-panorama.webp',
+  'lake-trasimeno-what-to-see':'/images/places/lago-trasimeno/lago-trasimeno-panorama.webp',
   'luoghi-francescani-toscana-umbria':'/images/places/santuario-la-verna.webp','franciscan-places-tuscany-umbria':'/images/places/santuario-la-verna.webp',
   'abbazia-di-san-galgano':'/images/places/san-galgano/san-galgano-abbey-exterior.webp','san-galgano-abbey':'/images/places/san-galgano/san-galgano-abbey-exterior.webp',
   'cosa-vedere-a-pienza':'/images/places/pienza-piazza-pio-ii.webp','what-to-see-in-pienza':'/images/places/pienza-piazza-pio-ii.webp',
@@ -24,6 +26,7 @@ const images: Record<string,string> = {
 };
 const imageAlts: Record<string,Record<'it'|'en',string>> = {
   'lago-trasimeno-cosa-vedere': { it: 'Panorama del Lago Trasimeno visto da Castiglione del Lago', en: 'Lake Trasimeno panorama from Castiglione del Lago' },
+  'lake-trasimeno-what-to-see': { it: 'Panorama del Lago Trasimeno visto da Castiglione del Lago', en: 'Lake Trasimeno panorama from Castiglione del Lago' },
   'luoghi-francescani-toscana-umbria': { it: 'Santuario della Verna tra i boschi, tappa dell’itinerario francescano fra Toscana e Umbria', en: 'La Verna Sanctuary in the forest on a Franciscan itinerary through Tuscany and Umbria' },
   'franciscan-places-tuscany-umbria': { it: 'Santuario della Verna tra i boschi, tappa dell’itinerario francescano fra Toscana e Umbria', en: 'La Verna Sanctuary in the forest on a Franciscan itinerary through Tuscany and Umbria' },
   'abbazia-di-san-galgano': { it: 'Abbazia di San Galgano senza tetto nella campagna di Chiusdino', en: 'Roofless San Galgano Abbey in the countryside near Chiusdino' },
