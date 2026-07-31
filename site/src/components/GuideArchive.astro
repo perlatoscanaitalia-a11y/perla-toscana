@@ -1,10 +1,11 @@
 ---
 import { guides } from '../data/guides';
+import { lakeTrasimenoPage } from '../data/guideLakeTrasimeno';
 import type { Lang } from '../data/pages';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
-const local = guides[lang]
-  .filter((item) => item.slug !== 'figline-valdarno' && item.path.includes(lang === 'it' ? '/guide/' : '/guides/'))
+const local = (lang === 'it' ? [lakeTrasimenoPage, ...guides[lang]] : guides[lang])
+  .filter((item) => item.slug !== 'figline-valdarno' && (item.slug === 'lago-trasimeno-cosa-vedere' || item.path.includes(lang === 'it' ? '/guide/' : '/guides/')))
   .map((item) => ['abbazia-di-san-galgano', 'san-galgano-abbey'].includes(item.slug) ? {
     ...item,
     h1: lang === 'it' ? 'Abbazia di San Galgano' : 'San Galgano Abbey',
@@ -14,6 +15,7 @@ const local = guides[lang]
   } : item);
 const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
 const images: Record<string,string> = {
+  'lago-trasimeno-cosa-vedere':'/images/places/lago-trasimeno/lago-trasimeno-panorama.webp',
   'luoghi-francescani-toscana-umbria':'/images/places/santuario-la-verna.webp','franciscan-places-tuscany-umbria':'/images/places/santuario-la-verna.webp',
   'abbazia-di-san-galgano':'/images/places/san-galgano/san-galgano-abbey-exterior.webp','san-galgano-abbey':'/images/places/san-galgano/san-galgano-abbey-exterior.webp',
   'cosa-vedere-a-pienza':'/images/places/pienza-piazza-pio-ii.webp','what-to-see-in-pienza':'/images/places/pienza-piazza-pio-ii.webp',
@@ -21,6 +23,7 @@ const images: Record<string,string> = {
   firenze:'/images/places/firenze-centro.jpg',florence:'/images/places/firenze-centro.jpg',chianti:'/images/places/greve-in-chianti.jpg','the-mall-firenze':'/images/places/the-mall-firenze.webp','figline-valdarno':'/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg',valdarno:'/images/places/balze-del-valdarno.webp',arezzo:'/images/places/arezzo-piazza-grande.webp',siena:'/images/places/siena.jpg','reggello-vallombrosa':'/images/places/abbazia-vallombrosa.webp','1-giorno':'/images/places/san-gimignano.jpg','1-day':'/images/places/san-gimignano.jpg','2-giorni':'/images/places/val-d-orcia.jpg','2-days':'/images/places/val-d-orcia.jpg','3-giorni':'/images/places/montefioralle-chianti-panorama.webp','3-days':'/images/places/montefioralle-chianti-panorama.webp'
 };
 const imageAlts: Record<string,Record<'it'|'en',string>> = {
+  'lago-trasimeno-cosa-vedere': { it: 'Panorama del Lago Trasimeno visto da Castiglione del Lago', en: 'Lake Trasimeno panorama from Castiglione del Lago' },
   'luoghi-francescani-toscana-umbria': { it: 'Santuario della Verna tra i boschi, tappa dell’itinerario francescano fra Toscana e Umbria', en: 'La Verna Sanctuary in the forest on a Franciscan itinerary through Tuscany and Umbria' },
   'franciscan-places-tuscany-umbria': { it: 'Santuario della Verna tra i boschi, tappa dell’itinerario francescano fra Toscana e Umbria', en: 'La Verna Sanctuary in the forest on a Franciscan itinerary through Tuscany and Umbria' },
   'abbazia-di-san-galgano': { it: 'Abbazia di San Galgano senza tetto nella campagna di Chiusdino', en: 'Roofless San Galgano Abbey in the countryside near Chiusdino' },
