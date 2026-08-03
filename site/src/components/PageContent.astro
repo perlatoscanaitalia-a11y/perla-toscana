@@ -46,10 +46,10 @@ const initialsFor = (name: string) => name
   </div>
 </section>
 
-{page.slug === 'brunello-di-montalcino-cantine-prezzi' && (
+{['brunello-di-montalcino-cantine-prezzi', 'brunello-di-montalcino-wineries-vintages-prices'].includes(page.slug) && (
   <section class="section article-feature-image">
     <div class="container">
-      <img src="/images/places/montalcino/brunello-bottiglia-calice.webp" alt="Bottiglia e calice di Brunello di Montalcino" width="960" height="1200" loading="eager" decoding="async" />
+      <img src="/images/places/montalcino/brunello-bottiglia-calice.webp" alt={lang === 'it' ? 'Bottiglia e calice di Brunello di Montalcino' : 'Bottle and glass of Brunello di Montalcino'} width="960" height="1200" loading="eager" decoding="async" />
     </div>
   </section>
 )}

@@ -4,6 +4,7 @@ import { siteConfig } from '../data/siteConfig';
 import { lakeTrasimenoPage } from '../data/guideLakeTrasimeno';
 import { lakeTrasimenoPageEn } from '../data/guideLakeTrasimenoEn';
 import { brunelloPage } from '../data/guideBrunello';
+import { brunelloPageEn } from '../data/guideBrunelloEn';
 
 export const prerender = true;
 
@@ -20,6 +21,7 @@ export function GET() {
     lakeTrasimenoPage,
     lakeTrasimenoPageEn,
     brunelloPage,
+    brunelloPageEn,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
