@@ -5,6 +5,7 @@ export const brunelloPageEn: PageContent = {
   title: 'Brunello di Montalcino: Wineries, Vintages and Prices',
   description: 'A guide to Brunello di Montalcino: its territory, production rules, vintages, award-winning wines, prices, winery visits and a driving itinerary from Perla Toscana.',
   eyebrow: 'Wine and territory guide', h1: 'Brunello di Montalcino: where it is made, top wineries, ratings and prices',
+  category: '🍷 Wine', distanceKm: 112, distanceMinutes: 105, visitTime: '1 day', featuredBadge: '⭐ Recommended',
   publishedAt: '2026-08-03', updatedAt: '2026-08-03', socialImage: '/images/places/montalcino/vigneti-brunello.webp', socialImageAlt: 'Brunello di Montalcino vineyards in the Tuscan hills',
   intro: '<strong>Brunello di Montalcino DOCG is produced exclusively within the municipality of Montalcino</strong>, in the province of Siena, using only Sangiovese grapes. This guide separates official production rules from critics’ opinions and includes online prices checked on 31 July 2026.',
   sections: [

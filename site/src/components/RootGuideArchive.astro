@@ -16,24 +16,49 @@ const guides = [
   { title: 'Arezzo', description: 'Piazza Grande, centro storico, arte e antiquariato per una gita in giornata.', href: '/it/guide/arezzo/', image: '/images/places/arezzo-piazza-grande.webp', alt: 'Piazza Grande ad Arezzo con la Pieve di Santa Maria e il Palazzo della Fraternità', position: 'center 55%' },
   { title: 'Siena', description: 'Una guida essenziale alla città medievale, da Piazza del Campo al Duomo.', href: '/it/guide/siena/', image: '/images/places/siena.jpg', alt: 'Piazza del Campo e la Torre del Mangia a Siena' },
   { title: 'Reggello e Vallombrosa', description: 'Abbazia, foresta e sentieri per una giornata nella natura del Pratomagno.', href: '/it/guide/reggello-vallombrosa/', image: '/images/places/abbazia-vallombrosa.webp', alt: 'Abbazia di Vallombrosa riflessa nella vasca davanti al complesso religioso', position: 'center 46%' },
-  { title: 'San Gimignano', description: 'Una futura guida alle torri, al centro storico e ai panorami della Val d’Elsa.', image: '/images/places/san-gimignano.jpg', alt: 'Torri medievali di San Gimignano nel paesaggio della Val d’Elsa' },
+  { title: 'San Gimignano', description: 'Torri medievali, parcheggi 2026, musei, itinerari a piedi e consigli pratici per mezza giornata o un giorno.', href: '/guide/san-gimignano-cosa-vedere/', image: '/images/places/san-gimignano.webp', alt: 'Torri medievali di San Gimignano nel paesaggio collinare della Toscana' },
   { title: 'Val d’Orcia', description: 'Una futura guida ai borghi e ai paesaggi più riconoscibili della Toscana meridionale.', image: '/images/places/val-d-orcia.jpg', alt: 'Colline e strada di campagna nel paesaggio della Val d’Orcia' },
   { title: 'Itinerario di 1 giorno', description: 'Un programma realistico per scoprire la Toscana partendo da Perla Toscana.', href: '/it/itinerari/1-giorno/', image: '/images/perla-toscana/perla-toscana-strada-setteponti.webp', alt: 'Strada panoramica della Setteponti tra le colline del Valdarno' },
   { title: 'Itinerario di 2 giorni', description: 'Due giornate tra città d’arte, paesaggi e destinazioni ben collegate.', href: '/it/itinerari/2-giorni/', image: '/images/places/pienza-val-d-orcia-panorama.webp', alt: 'Panorama della Val d’Orcia osservato dal borgo di Pienza', position: 'center 48%' },
   { title: 'Itinerario di 3 giorni', description: 'Tre giornate per alternare Firenze, Chianti, Valdarno e altre mete toscane.', href: '/it/itinerari/3-giorni/', image: '/images/places/montefioralle-chianti-panorama.webp', alt: 'Borgo di Montefioralle tra vigneti e colline del Chianti', position: 'center 52%' }
 ];
+const cardMeta: Record<string, { category: string; distanceKm: number; distanceMinutes: number; visitTime: string; featuredBadge?: string }> = {
+  'Brunello di Montalcino: cantine, annate e prezzi': { category: '🍷 Vino', distanceKm: 112, distanceMinutes: 105, visitTime: '1 giorno', featuredBadge: '⭐ Consigliata' },
+  'Lago Trasimeno: cosa vedere, borghi e isole': { category: '🏞 Panorama', distanceKm: 85, distanceMinutes: 80, visitTime: '1 giorno' },
+  'Luoghi francescani tra Toscana e Umbria': { category: '⛪ Abbazia', distanceKm: 68, distanceMinutes: 75, visitTime: 'Weekend' },
+  'Abbazia di San Galgano': { category: '⛪ Abbazia', distanceKm: 105, distanceMinutes: 100, visitTime: '1 giorno' },
+  'Cosa vedere a Pienza in un giorno': { category: '🏰 Borgo', distanceKm: 96, distanceMinutes: 95, visitTime: '1 giorno', featuredBadge: '❤️ Preferita dagli ospiti' },
+  'Visitare Firenze in un giorno': { category: '🏰 Città d’arte', distanceKm: 38, distanceMinutes: 45, visitTime: '1 giorno', featuredBadge: '🔥 Più visitata' },
+  'Cosa vedere a Figline Valdarno': { category: '🏰 Borgo', distanceKm: 4, distanceMinutes: 8, visitTime: 'Mezza giornata' },
+  'Dove dormire vicino a The Mall Firenze': { category: '🛍 Shopping', distanceKm: 18, distanceMinutes: 25, visitTime: 'Mezza giornata' },
+  'Dove fermarsi tra Roma e Milano': { category: '🚗 Itinerario', distanceKm: 8, distanceMinutes: 10, visitTime: '2 ore' },
+  'Firenze in 1 giorno': { category: '🏰 Città d’arte', distanceKm: 38, distanceMinutes: 45, visitTime: '1 giorno' },
+  'The Mall Firenze': { category: '🛍 Shopping', distanceKm: 18, distanceMinutes: 25, visitTime: 'Mezza giornata' },
+  'Chianti': { category: '🍷 Vino', distanceKm: 32, distanceMinutes: 40, visitTime: '1 giorno' },
+  'Valdarno': { category: '🌳 Natura', distanceKm: 20, distanceMinutes: 25, visitTime: '1 giorno' },
+  'Arezzo': { category: '🏰 Città d’arte', distanceKm: 52, distanceMinutes: 50, visitTime: '1 giorno' },
+  'Siena': { category: '🏰 Città d’arte', distanceKm: 75, distanceMinutes: 70, visitTime: '1 giorno' },
+  'Reggello e Vallombrosa': { category: '🌳 Natura', distanceKm: 28, distanceMinutes: 40, visitTime: '1 giorno' },
+  'San Gimignano': { category: '🏰 Borgo', distanceKm: 62, distanceMinutes: 70, visitTime: '1 giorno', featuredBadge: '⭐ Consigliata' },
+  'Itinerario di 1 giorno': { category: '🚗 Itinerario', distanceKm: 0, distanceMinutes: 0, visitTime: '1 giorno' },
+  'Itinerario di 2 giorni': { category: '🚗 Itinerario', distanceKm: 0, distanceMinutes: 0, visitTime: 'Weekend' },
+  'Itinerario di 3 giorni': { category: '🚗 Itinerario', distanceKm: 0, distanceMinutes: 0, visitTime: 'Weekend' }
+};
 ---
 <div class="guide-grid">
   {guides.map((guide) => (
     <article class:list={['guide-card', !guide.href && 'guide-card--pending']}>
-      <img src={guide.image} alt={guide.alt ?? ''} width="1200" height="800" loading="lazy" style={guide.position ? `object-position:${guide.position}` : undefined} />
+      <img src={guide.image} alt={guide.alt ?? guide.title} width="1200" height="800" loading="lazy" decoding="async" style={guide.position ? `object-position:${guide.position}` : undefined} />
       <div class="guide-card__body">
-        <h2>{guide.title}</h2><p>{guide.description}</p>
-        {guide.href ? <a class="button button--secondary" href={guide.href}>Leggi la guida</a> : <span class="pending-label">In preparazione</span>}
+        <div class="card-badges"><span class="category-badge">{cardMeta[guide.title]?.category ?? (guide.href ? '📍 Destinazione' : '🏞 Nuova meta')}</span>{cardMeta[guide.title]?.featuredBadge && <span class="featured-badge">{cardMeta[guide.title].featuredBadge}</span>}{!guide.href && <span class="pending-label">Prossimamente</span>}</div>
+        <h2>{guide.title}</h2>
+        {guide.href && <div class="card-details"><span>🚗 {cardMeta[guide.title]?.distanceKm === 0 ? 'Partenza da Perla Toscana' : `${cardMeta[guide.title]?.distanceKm ?? '—'} km • ${cardMeta[guide.title]?.distanceMinutes ?? '—'} min da Perla Toscana`}</span><span>🕒 Visita consigliata: {cardMeta[guide.title]?.visitTime ?? '1 giorno'}</span></div>}
+        <p>{guide.description}</p>
+        {guide.href && <a class="button button--secondary" href={guide.href} aria-label={`Leggi la guida: ${guide.title}`}>Leggi la guida</a>}
       </div>
     </article>
   ))}
 </div>
 <style>
-.guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.guide-card{display:grid;min-width:0;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-warm-white);box-shadow:var(--shadow-soft)}.guide-card img{width:100%;height:174px;object-fit:cover}.guide-card__body{display:grid;align-content:start;gap:13px;padding:22px}.guide-card h2{font-size:clamp(1.45rem,2.4vw,1.85rem)}.guide-card p{color:rgba(47,42,36,.76);font-size:.94rem;line-height:1.5}.guide-card .button{align-self:end;width:fit-content;margin-top:auto}.guide-card--pending{background:linear-gradient(180deg,var(--color-warm-white),rgba(247,241,232,.72))}.pending-label{align-self:end;width:fit-content;border:1px solid rgba(102,114,77,.24);border-radius:999px;background:rgba(102,114,77,.08);color:var(--color-olive);font-size:.82rem;font-weight:800;padding:8px 12px}@media(max-width:920px){.guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.guide-grid{grid-template-columns:1fr}.guide-card img{height:190px}.guide-card .button{width:100%;text-align:center}}
+.guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.guide-card{display:grid;min-width:0;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-warm-white);box-shadow:var(--shadow-soft)}.guide-card img{width:100%;height:174px;object-fit:cover}.guide-card__body{display:grid;align-content:start;gap:13px;padding:22px}.guide-card h2{font-size:clamp(1.45rem,2.4vw,1.85rem);overflow-wrap:anywhere}.guide-card p{color:rgba(47,42,36,.76);font-size:.94rem;line-height:1.5}.guide-card .button{align-self:end;min-height:46px;width:fit-content;margin-top:auto}.guide-card--pending{background:linear-gradient(180deg,var(--color-warm-white),rgba(247,241,232,.72))}.card-badges{display:flex;flex-wrap:wrap;gap:7px;align-items:center}.category-badge,.featured-badge,.pending-label{width:fit-content;border-radius:999px;font-size:.72rem;font-weight:800;line-height:1.25;padding:5px 9px}.category-badge{border:1px solid rgba(102,114,77,.22);background:rgba(102,114,77,.09);color:var(--color-olive)}.featured-badge{border:1px solid rgba(174,89,57,.2);background:rgba(174,89,57,.09);color:var(--color-terracotta-dark)}.pending-label{border:1px solid rgba(47,42,36,.14);background:rgba(47,42,36,.06);color:rgba(47,42,36,.72);cursor:default}.card-details{display:grid;gap:3px;color:rgba(47,42,36,.78);font-size:.8rem;font-weight:700;line-height:1.4}@media(max-width:920px){.guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.guide-grid{grid-template-columns:1fr}.guide-card img{height:190px}.guide-card .button{width:100%;text-align:center}}
 </style>

@@ -5,7 +5,7 @@ export type Lang = 'it' | 'en';
 export interface PageContent {
   slug: string;
   path: string;
-  alternatePath: string;
+  alternatePath?: string;
   title: string;
   description: string;
   eyebrow: string;
@@ -16,6 +16,12 @@ export interface PageContent {
   updatedAt?: string;
   socialImage?: string;
   socialImageAlt?: string;
+  /** Metadata rendered by the static guide-card components. */
+  category?: string;
+  distanceKm?: number;
+  distanceMinutes?: number;
+  visitTime?: string;
+  featuredBadge?: '⭐ Consigliata' | '🔥 Più visitata' | '❤️ Preferita dagli ospiti' | '⭐ Recommended' | '🔥 Most visited' | '❤️ Guest favourite';
   showCtas?: boolean;
   showBookingCta?: boolean;
   sections: {

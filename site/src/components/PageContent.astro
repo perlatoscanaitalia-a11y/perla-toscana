@@ -54,6 +54,14 @@ const initialsFor = (name: string) => name
   </section>
 )}
 
+{['san-gimignano-cosa-vedere', 'san-gimignano-things-to-do-towers-parking'].includes(page.slug) && (
+  <section class="section article-feature-image">
+    <div class="container">
+      <img src="/images/places/san-gimignano.webp" alt={lang === 'it' ? 'Torri medievali di San Gimignano nel paesaggio collinare della Toscana' : 'Medieval towers of San Gimignano above the rolling Tuscan countryside'} width="1280" height="899" loading="eager" decoding="async" />
+    </div>
+  </section>
+)}
+
 <section class="section">
   <div class="container content-stack">
     {page.sections.map((section) => (
@@ -181,6 +189,17 @@ const initialsFor = (name: string) => name
   </div>
 </section>
 
+{(page.path.includes('/guide') || page.slug.includes('trasimeno')) && !['san-gimignano-cosa-vedere', 'san-gimignano-things-to-do-towers-parking'].includes(page.slug) && (
+  <section class="section section--sand related-guide">
+    <div class="container">
+      <p class="eyebrow">{lang === 'it' ? 'Nuova guida consigliata' : 'Recommended local guide'}</p>
+      <h2>{lang === 'it' ? 'San Gimignano: torri, parcheggi e itinerario' : 'San Gimignano: towers, parking and itinerary'}</h2>
+      <p>{lang === 'it' ? 'Organizza una giornata nel borgo medievale con distanze, parcheggi aggiornati e un percorso a piedi realistico.' : 'Plan a day in the medieval town with distances, current parking information and a realistic walking route.'}</p>
+      <a class="button button--secondary" href="/guide/san-gimignano-cosa-vedere/" aria-label={lang === 'it' ? 'Leggi la guida completa a San Gimignano' : 'Read the complete San Gimignano guide'}>{lang === 'it' ? 'Leggi la guida a San Gimignano' : 'Read the San Gimignano guide'}</a>
+    </div>
+  </section>
+)}
+
 {['contatti', 'contact'].includes(page.slug) && (
   <section class="section section--sand">
     <div class="container content-stack">
@@ -235,6 +254,10 @@ const initialsFor = (name: string) => name
   }
   .article-feature-image { padding-block: 28px 0; }
   .article-feature-image img { display:block; width:100%; max-height:520px; object-fit:cover; object-position:center 48%; border-radius:var(--radius); }
+  .related-guide .container { display:grid; gap:14px; }
+  .related-guide h2 { max-width:760px; }
+  .related-guide p:not(.eyebrow) { max-width:720px; }
+  .related-guide .button { width:fit-content; }
 
   .page-hero-inner,
   .content-stack,

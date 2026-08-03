@@ -5,6 +5,7 @@ export const brunelloPage: PageContent = {
   title: 'Brunello di Montalcino: cantine, annate e prezzi',
   description: 'Guida al Brunello di Montalcino: territorio, disciplinare, annate, vini premiati, prezzi, cantine visitabili e itinerario in auto da Perla Toscana.',
   eyebrow: 'Guida al vino e al territorio', h1: 'Brunello di Montalcino: dove nasce, migliori cantine, classifiche e prezzi',
+  category: '🍷 Vino', distanceKm: 112, distanceMinutes: 105, visitTime: '1 giorno', featuredBadge: '⭐ Consigliata',
   publishedAt: '2026-07-31', updatedAt: '2026-07-31', socialImage: '/images/places/montalcino/vigneti-brunello.webp', socialImageAlt: 'Vigneti di Brunello di Montalcino sulle colline toscane',
   intro: 'Il <strong>Brunello di Montalcino DOCG viene prodotto esclusivamente nel territorio amministrativo del Comune di Montalcino</strong>, in provincia di Siena, usando soltanto uve Sangiovese. Questa guida distingue le regole ufficiali dai giudizi delle guide e riporta prezzi rilevati online il 31 luglio 2026.',
   sections: [
