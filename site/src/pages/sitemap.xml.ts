@@ -3,6 +3,7 @@ import { guides } from '../data/guides';
 import { siteConfig } from '../data/siteConfig';
 import { lakeTrasimenoPage } from '../data/guideLakeTrasimeno';
 import { lakeTrasimenoPageEn } from '../data/guideLakeTrasimenoEn';
+import { brunelloPage } from '../data/guideBrunello';
 
 export const prerender = true;
 
@@ -18,6 +19,7 @@ export function GET() {
     { path: '/guide/cosa-vedere-figline-valdarno/', alternatePath: '/en/guides/figline-valdarno/' },
     lakeTrasimenoPage,
     lakeTrasimenoPageEn,
+    brunelloPage,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

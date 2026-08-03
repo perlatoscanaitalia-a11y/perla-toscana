@@ -26,3 +26,8 @@ Images used in the location attraction cards.
 - `lago-trasimeno/passignano-sul-trasimeno.webp` (conversione e ridimensionamento WebP): “Passignano sul Trasimeno (01).jpg”, Gianni Careddu, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Passignano_sul_Trasimeno_(01).jpg).
 - `lago-trasimeno/isola-maggiore.webp` (conversione WebP): “Isola maggiore e isola minore del Lago Trasimeno.jpg”, PROPOLI87, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Isola_maggiore_e_isola_minore_del_Lago_Trasimeno.jpg).
 - `lago-trasimeno/tramonto-lago-trasimeno.webp` (conversione e ridimensionamento WebP): “Sunset Trasimeno.jpg”, Adrian Michael, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sunset_Trasimeno.jpg).
+# Montalcino e Brunello
+
+- `montalcino/montalcino-fortezza.webp` (conversione WebP): “Montalcino-Fortress.jpg”, dalem, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Montalcino-Fortress.jpg).
+- `montalcino/vigneti-brunello.webp` (conversione WebP): “Brunello di Montalcino vines.jpg”, Giovanni, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brunello_di_Montalcino_vines.jpg).
+- `montalcino/brunello-bottiglia-calice.webp` (conversione WebP): “Glass & bottle of Brunello di Montalcino.jpg”, Robert S. Donovan, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glass_%26_bottle_of_Brunello_di_Montalcino.jpg).

@@ -46,6 +46,14 @@ const initialsFor = (name: string) => name
   </div>
 </section>
 
+{page.slug === 'brunello-di-montalcino-cantine-prezzi' && (
+  <section class="section article-feature-image">
+    <div class="container">
+      <img src="/images/places/montalcino/brunello-bottiglia-calice.webp" alt="Bottiglia e calice di Brunello di Montalcino" width="960" height="1200" loading="eager" decoding="async" />
+    </div>
+  </section>
+)}
+
 <section class="section">
   <div class="container content-stack">
     {page.sections.map((section) => (
@@ -225,6 +233,8 @@ const initialsFor = (name: string) => name
   .page-hero {
     background: var(--color-sand);
   }
+  .article-feature-image { padding-block: 28px 0; }
+  .article-feature-image img { display:block; width:100%; max-height:520px; object-fit:cover; object-position:center 48%; border-radius:var(--radius); }
 
   .page-hero-inner,
   .content-stack,
