@@ -6,6 +6,8 @@ import { brunelloPage } from '../data/guideBrunello';
 import { brunelloPageEn } from '../data/guideBrunelloEn';
 import { sanGimignanoPage } from '../data/guideSanGimignano';
 import { sanGimignanoPageEn } from '../data/guideSanGimignanoEn';
+import { viaFrancigenaPage } from '../data/guideViaFrancigena';
+import { viaFrancigenaPageEn } from '../data/guideViaFrancigenaEn';
 import type { Lang, PageContent } from '../data/pages';
 interface Props { lang: Lang; }
 type CardItem = Pick<PageContent, 'slug' | 'path' | 'h1' | 'description'> & Partial<Pick<PageContent, 'socialImageAlt' | 'category' | 'distanceKm' | 'distanceMinutes' | 'visitTime' | 'featuredBadge'>>;
@@ -16,10 +18,12 @@ const specialCards: CardItem[] = lang === 'it' ? [
 ] : [
   { slug:'figline-speciale',path:'/en/guides/figline-valdarno/',h1:'What to see in Figline Valdarno',description:'Historic centre, walking route, parking, trains to Florence and local tips.',category:'🏰 Village',distanceKm:4,distanceMinutes:8,visitTime:'Half day' }
 ];
-const local: CardItem[] = (lang === 'it' ? [sanGimignanoPage, ...specialCards, brunelloPage, lakeTrasimenoPage, ...guides.it] : [sanGimignanoPageEn, ...specialCards, brunelloPageEn, lakeTrasimenoPageEn, ...guides.en])
+const local: CardItem[] = (lang === 'it' ? [viaFrancigenaPage, sanGimignanoPage, ...specialCards, brunelloPage, lakeTrasimenoPage, ...guides.it] : [viaFrancigenaPageEn, sanGimignanoPageEn, ...specialCards, brunelloPageEn, lakeTrasimenoPageEn, ...guides.en])
   .filter((item) => item.slug !== 'figline-valdarno' && (['lago-trasimeno-cosa-vedere', 'lake-trasimeno-what-to-see'].includes(item.slug) || item.path.includes(lang === 'it' ? '/guide/' : '/guides/')));
 const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
 const images: Record<string,string> = {
+  'via-francigena-toscana-tappe-itinerario':'/images/places/san-gimignano.webp',
+  'via-francigena-tuscany-stages-itinerary':'/images/places/san-gimignano.webp',
   'san-gimignano-cosa-vedere':'/images/places/san-gimignano.webp',
   'san-gimignano-things-to-do-towers-parking':'/images/places/san-gimignano.webp',
   'sosta-a1':'/images/places/autostrada-a1-valdarno.webp','figline-speciale':'/images/places/figline-piazza-marsilio-ficino.webp',
@@ -32,6 +36,8 @@ const images: Record<string,string> = {
   firenze:'/images/places/firenze-centro.jpg',florence:'/images/places/firenze-centro.jpg',chianti:'/images/places/greve-in-chianti.jpg','the-mall-firenze':'/images/places/the-mall-firenze.webp',valdarno:'/images/places/balze-del-valdarno.webp',arezzo:'/images/places/arezzo-piazza-grande.webp',siena:'/images/places/siena.jpg','reggello-vallombrosa':'/images/places/abbazia-vallombrosa.webp','1-giorno':'/images/places/san-gimignano.jpg','1-day':'/images/places/san-gimignano.jpg','2-giorni':'/images/places/val-d-orcia.jpg','2-days':'/images/places/val-d-orcia.jpg','3-giorni':'/images/places/montefioralle-chianti-panorama.webp','3-days':'/images/places/montefioralle-chianti-panorama.webp'
 };
 const imageAlts: Record<string,Record<Lang,string>> = {
+  'via-francigena-toscana-tappe-itinerario':{it:'San Gimignano, tappa della Via Francigena tra le colline della Toscana',en:'San Gimignano on the Via Francigena among the Tuscan hills'},
+  'via-francigena-tuscany-stages-itinerary':{it:'San Gimignano, tappa della Via Francigena tra le colline della Toscana',en:'San Gimignano on the Via Francigena among the Tuscan hills'},
   'san-gimignano-cosa-vedere':{it:'Torri medievali di San Gimignano nel paesaggio collinare della Toscana',en:'Medieval towers of San Gimignano in the Tuscan hills'},
   'san-gimignano-things-to-do-towers-parking':{it:'Torri medievali di San Gimignano nel paesaggio collinare della Toscana',en:'Medieval towers of San Gimignano above the rolling Tuscan countryside'},
   'sosta-a1':{it:'Autostrada A1 nel tratto Firenze–Roma presso l’uscita Valdarno',en:'A1 motorway near the Valdarno exit'},'figline-speciale':{it:'Piazza Marsilio Ficino nel centro storico di Figline Valdarno',en:'Piazza Marsilio Ficino in Figline Valdarno historic centre'},

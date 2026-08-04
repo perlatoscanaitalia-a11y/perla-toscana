@@ -7,6 +7,8 @@ import { brunelloPage } from '../data/guideBrunello';
 import { brunelloPageEn } from '../data/guideBrunelloEn';
 import { sanGimignanoPage } from '../data/guideSanGimignano';
 import { sanGimignanoPageEn } from '../data/guideSanGimignanoEn';
+import { viaFrancigenaPage } from '../data/guideViaFrancigena';
+import { viaFrancigenaPageEn } from '../data/guideViaFrancigenaEn';
 
 export const prerender = true;
 
@@ -26,6 +28,8 @@ export function GET() {
     brunelloPageEn,
     sanGimignanoPage,
     sanGimignanoPageEn,
+    viaFrancigenaPage,
+    viaFrancigenaPageEn,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

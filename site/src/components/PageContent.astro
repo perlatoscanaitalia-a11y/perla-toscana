@@ -62,6 +62,14 @@ const initialsFor = (name: string) => name
   </section>
 )}
 
+{['via-francigena-toscana-tappe-itinerario', 'via-francigena-tuscany-stages-itinerary'].includes(page.slug) && (
+  <section class="section article-feature-image">
+    <div class="container">
+      <img src="/images/places/san-gimignano.webp" alt={lang === 'it' ? 'San Gimignano, tappa della Via Francigena tra le colline della Toscana' : 'San Gimignano on the Via Francigena among the Tuscan hills'} width="1280" height="899" loading="eager" decoding="async" />
+    </div>
+  </section>
+)}
+
 <section class="section">
   <div class="container content-stack">
     {page.sections.map((section) => (
@@ -196,6 +204,17 @@ const initialsFor = (name: string) => name
       <h2>{lang === 'it' ? 'San Gimignano: torri, parcheggi e itinerario' : 'San Gimignano: towers, parking and itinerary'}</h2>
       <p>{lang === 'it' ? 'Organizza una giornata nel borgo medievale con distanze, parcheggi aggiornati e un percorso a piedi realistico.' : 'Plan a day in the medieval town with distances, current parking information and a realistic walking route.'}</p>
       <a class="button button--secondary" href="/guide/san-gimignano-cosa-vedere/" aria-label={lang === 'it' ? 'Leggi la guida completa a San Gimignano' : 'Read the complete San Gimignano guide'}>{lang === 'it' ? 'Leggi la guida a San Gimignano' : 'Read the San Gimignano guide'}</a>
+    </div>
+  </section>
+)}
+
+{(page.path.includes('/guide') || page.slug.includes('trasimeno')) && !['via-francigena-toscana-tappe-itinerario', 'via-francigena-tuscany-stages-itinerary'].includes(page.slug) && (
+  <section class="section related-guide">
+    <div class="container">
+      <p class="eyebrow">{lang === 'it' ? 'Cammini in Toscana' : 'Walking routes in Tuscany'}</p>
+      <h2>{lang === 'it' ? 'Via Francigena: tutte le tappe toscane' : 'Via Francigena: all Tuscany stages'}</h2>
+      <p>{lang === 'it' ? 'Scopri il percorso ufficiale, i borghi, la mappa e gli itinerari a piedi, in bici o in auto.' : 'Explore the official route, towns, map and practical walking, cycling or driving itineraries.'}</p>
+      <a class="button button--secondary" href={lang === 'it' ? '/guide/via-francigena-toscana-tappe-itinerario/' : '/en/guides/via-francigena-tuscany-stages-itinerary/'}>{lang === 'it' ? 'Leggi la guida alla Via Francigena' : 'Read the Via Francigena guide'}</a>
     </div>
   </section>
 )}
