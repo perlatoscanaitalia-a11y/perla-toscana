@@ -31,14 +31,15 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${allPages.map(page => {
+  const alternatePath = page.alternatePath ?? page.path;
   if (page.path === '/guide/') {
     const loc = new URL(page.path, siteConfig.siteUrl);
-    const alt = new URL(page.alternatePath, siteConfig.siteUrl);
+    const alt = new URL(alternatePath, siteConfig.siteUrl);
     return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${loc}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${alt}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
   }
   if (page.path === '/guide/cosa-vedere-figline-valdarno/') {
     const loc = new URL(page.path, siteConfig.siteUrl);
-    const alt = new URL(page.alternatePath, siteConfig.siteUrl);
+    const alt = new URL(alternatePath, siteConfig.siteUrl);
     return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${loc}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${alt}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
   }
   if (page.path.startsWith('/guide/')) {
@@ -47,7 +48,7 @@ ${allPages.map(page => {
   const lang = page.path.startsWith('/it/') ? 'it' : 'en';
   const alternateLang = lang === 'it' ? 'en' : 'it';
   const loc = new URL(page.path, siteConfig.siteUrl);
-  const alt = new URL(page.alternatePath, siteConfig.siteUrl);
+  const alt = new URL(alternatePath, siteConfig.siteUrl);
   const italian = lang === 'it' ? loc : alt;
   return `  <url>
     <loc>${loc}</loc>

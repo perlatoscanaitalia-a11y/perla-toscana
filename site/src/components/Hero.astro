@@ -100,9 +100,9 @@ const hasSlideshow = slides.length > 0;
 
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let activeIndex = 0;
-      let timer;
+      let timer: number | undefined;
 
-      const setActive = (nextIndex) => {
+      const setActive = (nextIndex: number) => {
         activeIndex = (nextIndex + slides.length) % slides.length;
 
         slides.forEach((slide, index) => {

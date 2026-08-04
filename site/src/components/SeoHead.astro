@@ -7,7 +7,7 @@ interface Props {
   path: string;
   lang: 'it' | 'en';
   alternatePath?: string;
-  schema?: Record<string, unknown> | Record<string, unknown>[];
+  schema?: unknown;
   noindex?: boolean;
   ogType?: 'website' | 'article';
   socialImage?: string;
@@ -43,4 +43,4 @@ const resolvedSocialAlt = socialImageAlt || (lang === 'it' ? 'Camera matrimonial
 <link rel="alternate" hreflang={lang} href={canonical} />
 {alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
 {alternateUrl && <link rel="alternate" hreflang="x-default" href={lang === 'it' ? canonical : alternateUrl} />}
-{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+{schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
