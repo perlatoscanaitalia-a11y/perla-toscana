@@ -18,7 +18,7 @@ const guides = [
   { title: 'Siena', description: 'Una guida essenziale alla città medievale, da Piazza del Campo al Duomo.', href: '/it/guide/siena/', image: '/images/places/siena.jpg', alt: 'Piazza del Campo e la Torre del Mangia a Siena' },
   { title: 'Reggello e Vallombrosa', description: 'Abbazia, foresta e sentieri per una giornata nella natura del Pratomagno.', href: '/it/guide/reggello-vallombrosa/', image: '/images/places/abbazia-vallombrosa.webp', alt: 'Abbazia di Vallombrosa riflessa nella vasca davanti al complesso religioso', position: 'center 46%' },
   { title: 'San Gimignano', description: 'Torri medievali, parcheggi 2026, musei, itinerari a piedi e consigli pratici per mezza giornata o un giorno.', href: '/guide/san-gimignano-cosa-vedere/', image: '/images/places/san-gimignano.webp', alt: 'Torri medievali di San Gimignano nel paesaggio collinare della Toscana' },
-  { title: 'Val d’Orcia', description: 'Una futura guida ai borghi e ai paesaggi più riconoscibili della Toscana meridionale.', image: '/images/places/val-d-orcia.jpg', alt: 'Colline e strada di campagna nel paesaggio della Val d’Orcia' },
+  { title: 'Val d’Orcia', description: 'Borghi, cipressi, terme, vino, parcheggi e itinerari realistici di 1, 2 o 3 giorni nella Toscana UNESCO.', href: '/guide/val-dorcia-cosa-vedere-itinerario/', image: '/images/places/pienza-val-d-orcia-panorama.webp', alt: 'Panorama della Val d’Orcia con Pienza e le colline toscane' },
   { title: 'Itinerario di 1 giorno', description: 'Un programma realistico per scoprire la Toscana partendo da Perla Toscana.', href: '/it/itinerari/1-giorno/', image: '/images/perla-toscana/perla-toscana-strada-setteponti.webp', alt: 'Strada panoramica della Setteponti tra le colline del Valdarno' },
   { title: 'Itinerario di 2 giorni', description: 'Due giornate tra città d’arte, paesaggi e destinazioni ben collegate.', href: '/it/itinerari/2-giorni/', image: '/images/places/pienza-val-d-orcia-panorama.webp', alt: 'Panorama della Val d’Orcia osservato dal borgo di Pienza', position: 'center 48%' },
   { title: 'Itinerario di 3 giorni', description: 'Tre giornate per alternare Firenze, Chianti, Valdarno e altre mete toscane.', href: '/it/itinerari/3-giorni/', image: '/images/places/montefioralle-chianti-panorama.webp', alt: 'Borgo di Montefioralle tra vigneti e colline del Chianti', position: 'center 52%' }
@@ -42,6 +42,7 @@ const cardMeta: Record<string, { category: string; distanceKm: number; distanceM
   'Siena': { category: '🏰 Città d’arte', distanceKm: 75, distanceMinutes: 70, visitTime: '1 giorno' },
   'Reggello e Vallombrosa': { category: '🌳 Natura', distanceKm: 28, distanceMinutes: 40, visitTime: '1 giorno' },
   'San Gimignano': { category: '🏰 Borgo', distanceKm: 62, distanceMinutes: 70, visitTime: '1 giorno', featuredBadge: '⭐ Consigliata' },
+  'Val d’Orcia': { category: '🌿 Paesaggio UNESCO', distanceKm: 96, distanceMinutes: 95, visitTime: '1–3 giorni', featuredBadge: '⭐ Guida completa' },
   'Itinerario di 1 giorno': { category: '🚗 Itinerario', distanceKm: 0, distanceMinutes: 0, visitTime: '1 giorno' },
   'Itinerario di 2 giorni': { category: '🚗 Itinerario', distanceKm: 0, distanceMinutes: 0, visitTime: 'Weekend' },
   'Itinerario di 3 giorni': { category: '🚗 Itinerario', distanceKm: 0, distanceMinutes: 0, visitTime: 'Weekend' }

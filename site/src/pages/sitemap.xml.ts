@@ -9,6 +9,8 @@ import { sanGimignanoPage } from '../data/guideSanGimignano';
 import { sanGimignanoPageEn } from '../data/guideSanGimignanoEn';
 import { viaFrancigenaPage } from '../data/guideViaFrancigena';
 import { viaFrancigenaPageEn } from '../data/guideViaFrancigenaEn';
+import { valDorciaPage } from '../data/guideValDorcia';
+import { valDorciaPageEn } from '../data/guideValDorciaEn';
 
 export const prerender = true;
 
@@ -30,6 +32,8 @@ export function GET() {
     sanGimignanoPageEn,
     viaFrancigenaPage,
     viaFrancigenaPageEn,
+    valDorciaPage,
+    valDorciaPageEn,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -44,6 +48,11 @@ ${allPages.map(page => {
   if (page.path === '/guide/cosa-vedere-figline-valdarno/') {
     const loc = new URL(page.path, siteConfig.siteUrl);
     const alt = new URL(alternatePath, siteConfig.siteUrl);
+    return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${loc}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${alt}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
+  }
+  if (page.path.startsWith('/guide/') && page.alternatePath?.startsWith('/en/')) {
+    const loc = new URL(page.path, siteConfig.siteUrl);
+    const alt = new URL(page.alternatePath, siteConfig.siteUrl);
     return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${loc}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${alt}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
   }
   if (page.path.startsWith('/guide/')) {

@@ -219,6 +219,17 @@ const initialsFor = (name: string) => name
   </section>
 )}
 
+{['cosa-vedere-a-pienza','what-to-see-in-pienza','brunello-di-montalcino-cantine-prezzi','brunello-di-montalcino-wineries-vintages-prices','via-francigena-toscana-tappe-itinerario','via-francigena-tuscany-stages-itinerary','siena','abbazia-di-san-galgano','san-galgano-abbey'].includes(page.slug) && (
+  <section class="section section--sand related-guide">
+    <div class="container">
+      <p class="eyebrow">{lang === 'it' ? 'Paesaggi UNESCO' : 'UNESCO landscapes'}</p>
+      <h2>{lang === 'it' ? 'Guida completa alla Val d’Orcia' : 'Complete Val d’Orcia guide'}</h2>
+      <p>{lang === 'it' ? 'Pienza, Montalcino, Bagno Vignoni, cipressi, parcheggi e itinerari realistici di uno, due o tre giorni.' : 'Pienza, Montalcino, Bagno Vignoni, cypresses, parking and realistic one-, two- and three-day itineraries.'}</p>
+      <a class="button button--secondary" href={lang === 'it' ? '/guide/val-dorcia-cosa-vedere-itinerario/' : '/en/guides/val-dorcia-things-to-do-itinerary/'}>{lang === 'it' ? 'Leggi la guida alla Val d’Orcia' : 'Read the Val d’Orcia guide'}</a>
+    </div>
+  </section>
+)}
+
 {['contatti', 'contact'].includes(page.slug) && (
   <section class="section section--sand">
     <div class="container content-stack">
