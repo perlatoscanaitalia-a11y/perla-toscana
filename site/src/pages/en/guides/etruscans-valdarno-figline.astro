@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQBlock from '../../../components/FAQBlock.astro';
+import EditorialSignature from '../../../components/EditorialSignature.astro';
+import { faqSchema, guideSchema } from '../../../data/schema';
+
+const path = '/en/guides/etruscans-valdarno-figline/';
+const alternatePath = '/guide/etruschi-valdarno-figline/';
+const title = 'Etruscans in Valdarno and Figline: La Rotta archaeological site';
+const description = 'Evidence-based guide to the Etruscans in Upper Valdarno: La Rotta, the Scampata tomb, the Arno, Borro del Cesto, finds and ancient quarries.';
+const h1 = 'The Etruscans in Valdarno: archaeological discoveries around Figline';
+const faqs = [
+  { question: 'Did Etruscans live in Figline Valdarno?', answer: 'Yes. La Rotta, immediately south of Figline and close to the Arno, was occupied from the 7th to the 2nd century BC. The Hellenistic chamber tomb at Scampata and other evidence are also documented in the area.' },
+  { question: 'Where have Etruscan finds been discovered around Figline Valdarno?', answer: 'The best-documented contexts are the settlement at La Rotta, the chamber tomb at Scampata, the Cappuccini area and Casa Torricina. The municipal archaeological map also records reports with different levels of reliability.' },
+  { question: 'What was discovered near the Borro del Cesto?', answer: 'Municipal sources document a late Republican Roman villa at Capraia along the Cesto and later structures. They do not identify the Etruscan excavation at La Rotta with the confluence of the Cesto and the Arno.' },
+  { question: 'Is there an archaeological excavation near the Arno in Figline?', answer: 'Yes. La Rotta is an Etruscan settlement on a river terrace a short distance from the Arno. It is a protected research site and can only be visited during officially announced guided openings.' },
+  { question: 'Did the Etruscans navigate the Arno?', answer: 'The Arno was a communication route. For La Rotta, the municipal Structural Plan considers a river-landing function probable. This is an archaeological interpretation, not direct evidence of an excavated harbour.' },
+  { question: 'Are there ancient quarries in Figline Valdarno?', answer: 'Extraction areas, deposits of clay, sand and gravel, and a long tradition of kilns are documented locally. The sources consulted do not, however, date any specific quarry to the Etruscan period.' },
+  { question: 'Did the Etruscans use the quarries around Figline?', answer: 'This has not been demonstrated. Etruscan pottery production at La Rotta is documented, but no published evidence links a specific identified quarry to the clay used by its Etruscan craftspeople.' },
+  { question: 'Which Etruscan sites can you visit near Figline?', answer: 'La Rotta is not normally an open archaeological park, so visitors must wait for official openings. For permanent visits, consider the National Archaeological Museum in Florence, the Civic Archaeological Museum in Fiesole or the National Archaeological Museum in Arezzo, checking current opening hours first.' },
+  { question: 'What happened to the Etruscans?', answer: 'They did not suddenly disappear. Through conquest, alliances and the extension of citizenship, Etruscan communities were gradually integrated into the Roman state. Language and institutions changed, while many cultural elements continued in Roman society.' },
+  { question: 'Where can you see Etruscan finds from Valdarno?', answer: 'Finds from La Rotta have been shown in temporary exhibitions in Figline, not in a permanently open archaeological museum. Check announcements from the Municipality, the Chianti Valdarno Museum Network and the Superintendency. Permanent collections can be found in Fiesole, Florence and Arezzo.' }
+];
+const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06' };
+const articleSchema = guideSchema('en', page);
+const schema = [{ ...articleSchema[0], image: 'https://perla-toscana.it/images/places/balze-del-valdarno.webp' }, articleSchema[1], faqSchema(faqs)].filter(Boolean);
+---
+<BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="The Balze landscape in Upper Valdarno">
+  <article>
+    <header class="hero">
+      <div class="container hero__inner">
+        <nav aria-label="Breadcrumb"><a href="/en/">Home</a><span>›</span><a href="/en/guides/">Guides</a><span>›</span><span>Etruscans in Valdarno</span></nav>
+        <p class="eyebrow">Evidence-based archaeology · updated August 2026</p>
+        <h1>{h1}</h1>
+        <p class="lead">The Etruscans in Figline are not a local legend. Excavations and finds document a productive settlement near the Arno, an aristocratic tomb and connections between Arezzo and Fiesole. Important questions remain open, especially about the precise role of La Rotta, the Cesto confluence and local quarries.</p>
+      </div>
+    </header>
+
+    <div class="container layout section">
+      <aside class="toc card"><h2>In this guide</h2><ol>
+        <li><a href="#answer">The short answer</a></li><li><a href="#valdarno">Etruscan Valdarno</a></li><li><a href="#arno">The Arno and travel</a></li><li><a href="#rotta">La Rotta excavation</a></li><li><a href="#cesto">Borro del Cesto</a></li><li><a href="#tombs">Tombs and other sites</a></li><li><a href="#quarries">Clay and quarries</a></li><li><a href="#today">What to see today</a></li><li><a href="#romanisation">Romanisation</a></li><li><a href="#faq">FAQ</a></li><li><a href="#sources">Sources</a></li>
+      </ol></aside>
+
+      <div class="content">
+        <section id="answer"><h2>Did Etruscans live in Figline? The short answer</h2>
+          <p><strong>Yes.</strong> The strongest evidence comes from <strong>La Rotta</strong>, a settlement on a river terrace immediately south of Figline Valdarno. Investigations begun in 2000 document activity from the <strong>7th to the 2nd century BC</strong>. The 2013–2014 campaigns identified pottery waste and 5th-century BC kilns; in 2025 archaeologists examined an earlier structure interpreted as a high-status dwelling.</p>
+          <div class="evidence"><p><strong>✓ Documented fact</strong> — settlement, pottery production, residential structures and a long Etruscan sequence.</p><p><strong>? Archaeological hypothesis</strong> — La Rotta may also have served as a river landing and control point.</p><p><strong>! Open question</strong> — the full size, organisation and functions of its different phases have not yet been completely reconstructed.</p></div>
+        </section>
+
+        <figure><img src="/images/places/balze-del-valdarno.webp" alt="Upper Valdarno landscape with the Balze, hills and fields" width="1200" height="800" loading="eager"/><figcaption>The Upper Valdarno landscape. This is a contextual image and does not show the La Rotta excavation.</figcaption></figure>
+
+        <section id="valdarno"><h2>Upper Valdarno before the Romans</h2>
+          <p>Upper Valdarno is the natural corridor between Pratomagno and the Chianti hills. Its ancient valley floor was less stable than it is today: before modern embankments, the Arno shifted course and left river terraces, islands and flood-prone ground. Settlements did not necessarily form one continuous town; they were distributed across terraces, slopes and higher ground.</p>
+          <p>The Municipality's archaeological map distinguishes excavated evidence, field surveys and historical reports. The most reliable picture combines the valley-floor settlement at La Rotta–Istie Grosse with evidence on the higher ground around Figline: Casa Torricina, Castelluccio, Cappuccini and Scampata. Not every place described as “Etruscan” is proof in itself; stratigraphy, finds and context matter.</p>
+        </section>
+
+        <section id="arno"><h2>Why the Arno mattered</h2>
+          <p><strong>The Arno connected communities, but proximity to the river does not by itself prove the existence of a harbour.</strong> The municipal Structural Plan reconstructs a valley-floor route on the left bank between Arezzo and Fiesole and considers it probable that La Rotta's position made it both an overland stop and a river landing. The word “probable” matters: the sources consulted do not report excavated quays or boats.</p>
+          <p>A foothill route also ran along the opposite side of the valley, later known as the Setteponti or Cassia Vetus. The road network was reorganised and strengthened under Roman rule. It is therefore more accurate to describe a <strong>combined river and land corridor</strong> than one unchanged road continuing through every period.</p>
+        </section>
+
+        <section id="rotta"><h2>La Rotta: Figline's principal Etruscan site</h2>
+          <p>The context was reported in 1999 through the work of local enthusiasts who later joined the Upper Valdarno Archeo Club. The Superintendency conducted campaigns from 2000 to 2004, in 2008, in 2013–2014 and in 2025. The Chianti Valdarno Museum Network counts <strong>eight campaigns between 2000 and 2025</strong>.</p>
+          <table><thead><tr><th>Evidence</th><th>What we know</th></tr></thead><tbody>
+            <tr><td>Location</td><td>Immediately south of Figline, on a river terrace close to the Arno and at the foot of the Chianti hills.</td></tr>
+            <tr><td>Chronology</td><td>From the 7th to the 2nd century BC; the municipal report extends continuity to the threshold of the Augustan period.</td></tr>
+            <tr><td>2000–2008</td><td>Trial trenches and excavations established the importance and long occupation of the settlement.</td></tr>
+            <tr><td>2013–2014</td><td>A large kiln dump, misfired pottery and two roughly circular pit kilns dating by the 5th century BC.</td></tr>
+            <tr><td>2025</td><td>Traces of a hut, including post holes, foundations for timber-and-clay walls and fine pottery; possibly a high-status residential nucleus.</td></tr>
+            <tr><td>Organisations</td><td>The Superintendency; Italian Ministry of Culture funding in 2025; AdArte Srl in the field; the Archeo Club and Municipality supporting research and public engagement.</td></tr>
+          </tbody></table>
+          <h3>What archaeologists found</h3>
+          <p>Alongside firing waste and kilns, excavators uncovered structural remains, pottery fragments and terracotta architectural decoration. The latter contributed to the hypothesis that at least one representative or prestigious building stood here. The 2025 campaign supplied the first extensive evidence for the site's earliest levels.</p>
+          <p><strong>Access today:</strong> La Rotta is a protected excavation, not a freely accessible archaeological park. Visits in June 2025 were special openings requiring advance booking. Visitors should not enter fields or attempt to reach the site without an official event.</p>
+        </section>
+
+        <section id="cesto"><h2>Borro del Cesto and its confluence with the Arno</h2>
+          <p><strong>We found no scientific source identifying La Rotta with the Cesto–Arno confluence.</strong> Municipal mapping places La Rotta south of Figline and close to the Arno, but describes it as a separate site. We therefore do not publish precise coordinates or associate the excavation with a modern plot or building.</p>
+          <p>Along the <strong>Cesto stream</strong>, the municipal archaeological report instead records the villa at <strong>Capraia</strong>, in use from the late 2nd century BC during the late Roman Republican period. It also records Ponte della Steccataccia, probably a post-medieval weir, and late medieval or post-medieval structures at Ponte agli Stolli. These features should not be backdated to the Etruscan period.</p>
+          <div class="evidence"><p><strong>✓ Documented:</strong> La Rotta near the Arno and archaeological evidence along the Cesto.</p><p><strong>! Not verified:</strong> an Etruscan site exactly at the Cesto–Arno confluence.</p><p><strong>Cautious conclusion:</strong> “La Rotta” and “the Cesto confluence” are not interchangeable names in the available sources.</p></div>
+        </section>
+
+        <section id="tombs"><h2>Scampata, Cappuccini and other evidence</h2>
+          <h3>The Scampata chamber tomb</h3>
+          <p>In 1843 a square chamber tomb, later destroyed, was discovered with at least seven cremated individuals. Its grave goods included urn lids—two of them inscribed—small bronze vessels, a mirror, a perfume vessel, a ring and gold leaf. The inscriptions connect the tomb with the <strong>Papsina family</strong>. In 2005 the Superintendency rediscovered remains compatible with the 19th-century structure.</p>
+          <p>Other trial excavations were negative. The municipal report says this evidence leads scholars to <strong>reject the hypothesis of an extensive necropolis</strong> in the area. It is therefore accurate to describe an aristocratic Hellenistic tomb, not a visitor-accessible cemetery. The area has been legally protected since 2006.</p>
+          <h3>Cappuccini and Casa Torricina</h3>
+          <p>Reports from Cappuccini document a sacred area and tombs with bronze figurines and Hellenistic cinerary jars. Field surveys around Casa Torricina produced loom weights, pottery, tiles, charcoal and iron slag. Knowledge of these contexts is not as complete as at La Rotta: they are important evidence for the wider landscape, not visitor sites.</p>
+          <h3>Ripalta, Restone, Gaville and Matassino</h3>
+          <p>These names appear in the area's history and mapping, but the archaeological sources examined do not support presenting each one as an excavated Etruscan site comparable to La Rotta. To avoid arbitrary associations, we do not list them as “Etruscan stops”. Gaville remains a worthwhile medieval and historical visit for the Romanesque parish church of San Romolo.</p>
+        </section>
+
+        <section id="quarries"><h2>Ancient quarries in Valdarno: what the evidence actually proves</h2>
+          <p>Valdarno's subsoil contains <strong>clay, sand and gravel</strong> associated with ancient lake and river deposits. The Geological Map of Italy records clay extraction for bricks and tiles, sand and gravel quarries for construction and, elsewhere in the basin, sandstone and limestone. The provincial landscape assessment mentions inactive extraction areas at Rignano, Incisa and especially Figline. This is geological and historical-industrial evidence, not Etruscan dating.</p>
+          <h3>Clay, kilns and landscape</h3>
+          <p>Pottery production at La Rotta is certain: firing waste and 5th-century BC kilns demonstrate it. Later <em>figulinae</em> and brick-making traditions also exploited local raw materials. It is reasonable to suppose that craftspeople sourced accessible clay locally, but without published archaeometric analysis or an excavated quarry face it is impossible to identify the deposit they used.</p>
+          <h3>Were the quarries Etruscan?</h3>
+          <p><strong>No—not on the basis of currently verifiable public evidence.</strong> None of the sources consulted links a specific quarry in Figline or Incisa to the Etruscans. The presence of kilns is not the same as the discovery of a quarry, and a modern quarry beside an ancient site does not automatically inherit its date.</p>
+          <div class="evidence"><p><strong>✓ Fact:</strong> Etruscan pottery production at La Rotta and clay resources in the basin.</p><p><strong>? Hypothesis:</strong> local sourcing of clay.</p><p><strong>! Not demonstrated:</strong> the location and use of a specific Etruscan quarry at Figline.</p></div>
+        </section>
+
+        <section id="today"><h2>What remains today and where to see Etruscan finds</h2>
+          <p>La Rotta and Scampata are protected research contexts, not freely accessible attractions. Finds from La Rotta were presented in temporary exhibitions in Figline in 2018 and 2022. Palazzo Pretorio hosts exhibitions, but it is not known to operate as a permanent archaeological museum where these finds are always on display.</p>
+          <table><thead><tr><th>Place</th><th>What to see</th><th>Access</th></tr></thead><tbody>
+            <tr><td>Palazzo Pretorio, Figline</td><td>Events and temporary exhibitions; a reference point for local archaeological initiatives.</td><td>Check the municipal programme and do not assume that finds are currently displayed.</td></tr>
+            <tr><td>La Rotta excavation</td><td>Etruscan settlement and production area.</td><td>Official guided openings only; no independent access.</td></tr>
+            <tr><td>Civic Archaeological Museum, Fiesole</td><td>Finds from Etruscan Fiesole and its archaeological area.</td><td>Public museum; check current opening hours and tickets.</td></tr>
+            <tr><td>National Archaeological Museum, Florence</td><td>Major Etruscan collections, including objects from across the region.</td><td>State museum; some rooms may close during works.</td></tr>
+            <tr><td>National Archaeological Museum, Arezzo</td><td>Archaeology of Arezzo and its territory, pottery and Etruscan-Roman culture.</td><td>State museum; confirm current opening arrangements.</td></tr>
+          </tbody></table>
+          <h3>A responsible itinerary from Perla Toscana</h3>
+          <ol><li><strong>Figline and Palazzo Pretorio</strong> — a few minutes by car: explore the historic centre and check for exhibitions or official visits to La Rotta.</li><li><strong>Fiesole</strong> — about one hour depending on traffic: its museum and archaeological area help explain the major Etruscan centre north of Valdarno.</li><li><strong>Arezzo</strong> — about 45–55 minutes: visit the archaeological museum in the city that formed the other major centre along the Valdarno corridor.</li></ol>
+          <p>Travel times and access conditions change, so always check official websites. This itinerary avoids private property and does not include Scampata or La Rotta unless an official opening has been announced.</p>
+        </section>
+
+        <section id="romanisation"><h2>What happened to the Etruscans?</h2>
+          <p>The Etruscans <strong>did not suddenly disappear</strong>. Rome's expansion gradually transformed Etruria's political landscape. Warfare, alliances, colonisation and eventually the extension of citizenship integrated local communities into the Roman state. Latin progressively replaced Etruscan in public and written use, while Etruscan families, cults, skills and symbols continued within Roman culture.</p>
+          <p>Around Figline this transformation can be read in La Rotta's continuity into the Roman period, the late Republican villa at Capraia and the Roman kilns at Pavelli and La Casaccia. This is not a story of an abrupt void, but of long-term reorganisation.</p>
+        </section>
+
+        <section id="faq"><p class="eyebrow">Quick answers</p><h2>Frequently asked questions about the Etruscans in Valdarno</h2><FAQBlock items={faqs}/></section>
+
+        <section id="sources"><h2>Sources and further reading</h2>
+          <p>The principal statements in this guide are based on institutional sources and on the archaeological bibliography referenced by them. Sources last reviewed on 6 August 2026.</p>
+          <ul>
+            <li><a href="https://soprintendenzafirenze.cultura.gov.it/conclusa-la-campagna-di-scavi-a-la-rotta-uno-spaccato-sulle-fasi-piu-antiche-del-sito-etrusco/" target="_blank" rel="noopener noreferrer">Superintendency: conclusion of the 2025 campaign at La Rotta</a></li>
+            <li><a href="https://cloud.ldpgis.it/sites/figlineincisa/files/po/approvazione/ps_variante2/qc14_Relazione_risorse_archeol_PS_PO_FIV.pdf" target="_blank" rel="noopener noreferrer">Municipality: archaeological resources report and site catalogue</a></li>
+            <li><a href="https://cloud.ldpgis.it/sites/figlineincisa/files/ps/qc2_13_profilo_storico.pdf" target="_blank" rel="noopener noreferrer">Municipality: historical profile for the Structural Plan</a></li>
+            <li><a href="https://www.chiantivaldarno.it/figline-e-incisa-valdarno/" target="_blank" rel="noopener noreferrer">Chianti Valdarno Museum Network: La Rotta excavation</a></li>
+            <li><a href="https://comune.figline-incisa-valdarno.fi.it/novita/visitascavietruschi/" target="_blank" rel="noopener noreferrer">Municipality: 2025 excavation campaign and guided visits</a></li>
+            <li><a href="https://sgi.isprambiente.it/geologia100k/note_illustrative/114.pdf" target="_blank" rel="noopener noreferrer">ISPRA, Geological Map of Italy, Sheet 114 Arezzo</a></li>
+            <li><a href="https://www.studietruschi.org/pubblicazioni-2/studi-etruschi/studi-etruschi-xxxv" target="_blank" rel="noopener noreferrer">National Institute of Etruscan Studies: survey at Figline</a></li>
+          </ul>
+          <h3>Specialist bibliography cited by the municipal plan</h3>
+          <p>R. Chellini, <em>Firenze. Carta archeologica della provincia. Valdarno Superiore–Val di Sieve–Mugello–Romagna toscana</em> (2012); L. Fedeli, campaigns 2000–2008 in the <em>Notiziari SBAT</em>; L. Fedeli, P. Giroldini and G. Baldini, 2013 campaign (2014); A. Maggiani, “I Papsina di Figline e altre gentes fiesolane in età ellenistica” (2006); A. Tracchi, <em>Dal Chianti al Valdarno</em> (1978).</p>
+        </section>
+
+        <section class="property card"><h2>Exploring Valdarno from Perla Toscana</h2><p>Perla Toscana can be a convenient base for visiting Figline, Fiesole and Arezzo. There is no documented archaeological connection between the property and the Etruscans; the holiday home appears here only as a practical starting point.</p><p><a href="/en/guides/figline-valdarno/">Figline Valdarno guide</a> · <a href="/en/guides/valdarno/">Valdarno guide</a> · <a href="/en/guides/arezzo/">Arezzo guide</a></p></section>
+        <EditorialSignature lang="en" />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.hero{padding:88px 0 78px;background:linear-gradient(135deg,rgba(40,48,30,.94),rgba(77,68,43,.88)),url('/images/places/balze-del-valdarno.webp') center/cover;color:#fff}.hero__inner{display:grid;gap:18px;max-width:980px}.hero nav{display:flex;flex-wrap:wrap;gap:8px;font-size:.88rem}.hero nav a{color:#fff}.hero .eyebrow{color:#f1d8b4}.hero h1{max-width:18ch;font-size:clamp(2.6rem,7vw,5rem);line-height:.95}.lead{max-width:70ch;font-size:clamp(1.08rem,2vw,1.3rem);line-height:1.65}.layout{display:grid;grid-template-columns:250px minmax(0,780px);gap:54px;align-items:start}.toc{position:sticky;top:96px;padding:20px}.toc h2{font-size:1.3rem}.toc ol{display:grid;gap:7px;padding-left:20px}.toc a{color:var(--color-olive);font-size:.88rem;text-decoration:none}.content{display:grid;gap:44px;font-size:1.04rem}.content section{display:grid;gap:16px;scroll-margin-top:100px}.content h2{font-size:clamp(1.8rem,4vw,2.55rem)}.content h3{margin-top:8px}.content p,.content li{max-width:74ch}.content a{color:var(--color-terracotta-dark);font-weight:700}.evidence{display:grid;gap:8px;padding:22px;border-left:5px solid var(--color-olive);background:rgba(102,114,77,.08);border-radius:0 var(--radius) var(--radius) 0}.evidence p{margin:0}figure{margin:0;overflow:hidden;border-radius:var(--radius);background:var(--color-warm-white)}figure img{width:100%;height:auto;display:block}figcaption{padding:10px 14px;color:rgba(47,42,36,.72);font-size:.8rem}table{display:block;overflow-x:auto;border-collapse:collapse;width:100%;font-size:.9rem}th,td{padding:12px;border:1px solid var(--color-border);text-align:left;vertical-align:top}th{background:rgba(102,114,77,.1)}.property{padding:28px}@media(max-width:850px){.layout{grid-template-columns:1fr;gap:30px}.toc{position:static}.hero{padding:64px 0}}@media(max-width:560px){.content{gap:34px}.property{padding:22px}}
+.hero h1,.hero .lead{color:#fff}
+</style>

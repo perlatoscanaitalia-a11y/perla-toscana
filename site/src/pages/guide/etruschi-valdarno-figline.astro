@@ -5,6 +5,7 @@ import EditorialSignature from '../../components/EditorialSignature.astro';
 import { faqSchema, guideSchema } from '../../data/schema';
 
 const path = '/guide/etruschi-valdarno-figline/';
+const alternatePath = '/en/guides/etruscans-valdarno-figline/';
 const title = 'Etruschi nel Valdarno e a Figline: scavi, tombe e La Rotta';
 const description = 'Guida documentata agli Etruschi nel Valdarno Superiore: sito de La Rotta, tomba di Scampata, Arno, Borro del Cesto, reperti e cave antiche.';
 const h1 = 'Gli Etruschi nel Valdarno: scoperte archeologiche intorno a Figline';
@@ -21,9 +22,10 @@ const faqs = [
   { question: 'Dove vedere reperti etruschi nel Valdarno?', answer: 'A Figline i reperti de La Rotta sono stati mostrati in esposizioni temporanee, non in un museo archeologico permanente con apertura garantita. Conviene controllare Comune, Sistema Museale Chianti Valdarno e Soprintendenza; per collezioni permanenti, verificare i musei di Fiesole, Firenze e Arezzo.' }
 ];
 const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06' };
-const schema = [...guideSchema('it', page), faqSchema(faqs)].filter(Boolean);
+const articleSchema = guideSchema('it', page);
+const schema = [{ ...articleSchema[0], image: 'https://perla-toscana.it/images/places/balze-del-valdarno.webp' }, articleSchema[1], faqSchema(faqs)].filter(Boolean);
 ---
-<BaseLayout lang="it" title={title} description={description} path={path} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="Paesaggio delle Balze nel Valdarno Superiore">
+<BaseLayout lang="it" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="Paesaggio delle Balze nel Valdarno Superiore">
   <article>
     <header class="hero">
       <div class="container hero__inner">

@@ -18,6 +18,7 @@ const specialCards: CardItem[] = lang === 'it' ? [
   { slug:'sosta-a1',path:'/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/',h1:'Dove fermarsi lungo la A1 tra Roma e Milano',description:'Una guida per spezzare il viaggio vicino Firenze, con parcheggio comodo e spazio per famiglie e gruppi.',category:'🚗 Itinerario',distanceKm:8,distanceMinutes:10,visitTime:'2 ore' },
   { slug:'figline-speciale',path:'/guide/cosa-vedere-figline-valdarno/',h1:'Cosa vedere a Figline Valdarno',description:'Centro storico, itinerario a piedi, parcheggi, treno per Firenze e consigli locali.',category:'🏰 Borgo',distanceKm:4,distanceMinutes:8,visitTime:'Mezza giornata' }
 ] : [
+  { slug:'etruscans-valdarno-figline',path:'/en/guides/etruscans-valdarno-figline/',h1:'The Etruscans in Valdarno and Figline',description:'La Rotta, the Scampata tomb, the Arno corridor and what archaeological evidence really tells us.',category:'🏺 Archaeology',distanceKm:4,distanceMinutes:8,visitTime:'Cultural guide',featuredBadge:'⭐ Recommended' },
   { slug:'figline-speciale',path:'/en/guides/figline-valdarno/',h1:'What to see in Figline Valdarno',description:'Historic centre, walking route, parking, trains to Florence and local tips.',category:'🏰 Village',distanceKm:4,distanceMinutes:8,visitTime:'Half day' }
 ];
 const local: CardItem[] = (lang === 'it' ? [valDorciaPage, viaFrancigenaPage, sanGimignanoPage, ...specialCards, brunelloPage, lakeTrasimenoPage, ...guides.it] : [valDorciaPageEn, viaFrancigenaPageEn, sanGimignanoPageEn, ...specialCards, brunelloPageEn, lakeTrasimenoPageEn, ...guides.en])
@@ -30,6 +31,7 @@ const images: Record<string,string> = {
   'via-francigena-tuscany-stages-itinerary':'/images/places/san-gimignano.webp',
   'san-gimignano-cosa-vedere':'/images/places/san-gimignano.webp',
   'san-gimignano-things-to-do-towers-parking':'/images/places/san-gimignano.webp',
+  'etruscans-valdarno-figline':'/images/places/balze-del-valdarno.webp',
   'sosta-a1':'/images/places/autostrada-a1-valdarno.webp','figline-speciale':'/images/places/figline-piazza-marsilio-ficino.webp',
   'brunello-di-montalcino-cantine-prezzi':'/images/places/montalcino/vigneti-brunello.webp','brunello-di-montalcino-wineries-vintages-prices':'/images/places/montalcino/vigneti-brunello.webp',
   'lago-trasimeno-cosa-vedere':'/images/places/lago-trasimeno/lago-trasimeno-panorama.webp','lake-trasimeno-what-to-see':'/images/places/lago-trasimeno/lago-trasimeno-panorama.webp',
@@ -46,6 +48,7 @@ const imageAlts: Record<string,Record<Lang,string>> = {
   'via-francigena-tuscany-stages-itinerary':{it:'San Gimignano, tappa della Via Francigena tra le colline della Toscana',en:'San Gimignano on the Via Francigena among the Tuscan hills'},
   'san-gimignano-cosa-vedere':{it:'Torri medievali di San Gimignano nel paesaggio collinare della Toscana',en:'Medieval towers of San Gimignano in the Tuscan hills'},
   'san-gimignano-things-to-do-towers-parking':{it:'Torri medievali di San Gimignano nel paesaggio collinare della Toscana',en:'Medieval towers of San Gimignano above the rolling Tuscan countryside'},
+  'etruscans-valdarno-figline':{it:'Paesaggio delle Balze nel Valdarno Superiore',en:'The Balze landscape in Upper Valdarno'},
   'sosta-a1':{it:'Autostrada A1 nel tratto Firenze–Roma presso l’uscita Valdarno',en:'A1 motorway near the Valdarno exit'},'figline-speciale':{it:'Piazza Marsilio Ficino nel centro storico di Figline Valdarno',en:'Piazza Marsilio Ficino in Figline Valdarno historic centre'},
   'brunello-di-montalcino-cantine-prezzi':{it:'Vigneti di Brunello di Montalcino sulle colline toscane',en:'Brunello di Montalcino vineyards in the Tuscan hills'},'brunello-di-montalcino-wineries-vintages-prices':{it:'Vigneti di Brunello di Montalcino sulle colline toscane',en:'Brunello di Montalcino vineyards in the Tuscan hills'},
   'lago-trasimeno-cosa-vedere':{it:'Panorama del Lago Trasimeno visto da Castiglione del Lago',en:'Lake Trasimeno panorama from Castiglione del Lago'},'lake-trasimeno-what-to-see':{it:'Panorama del Lago Trasimeno visto da Castiglione del Lago',en:'Lake Trasimeno panorama from Castiglione del Lago'},
