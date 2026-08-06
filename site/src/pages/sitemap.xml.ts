@@ -24,6 +24,7 @@ export function GET() {
     { path: '/guide/dove-dormire-vicino-the-mall-firenze/', alternatePath: '/guide/dove-dormire-vicino-the-mall-firenze/' },
     { path: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', alternatePath: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/' },
     { path: '/guide/cosa-vedere-figline-valdarno/', alternatePath: '/en/guides/figline-valdarno/' },
+    { path: '/guide/etruschi-valdarno-figline/' },
     lakeTrasimenoPage,
     lakeTrasimenoPageEn,
     brunelloPage,

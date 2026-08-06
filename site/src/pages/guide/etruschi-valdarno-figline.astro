@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+import EditorialSignature from '../../components/EditorialSignature.astro';
+import { faqSchema, guideSchema } from '../../data/schema';
+
+const path = '/guide/etruschi-valdarno-figline/';
+const title = 'Etruschi nel Valdarno e a Figline: scavi, tombe e La Rotta';
+const description = 'Guida documentata agli Etruschi nel Valdarno Superiore: sito de La Rotta, tomba di Scampata, Arno, Borro del Cesto, reperti e cave antiche.';
+const h1 = 'Gli Etruschi nel Valdarno: scoperte archeologiche intorno a Figline';
+const faqs = [
+  { question: 'Ci sono stati Etruschi a Figline Valdarno?', answer: 'Sì. Il sito de La Rotta, immediatamente a sud di Figline e vicino all’Arno, fu occupato dal VII al II secolo a.C.; nel territorio sono documentate anche la tomba ellenistica di Scampata e altre evidenze.' },
+  { question: 'Dove sono stati trovati reperti etruschi nel Valdarno di Figline?', answer: 'I contesti meglio documentati sono l’insediamento de La Rotta, la tomba a camera di Scampata, l’area dei Cappuccini e Casa Torricina. La carta archeologica comunale registra anche segnalazioni di diversa affidabilità.' },
+  { question: 'Cosa è stato scoperto vicino al Borro del Cesto?', answer: 'Le fonti comunali documentano lungo il Cesto una villa di età tardo-repubblicana in località Capraia e strutture più tarde. Non identificano però lo scavo etrusco de La Rotta con la confluenza Cesto–Arno.' },
+  { question: 'Esiste uno scavo archeologico vicino all’Arno a Figline?', answer: 'Sì: La Rotta è un insediamento etrusco su terrazzo fluviale, a breve distanza dall’Arno. Il sito è un’area di ricerca tutelata, visitabile soltanto durante aperture guidate annunciate dagli enti.' },
+  { question: 'Gli Etruschi navigavano sull’Arno?', answer: 'L’Arno fu una direttrice di comunicazione. Per La Rotta, il Piano Strutturale considera probabile la funzione di scalo fluviale; è un’interpretazione archeologica, non la prova diretta di un porto scavato.' },
+  { question: 'Ci sono cave antiche a Figline Valdarno?', answer: 'Nel territorio sono documentate zone estrattive, depositi di argilla, sabbia e ghiaia e una lunga tradizione di fornaci. Le fonti consultate non datano però cave specifiche all’età etrusca.' },
+  { question: 'Le cave di Figline erano utilizzate dagli Etruschi?', answer: 'Non è dimostrato. La produzione ceramica etrusca a La Rotta è documentata, ma non è stata pubblicata una prova che colleghi una cava identificata del territorio all’approvvigionamento degli artigiani etruschi.' },
+  { question: 'Quali siti etruschi si possono visitare vicino a Figline?', answer: 'La Rotta non è normalmente un parco archeologico aperto: occorre attendere visite ufficiali. Per una visita stabile si possono scegliere il Museo Archeologico Nazionale di Firenze, il Museo Civico Archeologico di Fiesole o il Museo Archeologico Nazionale di Arezzo, verificando prima orari e sale aperte.' },
+  { question: 'Che fine hanno fatto gli Etruschi?', answer: 'Non scomparvero all’improvviso. Tra conquiste, alleanze e concessione della cittadinanza, le comunità etrusche furono progressivamente integrate nello Stato romano; lingua e istituzioni cambiarono, mentre diversi elementi culturali continuarono nel mondo romano.' },
+  { question: 'Dove vedere reperti etruschi nel Valdarno?', answer: 'A Figline i reperti de La Rotta sono stati mostrati in esposizioni temporanee, non in un museo archeologico permanente con apertura garantita. Conviene controllare Comune, Sistema Museale Chianti Valdarno e Soprintendenza; per collezioni permanenti, verificare i musei di Fiesole, Firenze e Arezzo.' }
+];
+const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06' };
+const schema = [...guideSchema('it', page), faqSchema(faqs)].filter(Boolean);
+---
+<BaseLayout lang="it" title={title} description={description} path={path} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="Paesaggio delle Balze nel Valdarno Superiore">
+  <article>
+    <header class="hero">
+      <div class="container hero__inner">
+        <nav aria-label="Breadcrumb"><a href="/it/">Home</a><span>›</span><a href="/guide/">Guide</a><span>›</span><span>Etruschi nel Valdarno</span></nav>
+        <p class="eyebrow">Archeologia documentata · aggiornato agosto 2026</p>
+        <h1>{h1}</h1>
+        <p class="lead">A Figline gli Etruschi non sono una leggenda: scavi e reperti attestano un insediamento produttivo vicino all’Arno, una tomba aristocratica e una rete di relazioni tra Arezzo e Fiesole. Restano però domande aperte—soprattutto sulla funzione esatta de La Rotta, sulla confluenza del Cesto e sulle cave.</p>
+      </div>
+    </header>
+
+    <div class="container layout section">
+      <aside class="toc card"><h2>In questa guida</h2><ol>
+        <li><a href="#risposta">La risposta breve</a></li><li><a href="#valdarno">Il Valdarno etrusco</a></li><li><a href="#arno">Arno e viabilità</a></li><li><a href="#rotta">Lo scavo de La Rotta</a></li><li><a href="#cesto">Borro del Cesto</a></li><li><a href="#tombe">Tombe e altri luoghi</a></li><li><a href="#cave">Cave e argille</a></li><li><a href="#oggi">Cosa vedere oggi</a></li><li><a href="#fine">Romanizzazione</a></li><li><a href="#faq">FAQ</a></li><li><a href="#fonti">Fonti</a></li>
+      </ol></aside>
+
+      <div class="content">
+        <section id="risposta"><h2>Gli Etruschi vivevano a Figline? La risposta breve</h2>
+          <p><strong>Sì.</strong> L’evidenza più solida è <strong>La Rotta</strong>, un insediamento su terrazzo fluviale immediatamente a sud dell’abitato di Figline Valdarno. Le indagini iniziate nel 2000 ne attestano l’attività dal <strong>VII al II secolo a.C.</strong> Le campagne 2013–2014 hanno individuato scarti ceramici e fornaci del V secolo a.C.; nel 2025 è stata indagata una struttura più antica, interpretata come abitazione di alto rango.</p>
+          <div class="evidence"><p><strong>✓ Fatto documentato</strong> — insediamento, produzione ceramica, strutture abitative e una lunga sequenza etrusca.</p><p><strong>? Ipotesi archeologica</strong> — La Rotta potrebbe avere funzionato anche come scalo fluviale e centro di controllo.</p><p><strong>! Questione aperta</strong> — estensione complessiva, organizzazione e funzione delle diverse fasi non sono ancora completamente ricostruite.</p></div>
+        </section>
+
+        <figure><img src="/images/places/balze-del-valdarno.webp" alt="Paesaggio del Valdarno Superiore con le Balze, colline e campi" width="1200" height="800" loading="eager"/><figcaption>Il paesaggio del Valdarno Superiore. L’immagine è contestuale e non raffigura lo scavo de La Rotta.</figcaption></figure>
+
+        <section id="valdarno"><h2>Il Valdarno Superiore prima dei Romani</h2>
+          <p>Il Valdarno Superiore è il corridoio naturale compreso fra il Pratomagno e i rilievi del Chianti. Il fondovalle antico era più instabile di quello attuale: prima degli argini moderni l’Arno divagava e lasciava terrazzi, isole e aree alluvionali. Gli insediamenti non formavano necessariamente una città continua; si distribuivano tra terrazzi fluviali, pendici e alture.</p>
+          <p>La carta archeologica del Comune distingue dati scavati, ricognizioni e notizie storiche. Il quadro più attendibile combina l’insediamento di fondovalle de La Rotta–Istie Grosse con presenze sull’altura di Figline: Casa Torricina, Castelluccio, Cappuccini e Scampata. Non ogni toponimo “etrusco” costituisce una prova: contano stratigrafia, reperti e contesto.</p>
+        </section>
+
+        <section id="arno"><h2>Perché l’Arno era importante</h2>
+          <p><strong>L’Arno collegava, ma non basta la vicinanza al fiume per dimostrare un porto.</strong> Il Piano Strutturale comunale ricostruisce un percorso di fondovalle sulla sinistra dell’Arno fra Arezzo e Fiesole e considera probabile che La Rotta, per posizione, fosse una tappa terrestre e uno scalo fluviale. La formula “probabilmente” è importante: finora le fonti consultate non descrivono banchine o imbarcazioni rinvenute nello scavo.</p>
+          <p>Sull’altra sponda correva inoltre la direttrice pedecollinare poi nota come Setteponti/Cassia Vetus. In età romana il sistema viario fu riorganizzato e potenziato. È quindi più corretto parlare di <strong>corridoio fluviale e terrestre</strong> che di un’unica strada immutata nei secoli.</p>
+        </section>
+
+        <section id="rotta"><h2>La Rotta: il principale sito etrusco di Figline</h2>
+          <p>Il contesto fu segnalato nel 1999 dall’azione di appassionati poi confluiti nell’Archeo Club del Valdarno Superiore. La Soprintendenza ha condotto campagne dal 2000 al 2004, nel 2008, nel 2013–2014 e nel 2025. Il Sistema Museale Chianti Valdarno conta <strong>otto campagne fra 2000 e 2025</strong>.</p>
+          <table><thead><tr><th>Dato</th><th>Che cosa sappiamo</th></tr></thead><tbody>
+            <tr><td>Localizzazione</td><td>Area immediatamente a sud di Figline, su terrazzo fluviale, a breve distanza dall’Arno e ai piedi dei Monti del Chianti.</td></tr>
+            <tr><td>Cronologia</td><td>Dal VII al II secolo a.C.; la relazione comunale estende la continuità fino alle soglie dell’età augustea.</td></tr>
+            <tr><td>2000–2008</td><td>Sondaggi e scavi chiariscono la rilevanza e la lunga frequentazione dell’insediamento.</td></tr>
+            <tr><td>2013–2014</td><td>Grande scarico di fornace, ceramiche mal cotte e due fornaci a fossa subcircolari, entro il V secolo a.C.</td></tr>
+            <tr><td>2025</td><td>Tracce di capanna: buche di palo, fondazioni per pareti in legno e argilla e ceramiche di pregio; possibile nucleo aristocratico.</td></tr>
+            <tr><td>Enti</td><td>Soprintendenza; finanziamento MiC nel 2025; AdArte Srl sul campo; Archeo Club e Comune per supporto e valorizzazione.</td></tr>
+          </tbody></table>
+          <h3>Cosa hanno trovato gli archeologi</h3>
+          <p>Oltre agli scarti di cottura e alle fornaci, sono emersi resti di strutture, frammenti ceramici e decorazioni architettoniche fittili. Queste ultime hanno alimentato l’ipotesi di almeno un edificio di rappresentanza. La campagna 2025 ha fornito i primi dati estesi sui livelli più antichi.</p>
+          <p><strong>Stato attuale:</strong> è uno scavo tutelato, non un parco archeologico liberamente accessibile. Le visite del giugno 2025 erano aperture straordinarie su prenotazione. Non si deve entrare nei campi né cercare di raggiungere l’area senza un evento ufficiale.</p>
+        </section>
+
+        <section id="cesto"><h2>Il Borro del Cesto e la confluenza con l’Arno</h2>
+          <p><strong>Non abbiamo trovato una fonte scientifica che identifichi La Rotta con la confluenza Cesto–Arno.</strong> La cartografia comunale colloca La Rotta a sud di Figline, vicino all’Arno, ma la descrive come sito autonomo. Perciò non pubblichiamo coordinate puntuali e non associamo lo scavo a un terreno o edificio moderno.</p>
+          <p>Lungo il <strong>torrente Cesto</strong> la relazione archeologica comunale registra invece la villa di <strong>Capraia</strong>, utilizzata dalla fine del II secolo a.C., quindi in età tardo-repubblicana romana. Registra anche il Ponte della Steccataccia, probabilmente una chiusa post-medievale, e strutture tardo-medievali/post-medievali a Ponte agli Stolli. Questi elementi non devono essere retrodatati all’età etrusca.</p>
+          <div class="evidence"><p><strong>✓ Documentato:</strong> La Rotta vicino all’Arno; presenze archeologiche lungo il Cesto.</p><p><strong>! Non verificato:</strong> un sito etrusco esattamente alla confluenza Cesto–Arno.</p><p><strong>Conclusione prudente:</strong> “La Rotta” e “confluenza del Cesto” non sono sinonimi nelle fonti disponibili.</p></div>
+        </section>
+
+        <section id="tombe"><h2>Scampata, Cappuccini e le altre testimonianze</h2>
+          <h3>La tomba a camera di Scampata</h3>
+          <p>Nel 1843 fu scoperta una tomba a camera quadrata, poi distrutta, con almeno sette incinerati. Il corredo comprendeva coperchi di urne—due iscritti—vasetti di bronzo, specchio, balsamario, anello e foglia d’oro. Le iscrizioni collegano la tomba alla <strong>gens dei Papsina</strong>. Nel 2005 la Soprintendenza ritrovò resti compatibili con la struttura ottocentesca.</p>
+          <p>Gli altri saggi furono negativi: la relazione comunale afferma che ciò induce a <strong>scartare l’ipotesi di una necropoli estesa</strong> nell’area. È dunque corretto parlare di tomba aristocratica ellenistica, non di una necropoli visitabile. L’area è sottoposta a vincolo dal 2006.</p>
+          <h3>I Cappuccini e Casa Torricina</h3>
+          <p>Ai Cappuccini sono documentate notizie di un’area sacra e tombe con bronzetti e olle cinerarie ellenistiche. Presso Casa Torricina ricognizioni hanno restituito pesi da telaio, ceramica, laterizi, carbone e scorie ferrose. Il grado di conoscenza non è uguale a quello de La Rotta: sono indizi territoriali importanti, non siti aperti al pubblico.</p>
+          <h3>Ripalta, Restone, Gaville e Matassino</h3>
+          <p>Questi nomi compaiono nella storia e nella cartografia del territorio, ma le fonti archeologiche esaminate non permettono di attribuire a ciascuno un sito etrusco scavato comparabile a La Rotta. Per evitare collegamenti arbitrari non li presentiamo come “tappe etrusche”. Gaville resta una valida tappa storico-medievale per la Pieve di San Romolo.</p>
+        </section>
+
+        <section id="cave"><h2>Le cave antiche del Valdarno: che cosa è davvero provato</h2>
+          <p>Il sottosuolo del Valdarno contiene <strong>argille, sabbie e ghiaie</strong> legate ai depositi lacustri e fluviali. La Carta Geologica d’Italia segnala nel bacino estrazione di argilla per laterizi, cave di sabbia e ghiaia per l’edilizia e, in altre zone, arenaria e calcare. Il quadro paesaggistico provinciale ricorda aree di escavazione inattive a Rignano, Incisa e soprattutto Figline. Queste sono attestazioni geologiche e storico-industriali, non datazioni etrusche.</p>
+          <h3>Argilla, fornaci e paesaggio</h3>
+          <p>La produzione ceramica a La Rotta è certa: scarti e fornaci del V secolo a.C. lo dimostrano. Anche la tradizione successiva delle <em>figulinae</em> e delle fornaci sfruttò materie prime locali. È ragionevole che gli artigiani reperissero argilla accessibile nel territorio, ma senza analisi archeometriche pubblicate o un fronte di cava scavato non si può indicare quale deposito usarono.</p>
+          <h3>Le cave erano etrusche?</h3>
+          <p><strong>No: almeno non sulla base delle prove oggi pubblicamente verificabili.</strong> Nessuna delle fonti consultate collega una cava identificata di Figline o Incisa agli Etruschi. La presenza di fornaci non equivale alla scoperta di una cava; una cava moderna vicino a un sito antico non ne eredita automaticamente la datazione.</p>
+          <div class="evidence"><p><strong>✓ Fatto:</strong> produzione ceramica etrusca a La Rotta e risorse argillose nel bacino.</p><p><strong>? Ipotesi:</strong> approvvigionamento locale dell’argilla.</p><p><strong>! Non dimostrato:</strong> posizione e uso di una specifica cava etrusca a Figline.</p></div>
+        </section>
+
+        <section id="oggi"><h2>Cosa rimane oggi e dove vedere reperti etruschi</h2>
+          <p>La Rotta e Scampata sono contesti di tutela e ricerca, non attrazioni ad accesso libero. I reperti de La Rotta sono stati presentati a Figline in mostre temporanee nel 2018 e nel 2022; Palazzo Pretorio è una sede espositiva, ma non risulta un museo archeologico permanente con quei materiali sempre visibili.</p>
+          <table><thead><tr><th>Luogo</th><th>Cosa vedere</th><th>Accesso</th></tr></thead><tbody>
+            <tr><td>Palazzo Pretorio, Figline</td><td>Eventi e mostre temporanee; punto di riferimento per iniziative archeologiche locali.</td><td>Controllare il calendario comunale; non presumere che i reperti siano esposti.</td></tr>
+            <tr><td>Scavo de La Rotta</td><td>Insediamento e area produttiva etrusca.</td><td>Solo aperture ufficiali guidate; niente accesso autonomo.</td></tr>
+            <tr><td>Museo Civico Archeologico di Fiesole</td><td>Reperti della città etrusca di Fiesole e area archeologica.</td><td>Museo pubblico; verificare orari e biglietti.</td></tr>
+            <tr><td>Museo Archeologico Nazionale di Firenze</td><td>Grandi collezioni etrusche, incluse opere di provenienza regionale.</td><td>Museo statale; alcune sale possono chiudere durante lavori.</td></tr>
+            <tr><td>Museo Archeologico Nazionale di Arezzo</td><td>Archeologia di Arezzo e del territorio, ceramica e cultura etrusco-romana.</td><td>Museo statale; verificare l’apertura.</td></tr>
+          </tbody></table>
+          <h3>Un itinerario prudente da Perla Toscana</h3>
+          <ol><li><strong>Figline e Palazzo Pretorio</strong> — pochi minuti in auto: centro storico e informazioni su eventuali mostre o visite a La Rotta.</li><li><strong>Fiesole</strong> — circa un’ora secondo il traffico: museo e area archeologica, una tappa utile per comprendere il centro etrusco a nord del Valdarno.</li><li><strong>Arezzo</strong> — circa 45–55 minuti: museo archeologico e città che costituiva l’altro grande polo della direttrice valdarnese.</li></ol>
+          <p>Tempi e accessibilità cambiano: verificare sempre sui siti ufficiali. L’itinerario evita proprietà private e non include Scampata o La Rotta senza un’apertura annunciata.</p>
+        </section>
+
+        <section id="fine"><h2>Che fine hanno fatto gli Etruschi?</h2>
+          <p>Gli Etruschi <strong>non scomparvero improvvisamente</strong>. L’espansione di Roma trasformò gradualmente l’assetto politico dell’Etruria. Guerre, alleanze, colonizzazione e infine l’estensione della cittadinanza integrarono le comunità locali nello Stato romano. Il latino sostituì progressivamente l’etrusco nell’uso pubblico e scritto, mentre famiglie, culti, tecniche e simboli etruschi continuarono dentro la cultura romana.</p>
+          <p>Nel territorio di Figline questa trasformazione si legge nella continuità de La Rotta verso l’età romana, nella villa tardo-repubblicana di Capraia e nelle fornaci romane di Pavelli e La Casaccia. Non è la storia di un vuoto improvviso, ma di una lunga riorganizzazione.</p>
+        </section>
+
+        <section id="faq"><p class="eyebrow">Risposte rapide</p><h2>Domande frequenti sugli Etruschi nel Valdarno</h2><FAQBlock items={faqs}/></section>
+
+        <section id="fonti"><h2>Fonti e approfondimenti</h2>
+          <p>Le affermazioni principali derivano da fonti istituzionali e dalla bibliografia archeologica da esse censita. Consultazione aggiornata al 6 agosto 2026.</p>
+          <ul>
+            <li><a href="https://soprintendenzafirenze.cultura.gov.it/conclusa-la-campagna-di-scavi-a-la-rotta-uno-spaccato-sulle-fasi-piu-antiche-del-sito-etrusco/" target="_blank" rel="noopener noreferrer">Soprintendenza: conclusione della campagna 2025 a La Rotta</a></li>
+            <li><a href="https://cloud.ldpgis.it/sites/figlineincisa/files/po/approvazione/ps_variante2/qc14_Relazione_risorse_archeol_PS_PO_FIV.pdf" target="_blank" rel="noopener noreferrer">Comune: Relazione sulle risorse archeologiche e schedario</a></li>
+            <li><a href="https://cloud.ldpgis.it/sites/figlineincisa/files/ps/qc2_13_profilo_storico.pdf" target="_blank" rel="noopener noreferrer">Comune: Profilo storico del Piano Strutturale</a></li>
+            <li><a href="https://www.chiantivaldarno.it/figline-e-incisa-valdarno/" target="_blank" rel="noopener noreferrer">Sistema Museale Chianti Valdarno: Scavo de La Rotta</a></li>
+            <li><a href="https://comune.figline-incisa-valdarno.fi.it/novita/visitascavietruschi/" target="_blank" rel="noopener noreferrer">Comune: campagna e visite guidate 2025</a></li>
+            <li><a href="https://sgi.isprambiente.it/geologia100k/note_illustrative/114.pdf" target="_blank" rel="noopener noreferrer">ISPRA, Carta Geologica d’Italia, Foglio 114 Arezzo</a></li>
+            <li><a href="https://www.studietruschi.org/pubblicazioni-2/studi-etruschi/studi-etruschi-xxxv" target="_blank" rel="noopener noreferrer">Istituto Nazionale di Studi Etruschi: ricognizione a Figline</a></li>
+          </ul>
+          <h3>Bibliografia specialistica richiamata dal Piano comunale</h3>
+          <p>R. Chellini, <em>Firenze. Carta archeologica della provincia. Valdarno Superiore–Val di Sieve–Mugello–Romagna toscana</em> (2012); L. Fedeli, campagne 2000–2008 nei <em>Notiziari SBAT</em>; L. Fedeli, P. Giroldini, G. Baldini, campagna 2013 (2014); A. Maggiani, “I Papsina di Figline e altre gentes fiesolane in età ellenistica” (2006); A. Tracchi, <em>Dal Chianti al Valdarno</em> (1978).</p>
+        </section>
+
+        <section class="property card"><h2>Esplorare il Valdarno partendo da Perla Toscana</h2><p>Perla Toscana può essere una base per Figline, Fiesole e Arezzo. Non esiste alcun collegamento archeologico documentato tra la proprietà e gli Etruschi: la casa compare qui soltanto come punto di partenza logistico.</p><p><a href="/guide/cosa-vedere-figline-valdarno/">Cosa vedere a Figline Valdarno</a> · <a href="/it/guide/valdarno/">Guida al Valdarno</a> · <a href="/it/guide/firenze/">Guida a Firenze</a></p></section>
+        <EditorialSignature />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.hero{padding:88px 0 78px;background:linear-gradient(135deg,rgba(40,48,30,.94),rgba(77,68,43,.88)),url('/images/places/balze-del-valdarno.webp') center/cover;color:#fff}.hero__inner{display:grid;gap:18px;max-width:980px}.hero nav{display:flex;flex-wrap:wrap;gap:8px;font-size:.88rem}.hero nav a{color:#fff}.hero .eyebrow{color:#f1d8b4}.hero h1{max-width:18ch;font-size:clamp(2.6rem,7vw,5rem);line-height:.95}.lead{max-width:70ch;font-size:clamp(1.08rem,2vw,1.3rem);line-height:1.65}.layout{display:grid;grid-template-columns:250px minmax(0,780px);gap:54px;align-items:start}.toc{position:sticky;top:96px;padding:20px}.toc h2{font-size:1.3rem}.toc ol{display:grid;gap:7px;padding-left:20px}.toc a{color:var(--color-olive);font-size:.88rem;text-decoration:none}.content{display:grid;gap:44px;font-size:1.04rem}.content section{display:grid;gap:16px;scroll-margin-top:100px}.content h2{font-size:clamp(1.8rem,4vw,2.55rem)}.content h3{margin-top:8px}.content p,.content li{max-width:74ch}.content a{color:var(--color-terracotta-dark);font-weight:700}.evidence{display:grid;gap:8px;padding:22px;border-left:5px solid var(--color-olive);background:rgba(102,114,77,.08);border-radius:0 var(--radius) var(--radius) 0}.evidence p{margin:0}figure{margin:0;overflow:hidden;border-radius:var(--radius);background:var(--color-warm-white)}figure img{width:100%;height:auto;display:block}figcaption{padding:10px 14px;color:rgba(47,42,36,.72);font-size:.8rem}table{display:block;overflow-x:auto;border-collapse:collapse;width:100%;font-size:.9rem}th,td{padding:12px;border:1px solid var(--color-border);text-align:left;vertical-align:top}th{background:rgba(102,114,77,.1)}.property{padding:28px}@media(max-width:850px){.layout{grid-template-columns:1fr;gap:30px}.toc{position:static}.hero{padding:64px 0}}@media(max-width:560px){.content{gap:34px}.property{padding:22px}}
+.hero h1,.hero .lead{color:#fff}
+</style>

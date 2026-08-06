@@ -1,5 +1,6 @@
 ---
 const guides = [
+  { title: 'Gli Etruschi nel Valdarno e a Figline', description: 'La Rotta, la tomba di Scampata, il ruolo dell’Arno e ciò che le fonti dimostrano davvero sulle cave antiche.', href: '/guide/etruschi-valdarno-figline/', image: '/images/places/balze-del-valdarno.webp', alt: 'Paesaggio delle Balze nel Valdarno Superiore' },
   { title: 'Via Francigena in Toscana', description: 'Tutte le 16 tappe, 394 km, mappa ufficiale, itinerari a piedi, in bici e in auto, credenziale e consigli pratici.', href: '/guide/via-francigena-toscana-tappe-itinerario/', image: '/images/places/san-gimignano.webp', alt: 'San Gimignano, tappa della Via Francigena tra le colline della Toscana' },
   { title: 'Brunello di Montalcino: cantine, annate e prezzi', description: 'Disciplinare, migliori annate, vini premiati, prezzi verificati, cantine visitabili e itinerario da Perla Toscana.', href: '/guide/brunello-di-montalcino-cantine-prezzi/', image: '/images/places/montalcino/vigneti-brunello.webp', alt: 'Vigneti di Brunello di Montalcino sulle colline toscane' },
   { title: 'Lago Trasimeno: cosa vedere, borghi e isole', description: 'Castiglione del Lago, Passignano, Isola Maggiore, traghetti e itinerari pratici da Perla Toscana.', href: '/lago-trasimeno-cosa-vedere/', image: '/images/places/lago-trasimeno/lago-trasimeno-panorama.webp', alt: 'Panorama del Lago Trasimeno visto da Castiglione del Lago' },
@@ -24,6 +25,7 @@ const guides = [
   { title: 'Itinerario di 3 giorni', description: 'Tre giornate per alternare Firenze, Chianti, Valdarno e altre mete toscane.', href: '/it/itinerari/3-giorni/', image: '/images/places/montefioralle-chianti-panorama.webp', alt: 'Borgo di Montefioralle tra vigneti e colline del Chianti', position: 'center 52%' }
 ];
 const cardMeta: Record<string, { category: string; distanceKm: number; distanceMinutes: number; visitTime: string; featuredBadge?: string }> = {
+  'Gli Etruschi nel Valdarno e a Figline': { category: '🏺 Archeologia', distanceKm: 4, distanceMinutes: 8, visitTime: 'Guida culturale', featuredBadge: 'Nuova guida' },
   'Via Francigena in Toscana': { category: '🥾 Cammino', distanceKm: 62, distanceMinutes: 70, visitTime: '1–16 giorni', featuredBadge: '⭐ Consigliata' },
   'Brunello di Montalcino: cantine, annate e prezzi': { category: '🍷 Vino', distanceKm: 112, distanceMinutes: 105, visitTime: '1 giorno', featuredBadge: '⭐ Consigliata' },
   'Lago Trasimeno: cosa vedere, borghi e isole': { category: '🏞 Panorama', distanceKm: 85, distanceMinutes: 80, visitTime: '1 giorno' },
