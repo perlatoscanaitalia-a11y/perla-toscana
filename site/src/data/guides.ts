@@ -21,6 +21,17 @@ const destinations: Destination[] = [
   { itSlug: 'reggello-vallombrosa', enSlug: 'reggello-vallombrosa', itName: 'Reggello e Vallombrosa', enName: 'Reggello and Vallombrosa', focusIt: 'abbazia, foresta, sentieri, pievi e paesaggio del Pratomagno', focusEn: 'abbey, forest, trails, parish churches and Pratomagno scenery', timeIt: 'circa 25–45 minuti secondo la tappa', timeEn: 'about 25–45 minutes depending on the stop', planIt: 'Abbina il centro di Reggello alla foresta e all’Abbazia di Vallombrosa. È una giornata adatta a chi cerca natura e temperature più fresche.', planEn: 'Combine Reggello with Vallombrosa forest and abbey. It is a good day for nature and cooler temperatures.', usefulIt: 'Controlla meteo, condizioni dei sentieri e orari dell’abbazia prima di partire.', usefulEn: 'Check weather, trail conditions and abbey opening hours before leaving.' }
 ];
 
+const destinationImages: Record<string, string> = {
+  firenze: '/images/places/firenze-centro.jpg',
+  chianti: '/images/places/greve-in-chianti.jpg',
+  'the-mall-firenze': '/images/places/the-mall-firenze.webp',
+  'figline-valdarno': '/images/places/figline-piazza-marsilio-ficino.webp',
+  valdarno: '/images/places/balze-del-valdarno.webp',
+  arezzo: '/images/places/arezzo-piazza-grande.webp',
+  siena: '/images/places/siena.jpg',
+  'reggello-vallombrosa': '/images/places/abbazia-vallombrosa.webp'
+};
+
 const clusterLinks = (lang: Lang, current: string) => destinations
   .filter((d) => (lang === 'it' ? d.itSlug : d.enSlug) !== current)
   .map((d) => ({ label: lang === 'it' ? d.itName : d.enName, href: `/${lang}/${lang === 'it' ? 'guide' : 'guides'}/${lang === 'it' ? d.itSlug : d.enSlug}/` }));
@@ -30,6 +41,9 @@ function destinationPage(d: Destination, lang: Lang): PageContent {
   return {
     slug, path: `/${lang}/${it ? 'guide' : 'guides'}/${slug}/`,
     alternatePath: `/${it ? 'en/guides' : 'it/guide'}/${it ? d.enSlug : d.itSlug}/`,
+    publishedAt: '2026-07-11',
+    updatedAt: '2026-08-06',
+    socialImage: destinationImages[d.itSlug],
     title: it ? `${name}: cosa vedere e itinerario da Perla Toscana` : `${name}: what to see and itinerary from Perla Toscana`,
     description: it ? `Guida a ${name} da Perla Toscana: cosa vedere, tempi di viaggio, itinerario, consigli pratici e come inserirla in un soggiorno nel Valdarno.` : `Guide to ${name} from Perla Toscana: what to see, travel time, itinerary, practical advice and how to include it in a Valdarno stay.`,
     eyebrow: it ? 'Guida locale' : 'Local guide',
@@ -39,6 +53,16 @@ function destinationPage(d: Destination, lang: Lang): PageContent {
       { title: it ? `Perché visitare ${name}` : `Why visit ${name}`, body: it ? `${name} è una tappa utile per chi cerca ${d.focusIt}. Da Perla Toscana il tempo indicativo è ${d.timeIt}.` : `${name} is a useful destination for travellers interested in ${d.focusEn}. From Perla Toscana, the indicative travel time is ${d.timeEn}.` },
       { title: it ? 'Itinerario consigliato' : 'Suggested itinerary', body: it ? d.planIt : d.planEn },
       { title: it ? 'Consigli pratici' : 'Practical advice', body: it ? d.usefulIt : d.usefulEn, links: [{ label: it ? 'Come arrivare a Perla Toscana' : 'How to reach Perla Toscana', href: it ? '/it/come-arrivare/' : '/en/how-to-reach/' }, { label: it ? 'Dove mangiare in zona' : 'Where to eat nearby', href: it ? '/it/dove-mangiare/' : '/en/where-to-eat/' }] },
+      ...(d.itSlug === 'valdarno' ? [{
+        title: it ? 'Archeologia etrusca nel Valdarno' : 'Etruscan archaeology in Valdarno',
+        body: it
+          ? 'Per capire il territorio prima della romanizzazione, approfondisci lo scavo artigianale de La Rotta, la tomba di Scampata e il ruolo dell’Arno usando soltanto le evidenze documentate.'
+          : 'To understand the area before Romanisation, explore the La Rotta craft site, the Scampata tomb and the Arno corridor through documented archaeological evidence.',
+        links: [{
+          label: it ? 'Etruschi nel Valdarno e a Figline' : 'The Etruscans in Valdarno and Figline',
+          href: it ? '/guide/etruschi-valdarno-figline/' : '/en/guides/etruscans-valdarno-figline/'
+        }]
+      }] : []),
       ...(d.itSlug === 'the-mall-firenze' && it ? [{ title: 'Dove dormire vicino a The Mall Firenze', body: 'Confronta Leccio, Reggello, Incisa, Figline Valdarno e Firenze per scegliere una base adatta a mezzo di trasporto, gruppo e programma.', links: [{ label: 'Leggi la guida completa agli alloggi', href: '/guide/dove-dormire-vicino-the-mall-firenze/' }] }] : []),
       ...(d.itSlug === 'the-mall-firenze' ? [{
         title: it ? 'Marchi presenti a The Mall Firenze' : 'Brands at The Mall Firenze',

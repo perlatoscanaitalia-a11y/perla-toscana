@@ -21,9 +21,8 @@ const faqs = [
   { question: 'What happened to the Etruscans?', answer: 'They did not suddenly disappear. Through conquest, alliances and the extension of citizenship, Etruscan communities were gradually integrated into the Roman state. Language and institutions changed, while many cultural elements continued in Roman society.' },
   { question: 'Where can you see Etruscan finds from Valdarno?', answer: 'Finds from La Rotta have been shown in temporary exhibitions in Figline, not in a permanently open archaeological museum. Check announcements from the Municipality, the Chianti Valdarno Museum Network and the Superintendency. Permanent collections can be found in Fiesole, Florence and Arezzo.' }
 ];
-const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06' };
-const articleSchema = guideSchema('en', page);
-const schema = [{ ...articleSchema[0], image: 'https://perla-toscana.it/images/places/balze-del-valdarno.webp' }, articleSchema[1], faqSchema(faqs)].filter(Boolean);
+const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06', socialImage: '/images/places/balze-del-valdarno.webp' };
+const schema = [...guideSchema('en', page), faqSchema(faqs)].filter(Boolean);
 ---
 <BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="The Balze landscape in Upper Valdarno">
   <article>

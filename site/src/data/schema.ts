@@ -103,29 +103,32 @@ export function faqSchema(items?: { question: string; answer: string }[]) {
   };
 }
 
-export function guideSchema(lang: Lang, page: { path: string; h1: string; description: string; publishedAt?: string; updatedAt?: string }) {
+export function guideSchema(lang: Lang, page: { path: string; h1: string; description: string; publishedAt?: string; updatedAt?: string; socialImage?: string }) {
   const url = new URL(page.path, siteConfig.siteUrl).toString();
+  const guidesUrl = new URL(lang === 'it' ? '/guide/' : '/en/guides/', siteConfig.siteUrl).toString();
+  const entityId = `${siteConfig.siteUrl}/#vacation-rental`;
   return [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: page.h1,
       description: page.description,
-      inLanguage: lang,
+      inLanguage: lang === 'it' ? 'it-IT' : 'en',
       url,
-      mainEntityOfPage: url,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      ...(page.socialImage ? { image: new URL(page.socialImage, siteConfig.siteUrl).toString() } : {}),
       ...(page.publishedAt ? { datePublished: page.publishedAt } : {}),
       ...(page.updatedAt ? { dateModified: page.updatedAt } : {}),
       about: ['Tuscany', 'Figline e Incisa Valdarno', 'Valdarno', 'Florence', 'Chianti'],
-      author: { '@type': 'Organization', '@id': `${siteConfig.siteUrl}/#lodging`, name: siteConfig.name },
-      publisher: { '@type': 'Organization', '@id': `${siteConfig.siteUrl}/#lodging`, name: siteConfig.name }
+      author: { '@type': 'Organization', '@id': entityId, name: siteConfig.name },
+      publisher: { '@type': 'Organization', '@id': entityId, name: siteConfig.name }
     },
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Perla Toscana', item: `${siteConfig.siteUrl}/${lang}/` },
-        { '@type': 'ListItem', position: 2, name: lang === 'it' ? 'Guide locali' : 'Local guides', item: `${siteConfig.siteUrl}/${lang}/${lang === 'it' ? 'cosa-fare' : 'what-to-do'}/` },
+        { '@type': 'ListItem', position: 2, name: lang === 'it' ? 'Guide locali' : 'Local guides', item: guidesUrl },
         { '@type': 'ListItem', position: 3, name: page.h1, item: url }
       ]
     }
