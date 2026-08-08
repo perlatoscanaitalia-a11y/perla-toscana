@@ -11,6 +11,7 @@ import { viaFrancigenaPage } from '../data/guideViaFrancigena';
 import { viaFrancigenaPageEn } from '../data/guideViaFrancigenaEn';
 import { valDorciaPage } from '../data/guideValDorcia';
 import { valDorciaPageEn } from '../data/guideValDorciaEn';
+import { bagniSanFilippoPage, bagniSanFilippoPageEn } from '../data/guideBagniSanFilippo';
 
 export const prerender = true;
 
@@ -36,6 +37,8 @@ export function GET() {
     viaFrancigenaPageEn,
     valDorciaPage,
     valDorciaPageEn,
+    bagniSanFilippoPage,
+    bagniSanFilippoPageEn,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

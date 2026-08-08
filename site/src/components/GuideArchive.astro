@@ -10,6 +10,7 @@ import { viaFrancigenaPage } from '../data/guideViaFrancigena';
 import { viaFrancigenaPageEn } from '../data/guideViaFrancigenaEn';
 import { valDorciaPage } from '../data/guideValDorcia';
 import { valDorciaPageEn } from '../data/guideValDorciaEn';
+import { bagniSanFilippoPage, bagniSanFilippoPageEn } from '../data/guideBagniSanFilippo';
 import type { Lang, PageContent } from '../data/pages';
 interface Props { lang: Lang; }
 type CardItem = Pick<PageContent, 'slug' | 'path' | 'h1' | 'description'> & Partial<Pick<PageContent, 'socialImageAlt' | 'category' | 'distanceKm' | 'distanceMinutes' | 'visitTime' | 'featuredBadge'>>;
@@ -21,10 +22,11 @@ const specialCards: CardItem[] = lang === 'it' ? [
   { slug:'etruscans-valdarno-figline',path:'/en/guides/etruscans-valdarno-figline/',h1:'The Etruscans in Valdarno and Figline',description:'La Rotta, the Scampata tomb, the Arno corridor and what archaeological evidence really tells us.',category:'🏺 Archaeology',distanceKm:4,distanceMinutes:8,visitTime:'Cultural guide',featuredBadge:'⭐ Recommended' },
   { slug:'figline-speciale',path:'/en/guides/figline-valdarno/',h1:'What to see in Figline Valdarno',description:'Historic centre, walking route, parking, trains to Florence and local tips.',category:'🏰 Village',distanceKm:4,distanceMinutes:8,visitTime:'Half day' }
 ];
-const local: CardItem[] = (lang === 'it' ? [valDorciaPage, viaFrancigenaPage, sanGimignanoPage, ...specialCards, brunelloPage, lakeTrasimenoPage, ...guides.it] : [valDorciaPageEn, viaFrancigenaPageEn, sanGimignanoPageEn, ...specialCards, brunelloPageEn, lakeTrasimenoPageEn, ...guides.en])
+const local: CardItem[] = (lang === 'it' ? [bagniSanFilippoPage, valDorciaPage, viaFrancigenaPage, sanGimignanoPage, ...specialCards, brunelloPage, lakeTrasimenoPage, ...guides.it] : [bagniSanFilippoPageEn, valDorciaPageEn, viaFrancigenaPageEn, sanGimignanoPageEn, ...specialCards, brunelloPageEn, lakeTrasimenoPageEn, ...guides.en])
   .filter((item) => item.slug !== 'figline-valdarno' && (['lago-trasimeno-cosa-vedere', 'lake-trasimeno-what-to-see'].includes(item.slug) || item.path.includes(lang === 'it' ? '/guide/' : '/guides/')));
 const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
 const images: Record<string,string> = {
+  'bagni-san-filippo-terme-libere':'/images/places/val-d-orcia.jpg','bagni-san-filippo-hot-springs':'/images/places/val-d-orcia.jpg',
   'val-dorcia-cosa-vedere-itinerario':'/images/places/pienza-val-d-orcia-panorama.webp',
   'val-dorcia-things-to-do-itinerary':'/images/places/pienza-val-d-orcia-panorama.webp',
   'via-francigena-toscana-tappe-itinerario':'/images/places/san-gimignano.webp',
