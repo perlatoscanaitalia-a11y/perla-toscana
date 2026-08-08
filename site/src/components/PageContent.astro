@@ -70,6 +70,14 @@ const initialsFor = (name: string) => name
   </section>
 )}
 
+{['bagni-san-filippo-terme-libere', 'bagni-san-filippo-hot-springs'].includes(page.slug) && page.socialImage && (
+  <section class="section article-feature-image">
+    <div class="container">
+      <img src={page.socialImage} alt={page.socialImageAlt ?? page.h1} width="1600" height="1200" loading="eager" fetchpriority="high" decoding="async" />
+    </div>
+  </section>
+)}
+
 <section class="section">
   <div class="container content-stack">
     {page.sections.map((section) => (
