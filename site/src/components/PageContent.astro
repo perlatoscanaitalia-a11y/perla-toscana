@@ -82,6 +82,19 @@ const initialsFor = (name: string) => name
   <div class="container content-stack">
     {page.sections.map((section) => (
       <article class:list={['card', section.variant && `card--${section.variant}`]} id={section.anchor}>
+        {section.anchor === 'caseificio-cugusi' && (
+          <picture class="cugusi-photo">
+            <img
+              src="/images/places/cugusi-pecorino-foglie-noce.png"
+              alt="Pecorino di Pienza Cugusi stagionato sotto foglie di noce, con una fetta accanto alla forma"
+              width="630"
+              height="700"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        )}
+        {section.anchor === 'caseificio-cugusi' && <p class="cugusi-caption">I pecorini del Caseificio Cugusi, una delle nostre scoperte durante una giornata a Pienza.</p>}
         {section.image && (
           <picture>
             {section.image.webpSrc && <source srcset={section.image.webpSrc} type="image/webp" />}
@@ -396,6 +409,46 @@ const initialsFor = (name: string) => name
     font-style: italic;
   }
 
+  #caseificio-cugusi {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+    grid-template-areas:
+      "title title"
+      "photo copy"
+      "caption copy"
+      "links links";
+    column-gap: 28px;
+    align-items: start;
+  }
+
+  #caseificio-cugusi > h2 { grid-area: title; }
+  #caseificio-cugusi > .section-html { grid-area: copy; }
+  #caseificio-cugusi > .inline-links { grid-area: links; }
+
+  .cugusi-photo {
+    grid-area: photo;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 2px);
+    background: #fff;
+  }
+
+  .cugusi-photo img {
+    display: block;
+    width: 126%;
+    max-width: none;
+    height: auto;
+    transform: translate(-10.3%, -16.6%);
+  }
+
+  .cugusi-caption {
+    grid-area: caption;
+    margin: 10px 0 0;
+    color: rgba(47, 42, 36, 0.72);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
   .contact-social-card {
     background: var(--color-espresso);
     color: var(--color-warm-white);
@@ -626,6 +679,18 @@ const initialsFor = (name: string) => name
   }
 
   @media (max-width: 720px) {
+    #caseificio-cugusi {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "title"
+        "photo"
+        "caption"
+        "copy"
+        "links";
+      row-gap: 14px;
+    }
+
+    .cugusi-caption { margin-top: -4px; }
     .section-html { overflow-x:auto; }
     .section-html :global(.article-toc) { columns:1; }
     .section-html :global(.travel-facts) { grid-template-columns:repeat(2,minmax(0,1fr)); }
