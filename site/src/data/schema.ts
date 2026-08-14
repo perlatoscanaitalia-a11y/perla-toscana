@@ -56,6 +56,7 @@ export function lodgingSchema(lang: Lang, path: string) {
     geo,
     latitude: geo.latitude,
     longitude: geo.longitude,
+    email: siteConfig.placeholders.email,
     telephone: siteConfig.placeholders.phone,
     checkinTime: siteConfig.houseRules.checkInTime,
     checkoutTime: siteConfig.houseRules.checkOutTime,

@@ -923,7 +923,7 @@ const it: PageContent[] = [
     sections: [
       {
         title: 'Canali disponibili',
-        body: `WhatsApp: ${siteConfig.placeholders.whatsappPhone}. Numero principale: ${siteConfig.placeholders.phone}.`
+        body: `Email: <a href="${siteConfig.placeholders.emailHref}">${siteConfig.placeholders.email}</a>. WhatsApp: ${siteConfig.placeholders.whatsappPhone}. Numero principale: ${siteConfig.placeholders.phone}.`
       },
       {
         title: 'Informazioni utili',
@@ -1816,7 +1816,7 @@ const en: PageContent[] = [
     sections: [
       {
         title: 'Available channels',
-        body: `WhatsApp: ${siteConfig.placeholders.whatsappPhone}. Main phone number: ${siteConfig.placeholders.phone}.`
+        body: `Email: <a href="${siteConfig.placeholders.emailHref}">${siteConfig.placeholders.email}</a>. WhatsApp: ${siteConfig.placeholders.whatsappPhone}. Main phone number: ${siteConfig.placeholders.phone}.`
       },
       {
         title: 'Property details',

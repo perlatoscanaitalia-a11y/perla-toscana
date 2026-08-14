@@ -7,6 +7,8 @@ export const siteConfig = {
     whatsappPhone: '+39\u00a0327\u00a0003\u00a04324',
     phone: '+39\u00a0324\u00a0863\u00a02353',
     phoneHref: 'tel:+393248632353',
+    email: 'info@perla-toscana.it',
+    emailHref: 'mailto:info@perla-toscana.it',
     secondaryPhone: '+39\u00a0327\u00a0003\u00a04324',
     secondaryPhoneHref: 'tel:+393270034324',
     cin: 'IT048052C2SLTACXUQ',
