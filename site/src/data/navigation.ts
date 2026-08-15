@@ -1,3 +1,5 @@
+import { siteConfig } from './siteConfig';
+
 export const nav = {
   it: [
     { label: 'Home', href: '/it/' },
@@ -29,7 +31,7 @@ export const nav = {
     { label: 'Lage', href: '/de/#lage' },
     { label: 'Für wen?', href: '/de/#gaeste' },
     { label: 'FAQ', href: '/de/#faq' },
-    { label: 'Verfügbarkeit', href: '/de/#kontakt' }
+    { label: 'Verfügbarkeit', href: siteConfig.placeholders.avaiBookUrl }
   ]
 };
 

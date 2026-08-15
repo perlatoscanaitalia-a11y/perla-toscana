@@ -1,5 +1,6 @@
 ---
 import { nav } from '../data/navigation';
+import { siteConfig } from '../data/siteConfig';
 
 interface Props {
   lang: 'it' | 'en' | 'de';
@@ -10,7 +11,7 @@ interface Props {
 const { lang, showSalesCtas = true } = Astro.props;
 const pathname = Astro.url.pathname;
 const homeHref = `/${lang}/`;
-const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? '/de/#kontakt' : '/en/book/';
+const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? siteConfig.placeholders.avaiBookUrl : '/en/book/';
 const navItems = nav[lang].filter((item) => item.href !== bookingHref);
 const languageLinks = [
   { code: 'IT', href: '/it/', label: 'Vai alla versione italiana' },
@@ -48,7 +49,7 @@ const isActive = (href: string) => {
           <a class="lang-link" href={item.href} hreflang={item.code.toLowerCase()} lang={item.code.toLowerCase()} aria-label={item.label}>{item.code}</a>
         ))}
       </nav>
-      {showSalesCtas && <a class="header-book" href={bookingHref}>{lang === 'it' ? 'Prenota' : lang === 'de' ? 'Anfragen' : 'Book'}</a>}
+      {showSalesCtas && <a class="header-book" href={bookingHref} target={lang === 'de' ? '_blank' : undefined} rel={lang === 'de' ? 'noopener noreferrer' : undefined}>{lang === 'it' ? 'Prenota' : lang === 'de' ? 'Buchen' : 'Book'}</a>}
     </div>
   </div>
 </header>

@@ -11,7 +11,7 @@ interface Props {
 
 const { lang, bookingPage = false } = Astro.props;
 const whatsappLinks = getWhatsAppLinks(lang);
-const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? '#kontakt' : '/en/book/';
+const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? siteConfig.placeholders.avaiBookUrl : '/en/book/';
 const labels = {
   it: {
     availability: bookingPage ? 'Verifica disponibilità online' : 'Verifica disponibilità',
@@ -33,7 +33,8 @@ const labels = {
   }
 };
 const callHref = bookingPage ? siteConfig.placeholders.secondaryPhoneHref : siteConfig.placeholders.phoneHref;
-const availabilityHref = bookingPage ? siteConfig.placeholders.avaiBookUrl : bookingHref;
+const linksDirectlyToBookingEngine = bookingPage || lang === 'de';
+const availabilityHref = linksDirectlyToBookingEngine ? siteConfig.placeholders.avaiBookUrl : bookingHref;
 ---
 <div class="cta-button-group">
   <div class:list={['button-row', bookingPage && 'button-row--booking-page']}>
@@ -57,7 +58,7 @@ const availabilityHref = bookingPage ? siteConfig.placeholders.avaiBookUrl : boo
       <WhatsAppIcon />
       {labels[lang].whatsapp}
     </a>
-    <a class="button button--primary" href={availabilityHref} target={bookingPage ? '_blank' : undefined} rel={bookingPage ? 'noopener noreferrer' : undefined} data-track="availability_click">
+    <a class="button button--primary" href={availabilityHref} target={linksDirectlyToBookingEngine ? '_blank' : undefined} rel={linksDirectlyToBookingEngine ? 'noopener noreferrer' : undefined} data-track="availability_click">
       {labels[lang].availability}
     </a>
     {!bookingPage && (
