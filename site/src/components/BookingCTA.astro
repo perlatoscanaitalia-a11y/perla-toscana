@@ -3,7 +3,7 @@ import { siteConfig } from '../data/siteConfig';
 import CTAButtons from './CTAButtons.astro';
 
 interface Props {
-  lang: 'it' | 'en';
+  lang: 'it' | 'en' | 'de';
 }
 
 const { lang } = Astro.props;
@@ -17,22 +17,27 @@ const labels = {
     eyebrow: 'Availability',
     title: 'Check availability for Perla Toscana',
     text: 'Check available dates and send us a direct request simply and securely. For questions about bedrooms, bed setup, arrival or amenities, message us on WhatsApp or call us.'
+  },
+  de: {
+    eyebrow: 'Verfügbarkeit',
+    title: 'Verfügbarkeit der Perla Toscana prüfen',
+    text: 'Fragen Sie freie Reisedaten direkt und unkompliziert an. Bei Fragen zu Zimmern, Schlafplätzen, Anreise oder Ausstattung erreichen Sie uns per WhatsApp oder Telefon.'
   }
 };
 ---
-<section class="section booking-cta" id="contact">
+<section class="section booking-cta" id={lang === 'de' ? 'kontakt' : 'contact'}>
   <div class="container booking-box">
     <div>
       <p class="eyebrow">{labels[lang].eyebrow}</p>
       <h2>{labels[lang].title}</h2>
       <p>{labels[lang].text}</p>
-      <div class="booking-phone-list" aria-label={lang === 'it' ? 'Numeri di telefono e WhatsApp' : 'Phone and WhatsApp numbers'}>
+      <div class="booking-phone-list" aria-label={lang === 'it' ? 'Numeri di telefono e WhatsApp' : lang === 'de' ? 'Telefon- und WhatsApp-Nummern' : 'Phone and WhatsApp numbers'}>
         <div>
           <span>WhatsApp</span>
           <span class="phone-number phone-nowrap">{siteConfig.placeholders.whatsappPhone}</span>
         </div>
         <div>
-          <span>{lang === 'it' ? 'Telefono' : 'Phone'}</span>
+          <span>{lang === 'it' ? 'Telefono' : lang === 'de' ? 'Telefon' : 'Phone'}</span>
           <span class="phone-number phone-nowrap">{siteConfig.placeholders.phone}</span>
         </div>
       </div>

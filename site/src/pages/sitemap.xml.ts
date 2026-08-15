@@ -19,6 +19,7 @@ export function GET() {
   const allPages = [
     { path: '/it/', alternatePath: '/en/' },
     { path: '/en/', alternatePath: '/it/' },
+    { path: '/de/', alternatePath: '/it/' },
     { path: '/it/guide/', alternatePath: '/en/guides/' },
     { path: '/en/guides/', alternatePath: '/it/guide/' },
     { path: '/guide/', alternatePath: '/en/guides/' },
@@ -45,6 +46,10 @@ export function GET() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${allPages.map(page => {
   const alternatePath = page.alternatePath ?? page.path;
+  if (['/it/', '/en/', '/de/'].includes(page.path)) {
+    const loc = new URL(page.path, siteConfig.siteUrl);
+    return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${new URL('/it/', siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${new URL('/en/', siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="de" href="${new URL('/de/', siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL('/it/', siteConfig.siteUrl)}" />\n  </url>`;
+  }
   if (page.path === '/guide/') {
     const loc = new URL(page.path, siteConfig.siteUrl);
     const alt = new URL(alternatePath, siteConfig.siteUrl);

@@ -5,41 +5,41 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
 import SocialLinks from './SocialLinks.astro';
 
 interface Props {
-  lang: 'it' | 'en';
+  lang: 'it' | 'en' | 'de';
   showSalesCtas?: boolean;
 }
 
 const { lang, showSalesCtas = true } = Astro.props;
 const whatsappLinks = getWhatsAppLinks(lang);
-const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
+const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? '/de/#kontakt' : '/en/book/';
 ---
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
       <h2>Perla Toscana</h2>
-      <p>{lang === 'it' ? 'Appartamento vicino Firenze con giardino e parcheggio privato fino a 3 auto.' : 'Apartment near Florence with garden and private parking for up to 3 cars.'}</p>
+      <p>{lang === 'it' ? 'Appartamento vicino Firenze con giardino e parcheggio privato fino a 3 auto.' : lang === 'de' ? 'Ferienhaus nahe Florenz mit Garten und Privatparkplatz für bis zu 3 Autos.' : 'Apartment near Florence with garden and private parking for up to 3 cars.'}</p>
       <p>{siteConfig.placeholders.address}</p>
       <p>CIN: {siteConfig.placeholders.cin}</p>
       <p>CIR: {siteConfig.placeholders.cir}</p>
     </div>
     {showSalesCtas && (
     <div>
-      <h3>{lang === 'it' ? 'Contatti' : 'Contact'}</h3>
+      <h3>{lang === 'it' ? 'Contatti' : lang === 'de' ? 'Kontakt' : 'Contact'}</h3>
       <a href={siteConfig.placeholders.emailHref} data-track="email_click">{siteConfig.placeholders.email}</a>
       <a class="phone-nowrap" href={siteConfig.placeholders.phoneHref} data-track="phone_click">{siteConfig.placeholders.phone}</a>
       <a class="phone-nowrap" href={siteConfig.placeholders.secondaryPhoneHref} data-track="secondary_phone_click">{siteConfig.placeholders.secondaryPhone}</a>
         <a class="footer-whatsapp footer-whatsapp--desktop" href={whatsappLinks.desktop} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click"><WhatsAppIcon /> WhatsApp</a>
         <a class="footer-whatsapp footer-whatsapp--mobile" href={whatsappLinks.mobile} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click"><WhatsAppIcon /> WhatsApp</a>
-        <a href={bookingHref} data-track="availability_click">{lang === 'it' ? 'Verifica disponibilità' : 'Check availability'}</a>
+        <a href={bookingHref} data-track="availability_click">{lang === 'it' ? 'Verifica disponibilità' : lang === 'de' ? 'Verfügbarkeit prüfen' : 'Check availability'}</a>
       </div>
     )}
     <div>
-      <h3>{lang === 'it' ? 'Informazioni' : 'Information'}</h3>
+      <h3>{lang === 'it' ? 'Informazioni' : lang === 'de' ? 'Informationen' : 'Information'}</h3>
       {footerLinks[lang].map((item) => <a href={item.href}>{item.label}</a>)}
-      <button class="footer-cookie-settings" type="button" data-cookie-settings>{lang === 'it' ? 'Gestisci cookie' : 'Manage cookies'}</button>
-      <h3 class="footer-guides-title">{lang === 'it' ? 'Guide locali' : 'Local guides'}</h3>
+      <button class="footer-cookie-settings" type="button" data-cookie-settings>{lang === 'it' ? 'Gestisci cookie' : lang === 'de' ? 'Cookies verwalten' : 'Manage cookies'}</button>
+      <h3 class="footer-guides-title">{lang === 'it' ? 'Guide locali' : lang === 'de' ? 'Reiseführer' : 'Local guides'}</h3>
       {guideLinks[lang].map((item) => <a href={item.href}>{item.label}</a>)}
-      <a href={lang === 'it' ? '/en/' : '/it/'}>{lang === 'it' ? 'English' : 'Italiano'}</a>
+      {lang === 'de' ? <><a href="/it/">Italiano</a><a href="/en/">English</a></> : <a href={lang === 'it' ? '/en/' : '/it/'}>{lang === 'it' ? 'English' : 'Italiano'}</a>}
       <div class="footer-social">
         <SocialLinks lang={lang} />
       </div>

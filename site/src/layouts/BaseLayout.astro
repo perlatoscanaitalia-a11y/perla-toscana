@@ -7,7 +7,7 @@ import SeoHead from '../components/SeoHead.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 interface Props {
-  lang: 'it' | 'en';
+  lang: 'it' | 'en' | 'de';
   title: string;
   description: string;
   path: string;
@@ -45,7 +45,7 @@ const hideSalesCtas = [
     <SeoHead title={title} description={description} path={path} lang={lang} alternatePath={alternatePath} schema={schema} noindex={noindex} ogType={ogType} socialImage={socialImage} socialImageAlt={socialImageAlt} />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">{lang === 'it' ? 'Vai al contenuto principale' : 'Skip to main content'}</a>
+    <a class="skip-link" href="#main-content">{lang === 'it' ? 'Vai al contenuto principale' : lang === 'de' ? 'Zum Hauptinhalt springen' : 'Skip to main content'}</a>
     <Header lang={lang} alternateHref={alternatePath} showSalesCtas={!hideSalesCtas} />
     <main id="main-content">
       <slot />

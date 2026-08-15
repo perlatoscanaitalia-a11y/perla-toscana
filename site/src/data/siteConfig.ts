@@ -33,15 +33,18 @@ export const siteConfig = {
   },
   languages: {
     it: 'Italiano',
-    en: 'English'
+    en: 'English',
+    de: 'Deutsch'
   }
 };
 
-export function getWhatsAppLinks(lang: 'it' | 'en') {
+export function getWhatsAppLinks(lang: 'it' | 'en' | 'de') {
   const text =
     lang === 'it'
       ? 'Buongiorno, vorrei informazioni su disponibilità, camere e posti letto di Perla Toscana.'
-      : 'Hello, I would like information about availability, bedrooms and bed setup at Perla Toscana.';
+      : lang === 'de'
+        ? 'Guten Tag, ich möchte Informationen zur Verfügbarkeit, zu den Schlafzimmern und Schlafplätzen der Perla Toscana.'
+        : 'Hello, I would like information about availability, bedrooms and bed setup at Perla Toscana.';
   const encodedText = encodeURIComponent(text);
 
   return {
@@ -51,18 +54,18 @@ export function getWhatsAppLinks(lang: 'it' | 'en') {
 }
 
 export const services = [
-  { it: 'Fino a 8 ospiti', en: 'Sleeps up to 8 guests' },
-  { it: '3 camere', en: '3 bedrooms' },
-  { it: '1 bagno con doccia idromassaggio', en: '1 bathroom with hydromassage shower' },
-  { it: 'Parcheggio privato gratuito fino a 3 auto', en: 'Free private parking for up to 3 cars' },
-  { it: 'Aria condizionata in ogni camera', en: 'Air conditioning in every bedroom' },
-  { it: 'Wi-Fi', en: 'Wi-Fi' },
-  { it: 'Cucina attrezzata', en: 'Equipped kitchen' },
-  { it: 'Smart TV in ogni camera', en: 'Smart TV in every bedroom' },
-  { it: 'Doccia idromassaggio', en: 'Hydromassage shower' },
-  { it: 'Giardino', en: 'Garden' },
-  { it: 'Casa vacanza intera', en: 'Entire holiday home' },
-  { it: 'Lenzuola, asciugamani e kit ospiti inclusi', en: 'Bed linen, towels and guest essentials included' }
+  { it: 'Fino a 8 ospiti', en: 'Sleeps up to 8 guests', de: 'Für bis zu 8 Personen' },
+  { it: '3 camere', en: '3 bedrooms', de: '3 Schlafzimmer' },
+  { it: '1 bagno con doccia idromassaggio', en: '1 bathroom with hydromassage shower', de: '1 Bad mit Hydromassage-Dusche' },
+  { it: 'Parcheggio privato gratuito fino a 3 auto', en: 'Free private parking for up to 3 cars', de: 'Kostenloser Privatparkplatz für bis zu 3 Autos' },
+  { it: 'Aria condizionata in ogni camera', en: 'Air conditioning in every bedroom', de: 'Klimaanlage in jedem Schlafzimmer' },
+  { it: 'Wi-Fi', en: 'Wi-Fi', de: 'WLAN' },
+  { it: 'Cucina attrezzata', en: 'Equipped kitchen', de: 'Ausgestattete Küche' },
+  { it: 'Smart TV in ogni camera', en: 'Smart TV in every bedroom', de: 'Smart-TV in jedem Schlafzimmer' },
+  { it: 'Doccia idromassaggio', en: 'Hydromassage shower', de: 'Hydromassage-Dusche' },
+  { it: 'Giardino', en: 'Garden', de: 'Garten' },
+  { it: 'Casa vacanza intera', en: 'Entire holiday home', de: 'Ganzes Ferienhaus' },
+  { it: 'Lenzuola, asciugamani e kit ospiti inclusi', en: 'Bed linen, towels and guest essentials included', de: 'Bettwäsche, Handtücher und Gäste-Grundausstattung inklusive' }
 ];
 
 export const imageNeeds = [

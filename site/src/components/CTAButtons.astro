@@ -4,14 +4,14 @@ import PhoneIcon from './PhoneIcon.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 
 interface Props {
-  lang: 'it' | 'en';
+  lang: 'it' | 'en' | 'de';
   compact?: boolean;
   bookingPage?: boolean;
 }
 
 const { lang, bookingPage = false } = Astro.props;
 const whatsappLinks = getWhatsAppLinks(lang);
-const bookingHref = lang === 'it' ? '/it/prenota/' : '/en/book/';
+const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? '#kontakt' : '/en/book/';
 const labels = {
   it: {
     availability: bookingPage ? 'Verifica disponibilità online' : 'Verifica disponibilità',
@@ -24,6 +24,12 @@ const labels = {
     whatsapp: 'WhatsApp',
     call: bookingPage ? 'Call us before booking' : 'Call us',
     fallback: 'For bedrooms, bed setup or arrival, message us on WhatsApp or call us directly at'
+  },
+  de: {
+    availability: bookingPage ? 'Verfügbarkeit online prüfen' : 'Verfügbarkeit prüfen',
+    whatsapp: 'WhatsApp',
+    call: bookingPage ? 'Vor der Buchung anrufen' : 'Anrufen',
+    fallback: 'Bei Fragen zu Zimmern, Schlafplätzen oder Anreise schreiben Sie uns per WhatsApp oder rufen Sie uns an unter'
   }
 };
 const callHref = bookingPage ? siteConfig.placeholders.secondaryPhoneHref : siteConfig.placeholders.phoneHref;
@@ -33,21 +39,21 @@ const availabilityHref = bookingPage ? siteConfig.placeholders.avaiBookUrl : boo
   <div class:list={['button-row', bookingPage && 'button-row--booking-page']}>
     {bookingPage && (
       <>
-        <a class="button button--call button--call-featured button--call-desktop" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana prima di prenotare' : 'Call Perla Toscana before booking'}>
+        <a class="button button--call button--call-featured button--call-desktop" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana prima di prenotare' : lang === 'de' ? 'Perla Toscana vor der Buchung anrufen' : 'Call Perla Toscana before booking'}>
           <PhoneIcon />
           {labels[lang].call}
         </a>
-        <a class="button button--call button--call-featured button--call-mobile" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana prima di prenotare' : 'Call Perla Toscana before booking'}>
+        <a class="button button--call button--call-featured button--call-mobile" href={callHref} data-track="phone_click" aria-label={lang === 'it' ? 'Chiama Perla Toscana prima di prenotare' : lang === 'de' ? 'Perla Toscana vor der Buchung anrufen' : 'Call Perla Toscana before booking'}>
           <PhoneIcon />
           {labels[lang].call}
         </a>
       </>
     )}
-    <a class="button button--whatsapp button--whatsapp-desktop" href={whatsappLinks.desktop} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" aria-label={lang === 'it' ? 'Scrivi a Perla Toscana su WhatsApp' : 'Message Perla Toscana on WhatsApp'}>
+    <a class="button button--whatsapp button--whatsapp-desktop" href={whatsappLinks.desktop} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" aria-label={lang === 'it' ? 'Scrivi a Perla Toscana su WhatsApp' : lang === 'de' ? 'Perla Toscana über WhatsApp schreiben' : 'Message Perla Toscana on WhatsApp'}>
       <WhatsAppIcon />
       {labels[lang].whatsapp}
     </a>
-    <a class="button button--whatsapp button--whatsapp-mobile" href={whatsappLinks.mobile} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" aria-label={lang === 'it' ? 'Scrivi a Perla Toscana su WhatsApp' : 'Message Perla Toscana on WhatsApp'}>
+    <a class="button button--whatsapp button--whatsapp-mobile" href={whatsappLinks.mobile} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" aria-label={lang === 'it' ? 'Scrivi a Perla Toscana su WhatsApp' : lang === 'de' ? 'Perla Toscana über WhatsApp schreiben' : 'Message Perla Toscana on WhatsApp'}>
       <WhatsAppIcon />
       {labels[lang].whatsapp}
     </a>

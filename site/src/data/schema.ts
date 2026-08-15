@@ -18,7 +18,8 @@ const amenityFeature = [
 
 const vacationRentalPaths = new Set([
   '/it/appartamento/',
-  '/en/rooms-amenities/'
+  '/en/rooms-amenities/',
+  '/de/'
 ]);
 
 const address = {
@@ -36,7 +37,7 @@ const geo = {
   longitude: 11.4986544
 };
 
-export function lodgingSchema(lang: Lang, path: string) {
+export function lodgingSchema(lang: Lang | 'de', path: string) {
   if (!vacationRentalPaths.has(path)) return undefined;
 
   const pageUrl = new URL(path, siteConfig.siteUrl).toString();
@@ -60,16 +61,18 @@ export function lodgingSchema(lang: Lang, path: string) {
     telephone: siteConfig.placeholders.phone,
     checkinTime: siteConfig.houseRules.checkInTime,
     checkoutTime: siteConfig.houseRules.checkOutTime,
-    knowsLanguage: ['it-IT', 'en-GB'],
+    knowsLanguage: ['it-IT', 'en-GB', 'de-DE'],
     description:
       lang === 'it'
         ? 'Casa vacanza a Figline Valdarno con 3 camere, fino a 8 ospiti, parcheggio privato gratuito, Wi-Fi, aria condizionata e posizione comoda per Firenze, Chianti e The Mall Firenze.'
-        : 'Holiday home in Figline Valdarno with 3 bedrooms, sleeps up to 8 guests, free private parking, Wi-Fi, air conditioning and a convenient location for Florence, Chianti and The Mall Firenze.',
+        : lang === 'de'
+          ? 'Ferienhaus in Figline e Incisa Valdarno in der Toskana mit 3 Schlafzimmern für bis zu 8 Personen, kostenlosem Privatparkplatz, WLAN, Klimaanlage und guter Lage für Florenz und das Chianti.'
+          : 'Holiday home in Figline Valdarno with 3 bedrooms, sleeps up to 8 guests, free private parking, Wi-Fi, air conditioning and a convenient location for Florence, Chianti and The Mall Firenze.',
     containsPlace: {
       '@type': 'Accommodation',
       '@id': accommodationId,
       additionalType: 'EntirePlace',
-      name: lang === 'it' ? 'Intera casa vacanza Perla Toscana' : 'Entire Perla Toscana holiday home',
+      name: lang === 'it' ? 'Intera casa vacanza Perla Toscana' : lang === 'de' ? 'Ganzes Ferienhaus Perla Toscana' : 'Entire Perla Toscana holiday home',
       occupancy: { '@type': 'QuantitativeValue', value: 8 },
       numberOfBedrooms: 3,
       numberOfBathroomsTotal: 1,

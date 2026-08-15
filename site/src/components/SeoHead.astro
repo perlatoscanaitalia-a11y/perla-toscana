@@ -5,7 +5,7 @@ interface Props {
   title: string;
   description: string;
   path: string;
-  lang: 'it' | 'en';
+  lang: 'it' | 'en' | 'de';
   alternatePath?: string;
   schema?: unknown;
   noindex?: boolean;
@@ -20,6 +20,8 @@ const alternateLang = lang === 'it' ? 'en' : 'it';
 const alternateUrl = alternatePath ? new URL(alternatePath, siteConfig.siteUrl).toString() : undefined;
 const socialImage = new URL(socialImagePath || '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg', siteConfig.siteUrl).toString();
 const resolvedSocialAlt = socialImageAlt || (lang === 'it' ? 'Camera matrimoniale di Perla Toscana a Figline Valdarno' : 'Double bedroom at Perla Toscana in Figline Valdarno');
+const isHome = ['/it/', '/en/', '/de/'].includes(path);
+const homeAlternates = ['it', 'en', 'de'] as const;
 ---
 <title>{title}</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
@@ -32,15 +34,15 @@ const resolvedSocialAlt = socialImageAlt || (lang === 'it' ? 'Camera matrimonial
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonical} />
 <meta property="og:site_name" content={siteConfig.name} />
-<meta property="og:locale" content={lang === 'it' ? 'it_IT' : 'en_US'} />
-<meta property="og:locale:alternate" content={lang === 'it' ? 'en_US' : 'it_IT'} />
+<meta property="og:locale" content={lang === 'it' ? 'it_IT' : lang === 'de' ? 'de_DE' : 'en_US'} />
+{isHome ? homeAlternates.filter((code) => code !== lang).map((code) => <meta property="og:locale:alternate" content={code === 'it' ? 'it_IT' : code === 'de' ? 'de_DE' : 'en_US'} />) : <meta property="og:locale:alternate" content={lang === 'it' ? 'en_US' : 'it_IT'} />}
 <meta property="og:image" content={socialImage} />
 <meta property="og:image:alt" content={resolvedSocialAlt} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={socialImage} />
-<link rel="alternate" hreflang={lang} href={canonical} />
-{alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
-{alternateUrl && <link rel="alternate" hreflang="x-default" href={lang === 'it' ? canonical : alternateUrl} />}
+{isHome ? homeAlternates.map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, siteConfig.siteUrl).toString()} />) : <link rel="alternate" hreflang={lang} href={canonical} />}
+{isHome ? <link rel="alternate" hreflang="x-default" href={new URL('/it/', siteConfig.siteUrl).toString()} /> : alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
+{!isHome && alternateUrl && <link rel="alternate" hreflang="x-default" href={lang === 'it' ? canonical : alternateUrl} />}
 {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}

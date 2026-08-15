@@ -2,7 +2,7 @@
 import CTAButtons from './CTAButtons.astro';
 
 interface Props {
-  lang: 'it' | 'en';
+  lang: 'it' | 'en' | 'de';
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -45,14 +45,14 @@ const hasSlideshow = slides.length > 0;
                 />
               ))}
             </div>
-            <div class="hero-dots" role="tablist" aria-label={lang === 'it' ? 'Seleziona immagine hero' : 'Select hero image'}>
+            <div class="hero-dots" role="tablist" aria-label={lang === 'it' ? 'Seleziona immagine hero' : lang === 'de' ? 'Titelbild auswählen' : 'Select hero image'}>
               {slides.map((slide, index) => (
                 <button
                   type="button"
                   role="tab"
                   class:list={['hero-dot', index === 0 && 'is-active']}
                   aria-selected={index === 0 ? 'true' : 'false'}
-                  aria-label={`${lang === 'it' ? 'Mostra immagine' : 'Show image'} ${index + 1}`}
+                  aria-label={`${lang === 'it' ? 'Mostra immagine' : lang === 'de' ? 'Bild anzeigen' : 'Show image'} ${index + 1}`}
                   data-dot={index}
                 />
               ))}

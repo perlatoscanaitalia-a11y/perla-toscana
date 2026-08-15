@@ -22,6 +22,14 @@ export const nav = {
     { label: 'Where to Eat', href: '/en/where-to-eat/' },
     { label: 'FAQ', href: '/en/house-rules-info/' },
     { label: 'Book', href: '/en/book/' }
+  ],
+  de: [
+    { label: 'Startseite', href: '/de/' },
+    { label: 'Ausstattung', href: '/de/#ausstattung' },
+    { label: 'Lage', href: '/de/#lage' },
+    { label: 'Für wen?', href: '/de/#gaeste' },
+    { label: 'FAQ', href: '/de/#faq' },
+    { label: 'Verfügbarkeit', href: '/de/#kontakt' }
   ]
 };
 
@@ -41,6 +49,12 @@ export const footerLinks = {
     { label: 'Terms and Conditions', href: '/en/terms-and-conditions/' },
     { label: 'Legal Information / CIN', href: '/en/legal-information/' },
     { label: 'Photo credits', href: '/en/photo-credits/' }
+  ],
+  de: [
+    { label: 'Datenschutz (Englisch)', href: '/en/privacy-policy/' },
+    { label: 'Cookie-Richtlinie (Englisch)', href: '/en/cookie-policy/' },
+    { label: 'Rechtliche Informationen / CIN', href: '/en/legal-information/' },
+    { label: 'Bildnachweise', href: '/en/photo-credits/' }
   ]
 };
 
@@ -58,5 +72,10 @@ export const guideLinks = {
     { label: 'Figline Valdarno guide', href: '/en/guides/figline-valdarno/' },
     { label: 'Valdarno guide', href: '/en/guides/valdarno/' },
     { label: '1–3 day itineraries', href: '/en/itineraries/3-days/' }
+  ],
+  de: [
+    { label: 'Florenz-Reiseführer (Englisch)', href: '/en/guides/florence/' },
+    { label: 'Chianti-Reiseführer (Englisch)', href: '/en/guides/chianti/' },
+    { label: 'Figline-Valdarno-Reiseführer (Englisch)', href: '/en/guides/figline-valdarno/' }
   ]
 };

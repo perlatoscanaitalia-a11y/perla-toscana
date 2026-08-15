@@ -1,6 +1,6 @@
 ---
 interface Props {
-  lang: 'it' | 'en';
+  lang: 'it' | 'en' | 'de';
 }
 
 const { lang } = Astro.props;
@@ -17,6 +17,13 @@ const content = {
     accept: 'Accept analytics',
     reject: 'Reject',
     policy: 'Cookie Policy',
+    policyHref: '/en/cookie-policy/'
+  },
+  de: {
+    text: 'Wir verwenden technische Cookies und nur mit Ihrer Einwilligung Google Analytics 4, um die Nutzung der Website zu verstehen. Werbe- oder Profiling-Cookies verwenden wir nicht.',
+    accept: 'Analyse akzeptieren',
+    reject: 'Ablehnen',
+    policy: 'Cookie-Richtlinie',
     policyHref: '/en/cookie-policy/'
   }
 };
