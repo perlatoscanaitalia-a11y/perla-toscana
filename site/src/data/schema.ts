@@ -6,15 +6,22 @@ const stripHtml = (value: string) => value.replace(/<[^>]*>/g, '');
 
 const propertyImages = structuredDataGalleryImages.map((src) => new URL(src, siteConfig.siteUrl).toString());
 
+const vacationRentalIdentifier = siteConfig.placeholders.cin;
+
+export const schemaEntityIds = {
+  vacationRental: `${siteConfig.siteUrl}/#vacation-rental`,
+  accommodation: `${siteConfig.siteUrl}/#accommodation`,
+  organization: `${siteConfig.siteUrl}/#organization`
+} as const;
+
+// Google requires every LocationFeatureSpecification to carry an explicit
+// value and supports these English feature names for VacationRental markup.
 const amenityFeature = [
-  { name: 'wifi', value: true },
-  { name: 'ac', value: true },
-  { name: 'kitchen', value: true },
-  { name: 'parkingType', value: 'Free' },
-  { name: 'tv', value: true },
-  { name: 'petsAllowed', value: false },
-  { name: 'smokingAllowed', value: false }
-].map(({ name, value }) => ({ '@type': 'LocationFeatureSpecification', name, value }));
+  { '@type': 'LocationFeatureSpecification', name: 'wifi', value: true },
+  { '@type': 'LocationFeatureSpecification', name: 'ac', value: true },
+  { '@type': 'LocationFeatureSpecification', name: 'parkingType', value: 'Free' },
+  { '@type': 'LocationFeatureSpecification', name: 'tv', value: true }
+] as const;
 
 const vacationRentalPaths = new Set([
   '/it/appartamento/',
@@ -41,13 +48,11 @@ export function lodgingSchema(lang: Lang | 'de', path: string) {
   if (!vacationRentalPaths.has(path)) return undefined;
 
   const pageUrl = new URL(path, siteConfig.siteUrl).toString();
-  const vacationRentalId = `${siteConfig.siteUrl}/#vacation-rental`;
-  const accommodationId = `${siteConfig.siteUrl}/#accommodation`;
-
   const vacationRental = {
     '@type': 'VacationRental',
-    '@id': vacationRentalId,
-    identifier: siteConfig.placeholders.cin,
+    '@id': schemaEntityIds.vacationRental,
+    // The Italian CIN is stable, property-specific and identical in every language.
+    identifier: vacationRentalIdentifier,
     name: siteConfig.name,
     additionalType: 'House',
     url: pageUrl,
@@ -70,7 +75,7 @@ export function lodgingSchema(lang: Lang | 'de', path: string) {
           : 'Holiday home in Figline Valdarno with 3 bedrooms, sleeps up to 8 guests, free private parking, Wi-Fi, air conditioning and a convenient location for Florence, Chianti and The Mall Firenze.',
     containsPlace: {
       '@type': 'Accommodation',
-      '@id': accommodationId,
+      '@id': schemaEntityIds.accommodation,
       additionalType: 'EntirePlace',
       name: lang === 'it' ? 'Intera casa vacanza Perla Toscana' : lang === 'de' ? 'Ganzes Ferienhaus Perla Toscana' : 'Entire Perla Toscana holiday home',
       occupancy: { '@type': 'QuantitativeValue', value: 8 },
@@ -110,7 +115,9 @@ export function faqSchema(items?: { question: string; answer: string }[]) {
 export function guideSchema(lang: Lang, page: { path: string; h1: string; description: string; publishedAt?: string; updatedAt?: string; socialImage?: string }) {
   const url = new URL(page.path, siteConfig.siteUrl).toString();
   const guidesUrl = new URL(lang === 'it' ? '/guide/' : '/en/guides/', siteConfig.siteUrl).toString();
-  const entityId = `${siteConfig.siteUrl}/#vacation-rental`;
+  // Keep the publisher identity separate from the lodging entity. Reusing the
+  // VacationRental @id here can make consumers merge an Organization stub with
+  // the rental and report the required lodging properties as missing.
   return [
     {
       '@context': 'https://schema.org',
@@ -124,8 +131,8 @@ export function guideSchema(lang: Lang, page: { path: string; h1: string; descri
       ...(page.publishedAt ? { datePublished: page.publishedAt } : {}),
       ...(page.updatedAt ? { dateModified: page.updatedAt } : {}),
       about: ['Tuscany', 'Figline e Incisa Valdarno', 'Valdarno', 'Florence', 'Chianti'],
-      author: { '@type': 'Organization', '@id': entityId, name: siteConfig.name },
-      publisher: { '@type': 'Organization', '@id': entityId, name: siteConfig.name }
+      author: { '@type': 'Organization', '@id': schemaEntityIds.organization, name: siteConfig.name },
+      publisher: { '@type': 'Organization', '@id': schemaEntityIds.organization, name: siteConfig.name }
     },
     {
       '@context': 'https://schema.org',

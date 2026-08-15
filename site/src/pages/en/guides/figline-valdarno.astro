@@ -7,6 +7,7 @@ import GuideMap from '../../../components/GuideMap.astro';
 import FAQBlock from '../../../components/FAQBlock.astro';
 import EditorialSignature from '../../../components/EditorialSignature.astro';
 import { siteConfig } from '../../../data/siteConfig';
+import { schemaEntityIds } from '../../../data/schema';
 const path='/en/guides/figline-valdarno/';
 const alternatePath='/guide/cosa-vedere-figline-valdarno/';
 const title='What to see in Figline Valdarno: walking guide';
@@ -22,7 +23,7 @@ const faqs=[
  {question:'How far is Perla Toscana from Figline centre?',answer:'The house is in the wider municipality and the centre is a short drive away. Exact time depends on traffic and your destination.'}
 ];
 const schema=[
- {'@context':'https://schema.org','@type':'BlogPosting',headline:'What to see in Figline Valdarno: historic centre, walking route and practical tips',description,image:new URL('/images/places/figline-piazza-marsilio-ficino.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-08-06',inLanguage:'en-GB',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization','@id':`${siteConfig.siteUrl}/#vacation-rental`,name:'Perla Toscana'},publisher:{'@type':'Organization','@id':`${siteConfig.siteUrl}/#vacation-rental`,name:'Perla Toscana'},about:[{'@type':'Place',name:'Figline Valdarno'}]},
+ {'@context':'https://schema.org','@type':'BlogPosting',headline:'What to see in Figline Valdarno: historic centre, walking route and practical tips',description,image:new URL('/images/places/figline-piazza-marsilio-ficino.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-08-06',inLanguage:'en-GB',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization','@id':schemaEntityIds.organization,name:'Perla Toscana'},publisher:{'@type':'Organization','@id':schemaEntityIds.organization,name:'Perla Toscana'},about:[{'@type':'Place',name:'Figline Valdarno'}]},
  {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:`${siteConfig.siteUrl}/en/`},{'@type':'ListItem',position:2,name:'Guides',item:`${siteConfig.siteUrl}/en/guides/`},{'@type':'ListItem',position:3,name:'Figline Valdarno',item:canonical}]},
  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(x=>({'@type':'Question',name:x.question,acceptedAnswer:{'@type':'Answer',text:x.answer}}))}
 ];

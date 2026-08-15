@@ -7,6 +7,7 @@ import GuideMap from '../../components/GuideMap.astro';
 import FAQBlock from '../../components/FAQBlock.astro';
 import EditorialSignature from '../../components/EditorialSignature.astro';
 import { siteConfig } from '../../data/siteConfig';
+import { schemaEntityIds } from '../../data/schema';
 const path='/guide/cosa-vedere-figline-valdarno/';
 const alternatePath='/en/guides/figline-valdarno/';
 const title='Cosa vedere a Figline Valdarno: itinerario e consigli';
@@ -22,7 +23,7 @@ const faqs=[
  {question:'Quanto dista Perla Toscana dal centro di Figline?',answer:'La casa si trova nel territorio comunale e il centro è raggiungibile in pochi minuti in auto. Il tempo esatto varia con traffico e destinazione.'}
 ];
 const schema=[
- {'@context':'https://schema.org','@type':'BlogPosting',headline:'Cosa vedere a Figline Valdarno: centro storico, itinerario e consigli utili',description,image:new URL('/images/places/figline-piazza-marsilio-ficino.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-08-06',inLanguage:'it-IT',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization','@id':`${siteConfig.siteUrl}/#vacation-rental`,name:'Perla Toscana'},publisher:{'@type':'Organization','@id':`${siteConfig.siteUrl}/#vacation-rental`,name:'Perla Toscana'},about:[{'@type':'Place',name:'Figline Valdarno'}]},
+ {'@context':'https://schema.org','@type':'BlogPosting',headline:'Cosa vedere a Figline Valdarno: centro storico, itinerario e consigli utili',description,image:new URL('/images/places/figline-piazza-marsilio-ficino.webp',siteConfig.siteUrl).toString(),datePublished:'2026-07-23',dateModified:'2026-08-06',inLanguage:'it-IT',mainEntityOfPage:{'@type':'WebPage','@id':canonical},author:{'@type':'Organization','@id':schemaEntityIds.organization,name:'Perla Toscana'},publisher:{'@type':'Organization','@id':schemaEntityIds.organization,name:'Perla Toscana'},about:[{'@type':'Place',name:'Figline Valdarno'}]},
  {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:`${siteConfig.siteUrl}/it/`},{'@type':'ListItem',position:2,name:'Guide',item:`${siteConfig.siteUrl}/guide/`},{'@type':'ListItem',position:3,name:'Cosa vedere a Figline Valdarno',item:canonical}]},
  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(x=>({'@type':'Question',name:x.question,acceptedAnswer:{'@type':'Answer',text:x.answer}}))}
 ];

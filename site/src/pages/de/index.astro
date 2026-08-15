@@ -4,7 +4,7 @@ import Hero from '../../components/Hero.astro';
 import FeatureGrid from '../../components/FeatureGrid.astro';
 import FAQBlock from '../../components/FAQBlock.astro';
 import BookingCTA from '../../components/BookingCTA.astro';
-import { lodgingSchema } from '../../data/schema';
+import { lodgingSchema, schemaEntityIds } from '../../data/schema';
 import { siteConfig } from '../../data/siteConfig';
 
 const title = 'Ferienhaus Toskana für 8 Personen nahe Florenz | Perla Toscana';
@@ -36,7 +36,7 @@ const schema = {
       name: title,
       description,
       inLanguage: 'de-DE',
-      about: { '@id': `${siteConfig.siteUrl}/#vacation-rental` },
+      about: { '@id': schemaEntityIds.vacationRental },
       breadcrumb: { '@id': `${canonical}#breadcrumb` }
     },
     {
