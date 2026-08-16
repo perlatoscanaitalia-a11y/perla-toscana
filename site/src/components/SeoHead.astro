@@ -7,6 +7,7 @@ interface Props {
   path: string;
   lang: 'it' | 'en' | 'de';
   alternatePath?: string;
+  alternatePaths?: Partial<Record<'it' | 'en' | 'de', string>>;
   schema?: unknown;
   noindex?: boolean;
   ogType?: 'website' | 'article';
@@ -14,7 +15,7 @@ interface Props {
   socialImageAlt?: string;
 }
 
-const { title, description, path, lang, alternatePath, schema, noindex = false, ogType = 'website', socialImage: socialImagePath, socialImageAlt } = Astro.props;
+const { title, description, path, lang, alternatePath, alternatePaths, schema, noindex = false, ogType = 'website', socialImage: socialImagePath, socialImageAlt } = Astro.props;
 const canonical = new URL(path, siteConfig.siteUrl).toString();
 const alternateLang = lang === 'it' ? 'en' : 'it';
 const alternateUrl = alternatePath ? new URL(alternatePath, siteConfig.siteUrl).toString() : undefined;
@@ -22,6 +23,9 @@ const socialImage = new URL(socialImagePath || '/images/perla-toscana/perla-tosc
 const resolvedSocialAlt = socialImageAlt || (lang === 'it' ? 'Camera matrimoniale di Perla Toscana a Figline Valdarno' : 'Double bedroom at Perla Toscana in Figline Valdarno');
 const isHome = ['/it/', '/en/', '/de/'].includes(path);
 const homeAlternates = ['it', 'en', 'de'] as const;
+const localizedAlternates = alternatePaths
+  ? Object.entries(alternatePaths).filter((entry): entry is ['it' | 'en' | 'de', string] => Boolean(entry[1]))
+  : [];
 ---
 <title>{title}</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
@@ -42,7 +46,7 @@ const homeAlternates = ['it', 'en', 'de'] as const;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={socialImage} />
-{isHome ? homeAlternates.map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, siteConfig.siteUrl).toString()} />) : <link rel="alternate" hreflang={lang} href={canonical} />}
-{isHome ? <link rel="alternate" hreflang="x-default" href={new URL('/it/', siteConfig.siteUrl).toString()} /> : alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
-{!isHome && alternateUrl && <link rel="alternate" hreflang="x-default" href={lang === 'it' ? canonical : alternateUrl} />}
+{isHome ? homeAlternates.map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, siteConfig.siteUrl).toString()} />) : localizedAlternates.length ? localizedAlternates.map(([code, href]) => <link rel="alternate" hreflang={code} href={new URL(href, siteConfig.siteUrl).toString()} />) : <link rel="alternate" hreflang={lang} href={canonical} />}
+{isHome ? <link rel="alternate" hreflang="x-default" href={new URL('/it/', siteConfig.siteUrl).toString()} /> : localizedAlternates.length ? <link rel="alternate" hreflang="x-default" href={new URL(alternatePaths?.it || path, siteConfig.siteUrl).toString()} /> : alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
+{!isHome && !localizedAlternates.length && alternateUrl && <link rel="alternate" hreflang="x-default" href={lang === 'it' ? canonical : alternateUrl} />}
 {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}

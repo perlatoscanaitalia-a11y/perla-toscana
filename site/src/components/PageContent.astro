@@ -10,7 +10,7 @@ import GuidesAndItineraries from './GuidesAndItineraries.astro';
 import type { PageContent as Content, Lang } from '../data/pages';
 
 interface Props {
-  lang: Lang;
+  lang: Lang | 'de';
   page: Content;
 }
 
@@ -26,18 +26,18 @@ const initialsFor = (name: string) => name
   .join('');
 ---
 {isBookingPage ? (
-  <BookingPage lang={lang} />
+  <BookingPage lang={lang === 'de' ? 'en' : lang} />
 ) : (
 <>
 <section class="section page-hero">
   <div class="container page-hero-inner">
-    {page.publishedAt && <nav class="breadcrumbs" aria-label={lang === 'it' ? 'Percorso di navigazione' : 'Breadcrumb'}><a href={`/${lang}/`}>Perla Toscana</a><span aria-hidden="true">/</span><a href={lang === 'it' ? '/it/guide/' : '/en/guides/'}>{lang === 'it' ? 'Guide' : 'Guides'}</a><span aria-hidden="true">/</span><span aria-current="page">{page.h1}</span></nav>}
+    {page.publishedAt && <nav class="breadcrumbs" aria-label={lang === 'it' ? 'Percorso di navigazione' : lang === 'de' ? 'Brotkrümelnavigation' : 'Breadcrumb'}><a href={`/${lang}/`}>Perla Toscana</a><span aria-hidden="true">/</span><a href={lang === 'it' ? '/it/guide/' : lang === 'de' ? '/de/reisefuehrer/' : '/en/guides/'}>{lang === 'it' ? 'Guide' : lang === 'de' ? 'Reiseführer' : 'Guides'}</a><span aria-hidden="true">/</span><span aria-current="page">{page.h1}</span></nav>}
     <p class="eyebrow">{page.eyebrow}</p>
     <h1>{page.h1}</h1>
     {(page.publishedAt || page.updatedAt) && (
       <p class="article-dates">
-        {page.publishedAt && <span>{lang === 'it' ? 'Pubblicato' : 'Published'}: <time datetime={page.publishedAt}>{new Date(page.publishedAt).toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span>}
-        {page.updatedAt && <span>{lang === 'it' ? 'Aggiornato' : 'Updated'}: <time datetime={page.updatedAt}>{new Date(page.updatedAt).toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span>}
+        {page.publishedAt && <span>{lang === 'it' ? 'Pubblicato' : lang === 'de' ? 'Veröffentlicht' : 'Published'}: <time datetime={page.publishedAt}>{new Date(page.publishedAt).toLocaleDateString(lang === 'it' ? 'it-IT' : lang === 'de' ? 'de-DE' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span>}
+        {page.updatedAt && <span>{lang === 'it' ? 'Aggiornato' : lang === 'de' ? 'Aktualisiert' : 'Updated'}: <time datetime={page.updatedAt}>{new Date(page.updatedAt).toLocaleDateString(lang === 'it' ? 'it-IT' : lang === 'de' ? 'de-DE' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span>}
       </p>
     )}
     {page.introHeading && <h2 class="intro-heading">{page.introHeading}</h2>}
@@ -74,6 +74,14 @@ const initialsFor = (name: string) => name
   <section class="section article-feature-image">
     <div class="container">
       <img src={page.socialImage} alt={page.socialImageAlt ?? page.h1} width="1600" height="1200" loading="eager" fetchpriority="high" decoding="async" />
+    </div>
+  </section>
+)}
+
+{['borghi-toscani-poco-conosciuti', 'hidden-villages-tuscany', 'geheimtipps-toskana-doerfer'].includes(page.slug) && page.socialImage && (
+  <section class="section article-feature-image">
+    <div class="container">
+      <img src={page.socialImage} alt={page.socialImageAlt ?? page.h1} width="1280" height="853" loading="eager" fetchpriority="high" decoding="async" />
     </div>
   </section>
 )}
@@ -264,7 +272,7 @@ const initialsFor = (name: string) => name
 {page.slug.includes('galler') || page.slug === 'gallery' ? (
   <section class="section section--sand">
     <div class="container">
-      <GalleryGrid lang={lang} />
+      <GalleryGrid lang={lang === 'de' ? 'en' : lang} />
     </div>
   </section>
 ) : null}
@@ -293,7 +301,7 @@ const initialsFor = (name: string) => name
   </section>
 )}
 
-{['cosa-fare', 'what-to-do'].includes(page.slug) && <GuidesAndItineraries lang={lang} />}
+{['cosa-fare', 'what-to-do'].includes(page.slug) && <GuidesAndItineraries lang={lang === 'de' ? 'en' : lang} />}
 
 {!hideSalesCtas && !isBookingPage && <BookingCTA lang={lang} />}
 </>

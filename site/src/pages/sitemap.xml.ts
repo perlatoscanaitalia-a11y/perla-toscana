@@ -12,6 +12,7 @@ import { viaFrancigenaPageEn } from '../data/guideViaFrancigenaEn';
 import { valDorciaPage } from '../data/guideValDorcia';
 import { valDorciaPageEn } from '../data/guideValDorciaEn';
 import { bagniSanFilippoPage, bagniSanFilippoPageEn } from '../data/guideBagniSanFilippo';
+import { hiddenVillagesDe } from '../data/guideHiddenVillages';
 
 export const prerender = true;
 
@@ -40,12 +41,18 @@ export function GET() {
     valDorciaPageEn,
     bagniSanFilippoPage,
     bagniSanFilippoPageEn,
+    hiddenVillagesDe,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${allPages.map(page => {
   const alternatePath = page.alternatePath ?? page.path;
+  if ('slug' in page && ['borghi-toscani-poco-conosciuti', 'hidden-villages-tuscany', 'geheimtipps-toskana-doerfer'].includes(page.slug ?? '')) {
+    const paths = { it: '/guide/borghi-toscani-poco-conosciuti/', en: '/en/guides/hidden-villages-tuscany/', de: '/de/reisefuehrer/geheimtipps-toskana-doerfer/' };
+    const loc = new URL(page.path, siteConfig.siteUrl);
+    return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${new URL(paths.it, siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${new URL(paths.en, siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="de" href="${new URL(paths.de, siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL(paths.it, siteConfig.siteUrl)}" />\n  </url>`;
+  }
   if (['/it/', '/en/', '/de/'].includes(page.path)) {
     const loc = new URL(page.path, siteConfig.siteUrl);
     return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${new URL('/it/', siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${new URL('/en/', siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="de" href="${new URL('/de/', siteConfig.siteUrl)}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL('/it/', siteConfig.siteUrl)}" />\n  </url>`;

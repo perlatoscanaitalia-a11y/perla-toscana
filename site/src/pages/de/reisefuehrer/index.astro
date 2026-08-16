@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout lang="de" title="Toskana-Reiseführer | Perla Toscana" description="Praktische deutschsprachige Reisetipps für Dörfer, Landschaften und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/">
+  <section class="section"><div class="container content-stack">
+    <nav class="breadcrumbs" aria-label="Brotkrümelnavigation"><a href="/de/">Perla Toscana</a><span aria-hidden="true">/</span><span aria-current="page">Reiseführer</span></nav>
+    <p class="eyebrow">Toskana entdecken</p>
+    <h1>Toskana-Reiseführer</h1>
+    <p class="lead">Praktische Routen ab Figline Valdarno – zwischen Florenz, Chianti und dem oberen Arnotal.</p>
+    <article class="card guide-card">
+      <img src="/images/places/montefioralle-chianti-panorama.webp" alt="Montefioralle zwischen den Weinbergen des Chianti, eines der unbekannten Dörfer der Toskana" width="1280" height="853" loading="lazy" decoding="async" />
+      <div class="guide-card__body">
+        <p class="eyebrow">Dörfer · Neue Reiseführung</p>
+        <h2>12 unbekannte Dörfer in der Toskana</h2>
+        <p>Zwölf kleine Orte im Chianti, Valdarno, Valdambra, Casentino und in der Valdichiana – mit Fahrzeiten und Routen ab Figline Valdarno.</p>
+        <a class="button button--secondary" href="/de/reisefuehrer/geheimtipps-toskana-doerfer/" aria-label="Reiseführer lesen: 12 unbekannte Dörfer in der Toskana">Reiseführer lesen</a>
+      </div>
+    </article>
+  </div></section>
+</BaseLayout>
+<style>
+  .guide-card{padding:0;overflow:hidden}.guide-card img{width:100%;max-height:360px;object-fit:cover}.guide-card__body{display:grid;gap:14px;padding:clamp(20px,4vw,34px)}.guide-card__body .button{width:fit-content}
+  @media(max-width:620px){.guide-card img{height:210px}.guide-card__body .button{width:100%;text-align:center}}
+</style>

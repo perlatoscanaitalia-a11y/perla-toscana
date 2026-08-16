@@ -6,6 +6,7 @@ export interface PageContent {
   slug: string;
   path: string;
   alternatePath?: string;
+  alternatePaths?: Partial<Record<'it' | 'en' | 'de', string>>;
   title: string;
   description: string;
   eyebrow: string;
@@ -45,7 +46,7 @@ export interface PageContent {
       image?: {
         src: string;
         webpSrc?: string;
-        alt: Record<Lang, string>;
+        alt: Partial<Record<'it' | 'en' | 'de', string>>;
         width?: number;
         height?: number;
       };

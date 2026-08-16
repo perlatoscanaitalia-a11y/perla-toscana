@@ -3,6 +3,7 @@ import { florenceOneDayPages } from './guideFlorenceOneDay';
 import { pienzaOneDayPages } from './guidePienzaOneDay';
 import { sanGalganoPages } from './guideSanGalgano';
 import { franciscanPlacesPages } from './guideFranciscanPlaces';
+import { hiddenVillagesIt, hiddenVillagesEn } from './guideHiddenVillages';
 
 type Destination = {
   itSlug: string; enSlug: string; itName: string; enName: string;
@@ -61,6 +62,16 @@ function destinationPage(d: Destination, lang: Lang): PageContent {
         links: [{
           label: it ? 'Etruschi nel Valdarno e a Figline' : 'The Etruscans in Valdarno and Figline',
           href: it ? '/guide/etruschi-valdarno-figline/' : '/en/guides/etruscans-valdarno-figline/'
+        }]
+      }] : []),
+      ...(['chianti', 'valdarno'].includes(d.itSlug) ? [{
+        title: it ? 'Borghi toscani poco conosciuti' : 'Hidden villages in Tuscany',
+        body: it
+          ? 'Per una Toscana meno frequentata, confronta dodici piccoli borghi tra Chianti, Valdarno, Valdambra e Casentino con distanze e itinerari da Figline Valdarno.'
+          : 'For a quieter side of Tuscany, compare twelve small villages across Chianti, Valdarno, Valdambra and Casentino with routes from Figline Valdarno.',
+        links: [{
+          label: it ? 'Scopri i 12 borghi poco conosciuti' : 'Explore 12 hidden Tuscan villages',
+          href: it ? '/guide/borghi-toscani-poco-conosciuti/' : '/en/guides/hidden-villages-tuscany/'
         }]
       }] : []),
       ...(d.itSlug === 'the-mall-firenze' && it ? [{ title: 'Dove dormire vicino a The Mall Firenze', body: 'Confronta Leccio, Reggello, Incisa, Figline Valdarno e Firenze per scegliere una base adatta a mezzo di trasporto, gruppo e programma.', links: [{ label: 'Leggi la guida completa agli alloggi', href: '/guide/dove-dormire-vicino-the-mall-firenze/' }] }] : []),
@@ -124,6 +135,6 @@ function itineraryPage(days: 1 | 2 | 3, lang: Lang): PageContent {
 }
 
 export const guides = {
-  it: [franciscanPlacesPages.it, sanGalganoPages.it, pienzaOneDayPages.it, florenceOneDayPages.it, ...destinations.map(d => destinationPage(d, 'it')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'it'))],
-  en: [franciscanPlacesPages.en, sanGalganoPages.en, pienzaOneDayPages.en, florenceOneDayPages.en, ...destinations.map(d => destinationPage(d, 'en')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'en'))]
+  it: [hiddenVillagesIt, franciscanPlacesPages.it, sanGalganoPages.it, pienzaOneDayPages.it, florenceOneDayPages.it, ...destinations.map(d => destinationPage(d, 'it')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'it'))],
+  en: [hiddenVillagesEn, franciscanPlacesPages.en, sanGalganoPages.en, pienzaOneDayPages.en, florenceOneDayPages.en, ...destinations.map(d => destinationPage(d, 'en')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'en'))]
 };

@@ -5,18 +5,19 @@ import { siteConfig } from '../data/siteConfig';
 interface Props {
   lang: 'it' | 'en' | 'de';
   alternateHref?: string;
+  alternateHrefs?: Partial<Record<'it' | 'en' | 'de', string>>;
   showSalesCtas?: boolean;
 }
 
-const { lang, showSalesCtas = true } = Astro.props;
+const { lang, alternateHrefs, showSalesCtas = true } = Astro.props;
 const pathname = Astro.url.pathname;
 const homeHref = `/${lang}/`;
 const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? siteConfig.placeholders.avaiBookUrl : '/en/book/';
 const navItems = nav[lang].filter((item) => item.href !== bookingHref);
 const languageLinks = [
-  { code: 'IT', href: '/it/', label: 'Vai alla versione italiana' },
-  { code: 'EN', href: '/en/', label: 'Switch to the English version' },
-  { code: 'DE', href: '/de/', label: 'Zur deutschen Version wechseln' }
+  { code: 'IT', href: alternateHrefs?.it || '/it/', label: 'Vai alla versione italiana' },
+  { code: 'EN', href: alternateHrefs?.en || '/en/', label: 'Switch to the English version' },
+  { code: 'DE', href: alternateHrefs?.de || '/de/', label: 'Zur deutschen Version wechseln' }
 ].filter((item) => item.code.toLowerCase() !== lang);
 const normalizePath = (value: string) => value === '/' ? value : `${value.replace(/\/+$/, '')}/`;
 const currentPath = normalizePath(pathname);

@@ -112,9 +112,9 @@ export function faqSchema(items?: { question: string; answer: string }[]) {
   };
 }
 
-export function guideSchema(lang: Lang, page: { path: string; h1: string; description: string; publishedAt?: string; updatedAt?: string; socialImage?: string }) {
+export function guideSchema(lang: Lang | 'de', page: { path: string; h1: string; description: string; publishedAt?: string; updatedAt?: string; socialImage?: string }) {
   const url = new URL(page.path, siteConfig.siteUrl).toString();
-  const guidesUrl = new URL(lang === 'it' ? '/guide/' : '/en/guides/', siteConfig.siteUrl).toString();
+  const guidesUrl = new URL(lang === 'it' ? '/guide/' : lang === 'de' ? '/de/reisefuehrer/' : '/en/guides/', siteConfig.siteUrl).toString();
   // Keep the publisher identity separate from the lodging entity. Reusing the
   // VacationRental @id here can make consumers merge an Organization stub with
   // the rental and report the required lodging properties as missing.
@@ -124,7 +124,7 @@ export function guideSchema(lang: Lang, page: { path: string; h1: string; descri
       '@type': 'Article',
       headline: page.h1,
       description: page.description,
-      inLanguage: lang === 'it' ? 'it-IT' : 'en',
+      inLanguage: lang === 'it' ? 'it-IT' : lang === 'de' ? 'de-DE' : 'en',
       url,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       ...(page.socialImage ? { image: new URL(page.socialImage, siteConfig.siteUrl).toString() } : {}),
@@ -139,7 +139,7 @@ export function guideSchema(lang: Lang, page: { path: string; h1: string; descri
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Perla Toscana', item: `${siteConfig.siteUrl}/${lang}/` },
-        { '@type': 'ListItem', position: 2, name: lang === 'it' ? 'Guide locali' : 'Local guides', item: guidesUrl },
+        { '@type': 'ListItem', position: 2, name: lang === 'it' ? 'Guide locali' : lang === 'de' ? 'Toskana-Reiseführer' : 'Local guides', item: guidesUrl },
         { '@type': 'ListItem', position: 3, name: page.h1, item: url }
       ]
     }
