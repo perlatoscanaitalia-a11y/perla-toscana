@@ -26,8 +26,8 @@ const guides = [
   { title: 'Itinerario di 2 giorni', description: 'Due giornate tra città d’arte, paesaggi e destinazioni ben collegate.', href: '/it/itinerari/2-giorni/', image: '/images/places/pienza-val-d-orcia-panorama.webp', alt: 'Panorama della Val d’Orcia osservato dal borgo di Pienza', position: 'center 48%' },
   { title: 'Itinerario di 3 giorni', description: 'Tre giornate per alternare Firenze, Chianti, Valdarno e altre mete toscane.', href: '/it/itinerari/3-giorni/', image: '/images/places/montefioralle-chianti-panorama.webp', alt: 'Borgo di Montefioralle tra vigneti e colline del Chianti', position: 'center 52%' }
 ];
-const cardMeta: Record<string, { category: string; distanceKm: number; distanceMinutes: number; visitTime: string; featuredBadge?: string }> = {
-  'Borghi toscani poco conosciuti': { category: '🏰 Borghi', distanceKm: 20, distanceMinutes: 30, visitTime: '1 giorno', featuredBadge: 'Nuova guida' },
+const cardMeta: Record<string, { category: string; distanceKm: number; distanceMinutes: number; visitTime: string; featuredBadge?: string; customDistance?: string }> = {
+  'Borghi toscani poco conosciuti': { category: '🏰 Borghi', distanceKm: 20, distanceMinutes: 30, visitTime: '1 giorno', featuredBadge: 'Nuova guida', customDistance: '12 borghi da scoprire partendo da Perla Toscana' },
   'Gli Etruschi nel Valdarno e a Figline': { category: '🏺 Archeologia', distanceKm: 4, distanceMinutes: 8, visitTime: 'Guida culturale', featuredBadge: 'Nuova guida' },
   'Via Francigena in Toscana': { category: '🥾 Cammino', distanceKm: 62, distanceMinutes: 70, visitTime: '1–16 giorni', featuredBadge: '⭐ Consigliata' },
   'Brunello di Montalcino: cantine, annate e prezzi': { category: '🍷 Vino', distanceKm: 112, distanceMinutes: 105, visitTime: '1 giorno', featuredBadge: '⭐ Consigliata' },
@@ -60,7 +60,7 @@ const cardMeta: Record<string, { category: string; distanceKm: number; distanceM
       <div class="guide-card__body">
         <div class="card-badges"><span class="category-badge">{cardMeta[guide.title]?.category ?? (guide.href ? '📍 Destinazione' : '🏞 Nuova meta')}</span>{cardMeta[guide.title]?.featuredBadge && <span class="featured-badge">{cardMeta[guide.title].featuredBadge}</span>}{!guide.href && <span class="pending-label">Prossimamente</span>}</div>
         <h2>{guide.title}</h2>
-        {guide.href && <div class="card-details">{cardMeta[guide.title]?.distanceKm !== undefined && cardMeta[guide.title]?.distanceMinutes !== undefined && <span>🚗 {cardMeta[guide.title].distanceKm === 0 ? 'Partenza da Perla Toscana' : `${cardMeta[guide.title].distanceKm} km • ${cardMeta[guide.title].distanceMinutes} min da Perla Toscana`}</span>}<span>🕒 Visita consigliata: {cardMeta[guide.title]?.visitTime ?? '1 giorno'}</span></div>}
+        {guide.href && <div class="card-details">{cardMeta[guide.title]?.distanceKm !== undefined && cardMeta[guide.title]?.distanceMinutes !== undefined && <span>🚗 {cardMeta[guide.title].customDistance ?? (cardMeta[guide.title].distanceKm === 0 ? 'Partenza da Perla Toscana' : `${cardMeta[guide.title].distanceKm} km • ${cardMeta[guide.title].distanceMinutes} min da Perla Toscana`)}</span>}<span>🕒 Visita consigliata: {cardMeta[guide.title]?.visitTime ?? '1 giorno'}</span></div>}
         <p>{guide.description}</p>
         {guide.href && <a class="button button--secondary" href={guide.href} aria-label={`Leggi la guida: ${guide.title}`}>Leggi la guida</a>}
       </div>

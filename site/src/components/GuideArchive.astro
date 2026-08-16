@@ -77,7 +77,11 @@ const legacyMeta: Record<string, { category: string; distanceKm: number; distanc
 };
 const readLabel = lang === 'it' ? 'Leggi la guida' : 'Read the guide';
 const meta = (item: CardItem) => ({ ...legacyMeta[item.slug], category: item.category ?? legacyMeta[item.slug]?.category, distanceKm: item.distanceKm ?? legacyMeta[item.slug]?.distanceKm, distanceMinutes: item.distanceMinutes ?? legacyMeta[item.slug]?.distanceMinutes, visitTime: item.visitTime ?? legacyMeta[item.slug]?.visitTime, featuredBadge: item.featuredBadge ?? legacyMeta[item.slug]?.featuredBadge });
-const distance = (item: CardItem) => meta(item).distanceKm === 0 ? (lang === 'it' ? 'Partenza da Perla Toscana' : 'Starts at Perla Toscana') : `${meta(item).distanceKm} km • ${meta(item).distanceMinutes} min ${lang === 'it' ? 'da' : 'from'} Perla Toscana`;
+const distance = (item: CardItem) => item.slug === 'hidden-villages-tuscany'
+  ? '12 villages to discover from Perla Toscana'
+  : item.slug === 'borghi-toscani-poco-conosciuti'
+    ? '12 borghi da scoprire partendo da Perla Toscana'
+    : meta(item).distanceKm === 0 ? (lang === 'it' ? 'Partenza da Perla Toscana' : 'Starts at Perla Toscana') : `${meta(item).distanceKm} km • ${meta(item).distanceMinutes} min ${lang === 'it' ? 'da' : 'from'} Perla Toscana`;
 const visit = (item: CardItem) => `${lang === 'it' ? 'Visita consigliata' : 'Recommended visit'}: ${meta(item).visitTime}`;
 ---
 <div class="archive-stack">
