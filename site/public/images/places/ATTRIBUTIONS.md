@@ -32,3 +32,7 @@ Images used in the location attraction cards.
 - `montalcino/montalcino-fortezza.webp` (conversione WebP): “Montalcino-Fortress.jpg”, dalem, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Montalcino-Fortress.jpg).
 - `montalcino/vigneti-brunello.webp` (conversione WebP): “Brunello di Montalcino vines.jpg”, Giovanni, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brunello_di_Montalcino_vines.jpg).
 - `montalcino/brunello-bottiglia-calice.webp` (conversione WebP): “Glass & bottle of Brunello di Montalcino.jpg”, Robert S. Donovan, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glass_%26_bottle_of_Brunello_di_Montalcino.jpg).
+
+# Loro Ciuffenna
+
+- `pozzone-loro-ciuffenna-ospiti-agosto-2026.webp` — Foto originale scattata da ospiti di Perla Toscana nell’agosto 2026. Utilizzo sul sito autorizzato esplicitamente dagli autori; conversione e ridimensionamento WebP a cura di Perla Toscana. Non distribuire separatamente.
