@@ -21,7 +21,9 @@ export function GET() {
     { path: '/it/', alternatePath: '/en/' },
     { path: '/en/', alternatePath: '/it/' },
     { path: '/de/', alternatePath: '/it/' },
-    { path: '/it/noleggio-auto/' },
+    { path: '/it/noleggio-auto/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
+    { path: '/en/car-rental/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
+    { path: '/de/mietwagen/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
     { path: '/it/guide/', alternatePath: '/en/guides/' },
     { path: '/en/guides/', alternatePath: '/it/guide/' },
     { path: '/guide/', alternatePath: '/en/guides/' },
@@ -75,6 +77,10 @@ ${allPages.map(page => {
   }
   if (page.path.startsWith('/guide/')) {
     return `  <url>\n    <loc>${new URL(page.path, siteConfig.siteUrl)}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${new URL(page.path, siteConfig.siteUrl)}" />\n  </url>`;
+  }
+  if ('alternatePaths' in page && page.alternatePaths) {
+    const loc = new URL(page.path, siteConfig.siteUrl);
+    return `  <url>\n    <loc>${loc}</loc>\n${Object.entries(page.alternatePaths).map(([code, href]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${new URL(href, siteConfig.siteUrl)}" />`).join('\n')}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL(page.alternatePaths.it, siteConfig.siteUrl)}" />\n  </url>`;
   }
   if (!page.alternatePath) {
     const loc = new URL(page.path, siteConfig.siteUrl);

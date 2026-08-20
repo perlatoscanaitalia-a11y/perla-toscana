@@ -7,9 +7,10 @@ export const nav = {
     { label: 'Camere', href: '/it/camere-servizi/' },
     { label: 'Galleria', href: '/it/galleria/' },
     { label: 'Come arrivare', href: '/it/posizione/' },
+    { label: 'Noleggio auto', href: '/it/noleggio-auto/' },
     { label: 'Cosa fare', href: '/it/cosa-fare/' },
     { label: 'Guide', href: '/guide/' },
-    { label: 'Dove mangiare', href: '/it/dove-mangiare/' },
+    { label: 'Ristoranti', href: '/it/dove-mangiare/' },
     { label: 'FAQ', href: '/it/regole-informazioni/' },
     { label: 'Prenota', href: '/it/prenota/' }
   ],
@@ -19,6 +20,7 @@ export const nav = {
     { label: 'Rooms', href: '/en/rooms-amenities/' },
     { label: 'Gallery', href: '/en/gallery/' },
     { label: 'How to Get Here', href: '/en/location/' },
+    { label: 'Car rental', href: '/en/car-rental/' },
     { label: 'Things to Do', href: '/en/what-to-do/' },
     { label: 'Guides', href: '/en/guides/' },
     { label: 'Where to Eat', href: '/en/where-to-eat/' },
@@ -29,6 +31,7 @@ export const nav = {
     { label: 'Startseite', href: '/de/' },
     { label: 'Ausstattung', href: '/de/#ausstattung' },
     { label: 'Lage', href: '/de/#lage' },
+    { label: 'Mietwagen', href: '/de/mietwagen/' },
     { label: 'Für wen?', href: '/de/#gaeste' },
     { label: 'FAQ', href: '/de/#faq' },
     { label: 'Verfügbarkeit', href: siteConfig.placeholders.avaiBookUrl }

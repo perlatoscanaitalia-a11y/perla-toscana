@@ -1354,7 +1354,10 @@ const en: PageContent[] = [
       {
         title: 'By train',
         body: 'The <strong>Figline Valdarno station</strong> is the reference station. Regional trains run from <strong>Florence Santa Maria Novella</strong> to Figline Valdarno with frequent connections. To check updated timetables and tickets, please use the official <strong>Trenitalia</strong> website.',
-        links: [{ label: 'Check train times on Trenitalia', href: 'https://www.trenitalia.com/en.html', external: true }],
+        links: [
+          { label: 'Check train times on Trenitalia', href: 'https://www.trenitalia.com/en.html', external: true },
+          { label: 'Arriving without a car? Compare car rental deals in Florence.', href: '/en/car-rental/' }
+        ],
         note: 'From Figline Valdarno station, we recommend arranging a taxi, a local transfer or checking available buses before travelling.'
       },
       {

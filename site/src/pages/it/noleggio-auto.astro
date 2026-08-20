@@ -6,6 +6,11 @@ const path = '/it/noleggio-auto/';
 const title = 'Noleggio Auto Firenze per Visitare la Toscana | Perla Toscana';
 const description = 'Confronta le offerte di noleggio auto a Firenze e visita in libertà il Chianti, Firenze e la Toscana durante il tuo soggiorno a Perla Toscana.';
 const canonical = new URL(path, siteConfig.siteUrl).toString();
+const alternatePaths = {
+  it: '/it/noleggio-auto/',
+  en: '/en/car-rental/',
+  de: '/de/mietwagen/'
+};
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -42,7 +47,7 @@ const schema = [
 ];
 ---
 
-<BaseLayout lang="it" title={title} description={description} path={path} schema={schema}>
+<BaseLayout lang="it" title={title} description={description} path={path} alternatePaths={alternatePaths} schema={schema}>
   <section class="section rental-hero">
     <div class="container rental-hero__inner">
       <nav class="breadcrumbs" aria-label="Percorso di navigazione">
