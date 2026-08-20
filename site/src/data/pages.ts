@@ -428,7 +428,10 @@ const it: PageContent[] = [
       {
         title: 'In treno',
         body: 'La <strong>stazione di Figline Valdarno</strong> è il riferimento più comodo. Da <strong>Firenze Santa Maria Novella</strong> partono treni regionali per Figline Valdarno con collegamenti frequenti. Per controllare orari aggiornati e biglietti, consulta il sito ufficiale <strong>Trenitalia</strong>.',
-        links: [{ label: 'Controlla gli orari su Trenitalia', href: 'https://www.trenitalia.com/it.html', external: true }],
+        links: [
+          { label: 'Controlla gli orari su Trenitalia', href: 'https://www.trenitalia.com/it.html', external: true },
+          { label: 'Arrivi senza auto? Confronta le offerte di noleggio auto a Firenze.', href: '/it/noleggio-auto/' }
+        ],
         note: 'Dalla stazione di Figline Valdarno è consigliabile organizzare un taxi, un trasferimento locale oppure verificare gli autobus disponibili prima della partenza.'
       },
       {

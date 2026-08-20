@@ -21,6 +21,7 @@ export function GET() {
     { path: '/it/', alternatePath: '/en/' },
     { path: '/en/', alternatePath: '/it/' },
     { path: '/de/', alternatePath: '/it/' },
+    { path: '/it/noleggio-auto/' },
     { path: '/it/guide/', alternatePath: '/en/guides/' },
     { path: '/en/guides/', alternatePath: '/it/guide/' },
     { path: '/guide/', alternatePath: '/en/guides/' },
@@ -74,6 +75,11 @@ ${allPages.map(page => {
   }
   if (page.path.startsWith('/guide/')) {
     return `  <url>\n    <loc>${new URL(page.path, siteConfig.siteUrl)}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${new URL(page.path, siteConfig.siteUrl)}" />\n  </url>`;
+  }
+  if (!page.alternatePath) {
+    const loc = new URL(page.path, siteConfig.siteUrl);
+    const lang = page.path.startsWith('/it/') ? 'it' : page.path.startsWith('/de/') ? 'de' : 'en';
+    return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="${lang}" href="${loc}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
   }
   const lang = page.path.startsWith('/it/') ? 'it' : 'en';
   const alternateLang = lang === 'it' ? 'en' : 'it';

@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../data/siteConfig';
+
+const path = '/it/noleggio-auto/';
+const title = 'Noleggio Auto Firenze per Visitare la Toscana | Perla Toscana';
+const description = 'Confronta le offerte di noleggio auto a Firenze e visita in libertà il Chianti, Firenze e la Toscana durante il tuo soggiorno a Perla Toscana.';
+const canonical = new URL(path, siteConfig.siteUrl).toString();
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': canonical,
+    url: canonical,
+    name: title,
+    description,
+    inLanguage: 'it-IT',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteConfig.name,
+      url: siteConfig.siteUrl
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Perla Toscana',
+        item: new URL('/it/', siteConfig.siteUrl).toString()
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Noleggio auto a Firenze',
+        item: canonical
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout lang="it" title={title} description={description} path={path} schema={schema}>
+  <section class="section rental-hero">
+    <div class="container rental-hero__inner">
+      <nav class="breadcrumbs" aria-label="Percorso di navigazione">
+        <a href="/it/">Perla Toscana</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Noleggio auto</span>
+      </nav>
+      <p class="eyebrow">Muoversi in Toscana</p>
+      <h1>Noleggio auto a Firenze per il tuo soggiorno in Toscana</h1>
+      <p class="lead">Perla Toscana si trova in una posizione ideale per visitare Firenze, il Chianti e i borghi della Toscana. Se arrivi senza auto, noleggiare una macchina ti permette di organizzare le giornate con maggiore libertà e raggiungere con più facilità anche le località di campagna.</p>
+    </div>
+  </section>
+
+  <section class="section rental-widget-section" aria-labelledby="rental-widget-title">
+    <div class="container rental-widget-wrap">
+      <h2 id="rental-widget-title" class="visually-hidden">Confronta le offerte di noleggio auto</h2>
+      <div class="rental-widget">
+        <div><script id="dchwidget" src="https://www.discovercars.com/widget.js?v1" data-dev-env="com" data-location="italy-mainland/firenze" data-lang="it" data-currency="eur" data-utm-source="Fi" data-utm-medium="widget" data-aff-code="a_aid" data-autocomplete="on" data-style-submit-bg-color="#007ac2" data-style-submit-font-color="#ffffff" data-style-form-bg-color="#f3ebdd" data-style-form-font-color="#000000" data-style-submit-text="Cerca un'auto" data-style-title-color="#000000" data-title-text="Noleggia un'auto per il tuo soggiorno in Toscana" async="async" data-style_rounded_corners="on" data-layout_benefits="on" data-layout_description="on" data-layout_description_text="Confronta le migliori offerte di noleggio auto per il tuo viaggio in Toscana." data-layout_logo_style="on dark" data-layout_powered_by="on" data-layout_style_form_bg_color="#007ac2" data-layout_title="on"></script></div>
+      </div>
+      <p class="affiliate-note"><strong>Link affiliato:</strong> Perla Toscana può ricevere una commissione sulle prenotazioni effettuate tramite questo servizio, senza costi aggiuntivi per l'ospite.</p>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container rental-reasons">
+      <div>
+        <p class="eyebrow">Viaggiare in libertà</p>
+        <h2>Perché avere un'auto in Toscana</h2>
+        <p>Con un'auto è più semplice scegliere tempi e tappe del viaggio, soprattutto fuori dai centri principali e nelle zone meno servite dai mezzi pubblici.</p>
+      </div>
+      <ul class="destination-list">
+        <li>Firenze</li>
+        <li>Il Chianti</li>
+        <li>Greve in Chianti</li>
+        <li>Siena</li>
+        <li>Arezzo</li>
+        <li>Piccoli borghi, cantine e località di campagna</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .rental-hero {
+    background: var(--color-sand);
+  }
+
+  .rental-hero__inner {
+    display: grid;
+    gap: 22px;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    color: rgba(47, 42, 36, 0.68);
+    font-size: 0.84rem;
+  }
+
+  .breadcrumbs a {
+    color: var(--color-olive);
+  }
+
+  .rental-widget-section {
+    background: var(--color-cream);
+  }
+
+  .rental-widget-wrap {
+    display: grid;
+    justify-items: center;
+    gap: 24px;
+  }
+
+  .rental-widget {
+    width: min(100%, 960px);
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .affiliate-note {
+    max-width: 820px;
+    color: rgba(47, 42, 36, 0.72);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .rental-reasons {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    gap: clamp(32px, 6vw, 72px);
+    align-items: start;
+  }
+
+  .rental-reasons > div {
+    display: grid;
+    gap: 16px;
+  }
+
+  .destination-list {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .destination-list li {
+    position: relative;
+    border-bottom: 1px solid var(--color-border);
+    padding: 10px 12px 10px 30px;
+  }
+
+  .destination-list li::before {
+    position: absolute;
+    top: 1.05rem;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-terracotta);
+    content: '';
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 720px) {
+    .rental-hero h1 {
+      max-width: 100%;
+      font-size: clamp(1.95rem, 9vw, 2.2rem);
+    }
+
+    .rental-reasons {
+      grid-template-columns: 1fr;
+    }
+
+    .rental-widget-wrap {
+      gap: 18px;
+    }
+
+    .affiliate-note {
+      text-align: left;
+    }
+  }
+</style>
