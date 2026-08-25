@@ -578,6 +578,7 @@ const it: PageContent[] = [
         links: [
           { label: 'Colazione e bar', href: '#colazione-e-bar' },
           { label: 'Pizza e cena facile', href: '#pizza-e-cena-facile' },
+          { label: 'Pranzo veloce e tavola calda', href: '#pranzo-veloce-e-tavola-calda' },
           { label: 'Cucina toscana e trattorie', href: '#cucina-toscana-e-trattorie' },
           { label: 'Pranzo di lavoro', href: '#pranzo-di-lavoro' },
           { label: 'Aperitivo e serata informale', href: '#aperitivo-e-serata-informale' },
@@ -680,6 +681,43 @@ const it: PageContent[] = [
             directionsUrl: 'https://www.google.com/maps/search/?api=1&query=1950%20American%20Diner%20Figline%20Valdarno%20Via%20Francesco%20Petrarca%20171',
             websiteUrl: 'https://1950americandiner.it/figline-valdarno/',
             note: 'Orari, giorni di apertura, menu e disponibilità possono cambiare. Consigliamo di verificare sempre sul sito ufficiale o su Google Maps prima della visita.'
+          }
+        ]
+      },
+      {
+        anchor: 'pranzo-veloce-e-tavola-calda',
+        title: 'Pranzo veloce e tavola calda',
+        body: 'Per un pranzo veloce durante una giornata alla scoperta del <strong>Valdarno</strong>, ecco alcuni locali dove trovare menù del giorno, piatti semplici e soluzioni più rapide rispetto a un ristorante tradizionale.',
+        attractions: [
+          {
+            name: 'La Locanda di Qoelet',
+            locality: 'Montevarchi',
+            description: 'Pranzo in sala o in giardino con un menù che cambia ogni giorno secondo i prodotti disponibili; è previsto anche il servizio da asporto. Il pranzo è disponibile dalle 12 alle 14.',
+            categories: ['Pranzo veloce', 'Menù del giorno', 'Asporto'],
+            cuisine: 'Piatti del giorno con prodotti freschi e ingredienti dell’orto',
+            idealFor: 'Ideale per un pranzo semplice, una pausa nel verde o un pasto da portare in ufficio.',
+            distance: 'circa 8 km',
+            drivingTime: 'circa 12 min',
+            phone: '+39 353 4277602',
+            phoneHref: 'tel:+393534277602',
+            phoneVerified: true,
+            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Qoelet%20Impresa%20Sociale%20Via%20di%20Monsorbi%2025%20Montevarchi',
+            websiteUrl: 'https://qoeletimpresasociale.org/ristorazione/'
+          },
+          {
+            name: 'Largo Galeffi 1',
+            locality: 'Montevarchi',
+            description: 'Ristorante con proposte di griglia e hamburger, aperto anche a pranzo. Il sito ufficiale indica il servizio dalle 12:30 alle 14:30 e specifica che a pranzo non è disponibile la pizza.',
+            categories: ['Pranzo', 'Griglia', 'Hamburger'],
+            cuisine: 'Griglia, hamburger e piatti del ristorante',
+            idealFor: 'Ideale per una pausa pranzo informale a Montevarchi.',
+            distance: 'circa 10 km',
+            drivingTime: 'circa 16 min',
+            phone: '+39 055 9850384',
+            phoneHref: 'tel:+390559850384',
+            phoneVerified: true,
+            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Largo%20Galeffi%201%20Montevarchi',
+            websiteUrl: 'https://largogaleffi1.com/'
           }
         ]
       },
