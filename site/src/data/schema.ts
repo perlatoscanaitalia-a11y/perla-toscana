@@ -9,7 +9,10 @@ const propertyImages = [
   ...structuredDataGalleryImages
 ].map((src) => new URL(src, siteConfig.siteUrl).toString());
 
-const vacationRentalIdentifier = siteConfig.placeholders.cin;
+const vacationRentalIdentifiers = [
+  siteConfig.placeholders.cin,
+  siteConfig.placeholders.cir
+];
 
 export const schemaEntityIds = {
   vacationRental: `${siteConfig.siteUrl}/#vacation-rental`,
@@ -28,6 +31,7 @@ const amenityFeature = [
 
 const vacationRentalPaths = new Set([
   '/it/appartamento/',
+  '/it/casa-vacanze-vicino-firenze/',
   '/en/rooms-amenities/',
   '/de/'
 ]);
@@ -55,7 +59,7 @@ export function lodgingSchema(lang: Lang | 'de', path: string) {
     '@type': 'VacationRental',
     '@id': schemaEntityIds.vacationRental,
     // The Italian CIN is stable, property-specific and identical in every language.
-    identifier: vacationRentalIdentifier,
+    identifier: vacationRentalIdentifiers,
     name: siteConfig.name,
     additionalType: 'House',
     url: pageUrl,

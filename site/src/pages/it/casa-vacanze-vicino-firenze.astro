@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTAButtons from '../../components/CTAButtons.astro';
 import BookingCTA from '../../components/BookingCTA.astro';
-import { schemaEntityIds } from '../../data/schema';
+import { lodgingSchema, schemaEntityIds } from '../../data/schema';
 import { siteConfig } from '../../data/siteConfig';
 
 const path = '/it/casa-vacanze-vicino-firenze/';
@@ -13,8 +13,10 @@ const canonical = new URL(path, siteConfig.siteUrl).toString();
 const socialImage = '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg';
 const socialImageAlt = 'Camera matrimoniale di Perla Toscana, casa vacanze a Figline Valdarno vicino Firenze';
 const imageUrl = new URL(socialImage, siteConfig.siteUrl).toString();
+const rental = lodgingSchema('it', path);
 
 const schema = [
+  rental,
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -24,38 +26,7 @@ const schema = [
     description,
     image: imageUrl,
     inLanguage: 'it-IT',
-    about: {
-      '@type': 'VacationRental',
-      '@id': schemaEntityIds.vacationRental,
-      name: siteConfig.name,
-      additionalType: 'House',
-      identifier: [
-        { '@type': 'PropertyValue', propertyID: 'CIN', value: siteConfig.placeholders.cin },
-        { '@type': 'PropertyValue', propertyID: 'CIR', value: siteConfig.placeholders.cir }
-      ],
-      telephone: siteConfig.placeholders.phone,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Via Aretina 108',
-        postalCode: '50063',
-        addressLocality: 'Figline e Incisa Valdarno',
-        addressRegion: 'FI',
-        addressCountry: 'IT'
-      },
-      containsPlace: {
-        '@type': 'Accommodation',
-        '@id': schemaEntityIds.accommodation,
-        additionalType: 'EntirePlace',
-        occupancy: { '@type': 'QuantitativeValue', value: 8 },
-        numberOfBedrooms: 3,
-        amenityFeature: [
-          { '@type': 'LocationFeatureSpecification', name: 'wifi', value: true },
-          { '@type': 'LocationFeatureSpecification', name: 'ac', value: true },
-          { '@type': 'LocationFeatureSpecification', name: 'parkingType', value: 'Free' },
-          { '@type': 'LocationFeatureSpecification', name: 'tv', value: true }
-        ]
-      }
-    },
+    about: { '@id': schemaEntityIds.vacationRental },
     isPartOf: {
       '@type': 'WebSite',
       name: siteConfig.name,
@@ -70,7 +41,7 @@ const schema = [
       { '@type': 'ListItem', position: 2, name: 'Casa vacanze vicino Firenze', item: canonical }
     ]
   }
-];
+].filter(Boolean);
 ---
 
 <BaseLayout
