@@ -9,11 +9,6 @@ const propertyImages = [
   ...structuredDataGalleryImages
 ].map((src) => new URL(src, siteConfig.siteUrl).toString());
 
-const vacationRentalIdentifiers = [
-  siteConfig.placeholders.cin,
-  siteConfig.placeholders.cir
-];
-
 export const schemaEntityIds = {
   vacationRental: `${siteConfig.siteUrl}/#vacation-rental`,
   accommodation: `${siteConfig.siteUrl}/#accommodation`,
@@ -59,7 +54,7 @@ export function lodgingSchema(lang: Lang | 'de', path: string) {
     '@type': 'VacationRental',
     '@id': schemaEntityIds.vacationRental,
     // The Italian CIN is stable, property-specific and identical in every language.
-    identifier: vacationRentalIdentifiers,
+    identifier: siteConfig.placeholders.cin,
     name: siteConfig.name,
     additionalType: 'House',
     url: pageUrl,
