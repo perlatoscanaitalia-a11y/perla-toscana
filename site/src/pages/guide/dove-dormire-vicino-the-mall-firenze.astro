@@ -11,6 +11,7 @@ import EditorialSignature from '../../components/EditorialSignature.astro';
 import { siteConfig } from '../../data/siteConfig';
 
 const path = '/guide/dove-dormire-vicino-the-mall-firenze/';
+const alternatePaths = { it: path, de: '/de/reisefuehrer/uebernachten-nahe-the-mall-firenze/' };
 const title = 'Dove dormire vicino a The Mall Firenze: guida 2026';
 const description = 'Dove dormire vicino a The Mall Firenze: zone, hotel, appartamenti, distanze, trasporti e consigli per scegliere l’alloggio giusto nel Valdarno.';
 const canonical = new URL(path, siteConfig.siteUrl).toString();
@@ -63,7 +64,7 @@ const schema = [
 ];
 ---
 
-<BaseLayout lang="it" title={title} description={description} path={path} schema={schema} ogType="article" socialImage="/images/places/the-mall-firenze.webp" socialImageWidth={1280} socialImageHeight={872}>
+<BaseLayout lang="it" title={title} description={description} path={path} alternatePaths={alternatePaths} schema={schema} ogType="article" socialImage="/images/places/the-mall-firenze.webp" socialImageWidth={1280} socialImageHeight={872}>
   <article>
     <GuideHero image="/images/places/the-mall-firenze.webp" alt="The Mall Firenze a Leccio, nel comune di Reggello" category="Guida agli alloggi" title="Dove dormire vicino a The Mall Firenze: zone, hotel e appartamenti" intro="Una guida indipendente per scegliere la base giusta nel Valdarno, confrontando distanze, trasporti e servizi prima di prenotare.">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/it/">Home</a><span>/</span><a href="/guide/">Guide</a><span>/</span><span aria-current="page">Dove dormire vicino a The Mall Firenze</span></nav>

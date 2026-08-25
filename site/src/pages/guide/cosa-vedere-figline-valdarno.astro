@@ -10,6 +10,7 @@ import { siteConfig } from '../../data/siteConfig';
 import { schemaEntityIds } from '../../data/schema';
 const path='/guide/cosa-vedere-figline-valdarno/';
 const alternatePath='/en/guides/figline-valdarno/';
+const alternatePaths={it:path,en:alternatePath,de:'/de/reisefuehrer/figline-valdarno-sehenswuerdigkeiten/'};
 const title='Cosa vedere a Figline Valdarno: itinerario e consigli';
 const description='Cosa vedere a Figline Valdarno: Piazza Ficino, Collegiata, Palazzo Pretorio, itinerario a piedi, parcheggi, treno per Firenze e dove dormire.';
 const canonical=new URL(path,siteConfig.siteUrl).toString();
@@ -28,7 +29,7 @@ const schema=[
  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(x=>({'@type':'Question',name:x.question,acceptedAnswer:{'@type':'Answer',text:x.answer}}))}
 ];
 ---
-<BaseLayout lang="it" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/figline-piazza-marsilio-ficino.webp" socialImageWidth={1600} socialImageHeight={1200}>
+<BaseLayout lang="it" title={title} description={description} path={path} alternatePath={alternatePath} alternatePaths={alternatePaths} schema={schema} ogType="article" socialImage="/images/places/figline-piazza-marsilio-ficino.webp" socialImageWidth={1600} socialImageHeight={1200}>
 <article>
 <GuideHero image="/images/places/figline-piazza-marsilio-ficino.webp" alt="Piazza Marsilio Ficino nel centro storico di Figline Valdarno" category="Guida locale" title="Cosa vedere a Figline Valdarno: centro storico, itinerario e consigli utili" intro="Una passeggiata nel cuore del Valdarno fiorentino, tra piazze, arte, botteghe e collegamenti comodi per esplorare la Toscana.">
  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/it/">Home</a><span>/</span><a href="/guide/">Guide</a><span>/</span><span>Figline Valdarno</span></nav>

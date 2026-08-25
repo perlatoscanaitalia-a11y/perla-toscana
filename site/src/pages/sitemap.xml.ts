@@ -16,6 +16,7 @@ import { hiddenVillagesDe } from '../data/guideHiddenVillages';
 import { guideBlockOneDe } from '../data/guideBlockOneDe';
 import { guideBlockTwoDe } from '../data/guideBlockTwoDe';
 import { guideBlockThreeDe } from '../data/guideBlockThreeDe';
+import { guideBlockFourDe } from '../data/guideBlockFourDe';
 
 export const prerender = true;
 
@@ -32,11 +33,11 @@ export function GET() {
     { path: '/it/guide/', alternatePath: '/en/guides/' },
     { path: '/en/guides/', alternatePath: '/it/guide/' },
     { path: '/guide/', alternatePath: '/en/guides/' },
-    { path: '/guide/dove-dormire-vicino-the-mall-firenze/', alternatePath: '/guide/dove-dormire-vicino-the-mall-firenze/' },
-    { path: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', alternatePath: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/' },
-    { path: '/guide/cosa-vedere-figline-valdarno/', alternatePath: '/en/guides/figline-valdarno/' },
-    { path: '/guide/etruschi-valdarno-figline/', alternatePath: '/en/guides/etruscans-valdarno-figline/' },
-    { path: '/en/guides/etruscans-valdarno-figline/', alternatePath: '/guide/etruschi-valdarno-figline/' },
+    { path: '/guide/dove-dormire-vicino-the-mall-firenze/', alternatePaths: { it: '/guide/dove-dormire-vicino-the-mall-firenze/', de: '/de/reisefuehrer/uebernachten-nahe-the-mall-firenze/' } },
+    { path: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', alternatePaths: { it: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', de: '/de/reisefuehrer/zwischenstopp-a1-rom-mailand/' } },
+    { path: '/guide/cosa-vedere-figline-valdarno/', alternatePaths: { it: '/guide/cosa-vedere-figline-valdarno/', en: '/en/guides/figline-valdarno/', de: '/de/reisefuehrer/figline-valdarno-sehenswuerdigkeiten/' } },
+    { path: '/guide/etruschi-valdarno-figline/', alternatePaths: { it: '/guide/etruschi-valdarno-figline/', en: '/en/guides/etruscans-valdarno-figline/', de: '/de/reisefuehrer/etrusker-valdarno-figline/' } },
+    { path: '/en/guides/etruscans-valdarno-figline/', alternatePaths: { it: '/guide/etruschi-valdarno-figline/', en: '/en/guides/etruscans-valdarno-figline/', de: '/de/reisefuehrer/etrusker-valdarno-figline/' } },
     lakeTrasimenoPage,
     lakeTrasimenoPageEn,
     brunelloPage,
@@ -53,6 +54,7 @@ export function GET() {
     ...guideBlockOneDe,
     ...guideBlockTwoDe,
     ...guideBlockThreeDe,
+    ...guideBlockFourDe,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -75,8 +77,8 @@ ${allPages.map(page => {
   }
   if (page.path === '/guide/cosa-vedere-figline-valdarno/') {
     const loc = new URL(page.path, siteConfig.siteUrl);
-    const alt = new URL(alternatePath, siteConfig.siteUrl);
-    return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${loc}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${alt}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
+    const paths = { it: '/guide/cosa-vedere-figline-valdarno/', en: '/en/guides/figline-valdarno/', de: '/de/reisefuehrer/figline-valdarno-sehenswuerdigkeiten/' };
+    return `  <url>\n    <loc>${loc}</loc>\n${Object.entries(paths).map(([code, href]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${new URL(href, siteConfig.siteUrl)}" />`).join('\n')}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL(paths.it, siteConfig.siteUrl)}" />\n  </url>`;
   }
   if ('alternatePaths' in page && page.alternatePaths) {
     const loc = new URL(page.path, siteConfig.siteUrl);

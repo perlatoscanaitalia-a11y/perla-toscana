@@ -4,10 +4,11 @@ import PageContent from '../../../components/PageContent.astro';
 import { guideBlockOneDe } from '../../../data/guideBlockOneDe';
 import { guideBlockTwoDe } from '../../../data/guideBlockTwoDe';
 import { guideBlockThreeDe } from '../../../data/guideBlockThreeDe';
+import { guideBlockFourDe } from '../../../data/guideBlockFourDe';
 import { faqSchema, guideSchema } from '../../../data/schema';
 
 export function getStaticPaths() {
-  return [...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe].map((page) => ({ params: { slug: page.slug }, props: { page } }));
+  return [...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe, ...guideBlockFourDe].map((page) => ({ params: { slug: page.slug }, props: { page } }));
 }
 
 const { page } = Astro.props;

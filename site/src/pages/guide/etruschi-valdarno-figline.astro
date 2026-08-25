@@ -6,6 +6,7 @@ import { faqSchema, guideSchema } from '../../data/schema';
 
 const path = '/guide/etruschi-valdarno-figline/';
 const alternatePath = '/en/guides/etruscans-valdarno-figline/';
+const alternatePaths = { it: path, en: alternatePath, de: '/de/reisefuehrer/etrusker-valdarno-figline/' };
 const title = 'Etruschi nel Valdarno e a Figline: scavi, tombe e La Rotta';
 const description = 'Guida documentata agli Etruschi nel Valdarno Superiore: sito de La Rotta, tomba di Scampata, Arno, Borro del Cesto, reperti e cave antiche.';
 const h1 = 'Gli Etruschi nel Valdarno: scoperte archeologiche intorno a Figline';
@@ -24,7 +25,7 @@ const faqs = [
 const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06', socialImage: '/images/places/balze-del-valdarno.webp' };
 const schema = [...guideSchema('it', page), faqSchema(faqs)].filter(Boolean);
 ---
-<BaseLayout lang="it" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="Paesaggio delle Balze nel Valdarno Superiore" socialImageWidth={1920} socialImageHeight={1280}>
+<BaseLayout lang="it" title={title} description={description} path={path} alternatePath={alternatePath} alternatePaths={alternatePaths} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="Paesaggio delle Balze nel Valdarno Superiore" socialImageWidth={1920} socialImageHeight={1280}>
   <article>
     <header class="hero">
       <div class="container hero__inner">

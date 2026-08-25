@@ -6,6 +6,7 @@ import { faqSchema, guideSchema } from '../../../data/schema';
 
 const path = '/en/guides/etruscans-valdarno-figline/';
 const alternatePath = '/guide/etruschi-valdarno-figline/';
+const alternatePaths = { it: alternatePath, en: path, de: '/de/reisefuehrer/etrusker-valdarno-figline/' };
 const title = 'Etruscans in Valdarno and Figline: La Rotta archaeological site';
 const description = 'Evidence-based guide to the Etruscans in Upper Valdarno: La Rotta, the Scampata tomb, the Arno, Borro del Cesto, finds and ancient quarries.';
 const h1 = 'The Etruscans in Valdarno: archaeological discoveries around Figline';
@@ -24,7 +25,7 @@ const faqs = [
 const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06', socialImage: '/images/places/balze-del-valdarno.webp' };
 const schema = [...guideSchema('en', page), faqSchema(faqs)].filter(Boolean);
 ---
-<BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="The Balze landscape in Upper Valdarno" socialImageWidth={1920} socialImageHeight={1280}>
+<BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} alternatePaths={alternatePaths} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="The Balze landscape in Upper Valdarno" socialImageWidth={1920} socialImageHeight={1280}>
   <article>
     <header class="hero">
       <div class="container hero__inner">
