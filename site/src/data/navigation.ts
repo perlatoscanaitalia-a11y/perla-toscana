@@ -32,6 +32,7 @@ export const nav = {
     { label: 'Ausstattung', href: '/de/#ausstattung' },
     { label: 'Lage', href: '/de/#lage' },
     { label: 'Mietwagen', href: '/de/mietwagen/' },
+    { label: 'Reiseführer', href: '/de/reisefuehrer/' },
     { label: 'Für wen?', href: '/de/#gaeste' },
     { label: 'FAQ', href: '/de/#faq' },
     { label: 'Verfügbarkeit', href: siteConfig.placeholders.avaiBookUrl }
@@ -56,6 +57,7 @@ export const footerLinks = {
     { label: 'Photo credits', href: '/en/photo-credits/' }
   ],
   de: [
+    { label: 'Reiseführer', href: '/de/reisefuehrer/' },
     { label: 'Datenschutz (Englisch)', href: '/en/privacy-policy/' },
     { label: 'Cookie-Richtlinie (Englisch)', href: '/en/cookie-policy/' },
     { label: 'Rechtliche Informationen / CIN', href: '/en/legal-information/' },
