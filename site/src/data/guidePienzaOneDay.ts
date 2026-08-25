@@ -2,7 +2,7 @@ import type { Lang, PageContent } from './pages';
 
 export const pienzaOneDayPages: Record<Lang, PageContent> = {
   it: {
-    slug: 'cosa-vedere-a-pienza', path: '/it/guide/cosa-vedere-a-pienza/', alternatePath: '/en/guides/what-to-see-in-pienza/',
+    slug: 'cosa-vedere-a-pienza', path: '/it/guide/cosa-vedere-a-pienza/', alternatePath: '/en/guides/what-to-see-in-pienza/', alternatePaths: { it: '/it/guide/cosa-vedere-a-pienza/', en: '/en/guides/what-to-see-in-pienza/', de: '/de/reisefuehrer/pienza-sehenswuerdigkeiten/' },
     title: 'Cosa vedere a Pienza in un giorno: itinerario completo',
     description: 'Cosa vedere a Pienza in un giorno: itinerario nel centro storico, parcheggi, panorami, Pecorino di Pienza e borghi vicini in Val d’Orcia.',
     eyebrow: 'Guida alla Val d’Orcia', h1: 'Cosa vedere a Pienza in un giorno',
@@ -35,7 +35,7 @@ export const pienzaOneDayPages: Record<Lang, PageContent> = {
     ]
   },
   en: {
-    slug: 'what-to-see-in-pienza', path: '/en/guides/what-to-see-in-pienza/', alternatePath: '/it/guide/cosa-vedere-a-pienza/',
+    slug: 'what-to-see-in-pienza', path: '/en/guides/what-to-see-in-pienza/', alternatePath: '/it/guide/cosa-vedere-a-pienza/', alternatePaths: { it: '/it/guide/cosa-vedere-a-pienza/', en: '/en/guides/what-to-see-in-pienza/', de: '/de/reisefuehrer/pienza-sehenswuerdigkeiten/' },
     title: 'Pienza in One Day: What to See in the Heart of Val d’Orcia',
     description: 'Discover what to see in Pienza in one day, including its historic centre, Val d’Orcia viewpoints, local pecorino cheese and practical travel tips.',
     eyebrow: 'Val d’Orcia guide', h1: 'What to See in Pienza in One Day',

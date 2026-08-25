@@ -14,6 +14,7 @@ import { valDorciaPageEn } from '../data/guideValDorciaEn';
 import { bagniSanFilippoPage, bagniSanFilippoPageEn } from '../data/guideBagniSanFilippo';
 import { hiddenVillagesDe } from '../data/guideHiddenVillages';
 import { guideBlockOneDe } from '../data/guideBlockOneDe';
+import { guideBlockTwoDe } from '../data/guideBlockTwoDe';
 
 export const prerender = true;
 
@@ -49,6 +50,7 @@ export function GET() {
     bagniSanFilippoPageEn,
     hiddenVillagesDe,
     ...guideBlockOneDe,
+    ...guideBlockTwoDe,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

@@ -2,10 +2,11 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PageContent from '../../../components/PageContent.astro';
 import { guideBlockOneDe } from '../../../data/guideBlockOneDe';
+import { guideBlockTwoDe } from '../../../data/guideBlockTwoDe';
 import { faqSchema, guideSchema } from '../../../data/schema';
 
 export function getStaticPaths() {
-  return guideBlockOneDe.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+  return [...guideBlockOneDe, ...guideBlockTwoDe].map((page) => ({ params: { slug: page.slug }, props: { page } }));
 }
 
 const { page } = Astro.props;

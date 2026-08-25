@@ -54,12 +54,20 @@ const clusterLinks = (lang: Lang, current: string) => destinations
   .filter((d) => (lang === 'it' ? d.itSlug : d.enSlug) !== current)
   .map((d) => ({ label: lang === 'it' ? d.itName : d.enName, href: `/${lang}/${lang === 'it' ? 'guide' : 'guides'}/${lang === 'it' ? d.itSlug : d.enSlug}/` }));
 
+const destinationGermanPaths: Record<string, string> = {
+  firenze: '/de/reisefuehrer/florenz-sehenswuerdigkeiten/',
+  chianti: '/de/reisefuehrer/chianti-sehenswuerdigkeiten/',
+  siena: '/de/reisefuehrer/siena-sehenswuerdigkeiten/',
+  arezzo: '/de/reisefuehrer/arezzo-sehenswuerdigkeiten/',
+  'reggello-vallombrosa': '/de/reisefuehrer/reggello-vallombrosa/'
+};
+
 function destinationPage(d: Destination, lang: Lang): PageContent {
   const it = lang === 'it'; const slug = it ? d.itSlug : d.enSlug; const name = it ? d.itName : d.enName;
   return {
     slug, path: `/${lang}/${it ? 'guide' : 'guides'}/${slug}/`,
     alternatePath: `/${it ? 'en/guides' : 'it/guide'}/${it ? d.enSlug : d.itSlug}/`,
-    ...(d.itSlug === 'firenze' ? { alternatePaths: { it: '/it/guide/firenze/', en: '/en/guides/florence/', de: '/de/reisefuehrer/florenz-sehenswuerdigkeiten/' } } : {}),
+    ...(destinationGermanPaths[d.itSlug] ? { alternatePaths: { it: `/it/guide/${d.itSlug}/`, en: `/en/guides/${d.enSlug}/`, de: destinationGermanPaths[d.itSlug] } } : {}),
     publishedAt: '2026-07-11',
     updatedAt: '2026-08-06',
     socialImage: destinationImages[d.itSlug],

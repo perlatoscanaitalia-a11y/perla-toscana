@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { guideBlockOneDe } from '../../../data/guideBlockOneDe';
+import { guideBlockTwoDe } from '../../../data/guideBlockTwoDe';
 import { hiddenVillagesDe } from '../../../data/guideHiddenVillages';
-const guides = [hiddenVillagesDe, ...guideBlockOneDe];
+const guides = [hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe];
 const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' };
 ---
-<BaseLayout lang="de" title="Toskana-Reiseführer und Ausflüge | Perla Toscana" description="Praktische deutschsprachige Reiseführer für Florenz, Val d’Orcia, San Gimignano, Thermalquellen und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/" alternatePaths={alternatePaths} socialImage="/images/places/montefioralle-chianti-panorama.webp" socialImageAlt="Montefioralle und die Hügellandschaft der Toskana" socialImageWidth={1280} socialImageHeight={853}>
+<BaseLayout lang="de" title="Toskana-Reiseführer und Ausflüge | Perla Toscana" description="Praktische deutschsprachige Reiseführer für Florenz, Siena, Chianti, Val d’Orcia, Dörfer, Natur und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/" alternatePaths={alternatePaths} socialImage="/images/places/montefioralle-chianti-panorama.webp" socialImageAlt="Montefioralle und die Hügellandschaft der Toskana" socialImageWidth={1280} socialImageHeight={853}>
   <section class="section"><div class="container content-stack">
     <nav class="breadcrumbs" aria-label="Brotkrümelnavigation"><a href="/de/">Perla Toscana</a><span aria-hidden="true">/</span><span aria-current="page">Reiseführer</span></nav>
     <p class="eyebrow">Toskana entdecken</p>
