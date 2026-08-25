@@ -574,10 +574,11 @@ const it: PageContent[] = [
     sections: [
       {
         title: 'Scegli in base al momento',
-        body: 'Vai subito alla voce che ti serve: colazione, pizza, <strong>cucina toscana</strong>, <strong>pranzo di lavoro</strong>, aperitivo o indirizzi comodi vicino a <strong>The Mall Firenze</strong>.',
+        body: 'Vai subito alla voce che ti serve: colazione, pizza, sushi e cucina asiatica, <strong>cucina toscana</strong>, <strong>pranzo di lavoro</strong>, aperitivo o indirizzi comodi vicino a <strong>The Mall Firenze</strong>.',
         links: [
           { label: 'Colazione e bar', href: '#colazione-e-bar' },
           { label: 'Pizza e cena facile', href: '#pizza-e-cena-facile' },
+          { label: 'Sushi e cucina asiatica', href: '#sushi-e-cucina-asiatica' },
           { label: 'Pranzo veloce e tavola calda', href: '#pranzo-veloce-e-tavola-calda' },
           { label: 'Fast food e soluzioni veloci', href: '#fast-food-e-soluzioni-veloci' },
           { label: 'Cucina toscana e trattorie', href: '#cucina-toscana-e-trattorie' },
@@ -682,6 +683,58 @@ const it: PageContent[] = [
             directionsUrl: 'https://www.google.com/maps/search/?api=1&query=1950%20American%20Diner%20Figline%20Valdarno%20Via%20Francesco%20Petrarca%20171',
             websiteUrl: 'https://1950americandiner.it/figline-valdarno/',
             note: 'Orari, giorni di apertura, menu e disponibilità possono cambiare. Consigliamo di verificare sempre sul sito ufficiale o su Google Maps prima della visita.'
+          }
+        ]
+      },
+      {
+        anchor: 'sushi-e-cucina-asiatica',
+        title: 'Sushi e cucina asiatica',
+        body: 'Per chi ha voglia di sushi, cucina giapponese o sapori asiatici, ecco alcune alternative facilmente raggiungibili da <strong>Perla Toscana</strong>, a Figline Valdarno e nel vicino Valdarno.',
+        attractions: [
+          {
+            name: 'Sakura Fusion',
+            locality: 'Figline Valdarno',
+            description: 'Ristorante fusion in Via Fiorentina 4/H con menu dedicati al pranzo e alla cena. Il sito ufficiale indica servizio dalle 12:00 alle 15:00 e dalle 19:00 alle 23:30, oltre ad asporto e consegna a domicilio.',
+            categories: ['Sushi', 'Fusion asiatica', 'Asporto'],
+            cuisine: 'Sushi e cucina fusion asiatica',
+            idealFor: 'Ideale per pranzo, cena o un ordine da consumare a casa.',
+            distance: 'circa 6 km',
+            drivingTime: 'circa 10 min',
+            phone: '+39 327 3913901',
+            phoneHref: 'tel:+393273913901',
+            phoneVerified: true,
+            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Sakura%20Fusion%20Via%20Fiorentina%204H%20Figline%20Valdarno',
+            websiteUrl: 'https://www.sakurafusion.it/prenota/'
+          },
+          {
+            name: 'Ristorante Sushi One',
+            locality: 'Figline Valdarno',
+            description: 'Ristorante di cucina giapponese e cinese in Via della Comunità Europea 13. La pagina ufficiale indica apertura tutti i giorni, a pranzo dalle 12:00 alle 15:00 e a cena dalle 19:00 alle 23:00.',
+            categories: ['Sushi', 'Giapponese', 'Cinese'],
+            cuisine: 'Cucina giapponese e cinese',
+            idealFor: 'Ideale per sushi a pranzo o a cena restando nella zona di Figline.',
+            distance: 'circa 6 km',
+            drivingTime: 'circa 10 min',
+            phone: '+39 055 9157042',
+            phoneHref: 'tel:+390559157042',
+            phoneVerified: true,
+            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Ristorante%20Sushi%20One%20Via%20della%20Comunita%20Europea%2013%20Figline%20Valdarno',
+            websiteUrl: 'https://ristorantesushione.it/contatti/'
+          },
+          {
+            name: 'Jing Asian Fusion',
+            locality: 'San Giovanni Valdarno',
+            description: 'Ristorante di cucina giapponese e asiatica in Via Gruccia 23D. Il sito del locale indica servizio dalle 12:00 alle 15:00 e dalle 19:00 alle 23:30, chiusura il martedì, asporto e consegna a domicilio.',
+            categories: ['Sushi', 'Cucina asiatica', 'Delivery'],
+            cuisine: 'Cucina giapponese e asiatica',
+            idealFor: 'Ideale per sushi, piatti al wok, asporto o consegna.',
+            distance: 'circa 7 km',
+            drivingTime: 'circa 9 min',
+            phone: '+39 320 0131868',
+            phoneHref: 'tel:+393200131868',
+            phoneVerified: true,
+            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Jing%20Asian%20Fusion%20Via%20Gruccia%2023D%20San%20Giovanni%20Valdarno',
+            websiteUrl: 'https://jingsgv.eatbu.com/?lang=it'
           }
         ]
       },
