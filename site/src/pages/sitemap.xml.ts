@@ -21,6 +21,7 @@ export function GET() {
     { path: '/it/', alternatePath: '/en/' },
     { path: '/en/', alternatePath: '/it/' },
     { path: '/de/', alternatePath: '/it/' },
+    { path: '/it/casa-vacanze-vicino-firenze/' },
     { path: '/it/noleggio-auto/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
     { path: '/en/car-rental/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
     { path: '/de/mietwagen/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
