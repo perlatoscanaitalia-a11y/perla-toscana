@@ -59,6 +59,7 @@ function destinationPage(d: Destination, lang: Lang): PageContent {
   return {
     slug, path: `/${lang}/${it ? 'guide' : 'guides'}/${slug}/`,
     alternatePath: `/${it ? 'en/guides' : 'it/guide'}/${it ? d.enSlug : d.itSlug}/`,
+    ...(d.itSlug === 'firenze' ? { alternatePaths: { it: '/it/guide/firenze/', en: '/en/guides/florence/', de: '/de/reisefuehrer/florenz-sehenswuerdigkeiten/' } } : {}),
     publishedAt: '2026-07-11',
     updatedAt: '2026-08-06',
     socialImage: destinationImages[d.itSlug],

@@ -1,25 +1,32 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { guideBlockOneDe } from '../../../data/guideBlockOneDe';
+import { hiddenVillagesDe } from '../../../data/guideHiddenVillages';
+const guides = [hiddenVillagesDe, ...guideBlockOneDe];
+const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' };
 ---
-<BaseLayout lang="de" title="Toskana-Reiseführer | Perla Toscana" description="Praktische deutschsprachige Reisetipps für Dörfer, Landschaften und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/">
+<BaseLayout lang="de" title="Toskana-Reiseführer und Ausflüge | Perla Toscana" description="Praktische deutschsprachige Reiseführer für Florenz, Val d’Orcia, San Gimignano, Thermalquellen und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/" alternatePaths={alternatePaths} socialImage="/images/places/montefioralle-chianti-panorama.webp" socialImageAlt="Montefioralle und die Hügellandschaft der Toskana" socialImageWidth={1280} socialImageHeight={853}>
   <section class="section"><div class="container content-stack">
     <nav class="breadcrumbs" aria-label="Brotkrümelnavigation"><a href="/de/">Perla Toscana</a><span aria-hidden="true">/</span><span aria-current="page">Reiseführer</span></nav>
     <p class="eyebrow">Toskana entdecken</p>
     <h1>Toskana-Reiseführer</h1>
-    <p class="lead">Praktische Routen ab Figline Valdarno – zwischen Florenz, Chianti und dem oberen Arnotal.</p>
-    <article class="card guide-card">
-      <img src="/images/places/montefioralle-chianti-panorama.webp" alt="Montefioralle zwischen den Weinbergen des Chianti, eines der unbekannten Dörfer der Toskana" width="1280" height="853" loading="lazy" decoding="async" />
-      <div class="guide-card__body">
-        <p class="eyebrow">Dörfer · Neue Reiseführung</p>
-        <h2>12 unbekannte Dörfer in der Toskana</h2>
-        <p class="card-detail">🚗 12 Dörfer ab Perla Toscana entdecken</p>
-        <p>Zwölf kleine Orte im Chianti, Valdarno, Valdambra, Casentino und in der Valdichiana – mit Fahrzeiten und Routen ab Figline Valdarno.</p>
-        <a class="button button--secondary" href="/de/reisefuehrer/geheimtipps-toskana-doerfer/" aria-label="Reiseführer lesen: 12 unbekannte Dörfer in der Toskana">Reiseführer lesen</a>
-      </div>
-    </article>
+    <p class="lead">Praktische Routen und geprüfte Informationen ab Figline Valdarno – für Florenz, Val d’Orcia, mittelalterliche Orte, Thermalquellen und weniger bekannte Dörfer.</p>
+    <div class="guide-grid">
+      {guides.map((guide) => (
+        <article class="card guide-card">
+          <img src={guide.socialImage} alt={guide.socialImageAlt ?? guide.h1} width={guide.socialImageWidth} height={guide.socialImageHeight} loading="lazy" decoding="async" />
+          <div class="guide-card__body">
+            <p class="eyebrow">Reiseführer</p>
+            <h2>{guide.h1}</h2>
+            <p>{guide.description}</p>
+            <a class="button button--secondary" href={guide.path} aria-label={`Reiseführer lesen: ${guide.h1}`}>Reiseführer lesen</a>
+          </div>
+        </article>
+      ))}
+    </div>
   </div></section>
 </BaseLayout>
 <style>
-  .guide-card{padding:0;overflow:hidden}.guide-card img{width:100%;max-height:360px;object-fit:cover}.guide-card__body{display:grid;gap:14px;padding:clamp(20px,4vw,34px)}.guide-card__body .button{width:fit-content}.card-detail{font-size:.86rem;font-weight:700;color:rgba(47,42,36,.78)}
-  @media(max-width:620px){.guide-card img{height:210px}.guide-card__body .button{width:100%;text-align:center}}
+  .guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.guide-card{padding:0;overflow:hidden}.guide-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.guide-card__body{display:grid;gap:14px;padding:clamp(20px,4vw,34px)}.guide-card__body .button{width:fit-content}
+  @media(max-width:760px){.guide-grid{grid-template-columns:1fr}.guide-card__body .button{width:100%;text-align:center}}
 </style>

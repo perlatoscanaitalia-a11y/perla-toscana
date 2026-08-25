@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import GuideArchive from '../../../components/GuideArchive.astro';
 ---
-<BaseLayout lang="it" title="Guide e itinerari in Toscana | Perla Toscana" description="Scopri guide pratiche, itinerari, città d’arte, borghi, shopping e natura da visitare partendo da Perla Toscana, vicino a Firenze." path="/it/guide/" alternatePath="/en/guides/">
+<BaseLayout lang="it" title="Guide e itinerari in Toscana | Perla Toscana" description="Scopri guide pratiche, itinerari, città d’arte, borghi, shopping e natura da visitare partendo da Perla Toscana, vicino a Firenze." path="/it/guide/" alternatePaths={{ it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' }}>
   <section class="section guide-hero"><div class="container hero-inner"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/it/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Guide</span></nav><p class="eyebrow">Esplora la Toscana</p><h1>Guide e itinerari in Toscana</h1><p class="lead">Guide pratiche per organizzare il soggiorno in Toscana partendo da Perla Toscana: città d’arte, borghi, shopping, natura, itinerari e consigli per chi viaggia lungo l’A1.</p><p>Per una panoramica delle mete principali, scopri anche <a href="/it/cosa-fare/">cosa fare vicino a Perla Toscana</a>.</p></div></section>
   <section class="section"><div class="container"><GuideArchive lang="it" /></div></section>
 </BaseLayout>

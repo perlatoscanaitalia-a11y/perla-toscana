@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 export const valDorciaPage: PageContent = {
-  slug: 'val-dorcia-cosa-vedere-itinerario', path: '/guide/val-dorcia-cosa-vedere-itinerario/', alternatePath: '/en/guides/val-dorcia-things-to-do-itinerary/',
+  slug: 'val-dorcia-cosa-vedere-itinerario', path: '/guide/val-dorcia-cosa-vedere-itinerario/', alternatePath: '/en/guides/val-dorcia-things-to-do-itinerary/', alternatePaths: { it: '/guide/val-dorcia-cosa-vedere-itinerario/', en: '/en/guides/val-dorcia-things-to-do-itinerary/', de: '/de/reisefuehrer/val-dorcia-sehenswuerdigkeiten-route/' },
   title: "Val d'Orcia: cosa vedere, borghi e itinerari",
   description: "Guida completa alla Val d'Orcia: Pienza, Montalcino, Bagno Vignoni, cipressi, terme, vino e itinerari di 1, 2 o 3 giorni.",
   eyebrow: 'Guida definitiva · Toscana UNESCO', h1: "Val d'Orcia: cosa vedere, borghi e itinerario nella Toscana più iconica",

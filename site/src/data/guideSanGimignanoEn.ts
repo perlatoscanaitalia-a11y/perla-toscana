@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 export const sanGimignanoPageEn: PageContent = {
-  slug: 'san-gimignano-things-to-do-towers-parking', path: '/en/guides/san-gimignano-things-to-do-towers-parking/', alternatePath: '/guide/san-gimignano-cosa-vedere/',
+  slug: 'san-gimignano-things-to-do-towers-parking', path: '/en/guides/san-gimignano-things-to-do-towers-parking/', alternatePath: '/guide/san-gimignano-cosa-vedere/', alternatePaths: { it: '/guide/san-gimignano-cosa-vedere/', en: '/en/guides/san-gimignano-things-to-do-towers-parking/', de: '/de/reisefuehrer/san-gimignano-sehenswuerdigkeiten/' },
   title: 'San Gimignano: Things to Do, Towers, Parking and Itinerary',
   description: 'Complete San Gimignano guide: medieval towers, cathedral, museums, 2026 parking, half-day and one-day itineraries, distances and practical advice.',
   eyebrow: 'Complete Tuscany guide', h1: 'San Gimignano: things to do, medieval towers, parking and itineraries',

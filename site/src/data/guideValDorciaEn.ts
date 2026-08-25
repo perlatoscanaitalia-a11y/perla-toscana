@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 export const valDorciaPageEn: PageContent = {
-  slug: 'val-dorcia-things-to-do-itinerary', path: '/en/guides/val-dorcia-things-to-do-itinerary/', alternatePath: '/guide/val-dorcia-cosa-vedere-itinerario/',
+  slug: 'val-dorcia-things-to-do-itinerary', path: '/en/guides/val-dorcia-things-to-do-itinerary/', alternatePath: '/guide/val-dorcia-cosa-vedere-itinerario/', alternatePaths: { it: '/guide/val-dorcia-cosa-vedere-itinerario/', en: '/en/guides/val-dorcia-things-to-do-itinerary/', de: '/de/reisefuehrer/val-dorcia-sehenswuerdigkeiten-route/' },
   title: "Val d'Orcia Tuscany: Towns, Itinerary and Map",
   description: "Complete Val d'Orcia guide: Pienza, Montalcino, Bagno Vignoni, cypresses, wine, parking and realistic one-, two- and three-day itineraries.",
   eyebrow: 'Definitive guide · UNESCO Tuscany', h1: "Val d'Orcia, Tuscany: what to see, hill towns and the best itinerary",

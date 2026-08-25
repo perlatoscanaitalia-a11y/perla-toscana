@@ -5,6 +5,6 @@ import { valDorciaPage as page } from '../../data/guideValDorcia';
 import { faqSchema, guideSchema } from '../../data/schema';
 const schema = [...guideSchema('it', page), faqSchema(page.faqs)].filter(Boolean);
 ---
-<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
+<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} alternatePaths={page.alternatePaths} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
   <PageContent lang="it" page={page} />
 </BaseLayout>

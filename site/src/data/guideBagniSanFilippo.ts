@@ -5,7 +5,7 @@ const officialEn = 'https://www.visittuscany.com/en/towns-and-villages/bagni-san
 const freeSprings = 'https://www.visittuscany.com/it/idee/luoghi-di-benessere-in-toscana-4-terme-libere-per-rigenerarsi/';
 
 export const bagniSanFilippoPage: PageContent = {
-  slug: 'bagni-san-filippo-terme-libere', path: '/guide/bagni-san-filippo-terme-libere/', alternatePath: '/en/guides/bagni-san-filippo-hot-springs/',
+  slug: 'bagni-san-filippo-terme-libere', path: '/guide/bagni-san-filippo-terme-libere/', alternatePath: '/en/guides/bagni-san-filippo-hot-springs/', alternatePaths: { it: '/guide/bagni-san-filippo-terme-libere/', en: '/en/guides/bagni-san-filippo-hot-springs/', de: '/de/reisefuehrer/bagni-san-filippo-thermalquellen/' },
   title: 'Bagni San Filippo: terme libere e Fosso Bianco',
   description: 'Guida 2026 a Bagni San Filippo: Fosso Bianco, Balena Bianca, regole per il bagno, accesso, parcheggi e itinerario in Val d’Orcia.',
   eyebrow: 'Guida verificata 2026 · Val d’Orcia', h1: 'Bagni San Filippo: guida alle terme libere, Fosso Bianco e Balena Bianca',
@@ -52,7 +52,7 @@ export const bagniSanFilippoPage: PageContent = {
 };
 
 export const bagniSanFilippoPageEn: PageContent = {
-  slug:'bagni-san-filippo-hot-springs', path:'/en/guides/bagni-san-filippo-hot-springs/', alternatePath:'/guide/bagni-san-filippo-terme-libere/',
+  slug:'bagni-san-filippo-hot-springs', path:'/en/guides/bagni-san-filippo-hot-springs/', alternatePath:'/guide/bagni-san-filippo-terme-libere/', alternatePaths: { it: '/guide/bagni-san-filippo-terme-libere/', en: '/en/guides/bagni-san-filippo-hot-springs/', de: '/de/reisefuehrer/bagni-san-filippo-thermalquellen/' },
   title:'Bagni San Filippo hot springs: 2026 guide', description:'2026 guide to Bagni San Filippo hot springs, Fosso Bianco, the White Whale, bathing rules, parking and a Val d’Orcia day trip.',
   eyebrow:'Verified 2026 guide · Val d’Orcia', h1:'Bagni San Filippo hot springs: Fosso Bianco and the White Whale',
   publishedAt:'2026-08-09', updatedAt:'2026-08-09', socialImage:'/images/places/bagni-san-filippo/fosso-bianco-terme-bagni-san-filippo.webp', socialImageAlt:'Natural thermal cascades and pools along Fosso Bianco at Bagni San Filippo', socialImageWidth:1600, socialImageHeight:1200, category:'Natural hot springs', distanceKm:120, distanceMinutes:105, visitTime:'2–4 hours', featuredBadge:'⭐ Recommended',

@@ -8,7 +8,7 @@ const factsEn = `<div class="travel-facts"><div><strong>93.7 km</strong><span>ea
 
 export const sanGalganoPages: Record<'it' | 'en', PageContent> = {
   it: {
-    slug: 'abbazia-di-san-galgano', path: '/it/guide/abbazia-di-san-galgano/', alternatePath: '/en/guides/san-galgano-abbey/',
+    slug: 'abbazia-di-san-galgano', path: '/it/guide/abbazia-di-san-galgano/', alternatePath: '/en/guides/san-galgano-abbey/', alternatePaths: { it: '/it/guide/abbazia-di-san-galgano/', en: '/en/guides/san-galgano-abbey/', de: '/de/reisefuehrer/abtei-san-galgano/' },
     title: 'Abbazia di San Galgano: guida, spada nella roccia e itinerario',
     description: 'Visita l’Abbazia di San Galgano e la spada nella roccia di Montesiepi: cosa vedere, come arrivare, parcheggio, tempi e consigli pratici.',
     eyebrow: 'Guida · Val di Merse', h1: 'Abbazia di San Galgano: cosa vedere e come organizzare la visita',
@@ -46,7 +46,7 @@ export const sanGalganoPages: Record<'it' | 'en', PageContent> = {
     ]
   },
   en: {
-    slug: 'san-galgano-abbey', path: '/en/guides/san-galgano-abbey/', alternatePath: '/it/guide/abbazia-di-san-galgano/',
+    slug: 'san-galgano-abbey', path: '/en/guides/san-galgano-abbey/', alternatePath: '/it/guide/abbazia-di-san-galgano/', alternatePaths: { it: '/it/guide/abbazia-di-san-galgano/', en: '/en/guides/san-galgano-abbey/', de: '/de/reisefuehrer/abtei-san-galgano/' },
     title: 'San Galgano Abbey: Guide, Sword in the Stone and Day Trip',
     description: 'Visit San Galgano Abbey and the sword in the stone at Montesiepi: driving route, parking, opening hours, timing and practical advice.',
     eyebrow: 'Guide · Val di Merse', h1: 'San Galgano Abbey: What to See and How to Plan Your Visit',

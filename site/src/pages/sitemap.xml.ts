@@ -13,6 +13,7 @@ import { valDorciaPage } from '../data/guideValDorcia';
 import { valDorciaPageEn } from '../data/guideValDorciaEn';
 import { bagniSanFilippoPage, bagniSanFilippoPageEn } from '../data/guideBagniSanFilippo';
 import { hiddenVillagesDe } from '../data/guideHiddenVillages';
+import { guideBlockOneDe } from '../data/guideBlockOneDe';
 
 export const prerender = true;
 
@@ -21,6 +22,7 @@ export function GET() {
     { path: '/it/', alternatePath: '/en/' },
     { path: '/en/', alternatePath: '/it/' },
     { path: '/de/', alternatePath: '/it/' },
+    { path: '/de/reisefuehrer/', alternatePaths: { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' } },
     { path: '/it/casa-vacanze-vicino-firenze/' },
     { path: '/it/noleggio-auto/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
     { path: '/en/car-rental/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
@@ -46,6 +48,7 @@ export function GET() {
     bagniSanFilippoPage,
     bagniSanFilippoPageEn,
     hiddenVillagesDe,
+    ...guideBlockOneDe,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -71,6 +74,10 @@ ${allPages.map(page => {
     const alt = new URL(alternatePath, siteConfig.siteUrl);
     return `  <url>\n    <loc>${loc}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${loc}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${alt}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
   }
+  if ('alternatePaths' in page && page.alternatePaths) {
+    const loc = new URL(page.path, siteConfig.siteUrl);
+    return `  <url>\n    <loc>${loc}</loc>\n${Object.entries(page.alternatePaths).map(([code, href]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${new URL(href, siteConfig.siteUrl)}" />`).join('\n')}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL(page.alternatePaths.it, siteConfig.siteUrl)}" />\n  </url>`;
+  }
   if (page.path.startsWith('/guide/') && page.alternatePath?.startsWith('/en/')) {
     const loc = new URL(page.path, siteConfig.siteUrl);
     const alt = new URL(page.alternatePath, siteConfig.siteUrl);
@@ -78,10 +85,6 @@ ${allPages.map(page => {
   }
   if (page.path.startsWith('/guide/')) {
     return `  <url>\n    <loc>${new URL(page.path, siteConfig.siteUrl)}</loc>\n    <xhtml:link rel="alternate" hreflang="it" href="${new URL(page.path, siteConfig.siteUrl)}" />\n  </url>`;
-  }
-  if ('alternatePaths' in page && page.alternatePaths) {
-    const loc = new URL(page.path, siteConfig.siteUrl);
-    return `  <url>\n    <loc>${loc}</loc>\n${Object.entries(page.alternatePaths).map(([code, href]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${new URL(href, siteConfig.siteUrl)}" />`).join('\n')}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL(page.alternatePaths.it, siteConfig.siteUrl)}" />\n  </url>`;
   }
   if (!page.alternatePath) {
     const loc = new URL(page.path, siteConfig.siteUrl);

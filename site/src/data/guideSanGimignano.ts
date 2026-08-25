@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 export const sanGimignanoPage: PageContent = {
-  slug: 'san-gimignano-cosa-vedere', path: '/guide/san-gimignano-cosa-vedere/', alternatePath: '/en/guides/san-gimignano-things-to-do-towers-parking/',
+  slug: 'san-gimignano-cosa-vedere', path: '/guide/san-gimignano-cosa-vedere/', alternatePath: '/en/guides/san-gimignano-things-to-do-towers-parking/', alternatePaths: { it: '/guide/san-gimignano-cosa-vedere/', en: '/en/guides/san-gimignano-things-to-do-towers-parking/', de: '/de/reisefuehrer/san-gimignano-sehenswuerdigkeiten/' },
   title: 'San Gimignano: cosa vedere, torri, parcheggi e itinerario',
   description: 'Guida completa a San Gimignano: torri medievali, Duomo, musei, parcheggi 2026, itinerari di mezza giornata e un giorno, distanze e consigli pratici.',
   eyebrow: 'Guida completa · Toscana', h1: 'San Gimignano: cosa vedere, torri medievali, parcheggi e itinerari',

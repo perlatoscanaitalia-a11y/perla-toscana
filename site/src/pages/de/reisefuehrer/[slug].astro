@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageContent from '../../../components/PageContent.astro';
+import { guideBlockOneDe } from '../../../data/guideBlockOneDe';
+import { faqSchema, guideSchema } from '../../../data/schema';
+
+export function getStaticPaths() {
+  return guideBlockOneDe.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const schema = [...guideSchema('de', page), faqSchema(page.faqs)].filter(Boolean);
+---
+
+<BaseLayout lang="de" title={page.title} description={page.description} path={page.path} alternatePaths={page.alternatePaths} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
+  <PageContent lang="de" page={page} />
+</BaseLayout>
