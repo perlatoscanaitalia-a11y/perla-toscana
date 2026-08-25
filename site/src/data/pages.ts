@@ -579,6 +579,7 @@ const it: PageContent[] = [
           { label: 'Colazione e bar', href: '#colazione-e-bar' },
           { label: 'Pizza e cena facile', href: '#pizza-e-cena-facile' },
           { label: 'Pranzo veloce e tavola calda', href: '#pranzo-veloce-e-tavola-calda' },
+          { label: 'Fast food e soluzioni veloci', href: '#fast-food-e-soluzioni-veloci' },
           { label: 'Cucina toscana e trattorie', href: '#cucina-toscana-e-trattorie' },
           { label: 'Pranzo di lavoro', href: '#pranzo-di-lavoro' },
           { label: 'Aperitivo e serata informale', href: '#aperitivo-e-serata-informale' },
@@ -718,6 +719,43 @@ const it: PageContent[] = [
             phoneVerified: true,
             directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Largo%20Galeffi%201%20Montevarchi',
             websiteUrl: 'https://largogaleffi1.com/'
+          }
+        ]
+      },
+      {
+        anchor: 'fast-food-e-soluzioni-veloci',
+        title: 'Fast food e soluzioni veloci',
+        body: 'Per chi cerca qualcosa di semplice e veloce, soprattutto al rientro da una giornata fuori o quando viaggia con bambini, queste sono le sedi delle due catene più comode verificate da <strong>Perla Toscana</strong>. Non sono esperienze gastronomiche locali: per trattorie, pizza e cucina del territorio consulta le sezioni dedicate.',
+        attractions: [
+          {
+            name: 'McDonald’s Terranuova Bracciolini',
+            locality: 'Terranuova Bracciolini',
+            description: 'Sede in Strada Provinciale Lungo Arno s.n.c. Al controllo del 25 agosto 2026, la pagina ufficiale indicava ristorante dalle 07:00 alle 00:00 e McDrive dalle 07:00 alle 02:00; gli orari vanno ricontrollati prima della partenza.',
+            categories: ['Fast food', 'Famiglie', 'McDrive'],
+            cuisine: 'Hamburger, panini e prodotti della catena',
+            idealFor: 'Ideale per una sosta rapida, famiglie con bambini e rientri serali. Sono disponibili anche McCafé, asporto, servizio al tavolo, ordini in app e Play Land.',
+            distance: 'circa 9 km',
+            drivingTime: 'circa 12 min',
+            phone: '+39 055 3922474',
+            phoneHref: 'tel:+390553922474',
+            phoneVerified: true,
+            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=McDonald%27s%20Terranuova%20Bracciolini%20Strada%20Provinciale%20Lungo%20Arno',
+            websiteUrl: 'https://www.mcdonalds.it/ristorante/toscana/arezzo/terranuova-bracciolini'
+          },
+          {
+            name: 'Burger King Valdarno',
+            locality: 'Terranuova Bracciolini',
+            description: 'Sede in Via Poggilupi 890. Il localizzatore ufficiale indica apertura tutti i giorni dalle 11:30 alle 23:00, King Drive, parcheggio, Play King, Wi-Fi e Home Delivery; gli orari e i servizi vanno ricontrollati prima della visita.',
+            categories: ['Fast food', 'Famiglie', 'King Drive'],
+            cuisine: 'Hamburger, panini e prodotti della catena',
+            idealFor: 'Ideale per una soluzione rapida e prevedibile, anche con bambini o quando si preferisce il servizio drive-through.',
+            distance: 'circa 8 km',
+            drivingTime: 'circa 11 min',
+            phone: '+39 055 9199232',
+            phoneHref: 'tel:+390559199232',
+            phoneVerified: true,
+            directionsUrl: 'https://www.google.com/maps/search/?api=1&query=Burger%20King%20Valdarno%20Via%20Poggilupi%20890%20Terranuova%20Bracciolini',
+            websiteUrl: 'https://www.burgerking.it/trova-un-ristorante'
           }
         ]
       },
