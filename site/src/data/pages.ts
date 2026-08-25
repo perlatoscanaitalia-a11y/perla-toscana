@@ -102,7 +102,7 @@ const it: PageContent[] = [
       {
         title: 'Una base comoda in Toscana',
         body: 'La posizione a <strong>Figline Valdarno</strong> permette di organizzare giornate a <strong>Firenze</strong>, nel <strong>Chianti</strong> e al <strong>The Mall Firenze</strong> senza rinunciare alla tranquillità del rientro. È una <strong>casa vacanza vicino Firenze</strong> adatta anche a chi cerca una base pratica per shopping, città d’arte e borghi toscani.',
-        links: [{ label: 'Scopri la posizione', href: '/it/posizione/' }]
+        links: [{ label: 'Casa vacanze vicino Firenze: perché scegliere il Valdarno', href: '/it/casa-vacanze-vicino-firenze/' }, { label: 'Scopri la posizione', href: '/it/posizione/' }]
       },
       {
         title: 'Servizi inclusi per gli ospiti',
@@ -422,7 +422,7 @@ const it: PageContent[] = [
       {
         title: 'Indirizzo',
         body: '<strong>Perla Toscana</strong> si trova in <strong>Via Aretina 108</strong>, 50063 <strong>Figline Valdarno</strong> / <strong>Figline e Incisa Valdarno</strong> (FI), Italia. Il <strong>parcheggio privato gratuito</strong> si trova direttamente davanti alla casa, con spazio fino a 3 auto.',
-        links: [{ label: 'Apri su Google Maps', href: 'https://g.co/kgs/NiQTiYh', external: true }]
+        links: [{ label: 'Perché scegliere una casa vacanze vicino Firenze', href: '/it/casa-vacanze-vicino-firenze/' }, { label: 'Apri su Google Maps', href: 'https://g.co/kgs/NiQTiYh', external: true }]
       },
       {
         title: 'Accesso finale alla casa',

@@ -2,11 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTAButtons from '../../components/CTAButtons.astro';
 import BookingCTA from '../../components/BookingCTA.astro';
+import { schemaEntityIds } from '../../data/schema';
 import { siteConfig } from '../../data/siteConfig';
 
 const path = '/it/casa-vacanze-vicino-firenze/';
 const title = 'Casa vacanze vicino Firenze nel Valdarno | Perla Toscana';
-const description = 'Casa vacanze vicino Firenze a Figline Valdarno per famiglie e gruppi fino a 8 persone, con cucina, Wi-Fi, aria condizionata e parcheggio.';
+const description = 'Casa vacanze a Figline Valdarno per famiglie e gruppi fino a 8 persone, con parcheggio privato: una base per visitare Firenze e la Toscana.';
 const h1 = 'Casa vacanze vicino Firenze: soggiorna nel Valdarno';
 const canonical = new URL(path, siteConfig.siteUrl).toString();
 const socialImage = '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg';
@@ -25,12 +26,34 @@ const schema = [
     inLanguage: 'it-IT',
     about: {
       '@type': 'VacationRental',
+      '@id': schemaEntityIds.vacationRental,
       name: siteConfig.name,
+      additionalType: 'House',
+      identifier: [
+        { '@type': 'PropertyValue', propertyID: 'CIN', value: siteConfig.placeholders.cin },
+        { '@type': 'PropertyValue', propertyID: 'CIR', value: siteConfig.placeholders.cir }
+      ],
+      telephone: siteConfig.placeholders.phone,
       address: {
         '@type': 'PostalAddress',
+        streetAddress: 'Via Aretina 108',
+        postalCode: '50063',
         addressLocality: 'Figline e Incisa Valdarno',
         addressRegion: 'FI',
         addressCountry: 'IT'
+      },
+      containsPlace: {
+        '@type': 'Accommodation',
+        '@id': schemaEntityIds.accommodation,
+        additionalType: 'EntirePlace',
+        occupancy: { '@type': 'QuantitativeValue', value: 8 },
+        numberOfBedrooms: 3,
+        amenityFeature: [
+          { '@type': 'LocationFeatureSpecification', name: 'wifi', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'ac', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'parkingType', value: 'Free' },
+          { '@type': 'LocationFeatureSpecification', name: 'tv', value: true }
+        ]
       }
     },
     isPartOf: {
@@ -71,7 +94,7 @@ const schema = [
         </nav>
         <p class="eyebrow">Perla Toscana · Figline e Incisa Valdarno</p>
         <h1>{h1}</h1>
-        <p class="lead"><strong>Perla Toscana non si trova nel centro di Firenze:</strong> è una casa vacanze a Figline e Incisa Valdarno, nel Valdarno, pensata per chi vuole visitare la città e avere una base comoda per scoprire anche altre zone della Toscana.</p>
+        <p class="lead"><strong>Perla Toscana è una casa vacanze a Figline e Incisa Valdarno, nel Valdarno vicino Firenze, per famiglie e piccoli gruppi fino a 8 persone.</strong> Offre cucina attrezzata, Wi-Fi, aria condizionata nelle camere e parcheggio privato gratuito fino a 3 auto. Non si trova nel centro di Firenze: è una base per visitare la città e continuare il viaggio in altre zone della Toscana.</p>
         <div class="hero-actions"><CTAButtons lang="it" /></div>
       </div>
       <img src={socialImage} alt={socialImageAlt} width="1800" height="1200" decoding="async" fetchpriority="high" />
@@ -122,6 +145,7 @@ const schema = [
         <a class="card" href="/it/guide/reggello-vallombrosa/"><strong>Vallombrosa</strong><span>Abbazia, foresta e sentieri.</span></a>
         <a class="card" href="/guide/borghi-toscani-poco-conosciuti/"><strong>Borghi toscani</strong><span>Luoghi meno conosciuti tra Valdarno e dintorni.</span></a>
       </div>
+      <p class="more-guides">Per combinare più tappe dalla stessa base, consulta anche gli <a href="/it/itinerari/2-giorni/">itinerari in Toscana da Perla Toscana</a>.</p>
     </div>
   </section>
 
@@ -131,6 +155,43 @@ const schema = [
       <h2>Come raggiungere Firenze da Perla Toscana</h2>
       <p>Perla Toscana si trova a <strong>Figline e Incisa Valdarno</strong>. Per raggiungere Firenze puoi utilizzare l’auto, pianificando in anticipo parcheggio e accessi alla ZTL, oppure partire dalla stazione di Figline Valdarno con un treno regionale verso Firenze. Orari, durata, binari e condizioni dei biglietti possono cambiare: verifica sempre il collegamento del giorno sul sito o sull’app ufficiale Trenitalia.</p>
       <p>La pagina <a href="/it/posizione/">posizione</a> indica dove si trova la struttura; per auto, treno, autobus e accesso alla casa consulta le <a href="/it/come-arrivare/">indicazioni complete su come arrivare</a>. Se arrivi senza un mezzo e vuoi esplorare anche le aree rurali, trovi inoltre una pagina dedicata al <a href="/it/noleggio-auto/">noleggio auto</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container narrow">
+      <p class="eyebrow">Domande pratiche</p>
+      <h2>Domande frequenti sulla casa vacanze vicino Firenze</h2>
+      <div class="faq-list">
+        <article>
+          <h3>Dove dormire vicino Firenze con parcheggio?</h3>
+          <p>Perla Toscana si trova a Figline e Incisa Valdarno, fuori dal centro di Firenze, e offre parcheggio privato gratuito davanti alla casa fino a 3 auto.</p>
+        </article>
+        <article>
+          <h3>Perla Toscana può ospitare 8 persone?</h3>
+          <p>Sì. La casa può accogliere fino a 8 persone e dispone di tre camere, soggiorno con angolo cottura e diverse configurazioni di letto descritte nella pagina camere e servizi.</p>
+        </article>
+        <article>
+          <h3>Perla Toscana si trova nel centro di Firenze?</h3>
+          <p>No. Perla Toscana si trova in Via Aretina 108, a Figline e Incisa Valdarno, nel Valdarno. È proposta come base per visitare Firenze e altre destinazioni toscane.</p>
+        </article>
+        <article>
+          <h3>Si può visitare Firenze soggiornando a Figline Valdarno?</h3>
+          <p>Sì. Da Figline Valdarno è possibile organizzare una giornata a Firenze e rientrare poi nella casa, controllando in anticipo trasporti, ZTL e parcheggi in base al mezzo scelto.</p>
+        </article>
+        <article>
+          <h3>Come si raggiunge Firenze da Figline Valdarno?</h3>
+          <p>Si può viaggiare in auto, pianificando parcheggio e accessi alla ZTL, oppure usare un treno regionale dalla stazione di Figline Valdarno. Orari e condizioni vanno verificati per il giorno del viaggio sui canali ufficiali.</p>
+        </article>
+        <article>
+          <h3>Perla Toscana è adatta a famiglie e piccoli gruppi?</h3>
+          <p>Sì. Gli ospiti possono condividere soggiorno e cucina, preparare i pasti e utilizzare camere separate, Wi-Fi e aria condizionata. La capienza massima è di 8 persone.</p>
+        </article>
+        <article>
+          <h3>È disponibile il parcheggio?</h3>
+          <p>Sì. Il parcheggio privato gratuito si trova davanti alla casa e dispone di spazio fino a 3 auto.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -168,6 +229,12 @@ const schema = [
   .destination-grid a { display: grid; gap: 8px; color: inherit; text-decoration: none; }
   .destination-grid a:hover { transform: translateY(-2px); }
   .destination-grid strong { color: var(--color-terracotta); font-size: 1.08rem; }
+  .more-guides { margin-top: 24px; }
+  .faq-list { display: grid; gap: 20px; margin-top: 28px; }
+  .faq-list article { padding-bottom: 20px; border-bottom: 1px solid color-mix(in srgb, var(--color-olive) 20%, transparent); }
+  .faq-list article:last-child { padding-bottom: 0; border-bottom: 0; }
+  .faq-list h3 { margin-bottom: 8px; }
+  .faq-list p { margin: 0; }
   .conversion-box { display: grid; gap: 10px; }
   .card ul { padding-left: 20px; }
   @media (max-width: 960px) {
