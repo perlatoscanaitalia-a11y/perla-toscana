@@ -8,7 +8,7 @@ export const viaFrancigenaPageEn: PageContent = {
   title: 'Via Francigena Tuscany: Stages, Map and Itinerary',
   description: 'Via Francigena in Tuscany: all 16 stages and 394 km, official map, walking, cycling and driving itineraries, credential, costs and practical advice.',
   eyebrow: 'Definitive guide · Walking Tuscany', h1: 'Via Francigena in Tuscany: stages, map, itinerary and things to see',
-  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'San Gimignano on the Via Francigena among the Tuscan hills',
+  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'San Gimignano on the Via Francigena among the Tuscan hills', socialImageWidth: 1280, socialImageHeight: 899,
   category: '🥾 Walking route', distanceKm: 62, distanceMinutes: 70, visitTime: '1–16 days', featuredBadge: '⭐ Recommended',
   intro: 'The <strong>Via Francigena in Tuscany</strong> crosses the Apennines, Lunigiana, Lucca, Val d’Elsa, Siena and Val d’Orcia. The current regional itinerary covers about <strong>394 km in 16 stages</strong>. You can walk it end to end, follow its dedicated cycling route, or build a road trip around its towns. This guide clearly separates the official trail from sightseeing itineraries by car.',
   sections: [

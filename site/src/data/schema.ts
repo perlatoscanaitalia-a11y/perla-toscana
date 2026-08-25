@@ -4,7 +4,10 @@ import { structuredDataGalleryImages } from './galleryImages';
 
 const stripHtml = (value: string) => value.replace(/<[^>]*>/g, '');
 
-const propertyImages = structuredDataGalleryImages.map((src) => new URL(src, siteConfig.siteUrl).toString());
+const propertyImages = [
+  '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg',
+  ...structuredDataGalleryImages
+].map((src) => new URL(src, siteConfig.siteUrl).toString());
 
 const vacationRentalIdentifier = siteConfig.placeholders.cin;
 

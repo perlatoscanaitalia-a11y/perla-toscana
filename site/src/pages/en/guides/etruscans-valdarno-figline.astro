@@ -24,7 +24,7 @@ const faqs = [
 const page = { path, h1, description, publishedAt: '2026-08-06', updatedAt: '2026-08-06', socialImage: '/images/places/balze-del-valdarno.webp' };
 const schema = [...guideSchema('en', page), faqSchema(faqs)].filter(Boolean);
 ---
-<BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="The Balze landscape in Upper Valdarno">
+<BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/balze-del-valdarno.webp" socialImageAlt="The Balze landscape in Upper Valdarno" socialImageWidth={1920} socialImageHeight={1280}>
   <article>
     <header class="hero">
       <div class="container hero__inner">

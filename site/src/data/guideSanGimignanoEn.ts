@@ -5,7 +5,7 @@ export const sanGimignanoPageEn: PageContent = {
   title: 'San Gimignano: Things to Do, Towers, Parking and Itinerary',
   description: 'Complete San Gimignano guide: medieval towers, cathedral, museums, 2026 parking, half-day and one-day itineraries, distances and practical advice.',
   eyebrow: 'Complete Tuscany guide', h1: 'San Gimignano: things to do, medieval towers, parking and itineraries',
-  publishedAt: '2026-08-03', updatedAt: '2026-08-04', socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'Medieval towers of San Gimignano above the rolling Tuscan countryside',
+  publishedAt: '2026-08-03', updatedAt: '2026-08-04', socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'Medieval towers of San Gimignano above the rolling Tuscan countryside', socialImageWidth: 1280, socialImageHeight: 899,
   category: '🏰 Medieval town', distanceKm: 62, distanceMinutes: 70, visitTime: '1 day', featuredBadge: '⭐ Recommended',
   intro: '<strong>San Gimignano</strong> is the Tuscan medieval town famous for its tower-filled skyline. Allow at least half a day; with a full day you can climb Torre Grossa, see the Cathedral and museums, explore quieter streets and taste Vernaccia. This guide puts every stop in a practical order and includes parking, timings and realistic alternatives.',
   sections: [

@@ -15,6 +15,6 @@ const { page } = Astro.props;
 const allFaqs = [...(page.propertyFaqs ?? []), ...(page.faqs ?? [])];
 const schema = [lodgingSchema('it', page.path), faqSchema(allFaqs)].filter(Boolean);
 ---
-<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema}>
+<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema} socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
   <PageContent lang="it" page={page} />
 </BaseLayout>

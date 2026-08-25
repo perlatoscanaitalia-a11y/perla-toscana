@@ -6,7 +6,7 @@ export const sanGimignanoPage: PageContent = {
   description: 'Guida completa a San Gimignano: torri medievali, Duomo, musei, parcheggi 2026, itinerari di mezza giornata e un giorno, distanze e consigli pratici.',
   eyebrow: 'Guida completa · Toscana', h1: 'San Gimignano: cosa vedere, torri medievali, parcheggi e itinerari',
   publishedAt: '2026-08-03', updatedAt: '2026-08-04',
-  socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'Torri medievali di San Gimignano nel paesaggio collinare della Toscana',
+  socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'Torri medievali di San Gimignano nel paesaggio collinare della Toscana', socialImageWidth: 1280, socialImageHeight: 899,
   category: '🏰 Borgo', distanceKm: 62, distanceMinutes: 70, visitTime: '1 giorno', featuredBadge: '⭐ Consigliata',
   intro: '<strong>San Gimignano</strong> è il borgo medievale della Toscana famoso per il profilo delle sue torri. Per visitarlo bene servono almeno mezza giornata; con un giorno intero puoi salire sulla Torre Grossa, vedere Duomo e musei, percorrere le vie meno affollate e fermarti per la Vernaccia. Questa guida organizza la visita in ordine logico, con parcheggi, tempi e alternative pratiche.',
   sections: [

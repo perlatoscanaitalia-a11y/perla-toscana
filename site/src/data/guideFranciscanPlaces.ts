@@ -43,6 +43,8 @@ export const franciscanPlacesPages: Record<'it' | 'en', PageContent> = {
     updatedAt: '2026-07-29',
     socialImage: '/images/places/santuario-la-verna.webp',
     socialImageAlt: 'Santuario della Verna tra i boschi, tappa dell’itinerario francescano fra Toscana e Umbria',
+    socialImageWidth: 1600,
+    socialImageHeight: 1050,
     sections: [
       { title: 'Panoramica dell’itinerario', anchor: 'mappa', image: hero, body: 'Il filo geografico più naturale corre dal Valdarno alla Valdichiana, raggiunge l’alta Valtiberina e La Verna, poi attraversa il Lago Trasimeno e arriva ad Assisi. Non è una sola strada obbligata: chi cammina può collegarsi alla <strong>Via di Francesco</strong> e alle sue tappe ufficiali; chi viaggia in automobile può usare Perla Toscana come base per La Verna, Castiglion Fiorentino, Cortona e il Trasimeno, quindi trasferirsi verso Assisi. La distanza impone scelte: visitare bene conta più che collezionare santuari.' },
       { title: 'Perché seguire le orme di San Francesco', anchor: 'perche', body: 'Francesco cercava luoghi appartati senza isolarsi dal mondo: boschi, grotte e piccoli oratori diventavano spazi di preghiera, mentre città e strade erano luoghi d’incontro. L’itinerario alterna perciò silenzio e arte. La Verna conserva la memoria delle stimmate; Le Celle e Montecasale raccontano la vita fraterna negli eremi; Assisi riunisce sepolcro, Porziuncola, San Damiano e i luoghi di Chiara. Anche per chi non compie un pellegrinaggio confessionale, il percorso permette di leggere il paesaggio medievale, l’architettura mendicante e un’idea ancora attuale di essenzialità e cura del creato.' },
@@ -85,6 +87,8 @@ export const franciscanPlacesPages: Record<'it' | 'en', PageContent> = {
     updatedAt: '2026-07-29',
     socialImage: '/images/places/santuario-la-verna.webp',
     socialImageAlt: 'La Verna Sanctuary in the forest, part of a Franciscan itinerary through Tuscany and Umbria',
+    socialImageWidth: 1600,
+    socialImageHeight: 1050,
     sections: [
       { title: 'Route overview', anchor: 'overview', image: { ...hero, alt: 'La Verna Sanctuary among the forests of the Tuscan Apennines' }, body: 'The most coherent route runs from Valdarno through Valdichiana to the upper Tiber valley and La Verna, then crosses Lake Trasimeno towards Assisi. It is not one compulsory road. Walkers can join the official Way of Saint Francis; drivers can use Perla Toscana for La Verna, Castiglion Fiorentino, Cortona and the lake before relocating towards Assisi. Geography matters: seeing fewer places well is better than rushing through a list of sanctuaries.' },
       { title: 'Why follow Saint Francis', anchor: 'why', body: 'Francis sought secluded places without withdrawing from humanity. Woods, caves and small chapels offered prayer; towns and roads offered encounter. This itinerary therefore moves between silence and art. La Verna preserves the memory of the stigmata, Le Celle and Montecasale reveal the scale of hermit life, and Assisi brings together Francis’s tomb, the Porziuncola, San Damiano and the places of Clare. Travellers of any belief can read medieval landscapes, mendicant architecture and an enduring ideal of simplicity and care for creation.' },

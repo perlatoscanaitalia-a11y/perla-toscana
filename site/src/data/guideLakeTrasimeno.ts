@@ -12,6 +12,8 @@ export const lakeTrasimenoPage: PageContent = {
   updatedAt: '2026-07-31',
   socialImage: '/images/places/lago-trasimeno/lago-trasimeno-panorama.webp',
   socialImageAlt: 'Panorama del Lago Trasimeno visto da Castiglione del Lago',
+  socialImageWidth: 1600,
+  socialImageHeight: 1200,
   intro: 'Se cerchi <strong>cosa vedere al Lago Trasimeno</strong>, parti da Castiglione del Lago, aggiungi Passignano o Tuoro e, quando le corse lo permettono, raggiungi Isola Maggiore. Da Perla Toscana il lago è una gita di un’intera giornata: conviene partire presto, scegliere un solo imbarco e controllare il servizio di navigazione prima di mettersi in viaggio.',
   sections: [
     { title: 'In breve', anchor: 'in-breve', variant: 'callout', html: '<div class="travel-facts" aria-label="Informazioni essenziali"><div><strong>Circa 85 km</strong><span>fino a Castiglione del Lago</span></div><div><strong>Circa 1 h 10–1 h 25</strong><span>in auto, traffico regolare</span></div><div><strong>1 giorno</strong><span>per borgo e isola</span></div><div><strong>Primavera–autunno</strong><span>periodo più pratico</span></div></div><ul><li><strong>Prima visita:</strong> Castiglione del Lago + Isola Maggiore.</li><li><strong>Per il tramonto:</strong> Passignano sul Trasimeno o San Feliciano.</li><li><strong>Con bambini:</strong> lungolago, battello e Oasi La Valle.</li><li><strong>Nota 2026:</strong> per la crisi idrica le corse possono avere capienza ridotta; il collegamento San Feliciano–Isola Polvese risulta temporaneamente sospeso dal 29 giugno 2026.</li></ul>' , links: [{ label: 'Navigazione ufficiale Busitalia', href: 'https://www.fsbusitalia.it/it/umbria/orari-linee-umbria/orari-servizi-navigazione-umbria.html', external: true }] },

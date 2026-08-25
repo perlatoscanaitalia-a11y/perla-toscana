@@ -13,9 +13,11 @@ interface Props {
   ogType?: 'website' | 'article';
   socialImage?: string;
   socialImageAlt?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
 }
 
-const { title, description, path, lang, alternatePath, alternatePaths, schema, noindex = false, ogType = 'website', socialImage: socialImagePath, socialImageAlt } = Astro.props;
+const { title, description, path, lang, alternatePath, alternatePaths, schema, noindex = false, ogType = 'website', socialImage: socialImagePath, socialImageAlt, socialImageWidth, socialImageHeight } = Astro.props;
 const canonical = new URL(path, siteConfig.siteUrl).toString();
 const alternateLang = lang === 'it' ? 'en' : 'it';
 const alternateUrl = alternatePath ? new URL(alternatePath, siteConfig.siteUrl).toString() : undefined;
@@ -41,6 +43,8 @@ const localizedAlternates = alternatePaths
 <meta property="og:locale" content={lang === 'it' ? 'it_IT' : lang === 'de' ? 'de_DE' : 'en_US'} />
 {isHome ? homeAlternates.filter((code) => code !== lang).map((code) => <meta property="og:locale:alternate" content={code === 'it' ? 'it_IT' : code === 'de' ? 'de_DE' : 'en_US'} />) : <meta property="og:locale:alternate" content={lang === 'it' ? 'en_US' : 'it_IT'} />}
 <meta property="og:image" content={socialImage} />
+{socialImageWidth && <meta property="og:image:width" content={socialImageWidth} />}
+{socialImageHeight && <meta property="og:image:height" content={socialImageHeight} />}
 <meta property="og:image:alt" content={resolvedSocialAlt} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />

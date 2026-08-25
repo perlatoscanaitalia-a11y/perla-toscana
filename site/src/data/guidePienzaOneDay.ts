@@ -7,7 +7,7 @@ export const pienzaOneDayPages: Record<Lang, PageContent> = {
     description: 'Cosa vedere a Pienza in un giorno: itinerario nel centro storico, parcheggi, panorami, Pecorino di Pienza e borghi vicini in Val d’Orcia.',
     eyebrow: 'Guida alla Val d’Orcia', h1: 'Cosa vedere a Pienza in un giorno',
     publishedAt: '2026-07-26', updatedAt: '2026-08-12',
-    socialImage: '/images/places/pienza-piazza-pio-ii.webp', socialImageAlt: 'Piazza Pio II nel centro storico rinascimentale di Pienza',
+    socialImage: '/images/places/pienza-piazza-pio-ii.webp', socialImageAlt: 'Piazza Pio II nel centro storico rinascimentale di Pienza', socialImageWidth: 1920, socialImageHeight: 1079,
     intro: '<strong>Pienza è adatta a una gita di un giorno</strong>: il centro storico è compatto e si visita a piedi, ma racchiude uno dei progetti urbani più importanti del Rinascimento, scorci sulla Val d’Orcia e una cultura del pecorino ancora viva. Questa guida propone un percorso realistico, dal parcheggio alle vie panoramiche, con tempo per un palazzo, il pranzo e al massimo una tappa vicina.',
     sections: [
       { title: 'Pienza in breve', anchor: 'in-breve', variant: 'callout', html: '<div class="travel-facts" aria-label="Informazioni essenziali su Pienza"><div><strong>3–4 ore</strong><span>per il centro storico</span></div><div><strong>1 giorno</strong><span>con pranzo e una tappa vicina</span></div><div><strong>Circa 96 km</strong><span>da Perla Toscana</span></div><div><strong>Circa 95 minuti</strong><span>in auto, traffico regolare</span></div></div><p><strong>Cosa vedere a Pienza in un giorno?</strong> Piazza Pio II, Duomo, Palazzo Piccolomini o un altro interno, Palazzo Comunale, Corso Rossellino, Via dell’Amore, Via del Bacio e la passeggiata panoramica sulle mura. Nel pomeriggio scegli una sola tappa tra Monticchiello, Bagno Vignoni, San Quirico d’Orcia o Montepulciano.</p>' },
@@ -40,6 +40,7 @@ export const pienzaOneDayPages: Record<Lang, PageContent> = {
     description: 'Discover what to see in Pienza in one day, including its historic centre, Val d’Orcia viewpoints, local pecorino cheese and practical travel tips.',
     eyebrow: 'Val d’Orcia guide', h1: 'What to See in Pienza in One Day',
     publishedAt: '2026-07-26', updatedAt: '2026-07-26',
+    socialImage: '/images/places/pienza-piazza-pio-ii.webp', socialImageWidth: 1920, socialImageHeight: 1079,
     intro: '<strong>Pienza</strong> is a compact Renaissance town overlooking Val d’Orcia, but it rewards an unhurried visit. This one-day plan combines architecture, viewpoints, local food and one nearby stop without turning the day into a race.',
     sections: [
       { title: 'On this page', anchor: 'contents', variant: 'callout', html: '<ol class="article-toc"><li><a href="#special">Location and significance</a></li><li><a href="#arrival">Driving and parking</a></li><li><a href="#centre">Historic-centre walk</a></li><li><a href="#views">Views and photographs</a></li><li><a href="#food">Pecorino and lunch</a></li><li><a href="#nearby">Nearby places</a></li><li><a href="#schedule">Sample schedule</a></li><li><a href="#advice">Families, groups and seasons</a></li><li><a href="#return">Return journey</a></li></ol>' },

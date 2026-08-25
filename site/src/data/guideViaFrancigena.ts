@@ -8,7 +8,7 @@ export const viaFrancigenaPage: PageContent = {
   title: 'Via Francigena in Toscana: tappe, mappa e itinerario',
   description: 'Via Francigena in Toscana: 16 tappe, 394 km, mappa ufficiale, itinerari a piedi, in bici e in auto, credenziale, costi e consigli pratici.',
   eyebrow: 'Guida definitiva · Cammini in Toscana', h1: 'Via Francigena in Toscana: tappe, itinerario, mappa e cosa vedere',
-  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'San Gimignano, tappa della Via Francigena tra le colline della Toscana',
+  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/san-gimignano.webp', socialImageAlt: 'San Gimignano, tappa della Via Francigena tra le colline della Toscana', socialImageWidth: 1280, socialImageHeight: 899,
   category: '🥾 Cammino', distanceKm: 62, distanceMinutes: 70, visitTime: '1–16 giorni', featuredBadge: '⭐ Consigliata',
   intro: 'La <strong>Via Francigena in Toscana</strong> attraversa Appennino, Lunigiana, Versilia, Lucca, Val d’Elsa, Siena e Val d’Orcia. Il tracciato regionale ufficiale è lungo circa <strong>394 km e articolato in 16 tappe</strong>: si può percorrere integralmente a piedi, seguire con un itinerario ciclabile dedicato oppure trasformare in un viaggio in auto tra borghi e paesaggi. Questa guida distingue sempre il cammino ufficiale dagli itinerari automobilistici turistici.',
   sections: [

@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 const alternatePaths={it:'/guide/borghi-toscani-poco-conosciuti/',en:'/en/guides/hidden-villages-tuscany/',de:'/de/reisefuehrer/geheimtipps-toskana-doerfer/'};
-const shared={publishedAt:'2026-08-16',updatedAt:'2026-08-16',socialImage:'/images/places/montefioralle-chianti-panorama.webp'};
+const shared={publishedAt:'2026-08-16',updatedAt:'2026-08-16',socialImage:'/images/places/montefioralle-chianti-panorama.webp',socialImageWidth:1280,socialImageHeight:960};
 type V=readonly [string,string,string,string,string,string,string];
 const anchor=(s:string)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replaceAll(' ','-');
 const img=(i:number,alt:string)=>i===0?{image:{src:'/images/places/montefioralle-chianti-panorama.webp',alt,width:1280,height:853}}:i===3?{image:{src:'/images/places/balze-del-valdarno.webp',alt,width:1280,height:853}}:{};

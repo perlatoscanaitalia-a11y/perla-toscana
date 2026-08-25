@@ -7,6 +7,7 @@ export const florenceOneDayPages: Record<Lang, PageContent> = {
     description: 'Un itinerario pratico per visitare Firenze in un giorno partendo da Figline Valdarno, con consigli su treno, parcheggio, ZTL e luoghi imperdibili.',
     eyebrow: 'Guida pratica a Firenze', h1: 'Visitare Firenze in un giorno partendo da Perla Toscana',
     publishedAt: '2026-07-26', updatedAt: '2026-07-26',
+    socialImage: '/images/places/firenze-centro.jpg', socialImageWidth: 1280, socialImageHeight: 852,
     intro: 'È possibile <strong>visitare Firenze in un giorno</strong> se si scelgono poche priorità e si prepara il viaggio. Questo percorso parte da Figline Valdarno, attraversa il centro storico quasi interamente a piedi e lascia spazio a pause realistiche. Orari, tariffe e condizioni di accesso possono cambiare: verificali sempre sui siti ufficiali prima di partire.',
     sections: [
       { title: 'Indice dell’articolo', anchor: 'indice', variant: 'callout', html: '<ol class="article-toc"><li><a href="#partire-figline">Perché partire da Figline</a></li><li><a href="#come-arrivare">Come arrivare</a></li><li><a href="#programma">Programma della giornata</a></li><li><a href="#itinerario">Itinerario a piedi</a></li><li><a href="#pranzo">Pranzo</a></li><li><a href="#prenotazioni">Prenotazioni</a></li><li><a href="#famiglie">Con bambini</a></li><li><a href="#rientro">Rientro e soggiorno</a></li></ol>' },
@@ -32,6 +33,7 @@ export const florenceOneDayPages: Record<Lang, PageContent> = {
     description: 'A practical one-day Florence itinerary from Figline Valdarno, with advice on trains, parking, the ZTL, advance bookings and essential sights.',
     eyebrow: 'Practical Florence guide', h1: 'Florence in One Day from Perla Toscana',
     publishedAt: '2026-07-26', updatedAt: '2026-07-26',
+    socialImage: '/images/places/firenze-centro.jpg', socialImageWidth: 1280, socialImageHeight: 852,
     intro: 'You can <strong>visit Florence in one day</strong> if you choose a few priorities and plan the journey. This route starts in Figline Valdarno, crosses the historic centre mostly on foot and includes realistic breaks. Timetables, prices and access rules change, so check official sources before leaving.',
     sections: [
       { title: 'On this page', anchor: 'contents', variant: 'callout', html: '<ol class="article-toc"><li><a href="#why-figline">Why start in Figline</a></li><li><a href="#getting-there">Getting to Florence</a></li><li><a href="#schedule">Sample schedule</a></li><li><a href="#walking-route">Walking route</a></li><li><a href="#lunch">Lunch</a></li><li><a href="#bookings">What to book</a></li><li><a href="#families">With children</a></li><li><a href="#return">Return and accommodation</a></li></ol>' },

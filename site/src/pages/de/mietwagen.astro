@@ -19,6 +19,7 @@ const schema = [
     url: canonical,
     name: title,
     description,
+    image: new URL('/images/places/autostrada-a1-valdarno.webp', siteConfig.siteUrl).toString(),
     inLanguage: 'de-DE',
     isPartOf: { '@type': 'WebSite', name: siteConfig.name, url: siteConfig.siteUrl }
   },
@@ -33,7 +34,7 @@ const schema = [
 ];
 ---
 
-<BaseLayout lang="de" title={title} description={description} path={path} alternatePaths={alternatePaths} schema={schema}>
+<BaseLayout lang="de" title={title} description={description} path={path} alternatePaths={alternatePaths} schema={schema} socialImage="/images/places/autostrada-a1-valdarno.webp" socialImageWidth={1280} socialImageHeight={928}>
   <section class="section rental-hero">
     <div class="container rental-hero__inner">
       <nav class="breadcrumbs" aria-label="Brotkrümelnavigation">

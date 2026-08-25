@@ -5,7 +5,7 @@ export const valDorciaPage: PageContent = {
   title: "Val d'Orcia: cosa vedere, borghi e itinerari",
   description: "Guida completa alla Val d'Orcia: Pienza, Montalcino, Bagno Vignoni, cipressi, terme, vino e itinerari di 1, 2 o 3 giorni.",
   eyebrow: 'Guida definitiva · Toscana UNESCO', h1: "Val d'Orcia: cosa vedere, borghi e itinerario nella Toscana più iconica",
-  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/pienza-val-d-orcia-panorama.webp', socialImageAlt: "Panorama della Val d'Orcia con Pienza e le colline toscane",
+  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/pienza-val-d-orcia-panorama.webp', socialImageAlt: "Panorama della Val d'Orcia con Pienza e le colline toscane", socialImageWidth: 1920, socialImageHeight: 1440,
   category: '🌿 Paesaggio UNESCO', distanceKm: 96, distanceMinutes: 95, visitTime: '1–3 giorni', featuredBadge: '⭐ Consigliata',
   intro: "La <strong>Val d’Orcia</strong> è la Toscana delle colline ondulate, dei cipressi e dei borghi in pietra, ma visitarla bene richiede scelte precise. Questa guida collega <strong>Pienza, Montalcino, San Quirico d’Orcia, Bagno Vignoni, Castiglione d’Orcia e Radicofani</strong> con itinerari sostenibili, parcheggi, tempi reali e punti panoramici accessibili senza invadere campi privati.",
   sections: [

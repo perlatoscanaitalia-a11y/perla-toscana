@@ -4,4 +4,4 @@ import { guides } from '../../../data/guides'; import { faqSchema, guideSchema }
 export function getStaticPaths() { return guides.it.filter(page => page.path.includes('/itinerari/')).map(page => ({ params: { slug: page.slug }, props: { page } })); }
 const { page } = Astro.props; const schema = [...guideSchema('it', page), faqSchema(page.faqs)].filter(Boolean);
 ---
-<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema}><PageContent lang="it" page={page} /></BaseLayout>
+<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} schema={schema} socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}><PageContent lang="it" page={page} /></BaseLayout>

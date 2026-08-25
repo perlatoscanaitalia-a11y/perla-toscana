@@ -33,6 +33,23 @@ const destinationImages: Record<string, string> = {
   'reggello-vallombrosa': '/images/places/abbazia-vallombrosa.webp'
 };
 
+const destinationImageDimensions: Record<string, { width: number; height: number }> = {
+  firenze: { width: 1280, height: 852 },
+  chianti: { width: 1280, height: 777 },
+  'the-mall-firenze': { width: 1280, height: 872 },
+  'figline-valdarno': { width: 1600, height: 1200 },
+  valdarno: { width: 1920, height: 1280 },
+  arezzo: { width: 1280, height: 853 },
+  siena: { width: 1280, height: 628 },
+  'reggello-vallombrosa': { width: 1280, height: 960 }
+};
+
+const itineraryImages = {
+  1: { src: '/images/perla-toscana/perla-toscana-strada-setteponti.webp', width: 1600, height: 1067 },
+  2: { src: '/images/places/pienza-val-d-orcia-panorama.webp', width: 1920, height: 1440 },
+  3: { src: '/images/places/montefioralle-chianti-panorama.webp', width: 1280, height: 960 }
+} as const;
+
 const clusterLinks = (lang: Lang, current: string) => destinations
   .filter((d) => (lang === 'it' ? d.itSlug : d.enSlug) !== current)
   .map((d) => ({ label: lang === 'it' ? d.itName : d.enName, href: `/${lang}/${lang === 'it' ? 'guide' : 'guides'}/${lang === 'it' ? d.itSlug : d.enSlug}/` }));
@@ -45,6 +62,8 @@ function destinationPage(d: Destination, lang: Lang): PageContent {
     publishedAt: '2026-07-11',
     updatedAt: '2026-08-06',
     socialImage: destinationImages[d.itSlug],
+    socialImageWidth: destinationImageDimensions[d.itSlug].width,
+    socialImageHeight: destinationImageDimensions[d.itSlug].height,
     title: it ? `${name}: cosa vedere e itinerario da Perla Toscana` : `${name}: what to see and itinerary from Perla Toscana`,
     description: it ? `Guida a ${name} da Perla Toscana: cosa vedere, tempi di viaggio, itinerario, consigli pratici e come inserirla in un soggiorno nel Valdarno.` : `Guide to ${name} from Perla Toscana: what to see, travel time, itinerary, practical advice and how to include it in a Valdarno stay.`,
     eyebrow: it ? 'Guida locale' : 'Local guide',
@@ -117,6 +136,9 @@ function itineraryPage(days: 1 | 2 | 3, lang: Lang): PageContent {
     : ['Figline Valdarno and Florence: train or drive to parking outside the ZTL, explore the historic centre and return to Valdarno.', 'Chianti and The Mall Firenze: choose shopping in the morning and one Chianti area in the afternoon, or reverse the stops.', 'Arezzo or Siena: dedicate the full day to one city without adding detours that make the schedule too dense.'];
   return {
     slug, path: `/${lang}/${it ? 'itinerari' : 'itineraries'}/${slug}/`, alternatePath: `/${it ? 'en/itineraries' : 'it/itinerari'}/${alternateSlug}/`,
+    socialImage: itineraryImages[days].src,
+    socialImageWidth: itineraryImages[days].width,
+    socialImageHeight: itineraryImages[days].height,
     title: it ? `Itinerario di ${days} ${days === 1 ? 'giorno' : 'giorni'} in Toscana da Perla Toscana` : `${days}-day Tuscany itinerary from Perla Toscana`,
     description: it ? `Itinerario di ${days} ${days === 1 ? 'giorno' : 'giorni'} da Figline Valdarno con Firenze, Chianti, The Mall Firenze, Valdarno, Arezzo o Siena.` : `${days}-day itinerary from Figline Valdarno covering Florence, Chianti, The Mall Firenze, Valdarno, Arezzo or Siena.`,
     eyebrow: it ? 'Itinerario' : 'Itinerary', h1: it ? `Cosa vedere in Toscana in ${days} ${days === 1 ? 'giorno' : 'giorni'}` : `What to see in Tuscany in ${days} day${days > 1 ? 's' : ''}`,

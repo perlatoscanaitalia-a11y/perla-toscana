@@ -5,7 +5,7 @@ export const valDorciaPageEn: PageContent = {
   title: "Val d'Orcia Tuscany: Towns, Itinerary and Map",
   description: "Complete Val d'Orcia guide: Pienza, Montalcino, Bagno Vignoni, cypresses, wine, parking and realistic one-, two- and three-day itineraries.",
   eyebrow: 'Definitive guide · UNESCO Tuscany', h1: "Val d'Orcia, Tuscany: what to see, hill towns and the best itinerary",
-  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/pienza-val-d-orcia-panorama.webp', socialImageAlt: "Val d'Orcia panorama with Pienza and the rolling hills of Tuscany",
+  publishedAt: '2026-08-04', updatedAt: '2026-08-04', socialImage: '/images/places/pienza-val-d-orcia-panorama.webp', socialImageAlt: "Val d'Orcia panorama with Pienza and the rolling hills of Tuscany", socialImageWidth: 1920, socialImageHeight: 1440,
   category: '🌿 UNESCO landscape', distanceKm: 96, distanceMinutes: 95, visitTime: '1–3 days', featuredBadge: '⭐ Recommended',
   intro: "The <strong>Val d’Orcia</strong> is the Tuscany of rolling hills, cypress trees and stone villages, but a rewarding visit needs a realistic route. This guide connects <strong>Pienza, Montalcino, San Quirico d’Orcia, Bagno Vignoni, Castiglione d’Orcia and Radicofani</strong> with practical driving times, parking advice and viewpoints you can enjoy without trespassing on farmland.",
   sections: [

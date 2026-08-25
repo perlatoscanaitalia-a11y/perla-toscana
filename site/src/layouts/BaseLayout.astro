@@ -18,9 +18,11 @@ interface Props {
   ogType?: 'website' | 'article';
   socialImage?: string;
   socialImageAlt?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
 }
 
-const { lang, title, description, path, alternatePath, alternatePaths, schema, noindex = false, ogType = 'website', socialImage, socialImageAlt } = Astro.props;
+const { lang, title, description, path, alternatePath, alternatePaths, schema, noindex = false, ogType = 'website', socialImage, socialImageAlt, socialImageWidth, socialImageHeight } = Astro.props;
 const hideSalesCtas = [
   '/it/privacy-policy/',
   '/it/cookie-policy/',
@@ -43,7 +45,7 @@ const hideSalesCtas = [
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <GoogleAnalytics />
-    <SeoHead title={title} description={description} path={path} lang={lang} alternatePath={alternatePath} alternatePaths={alternatePaths} schema={schema} noindex={noindex} ogType={ogType} socialImage={socialImage} socialImageAlt={socialImageAlt} />
+    <SeoHead title={title} description={description} path={path} lang={lang} alternatePath={alternatePath} alternatePaths={alternatePaths} schema={schema} noindex={noindex} ogType={ogType} socialImage={socialImage} socialImageAlt={socialImageAlt} socialImageWidth={socialImageWidth} socialImageHeight={socialImageHeight} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">{lang === 'it' ? 'Vai al contenuto principale' : lang === 'de' ? 'Zum Hauptinhalt springen' : 'Skip to main content'}</a>

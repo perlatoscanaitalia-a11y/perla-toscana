@@ -28,7 +28,7 @@ const schema=[
  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(x=>({'@type':'Question',name:x.question,acceptedAnswer:{'@type':'Answer',text:x.answer}}))}
 ];
 ---
-<BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article">
+<BaseLayout lang="en" title={title} description={description} path={path} alternatePath={alternatePath} schema={schema} ogType="article" socialImage="/images/places/figline-piazza-marsilio-ficino.webp" socialImageWidth={1600} socialImageHeight={1200}>
 <article>
 <GuideHero image="/images/places/figline-piazza-marsilio-ficino.webp" alt="Piazza Marsilio Ficino in the historic centre of Figline Valdarno" category="Local guide" title="What to see in Figline Valdarno: historic centre, walking route and practical tips" intro="A rewarding walk through the Florentine Valdarno, combining a historic square, art, local shops and easy onward travel across Tuscany.">
  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a><span>/</span><a href="/en/guides/">Guides</a><span>/</span><span>Figline Valdarno</span></nav>
