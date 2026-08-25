@@ -116,6 +116,7 @@ export function faqSchema(items?: { question: string; answer: string }[]) {
 
 export function guideSchema(lang: Lang | 'de', page: { path: string; h1: string; description: string; publishedAt?: string; updatedAt?: string; socialImage?: string }) {
   const url = new URL(page.path, siteConfig.siteUrl).toString();
+  const isGermanItinerary = lang === 'de' && page.path.includes('/de/reiseplaene/');
   const guidesUrl = new URL(lang === 'it' ? '/guide/' : lang === 'de' ? '/de/reisefuehrer/' : '/en/guides/', siteConfig.siteUrl).toString();
   // Keep the publisher identity separate from the lodging entity. Reusing the
   // VacationRental @id here can make consumers merge an Organization stub with
@@ -141,7 +142,7 @@ export function guideSchema(lang: Lang | 'de', page: { path: string; h1: string;
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Perla Toscana', item: `${siteConfig.siteUrl}/${lang}/` },
-        { '@type': 'ListItem', position: 2, name: lang === 'it' ? 'Guide locali' : lang === 'de' ? 'Toskana-Reiseführer' : 'Local guides', item: guidesUrl },
+        { '@type': 'ListItem', position: 2, name: lang === 'it' ? 'Guide locali' : isGermanItinerary ? 'Toskana-Reisepläne' : lang === 'de' ? 'Toskana-Reiseführer' : 'Local guides', item: guidesUrl },
         { '@type': 'ListItem', position: 3, name: page.h1, item: url }
       ]
     }

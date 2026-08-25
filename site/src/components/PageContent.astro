@@ -15,6 +15,7 @@ interface Props {
 }
 
 const { lang, page } = Astro.props;
+const isGermanItinerary = lang === 'de' && page.path.includes('/de/reiseplaene/');
 const hideSalesCtas = ['privacy-policy', 'cookie-policy', 'terms-and-conditions', 'legal-information'].includes(page.slug);
 const isBookingPage = ['prenota', 'book'].includes(page.slug);
 const initialsFor = (name: string) => name
@@ -31,7 +32,7 @@ const initialsFor = (name: string) => name
 <>
 <section class="section page-hero">
   <div class="container page-hero-inner">
-    {page.publishedAt && <nav class="breadcrumbs" aria-label={lang === 'it' ? 'Percorso di navigazione' : lang === 'de' ? 'Brotkrümelnavigation' : 'Breadcrumb'}><a href={`/${lang}/`}>Perla Toscana</a><span aria-hidden="true">/</span><a href={lang === 'it' ? '/it/guide/' : lang === 'de' ? '/de/reisefuehrer/' : '/en/guides/'}>{lang === 'it' ? 'Guide' : lang === 'de' ? 'Reiseführer' : 'Guides'}</a><span aria-hidden="true">/</span><span aria-current="page">{page.h1}</span></nav>}
+    {page.publishedAt && <nav class="breadcrumbs" aria-label={lang === 'it' ? 'Percorso di navigazione' : lang === 'de' ? 'Brotkrümelnavigation' : 'Breadcrumb'}><a href={`/${lang}/`}>Perla Toscana</a><span aria-hidden="true">/</span><a href={lang === 'it' ? '/it/guide/' : lang === 'de' ? '/de/reisefuehrer/' : '/en/guides/'}>{isGermanItinerary ? 'Reisepläne' : lang === 'it' ? 'Guide' : lang === 'de' ? 'Reiseführer' : 'Guides'}</a><span aria-hidden="true">/</span><span aria-current="page">{page.h1}</span></nav>}
     <p class="eyebrow">{page.eyebrow}</p>
     <h1>{page.h1}</h1>
     {(page.publishedAt || page.updatedAt) && (
@@ -294,7 +295,7 @@ const initialsFor = (name: string) => name
     <div class="container faq-section">
       <div>
         <p class="eyebrow">FAQ</p>
-        <h2>{lang === 'it' ? 'Domande frequenti' : 'Frequently asked questions'}</h2>
+        <h2>{lang === 'it' ? 'Domande frequenti' : lang === 'de' ? 'Häufig gestellte Fragen' : 'Frequently asked questions'}</h2>
       </div>
       <FAQBlock items={page.faqs} />
     </div>

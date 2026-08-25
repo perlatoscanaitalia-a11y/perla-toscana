@@ -33,6 +33,7 @@ export const nav = {
     { label: 'Lage', href: '/de/#lage' },
     { label: 'Mietwagen', href: '/de/mietwagen/' },
     { label: 'Reiseführer', href: '/de/reisefuehrer/' },
+    { label: 'Reisepläne', href: '/de/reisefuehrer/#reiseplaene-heading' },
     { label: 'Für wen?', href: '/de/#gaeste' },
     { label: 'FAQ', href: '/de/#faq' },
     { label: 'Verfügbarkeit', href: siteConfig.placeholders.avaiBookUrl }

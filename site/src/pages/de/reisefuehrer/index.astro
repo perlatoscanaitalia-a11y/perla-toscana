@@ -5,6 +5,7 @@ import { guideBlockTwoDe } from '../../../data/guideBlockTwoDe';
 import { guideBlockThreeDe } from '../../../data/guideBlockThreeDe';
 import { guideBlockFourDe } from '../../../data/guideBlockFourDe';
 import { hiddenVillagesDe } from '../../../data/guideHiddenVillages';
+import { itineraryBlockFiveDe } from '../../../data/itineraryBlockFiveDe';
 const guides = [hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe, ...guideBlockFourDe];
 const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' };
 ---
@@ -14,6 +15,25 @@ const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefueh
     <p class="eyebrow">Toskana entdecken</p>
     <h1>Toskana-Reiseführer</h1>
     <p class="lead">Praktische Routen und geprüfte Informationen ab Figline Valdarno – für Florenz, Val d’Orcia, mittelalterliche Orte, Thermalquellen und weniger bekannte Dörfer.</p>
+    <section class="itinerary-block" aria-labelledby="reiseplaene-heading">
+      <div>
+        <p class="eyebrow">Neu · Blocco 5</p>
+        <h2 id="reiseplaene-heading">Toskana-Reisepläne ab Figline Valdarno</h2>
+        <p>Realistische Tagesprogramme mit Fahrzeiten, Pausen, Parkhinweisen und Rückkehr zur Perla Toscana.</p>
+      </div>
+      <div class="itinerary-grid">
+        {itineraryBlockFiveDe.map((itinerary) => (
+          <article class="card itinerary-card">
+            <img src={itinerary.socialImage} alt={itinerary.socialImageAlt ?? itinerary.h1} width={itinerary.socialImageWidth} height={itinerary.socialImageHeight} loading="lazy" decoding="async" />
+            <div>
+              <h3>{itinerary.h1}</h3>
+              <p>{itinerary.description}</p>
+              <a class="button button--secondary" href={itinerary.path}>Reiseplan ansehen</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
     <div class="guide-grid">
       {guides.map((guide) => (
         <article class="card guide-card">
@@ -30,6 +50,7 @@ const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefueh
   </div></section>
 </BaseLayout>
 <style>
-  .guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.guide-card{padding:0;overflow:hidden}.guide-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.guide-card__body{display:grid;gap:14px;padding:clamp(20px,4vw,34px)}.guide-card__body .button{width:fit-content}
-  @media(max-width:760px){.guide-grid{grid-template-columns:1fr}.guide-card__body .button{width:100%;text-align:center}}
+  .itinerary-block{display:grid;gap:20px;padding:clamp(22px,4vw,36px);border-radius:var(--radius);background:var(--color-sand)}.itinerary-block>div:first-child{display:grid;gap:10px}.itinerary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.itinerary-card{padding:0;overflow:hidden}.itinerary-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.itinerary-card>div{display:grid;gap:12px;padding:20px}.itinerary-card h3{font-size:1.25rem}.itinerary-card .button{width:fit-content}.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.guide-card{padding:0;overflow:hidden}.guide-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.guide-card__body{display:grid;gap:14px;padding:clamp(20px,4vw,34px)}.guide-card__body .button{width:fit-content}
+  @media(max-width:900px){.itinerary-grid{grid-template-columns:1fr}}
+  @media(max-width:760px){.guide-grid{grid-template-columns:1fr}.guide-card__body .button,.itinerary-card .button{width:100%;text-align:center}}
 </style>

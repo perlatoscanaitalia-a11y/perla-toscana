@@ -17,6 +17,7 @@ import { guideBlockOneDe } from '../data/guideBlockOneDe';
 import { guideBlockTwoDe } from '../data/guideBlockTwoDe';
 import { guideBlockThreeDe } from '../data/guideBlockThreeDe';
 import { guideBlockFourDe } from '../data/guideBlockFourDe';
+import { itineraryBlockFiveDe } from '../data/itineraryBlockFiveDe';
 
 export const prerender = true;
 
@@ -55,6 +56,7 @@ export function GET() {
     ...guideBlockTwoDe,
     ...guideBlockThreeDe,
     ...guideBlockFourDe,
+    ...itineraryBlockFiveDe,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -82,7 +84,7 @@ ${allPages.map(page => {
   }
   if ('alternatePaths' in page && page.alternatePaths) {
     const loc = new URL(page.path, siteConfig.siteUrl);
-    return `  <url>\n    <loc>${loc}</loc>\n${Object.entries(page.alternatePaths).map(([code, href]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${new URL(href, siteConfig.siteUrl)}" />`).join('\n')}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL(page.alternatePaths.it, siteConfig.siteUrl)}" />\n  </url>`;
+    return `  <url>\n    <loc>${loc}</loc>\n${Object.entries(page.alternatePaths).map(([code, href]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${new URL(href, siteConfig.siteUrl)}" />`).join('\n')}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${new URL(page.alternatePaths.it ?? page.path, siteConfig.siteUrl)}" />\n  </url>`;
   }
   if (page.path.startsWith('/guide/') && page.alternatePath?.startsWith('/en/')) {
     const loc = new URL(page.path, siteConfig.siteUrl);
