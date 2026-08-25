@@ -57,6 +57,8 @@ const clusterLinks = (lang: Lang, current: string) => destinations
 const destinationGermanPaths: Record<string, string> = {
   firenze: '/de/reisefuehrer/florenz-sehenswuerdigkeiten/',
   chianti: '/de/reisefuehrer/chianti-sehenswuerdigkeiten/',
+  'the-mall-firenze': '/de/reisefuehrer/the-mall-firenze-shopping/',
+  valdarno: '/de/reisefuehrer/valdarno-sehenswuerdigkeiten/',
   siena: '/de/reisefuehrer/siena-sehenswuerdigkeiten/',
   arezzo: '/de/reisefuehrer/arezzo-sehenswuerdigkeiten/',
   'reggello-vallombrosa': '/de/reisefuehrer/reggello-vallombrosa/'

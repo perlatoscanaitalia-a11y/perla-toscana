@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 export const lakeTrasimenoPageEn: PageContent = {
-  slug: 'lake-trasimeno-what-to-see', path: '/en/guides/lake-trasimeno-what-to-see/', alternatePath: '/lago-trasimeno-cosa-vedere/',
+  slug: 'lake-trasimeno-what-to-see', path: '/en/guides/lake-trasimeno-what-to-see/', alternatePath: '/lago-trasimeno-cosa-vedere/', alternatePaths: { it: '/lago-trasimeno-cosa-vedere/', en: '/en/guides/lake-trasimeno-what-to-see/', de: '/de/reisefuehrer/trasimenischer-see-sehenswuerdigkeiten/' },
   title: 'Lake Trasimeno: What to See, Villages and Islands',
   description: 'What to see at Lake Trasimeno: villages, islands, ferries and one- or two-day itineraries, with practical advice from Perla Toscana.',
   eyebrow: 'Tuscany and Umbria guide', h1: 'Lake Trasimeno: what to see, villages, islands and a one-day itinerary',

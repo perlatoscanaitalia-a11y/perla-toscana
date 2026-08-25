@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 export const brunelloPageEn: PageContent = {
-  slug: 'brunello-di-montalcino-wineries-vintages-prices', path: '/en/guides/brunello-di-montalcino-wineries-vintages-prices/', alternatePath: '/guide/brunello-di-montalcino-cantine-prezzi/',
+  slug: 'brunello-di-montalcino-wineries-vintages-prices', path: '/en/guides/brunello-di-montalcino-wineries-vintages-prices/', alternatePath: '/guide/brunello-di-montalcino-cantine-prezzi/', alternatePaths: { it: '/guide/brunello-di-montalcino-cantine-prezzi/', en: '/en/guides/brunello-di-montalcino-wineries-vintages-prices/', de: '/de/reisefuehrer/brunello-di-montalcino-weingueter-jahrgaenge-preise/' },
   title: 'Brunello di Montalcino: Wineries, Vintages and Prices',
   description: 'A guide to Brunello di Montalcino: its territory, production rules, vintages, award-winning wines, prices, winery visits and a driving itinerary from Perla Toscana.',
   eyebrow: 'Wine and territory guide', h1: 'Brunello di Montalcino: where it is made, top wineries, ratings and prices',

@@ -2,8 +2,9 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { guideBlockOneDe } from '../../../data/guideBlockOneDe';
 import { guideBlockTwoDe } from '../../../data/guideBlockTwoDe';
+import { guideBlockThreeDe } from '../../../data/guideBlockThreeDe';
 import { hiddenVillagesDe } from '../../../data/guideHiddenVillages';
-const guides = [hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe];
+const guides = [hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe];
 const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' };
 ---
 <BaseLayout lang="de" title="Toskana-Reiseführer und Ausflüge | Perla Toscana" description="Praktische deutschsprachige Reiseführer für Florenz, Siena, Chianti, Val d’Orcia, Dörfer, Natur und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/" alternatePaths={alternatePaths} socialImage="/images/places/montefioralle-chianti-panorama.webp" socialImageAlt="Montefioralle und die Hügellandschaft der Toskana" socialImageWidth={1280} socialImageHeight={853}>

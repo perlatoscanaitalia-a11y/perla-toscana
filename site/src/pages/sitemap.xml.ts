@@ -15,6 +15,7 @@ import { bagniSanFilippoPage, bagniSanFilippoPageEn } from '../data/guideBagniSa
 import { hiddenVillagesDe } from '../data/guideHiddenVillages';
 import { guideBlockOneDe } from '../data/guideBlockOneDe';
 import { guideBlockTwoDe } from '../data/guideBlockTwoDe';
+import { guideBlockThreeDe } from '../data/guideBlockThreeDe';
 
 export const prerender = true;
 
@@ -51,6 +52,7 @@ export function GET() {
     hiddenVillagesDe,
     ...guideBlockOneDe,
     ...guideBlockTwoDe,
+    ...guideBlockThreeDe,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

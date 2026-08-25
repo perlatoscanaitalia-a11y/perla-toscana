@@ -1,7 +1,7 @@
 import type { PageContent } from './pages';
 
 export const brunelloPage: PageContent = {
-  slug: 'brunello-di-montalcino-cantine-prezzi', path: '/guide/brunello-di-montalcino-cantine-prezzi/', alternatePath: '/en/guides/brunello-di-montalcino-wineries-vintages-prices/',
+  slug: 'brunello-di-montalcino-cantine-prezzi', path: '/guide/brunello-di-montalcino-cantine-prezzi/', alternatePath: '/en/guides/brunello-di-montalcino-wineries-vintages-prices/', alternatePaths: { it: '/guide/brunello-di-montalcino-cantine-prezzi/', en: '/en/guides/brunello-di-montalcino-wineries-vintages-prices/', de: '/de/reisefuehrer/brunello-di-montalcino-weingueter-jahrgaenge-preise/' },
   title: 'Brunello di Montalcino: cantine, annate e prezzi',
   description: 'Guida al Brunello di Montalcino: territorio, disciplinare, annate, vini premiati, prezzi, cantine visitabili e itinerario in auto da Perla Toscana.',
   eyebrow: 'Guida al vino e al territorio', h1: 'Brunello di Montalcino: dove nasce, migliori cantine, classifiche e prezzi',
