@@ -95,6 +95,14 @@ const initialsFor = (name: string) => name
   </section>
 )}
 
+{page.slug === 'autumnia-figline-valdarno-2026' && page.socialImage && (
+  <section class="section article-feature-image">
+    <div class="container">
+      <img src={page.socialImage} alt={page.socialImageAlt ?? page.h1} width={page.socialImageWidth} height={page.socialImageHeight} loading="eager" fetchpriority="high" decoding="async" />
+    </div>
+  </section>
+)}
+
 <section class="section">
   <div class="container content-stack">
     {page.sections.map((section) => (

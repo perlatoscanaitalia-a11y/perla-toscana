@@ -19,6 +19,7 @@ import { guideBlockThreeDe } from '../data/guideBlockThreeDe';
 import { guideBlockFourDe } from '../data/guideBlockFourDe';
 import { itineraryBlockFiveDe } from '../data/itineraryBlockFiveDe';
 import { chiantiAutunnoPage } from '../data/guideChiantiAutunno';
+import { autumnia2026Page } from '../data/guideAutumnia2026';
 
 export const prerender = true;
 
@@ -59,6 +60,7 @@ export function GET() {
     ...guideBlockFourDe,
     ...itineraryBlockFiveDe,
     chiantiAutunnoPage,
+    autumnia2026Page,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

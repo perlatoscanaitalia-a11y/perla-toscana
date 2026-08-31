@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageContent from '../../../components/PageContent.astro';
+import { autumnia2026Page as page } from '../../../data/guideAutumnia2026';
+import { faqSchema, guideSchema } from '../../../data/schema';
+const eventSchema = {
+  '@context': 'https://schema.org', '@type': 'Event',
+  name: 'Autumnia 2026', description: '27ª edizione di Autumnia, manifestazione dedicata ad agricoltura, ambiente e alimentazione nel centro storico di Figline Valdarno.',
+  startDate: '2026-11-06', endDate: '2026-11-08', eventStatus: 'https://schema.org/EventScheduled', eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  url: 'https://www.autumnia.it/', image: new URL(page.socialImage!, 'https://perla-toscana.it').toString(),
+  location: { '@type': 'Place', name: 'Centro storico di Figline Valdarno', address: { '@type': 'PostalAddress', addressLocality: 'Figline Valdarno', addressRegion: 'FI', addressCountry: 'IT' } },
+};
+const schema = [...guideSchema('it', page), faqSchema(page.faqs), eventSchema].filter(Boolean);
+---
+<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
+  <PageContent lang="it" page={page} />
+</BaseLayout>
