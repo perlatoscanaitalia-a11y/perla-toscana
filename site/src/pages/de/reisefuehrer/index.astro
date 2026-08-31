@@ -43,7 +43,7 @@ const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefueh
             <p class="eyebrow">Reiseführer</p>
             <h2>{guide.h1}</h2>
             {guide.slug === 'autumnia-figline-valdarno-2026' && <p class="event-date">Termin: 6.–8. November 2026</p>}
-            <p>{guide.description}</p>
+            <p>{guide.slug === 'autumnia-figline-valdarno-2026' ? 'Autumnia 2026 findet vom 6. bis 8. November in Figline Valdarno statt: aktuelle Informationen zu Programm, Anreise, Parkmöglichkeiten und Unterkünften in der Toskana.' : guide.description}</p>
             <a class="button button--secondary" href={guide.path} aria-label={`Reiseführer lesen: ${guide.h1}`}>Reiseführer lesen</a>
           </div>
         </article>
