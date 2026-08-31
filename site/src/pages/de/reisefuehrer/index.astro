@@ -6,7 +6,8 @@ import { guideBlockThreeDe } from '../../../data/guideBlockThreeDe';
 import { guideBlockFourDe } from '../../../data/guideBlockFourDe';
 import { hiddenVillagesDe } from '../../../data/guideHiddenVillages';
 import { itineraryBlockFiveDe } from '../../../data/itineraryBlockFiveDe';
-const guides = [hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe, ...guideBlockFourDe];
+import { autumnia2026PageDe } from '../../../data/guideAutumnia2026De';
+const guides = [autumnia2026PageDe, hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe, ...guideBlockFourDe];
 const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' };
 ---
 <BaseLayout lang="de" title="Toskana-Reiseführer und Ausflüge | Perla Toscana" description="Praktische deutschsprachige Reiseführer für Florenz, Siena, Chianti, Val d’Orcia, Dörfer, Natur und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/" alternatePaths={alternatePaths} socialImage="/images/places/montefioralle-chianti-panorama.webp" socialImageAlt="Montefioralle und die Hügellandschaft der Toskana" socialImageWidth={1280} socialImageHeight={853}>
@@ -41,6 +42,7 @@ const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefueh
           <div class="guide-card__body">
             <p class="eyebrow">Reiseführer</p>
             <h2>{guide.h1}</h2>
+            {guide.slug === 'autumnia-figline-valdarno-2026' && <p class="event-date">Termin: 6.–8. November 2026</p>}
             <p>{guide.description}</p>
             <a class="button button--secondary" href={guide.path} aria-label={`Reiseführer lesen: ${guide.h1}`}>Reiseführer lesen</a>
           </div>
@@ -50,7 +52,7 @@ const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefueh
   </div></section>
 </BaseLayout>
 <style>
-  .itinerary-block{display:grid;gap:20px;padding:clamp(22px,4vw,36px);border-radius:var(--radius);background:var(--color-sand)}.itinerary-block>div:first-child{display:grid;gap:10px}.itinerary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.itinerary-card{padding:0;overflow:hidden}.itinerary-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.itinerary-card>div{display:grid;gap:12px;padding:20px}.itinerary-card h3{font-size:1.25rem}.itinerary-card .button{width:fit-content}.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.guide-card{padding:0;overflow:hidden}.guide-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.guide-card__body{display:grid;gap:14px;padding:clamp(20px,4vw,34px)}.guide-card__body .button{width:fit-content}
+  .itinerary-block{display:grid;gap:20px;padding:clamp(22px,4vw,36px);border-radius:var(--radius);background:var(--color-sand)}.itinerary-block>div:first-child{display:grid;gap:10px}.itinerary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.itinerary-card{padding:0;overflow:hidden}.itinerary-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.itinerary-card>div{display:grid;gap:12px;padding:20px}.itinerary-card h3{font-size:1.25rem}.itinerary-card .button{width:fit-content}.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.guide-card{padding:0;overflow:hidden}.guide-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.guide-card__body{display:grid;gap:14px;padding:clamp(20px,4vw,34px)}.guide-card__body .button{width:fit-content}.event-date{font-size:.86rem;font-weight:700;color:var(--color-olive)}
   @media(max-width:900px){.itinerary-grid{grid-template-columns:1fr}}
   @media(max-width:760px){.guide-grid{grid-template-columns:1fr}.guide-card__body .button,.itinerary-card .button{width:100%;text-align:center}}
 </style>

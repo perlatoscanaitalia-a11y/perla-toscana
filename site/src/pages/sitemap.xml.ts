@@ -19,7 +19,8 @@ import { guideBlockThreeDe } from '../data/guideBlockThreeDe';
 import { guideBlockFourDe } from '../data/guideBlockFourDe';
 import { itineraryBlockFiveDe } from '../data/itineraryBlockFiveDe';
 import { chiantiAutunnoPage } from '../data/guideChiantiAutunno';
-import { autumnia2026Page } from '../data/guideAutumnia2026';
+import { autumnia2026Page, autumnia2026PageEn } from '../data/guideAutumnia2026';
+import { autumnia2026PageDe } from '../data/guideAutumnia2026De';
 
 export const prerender = true;
 
@@ -61,6 +62,8 @@ export function GET() {
     ...itineraryBlockFiveDe,
     chiantiAutunnoPage,
     autumnia2026Page,
+    autumnia2026PageEn,
+    autumnia2026PageDe,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

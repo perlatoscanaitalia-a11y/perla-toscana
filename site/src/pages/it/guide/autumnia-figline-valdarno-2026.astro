@@ -12,6 +12,6 @@ const eventSchema = {
 };
 const schema = [...guideSchema('it', page), faqSchema(page.faqs), eventSchema].filter(Boolean);
 ---
-<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
+<BaseLayout lang="it" title={page.title} description={page.description} path={page.path} alternatePath={page.alternatePath} alternatePaths={page.alternatePaths} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
   <PageContent lang="it" page={page} />
 </BaseLayout>
