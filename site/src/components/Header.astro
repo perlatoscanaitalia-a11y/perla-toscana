@@ -169,7 +169,13 @@ const isActive = (href: string) => {
     outline: none;
   }
 
-  @media (max-width: 1060px) {
+  @media (min-width: 1201px) {
+    .header-inner {
+      width: min(1320px, calc(100vw - 32px));
+    }
+  }
+
+  @media (max-width: 1200px) {
     .header-inner {
       min-height: auto;
       flex-wrap: wrap;
