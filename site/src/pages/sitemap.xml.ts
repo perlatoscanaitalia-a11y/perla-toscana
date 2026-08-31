@@ -18,6 +18,7 @@ import { guideBlockTwoDe } from '../data/guideBlockTwoDe';
 import { guideBlockThreeDe } from '../data/guideBlockThreeDe';
 import { guideBlockFourDe } from '../data/guideBlockFourDe';
 import { itineraryBlockFiveDe } from '../data/itineraryBlockFiveDe';
+import { chiantiAutunnoPage } from '../data/guideChiantiAutunno';
 
 export const prerender = true;
 
@@ -57,6 +58,7 @@ export function GET() {
     ...guideBlockThreeDe,
     ...guideBlockFourDe,
     ...itineraryBlockFiveDe,
+    chiantiAutunnoPage,
     ...pages.it, ...pages.en, ...guides.it, ...guides.en
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
