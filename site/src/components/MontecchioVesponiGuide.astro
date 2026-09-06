@@ -1,0 +1,37 @@
+---
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import sharp from 'sharp';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageContent from './PageContent.astro';
+import { montecchioVesponiPages } from '../data/guideMontecchioVesponi';
+import { faqSchema, guideSchema } from '../data/schema';
+
+interface Props { lang: 'it' | 'en' | 'de'; }
+const { lang } = Astro.props;
+const page = montecchioVesponiPages[lang];
+// Fail the build if the guide's actual thumbnail and declared dimensions diverge.
+const bytes = await readFile(join(process.cwd(), 'public', page.socialImage!));
+const dimensions = await sharp(bytes).metadata();
+if (dimensions.width !== page.socialImageWidth || dimensions.height !== page.socialImageHeight) {
+  throw new Error(`Montecchio Vesponi: thumbnail dimensions do not match for ${lang}`);
+}
+const schema = [
+  ...guideSchema(lang, page).map(entity => entity['@type'] === 'Article' ? {
+    ...entity,
+    about: ['Castello di Montecchio Vesponi', 'Castiglion Fiorentino', 'Cortona', 'Arezzo', 'Valdichiana', 'Toscana', 'Figline e Incisa Valdarno'],
+    citation: page.sections.find(section => ['fonti', 'sources', 'quellen'].includes(section.anchor ?? ''))?.links?.filter(link => link.external).map(link => link.href)
+  } : entity),
+  faqSchema(page.faqs)
+].filter(Boolean);
+---
+<BaseLayout lang={lang} title={page.title} description={page.description} path={page.path} alternatePaths={page.alternatePaths} schema={schema} ogType="article" socialImage={page.socialImage} socialImageAlt={page.socialImageAlt} socialImageWidth={page.socialImageWidth} socialImageHeight={page.socialImageHeight}>
+  <PageContent lang={lang} page={page} />
+</BaseLayout>
+<style>
+  /* Only these guides load this rule; accommodate a scrollbar at 320px. */
+  @media (max-width: 340px) {
+    :global(body) { min-width: 0; }
+    :global(.container) { max-width: calc(100% - 24px); }
+  }
+</style>

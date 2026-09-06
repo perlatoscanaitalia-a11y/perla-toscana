@@ -1,5 +1,6 @@
 ---
 import { guides } from '../data/guides';
+import { montecchioVesponiPages } from '../data/guideMontecchioVesponi';
 import { lakeTrasimenoPage } from '../data/guideLakeTrasimeno';
 import { lakeTrasimenoPageEn } from '../data/guideLakeTrasimenoEn';
 import { brunelloPage } from '../data/guideBrunello';
@@ -17,9 +18,11 @@ interface Props { lang: Lang; }
 type CardItem = Pick<PageContent, 'slug' | 'path' | 'h1' | 'description'> & Partial<Pick<PageContent, 'socialImageAlt' | 'category' | 'distanceKm' | 'distanceMinutes' | 'visitTime' | 'featuredBadge'>>;
 const { lang } = Astro.props;
 const specialCards: CardItem[] = lang === 'it' ? [
+  montecchioVesponiPages.it,
   { slug:'sosta-a1',path:'/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/',h1:'Dove fermarsi lungo la A1 tra Roma e Milano',description:'Una guida per spezzare il viaggio vicino Firenze, con parcheggio comodo e spazio per famiglie e gruppi.',category:'🚗 Itinerario',distanceKm:8,distanceMinutes:10,visitTime:'2 ore' },
   { slug:'figline-speciale',path:'/guide/cosa-vedere-figline-valdarno/',h1:'Cosa vedere a Figline Valdarno',description:'Centro storico, itinerario a piedi, parcheggi, treno per Firenze e consigli locali.',category:'🏰 Borgo',distanceKm:4,distanceMinutes:8,visitTime:'Mezza giornata' }
 ] : [
+  montecchioVesponiPages.en,
   { slug:'etruscans-valdarno-figline',path:'/en/guides/etruscans-valdarno-figline/',h1:'The Etruscans in Valdarno and Figline',description:'La Rotta, the Scampata tomb, the Arno corridor and what archaeological evidence really tells us.',category:'🏺 Archaeology',distanceKm:4,distanceMinutes:8,visitTime:'Cultural guide',featuredBadge:'⭐ Recommended' },
   { slug:'figline-speciale',path:'/en/guides/figline-valdarno/',h1:'What to see in Figline Valdarno',description:'Historic centre, walking route, parking, trains to Florence and local tips.',category:'🏰 Village',distanceKm:4,distanceMinutes:8,visitTime:'Half day' }
 ];
@@ -27,6 +30,8 @@ const local: CardItem[] = (lang === 'it' ? [bagniSanFilippoPage, valDorciaPage, 
   .filter((item) => item.slug !== 'figline-valdarno' && (['lago-trasimeno-cosa-vedere', 'lake-trasimeno-what-to-see'].includes(item.slug) || item.path.includes(lang === 'it' ? '/guide/' : '/guides/')));
 const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
 const images: Record<string,string> = {
+  'castello-montecchio-vesponi': '/images/places/montecchio-vesponi/castello-montecchio-vesponi.webp',
+  'montecchio-vesponi-castle': '/images/places/montecchio-vesponi/castello-montecchio-vesponi.webp',
   'autumnia-figline-valdarno-2026':'/images/places/figline-piazza-marsilio-ficino.webp',
   'borghi-toscani-poco-conosciuti':'/images/places/montefioralle-chianti-panorama.webp','hidden-villages-tuscany':'/images/places/montefioralle-chianti-panorama.webp',
   'bagni-san-filippo-terme-libere':'/images/places/bagni-san-filippo/fosso-bianco-terme-bagni-san-filippo.webp','bagni-san-filippo-hot-springs':'/images/places/bagni-san-filippo/fosso-bianco-terme-bagni-san-filippo.webp',

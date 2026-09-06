@@ -1,5 +1,6 @@
 import { pages } from '../data/pages';
 import { guides } from '../data/guides';
+import { montecchioVesponiPages } from '../data/guideMontecchioVesponi';
 import { siteConfig } from '../data/siteConfig';
 import { lakeTrasimenoPage } from '../data/guideLakeTrasimeno';
 import { lakeTrasimenoPageEn } from '../data/guideLakeTrasimenoEn';
@@ -26,6 +27,7 @@ export const prerender = true;
 
 export function GET() {
   const allPages = [
+    ...Object.values(montecchioVesponiPages),
     { path: '/it/', alternatePath: '/en/' },
     { path: '/en/', alternatePath: '/it/' },
     { path: '/de/', alternatePath: '/it/' },
