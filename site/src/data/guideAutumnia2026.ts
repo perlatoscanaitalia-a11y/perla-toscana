@@ -7,7 +7,7 @@ export const autumnia2026Page: PageContent = {
   description: 'Autumnia 2026 a Figline Valdarno: date 6–8 novembre, programma, attività per famiglie, come arrivare, parcheggi e dove dormire vicino all’evento.',
   eyebrow: 'Evento · Figline Valdarno', h1: 'Autumnia 2026 a Figline Valdarno: date, programma, cosa vedere e dove dormire',
   publishedAt: '2026-08-31', updatedAt: '2026-08-31',
-  socialImage: '/images/places/figline-piazza-marsilio-ficino.webp', socialImageAlt: 'Piazza Marsilio Ficino nel centro storico di Figline Valdarno, area centrale di Autumnia', socialImageWidth: 1600, socialImageHeight: 1200,
+  socialImage: '/images/places/autumnia-2026-figline-valdarno.jpg', socialImageAlt: 'Autumnia 2026 a Figline Valdarno', socialImageWidth: 1536, socialImageHeight: 1024,
   category: '🍂 Evento', distanceKm: 4, distanceMinutes: 8, visitTime: '6–8 novembre', featuredBadge: '⭐ Consigliata',
   intro: '<strong>Autumnia 2026 si svolgerà nel centro storico di Figline Valdarno dal 6 all’8 novembre 2026.</strong> La 27ª edizione della manifestazione dedicata ad <strong>agricoltura, ambiente e alimentazione</strong> è pensata per visitatori interessati ai prodotti del territorio, alla sostenibilità e alla vita locale, comprese famiglie con bambini. Il programma dettagliato 2026, gli orari e il piano parcheggi non sono ancora stati pubblicati sui canali ufficiali; questa guida sarà aggiornata quando saranno disponibili.',
   sections: [
@@ -45,7 +45,7 @@ export const autumnia2026PageEn: PageContent = {
   description: 'Plan for Autumnia 2026 in Figline Valdarno, Tuscany, from 6–8 November: event facts, family activities, travel, parking and where to stay.',
   eyebrow: 'Tuscany event · Figline Valdarno', h1: 'Autumnia 2026 in Figline Valdarno: Dates, Events & Where to Stay',
   publishedAt: '2026-08-31', updatedAt: '2026-08-31',
-  socialImage: '/images/places/figline-piazza-marsilio-ficino.webp', socialImageAlt: 'Piazza Marsilio Ficino in Figline Valdarno, the central area for Autumnia', socialImageWidth: 1600, socialImageHeight: 1200,
+  socialImage: '/images/places/autumnia-2026-figline-valdarno.jpg', socialImageAlt: 'Autumnia 2026 in Figline Valdarno', socialImageWidth: 1536, socialImageHeight: 1024,
   category: '🍂 Tuscany event', distanceKm: 4, distanceMinutes: 8, visitTime: '6–8 November 2026', featuredBadge: '⭐ Recommended',
   intro: '<strong>Autumnia 2026 takes place from 6 to 8 November 2026 in the historic centre of Figline Valdarno, Tuscany.</strong> This 27th edition focuses on <strong>agriculture, the environment and food</strong>, making it relevant for international visitors looking for Tuscany autumn events, food festivals and things to do near Florence in November. The detailed 2026 programme, opening times and parking plan have not yet been published through the official channels; this guide will be updated when they are available.',
   sections: [
