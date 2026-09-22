@@ -12,7 +12,7 @@ import { viaFrancigenaPageEn } from '../data/guideViaFrancigenaEn';
 import { valDorciaPage } from '../data/guideValDorcia';
 import { valDorciaPageEn } from '../data/guideValDorciaEn';
 import { bagniSanFilippoPage, bagniSanFilippoPageEn } from '../data/guideBagniSanFilippo';
-import { autumnia2026PageEn } from '../data/guideAutumnia2026';
+import { autumnia2026Page, autumnia2026PageEn } from '../data/guideAutumnia2026';
 import type { Lang, PageContent } from '../data/pages';
 interface Props { lang: Lang; }
 type CardItem = Pick<PageContent, 'slug' | 'path' | 'h1' | 'description'> & Partial<Pick<PageContent, 'socialImageAlt' | 'category' | 'distanceKm' | 'distanceMinutes' | 'visitTime' | 'featuredBadge'>>;
@@ -26,7 +26,7 @@ const specialCards: CardItem[] = lang === 'it' ? [
   { slug:'etruscans-valdarno-figline',path:'/en/guides/etruscans-valdarno-figline/',h1:'The Etruscans in Valdarno and Figline',description:'La Rotta, the Scampata tomb, the Arno corridor and what archaeological evidence really tells us.',category:'🏺 Archaeology',distanceKm:4,distanceMinutes:8,visitTime:'Cultural guide',featuredBadge:'⭐ Recommended' },
   { slug:'figline-speciale',path:'/en/guides/figline-valdarno/',h1:'What to see in Figline Valdarno',description:'Historic centre, walking route, parking, trains to Florence and local tips.',category:'🏰 Village',distanceKm:4,distanceMinutes:8,visitTime:'Half day' }
 ];
-const local: CardItem[] = (lang === 'it' ? [bagniSanFilippoPage, valDorciaPage, viaFrancigenaPage, sanGimignanoPage, ...specialCards, brunelloPage, lakeTrasimenoPage, ...guides.it] : [autumnia2026PageEn, bagniSanFilippoPageEn, valDorciaPageEn, viaFrancigenaPageEn, sanGimignanoPageEn, ...specialCards, brunelloPageEn, lakeTrasimenoPageEn, ...guides.en])
+const local: CardItem[] = (lang === 'it' ? [autumnia2026Page, bagniSanFilippoPage, valDorciaPage, viaFrancigenaPage, sanGimignanoPage, ...specialCards, brunelloPage, lakeTrasimenoPage, ...guides.it] : [autumnia2026PageEn, bagniSanFilippoPageEn, valDorciaPageEn, viaFrancigenaPageEn, sanGimignanoPageEn, ...specialCards, brunelloPageEn, lakeTrasimenoPageEn, ...guides.en])
   .filter((item) => item.slug !== 'figline-valdarno' && (['lago-trasimeno-cosa-vedere', 'lake-trasimeno-what-to-see'].includes(item.slug) || item.path.includes(lang === 'it' ? '/guide/' : '/guides/')));
 const itineraries = guides[lang].filter((item) => item.path.includes(lang === 'it' ? '/itinerari/' : '/itineraries/'));
 const images: Record<string,string> = {
@@ -90,7 +90,7 @@ const distance = (item: CardItem) => item.slug === 'hidden-villages-tuscany'
   : item.slug === 'borghi-toscani-poco-conosciuti'
     ? '12 borghi da scoprire partendo da Perla Toscana'
     : meta(item).distanceKm === 0 ? (lang === 'it' ? 'Partenza da Perla Toscana' : 'Starts at Perla Toscana') : `${meta(item).distanceKm} km • ${meta(item).distanceMinutes} min ${lang === 'it' ? 'da' : 'from'} Perla Toscana`;
-const visit = (item: CardItem) => item.slug === 'autumnia-figline-valdarno-2026' ? `Dates: ${meta(item).visitTime}` : `${lang === 'it' ? 'Visita consigliata' : 'Recommended visit'}: ${meta(item).visitTime}`;
+const visit = (item: CardItem) => item.slug === 'autumnia-figline-valdarno-2026' ? `${lang === 'it' ? 'Date' : 'Dates'}: ${meta(item).visitTime}` : `${lang === 'it' ? 'Visita consigliata' : 'Recommended visit'}: ${meta(item).visitTime}`;
 ---
 <div class="archive-stack">
   <section class="archive-group"><h2>{lang === 'it' ? 'Città, borghi e destinazioni' : 'Cities, villages and destinations'}</h2><div class="archive-grid">{local.map((item) => <a class="archive-card" href={item.path} aria-label={`${readLabel}: ${item.h1}`}><img src={images[item.slug]} alt={imageAlts[item.slug]?.[lang] ?? item.socialImageAlt ?? item.h1} width="1200" height="800" loading="lazy" decoding="async" style={imagePositions[item.slug] ? `object-position:${imagePositions[item.slug]}` : undefined}/><div class="card-badges"><span class="category-badge">{meta(item).category}</span>{meta(item).featuredBadge && <span class="featured-badge">{meta(item).featuredBadge}</span>}</div><h3>{item.h1}</h3><div class="card-details"><span>🚗 {distance(item)}</span><span>🕒 {visit(item)}</span></div><p>{item.description}</p><strong aria-hidden="true">{readLabel} →</strong></a>)}</div></section>
