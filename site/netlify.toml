@@ -7,6 +7,11 @@
   to = "/it/"
   status = 301
 
+[[redirects]]
+  from = "/it/guide/figline-valdarno/"
+  to = "/guide/cosa-vedere-figline-valdarno/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

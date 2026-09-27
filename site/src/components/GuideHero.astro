@@ -1,9 +1,9 @@
 ---
-interface Props { image: string; alt: string; category: string; title: string; intro: string; }
-const { image, alt, category, title, intro } = Astro.props;
+interface Props { image: string; alt: string; category: string; title: string; intro: string; width?: number; height?: number; }
+const { image, alt, category, title, intro, width = 1600, height = 900 } = Astro.props;
 ---
 <header class="guide-hero">
-  <img src={image} alt={alt} width="1600" height="900" fetchpriority="high" />
+  <img src={image} alt={alt} width={width} height={height} fetchpriority="high" />
   <div class="guide-hero__overlay" aria-hidden="true"></div>
   <div class="container guide-hero__content"><p class="guide-hero__category">{category}</p><h1>{title}</h1><p>{intro}</p><slot /></div>
 </header>

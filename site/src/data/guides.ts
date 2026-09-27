@@ -50,14 +50,20 @@ const itineraryImages = {
   3: { src: '/images/places/montefioralle-chianti-panorama.webp', width: 1280, height: 960 }
 } as const;
 
+const destinationHref = (lang: Lang, destination: Destination) =>
+  lang === 'it' && destination.itSlug === 'figline-valdarno'
+    ? '/guide/cosa-vedere-figline-valdarno/'
+    : `/${lang}/${lang === 'it' ? 'guide' : 'guides'}/${lang === 'it' ? destination.itSlug : destination.enSlug}/`;
+
 const clusterLinks = (lang: Lang, current: string) => destinations
   .filter((d) => (lang === 'it' ? d.itSlug : d.enSlug) !== current)
-  .map((d) => ({ label: lang === 'it' ? d.itName : d.enName, href: `/${lang}/${lang === 'it' ? 'guide' : 'guides'}/${lang === 'it' ? d.itSlug : d.enSlug}/` }));
+  .map((d) => ({ label: lang === 'it' ? d.itName : d.enName, href: destinationHref(lang, d) }));
 
 const destinationGermanPaths: Record<string, string> = {
   firenze: '/de/reisefuehrer/florenz-sehenswuerdigkeiten/',
   chianti: '/de/reisefuehrer/chianti-sehenswuerdigkeiten/',
   'the-mall-firenze': '/de/reisefuehrer/the-mall-firenze-shopping/',
+  'figline-valdarno': '/de/reisefuehrer/figline-valdarno-sehenswuerdigkeiten/',
   valdarno: '/de/reisefuehrer/valdarno-sehenswuerdigkeiten/',
   siena: '/de/reisefuehrer/siena-sehenswuerdigkeiten/',
   arezzo: '/de/reisefuehrer/arezzo-sehenswuerdigkeiten/',
@@ -66,10 +72,11 @@ const destinationGermanPaths: Record<string, string> = {
 
 function destinationPage(d: Destination, lang: Lang): PageContent {
   const it = lang === 'it'; const slug = it ? d.itSlug : d.enSlug; const name = it ? d.itName : d.enName;
+  const italianPath = d.itSlug === 'figline-valdarno' ? '/guide/cosa-vedere-figline-valdarno/' : `/it/guide/${d.itSlug}/`;
   return {
     slug, path: `/${lang}/${it ? 'guide' : 'guides'}/${slug}/`,
-    alternatePath: `/${it ? 'en/guides' : 'it/guide'}/${it ? d.enSlug : d.itSlug}/`,
-    ...(destinationGermanPaths[d.itSlug] ? { alternatePaths: { it: `/it/guide/${d.itSlug}/`, en: `/en/guides/${d.enSlug}/`, de: destinationGermanPaths[d.itSlug] } } : {}),
+    alternatePath: it ? `/en/guides/${d.enSlug}/` : italianPath,
+    ...(destinationGermanPaths[d.itSlug] ? { alternatePaths: { it: italianPath, en: `/en/guides/${d.enSlug}/`, de: destinationGermanPaths[d.itSlug] } } : {}),
     publishedAt: '2026-07-11',
     updatedAt: '2026-08-06',
     socialImage: destinationImages[d.itSlug],
@@ -156,7 +163,7 @@ function itineraryPage(days: 1 | 2 | 3, lang: Lang): PageContent {
     intro: it ? `Un itinerario realistico con base a <strong>Perla Toscana</strong>: poche tappe ben collegate, tempi sostenibili e alternative per meteo, traffico e interessi diversi.` : `A realistic itinerary based at <strong>Perla Toscana</strong>: a few well-connected stops, manageable timing and alternatives for weather, traffic and different interests.`,
     sections: [
       ...dayPlans.slice(0, days).map((body, i) => ({ title: it ? `Giorno ${i + 1}` : `Day ${i + 1}`, body })),
-      { title: it ? 'Come adattare il programma' : 'How to adapt the plan', body: it ? 'Con bambini o in alta stagione riduci le tappe. In caso di pioggia privilegia musei, centri storici e shopping. Per natura e borghi scegli Valdarno, Reggello e Vallombrosa.' : 'With children or in high season, reduce the number of stops. In rain, prioritise museums, historic centres and shopping. For nature and villages, choose Valdarno, Reggello and Vallombrosa.', links: destinations.map(d => ({ label: it ? d.itName : d.enName, href: `/${lang}/${it ? 'guide' : 'guides'}/${it ? d.itSlug : d.enSlug}/` })) },
+      { title: it ? 'Come adattare il programma' : 'How to adapt the plan', body: it ? 'Con bambini o in alta stagione riduci le tappe. In caso di pioggia privilegia musei, centri storici e shopping. Per natura e borghi scegli Valdarno, Reggello e Vallombrosa.' : 'With children or in high season, reduce the number of stops. In rain, prioritise museums, historic centres and shopping. For nature and villages, choose Valdarno, Reggello and Vallombrosa.', links: destinations.map(d => ({ label: it ? d.itName : d.enName, href: destinationHref(lang, d) })) },
       { title: it ? 'Organizza la base' : 'Plan your base', body: it ? 'Verifica accesso, parcheggio, camere e disponibilità prima di definire le giornate.' : 'Check access, parking, bedrooms and availability before finalising each day.', links: [{ label: it ? 'Posizione' : 'Location', href: it ? '/it/posizione/' : '/en/location/' }, { label: it ? 'Camere e servizi' : 'Rooms and amenities', href: it ? '/it/camere-servizi/' : '/en/rooms-amenities/' }, { label: it ? 'Verifica disponibilità' : 'Check availability', href: it ? '/it/prenota/' : '/en/book/' }] }
     ],
     faqs: [
@@ -168,6 +175,6 @@ function itineraryPage(days: 1 | 2 | 3, lang: Lang): PageContent {
 }
 
 export const guides = {
-  it: [hiddenVillagesIt, franciscanPlacesPages.it, sanGalganoPages.it, pienzaOneDayPages.it, florenceOneDayPages.it, ...destinations.map(d => destinationPage(d, 'it')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'it'))],
+  it: [hiddenVillagesIt, franciscanPlacesPages.it, sanGalganoPages.it, pienzaOneDayPages.it, florenceOneDayPages.it, ...destinations.filter(d => d.itSlug !== 'figline-valdarno').map(d => destinationPage(d, 'it')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'it'))],
   en: [hiddenVillagesEn, franciscanPlacesPages.en, sanGalganoPages.en, pienzaOneDayPages.en, florenceOneDayPages.en, ...destinations.map(d => destinationPage(d, 'en')), ...([1, 2, 3] as const).map(d => itineraryPage(d, 'en'))]
 };
