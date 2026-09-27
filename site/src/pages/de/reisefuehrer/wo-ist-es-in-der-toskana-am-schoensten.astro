@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQBlock from '../../../components/FAQBlock.astro';
+import CTAButtons from '../../../components/CTAButtons.astro';
+import { faqSchema, guideSchema } from '../../../data/schema';
+
+const page = {
+  slug: 'wo-ist-es-in-der-toskana-am-schoensten',
+  path: '/de/reisefuehrer/wo-ist-es-in-der-toskana-am-schoensten/',
+  title: 'Wo ist es in der Toskana am schönsten? Orte & Tipps',
+  description: 'Florenz, Chianti, Siena oder Valdarno? Entdecken Sie schöne Orte, Geheimtipps und passende Regionen für Ihren Urlaub in der Toskana.',
+  h1: 'Wo ist es in der Toskana am schönsten? Die schönsten Orte & Geheimtipps',
+  publishedAt: '2026-09-27',
+  updatedAt: '2026-09-27',
+  socialImage: '/images/places/balze-del-valdarno.webp'
+};
+
+const faqs = [
+  {
+    question: 'Wo ist es in der Toskana am schönsten?',
+    answer: 'Für Kunst und Museen ist Florenz die naheliegende Wahl, für Weinlandschaften das Chianti, für historische Stadtbilder Siena und Lucca. Wer Florenz mit ländlicher Umgebung und weniger bekannten Orten verbinden möchte, kann das Valdarno als Basis prüfen.'
+  },
+  {
+    question: 'Wo ist das Herz der Toskana?',
+    answer: 'Florenz ist das kulturelle und kunsthistorische Zentrum der Toskana. Das Chianti und die zentrale Toskana stehen dagegen für viele Reisende sinnbildlich für die klassische Landschaft aus Hügeln, Weinbergen und Dörfern.'
+  },
+  {
+    question: 'Welche Region der Toskana ist die schönste?',
+    answer: 'Eine objektiv schönste Region gibt es nicht. Florenz passt zu einer Kulturreise, das Chianti zu Wein und Landschaft, Siena zur mittelalterlichen Toskana und das Valdarno zu Reisenden, die bekannte Ziele mit ruhigeren Orten kombinieren möchten.'
+  },
+  {
+    question: 'Welche Orte in der Toskana sind Geheimtipps?',
+    answer: 'Figline Valdarno, die Balze im oberen Valdarno und kleinere Orte wie Montefioralle sind sinnvolle Alternativen zu den bekanntesten Reisezielen. Ein Geheimtipp ist jedoch nicht automatisch menschenleer; Saison und Veranstaltungen beeinflussen den Besuch.'
+  },
+  {
+    question: 'Welche Stadt sollte man in der Toskana gesehen haben?',
+    answer: 'Bei einer ersten Reise ist Florenz wegen seiner Kunst und Architektur meist die wichtigste Stadt. Siena bietet ein starkes mittelalterliches Stadtbild, während Lucca mit Stadtmauer und kompakter Altstadt eine ruhigere Alternative sein kann.'
+  },
+  {
+    question: 'Wann ist die beste Zeit, in die Toskana zu reisen?',
+    answer: 'Frühling und Herbst eignen sich oft für Stadtbesuche, Spaziergänge und Rundfahrten. Der Sommer passt zu langen Tagen, verlangt aber mehr Planung bei Hitze und Andrang; der Winter ist ruhiger, hat jedoch kürzere Tage und häufiger eingeschränkte Öffnungszeiten.'
+  },
+  {
+    question: 'Ist es besser, in Florenz oder außerhalb von Florenz zu übernachten?',
+    answer: 'Florenz ist sinnvoll, wenn Museen, Altstadt und ein Urlaub ohne Auto im Mittelpunkt stehen. Außerhalb der Stadt zu übernachten kann besser passen, wenn Sie mit dem Auto reisen, mehr Platz wünschen und zusätzlich Chianti, Valdarno oder andere Teile der Toskana besuchen möchten.'
+  }
+];
+
+const schema = [...guideSchema('de', page), faqSchema(faqs)].filter(Boolean);
+---
+
+<BaseLayout
+  lang="de"
+  title={page.title}
+  description={page.description}
+  path={page.path}
+  schema={schema}
+  ogType="article"
+  socialImage={page.socialImage}
+  socialImageAlt="Die Balze im oberen Valdarno zwischen Feldern und grüner Landschaft"
+  socialImageWidth={1920}
+  socialImageHeight={1280}
+>
+  <article class="toskana-guide">
+    <header class="guide-hero">
+      <img src={page.socialImage} alt="Die Balze im oberen Valdarno zwischen Feldern und grüner Landschaft" width="1920" height="1280" fetchpriority="high" decoding="async" />
+      <div class="guide-hero__overlay" aria-hidden="true"></div>
+      <div class="container guide-hero__content">
+        <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Perla Toscana</a><span aria-hidden="true">/</span><a href="/de/reisefuehrer/">Reiseführer</a><span aria-hidden="true">/</span><span aria-current="page">Die schönsten Orte der Toskana</span></nav>
+        <p class="eyebrow">Toskana planen</p>
+        <h1>{page.h1}</h1>
+        <p class="lead"><strong>Am schönsten ist die Toskana dort, wo Landschaft und Reiseart zusammenpassen:</strong> Florenz für Kunst und Stadtleben, das Chianti für Weinberge, Siena für die historische Mitte und das Valdarno für Landschaft, Ausflüge und weniger bekannte Orte.</p>
+        <p class="article-dates"><span>Veröffentlicht: <time datetime={page.publishedAt}>27. September 2026</time></span><span>Aktualisiert: <time datetime={page.updatedAt}>27. September 2026</time></span></p>
+      </div>
+    </header>
+
+    <div class="container guide-layout section">
+      <aside class="toc card">
+        <h2>In diesem Reiseführer</h2>
+        <ol>
+          <li><a href="#herz">Das Herz der Toskana</a></li>
+          <li><a href="#gegend">Die passende Gegend</a></li>
+          <li><a href="#staedte">Städte für die erste Reise</a></li>
+          <li><a href="#lucca-siena">Lucca oder Siena?</a></li>
+          <li><a href="#geheimtipps">Geheimtipps</a></li>
+          <li><a href="#valdarno">Basis im Valdarno</a></li>
+          <li><a href="#land-florenz">Land und Florenz verbinden</a></li>
+          <li><a href="#kurtaxe-florenz">Kurtaxe in Florenz</a></li>
+          <li><a href="#reisezeit">Beste Reisezeit</a></li>
+          <li><a href="#urlaubstyp">Nach Urlaubstyp wählen</a></li>
+          <li><a href="#perla-toscana">Perla Toscana</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </aside>
+
+      <div class="content">
+        <div class="intro-copy">
+          <p>Die Frage nach dem schönsten Ort hat keine einzige richtige Antwort. Eine kurze Städtereise braucht eine andere Basis als ein Urlaub mit Mietwagen, Weinverkostungen, Dörfern und mehreren Tagesausflügen.</p>
+          <p>Entscheidend ist deshalb nicht eine Rangliste, sondern die Kombination aus Interessen, Verkehrsmittel und verfügbarer Zeit. Die folgenden Vergleiche helfen dabei, eine Region zu wählen, ohne jeden bekannten Ort in eine Reise zu pressen.</p>
+        </div>
+
+        <section id="herz">
+          <h2>Wo ist das Herz der Toskana?</h2>
+          <p><strong>Florenz ist das kulturelle und kunsthistorische Zentrum der Toskana; das Chianti und die zentrale Toskana verkörpern für viele Reisende das klassische Landschaftsbild.</strong> Welcher Teil als „Herz“ empfunden wird, hängt daher vom Blickwinkel ab.</p>
+          <p>Florenz prägte Kunst, Architektur und Politik weit über die Region hinaus. Wer dagegen an Weinberge, Zypressen, Landstraßen und kleine Orte denkt, wird das Herz eher zwischen Chianti und dem Gebiet um Siena suchen.</p>
+          <p>Für die Reiseplanung ist diese Unterscheidung nützlich: Unser <a href="/de/reisefuehrer/florenz-sehenswuerdigkeiten/">Florenz-Reiseführer</a> unterstützt einen Stadttag, während der <a href="/de/reisefuehrer/chianti-sehenswuerdigkeiten/">Chianti-Reiseführer</a> eine ländliche Route vorbereitet.</p>
+        </section>
+
+        <section id="gegend" class="media-section">
+          <figure>
+            <img src="/images/places/montefioralle-chianti-panorama.webp" alt="Montefioralle zwischen Weinbergen und Olivenhainen im Chianti" width="1280" height="960" loading="lazy" decoding="async" />
+            <figcaption>Das Chianti entspricht für viele Reisende dem vertrauten Bild der toskanischen Hügellandschaft.</figcaption>
+          </figure>
+          <h2>Welche ist die schönste Gegend in der Toskana?</h2>
+          <p><strong>Florenz, Chianti, Siena und Valdarno bieten unterschiedliche Arten von Schönheit; einen sachlichen Gesamtsieger gibt es nicht.</strong> Wählen Sie die Gegend nach dem Schwerpunkt Ihres Urlaubs.</p>
+          <div class="choice-grid">
+            <article class="card"><h3>Florenz</h3><p>Für Renaissancekunst, große Museen, Architektur und einen Aufenthalt, bei dem vieles zu Fuß erreichbar sein soll.</p></article>
+            <article class="card"><h3>Chianti</h3><p>Für Weinlandschaften, kleinere Orte und Rundfahrten. Ein Auto oder organisierter Transfer ist meist praktischer als eine rein bahnbasierte Reise.</p></article>
+            <article class="card"><h3>Siena und zentrale Toskana</h3><p>Für mittelalterliche Stadtbilder und eine Route, die stärker auf Siena, das Umland und Ziele weiter südlich ausgerichtet ist.</p></article>
+            <article class="card"><h3>Valdarno</h3><p>Für Reisende, die Florenz, Chianti, Landschaft und weniger bekannte Orte von einer gemeinsamen Basis aus verbinden möchten.</p></article>
+          </div>
+        </section>
+
+        <section id="staedte">
+          <h2>Welche Stadt sollte man in der Toskana gesehen haben?</h2>
+          <p><strong>Bei einer ersten Toskana-Reise ist Florenz meist die wichtigste Stadt, wenn Kunst und Architektur im Vordergrund stehen.</strong> Siena und Lucca ergänzen die Reise mit deutlich anderen Stadtbildern.</p>
+          <figure>
+            <img src="/images/places/firenze-centro.jpg" alt="Ponte Vecchio über dem Arno im historischen Zentrum von Florenz" width="1280" height="852" loading="lazy" decoding="async" />
+            <figcaption>Florenz ist für viele Erstbesucher der kulturelle Schwerpunkt der Reise.</figcaption>
+          </figure>
+          <h3>Florenz</h3>
+          <p>Florenz konzentriert bedeutende Museen, Kirchen und Plätze auf engem Raum. Planen Sie lieber wenige feste Besichtigungen als eine lange Liste; für bekannte Museen können Zeitfenster und Reservierungen nötig sein.</p>
+          <h3>Siena</h3>
+          <p>Siena bietet mit Piazza del Campo, Dom und Contraden ein geschlossenes mittelalterliches Stadterlebnis. Unser <a href="/de/reisefuehrer/siena-sehenswuerdigkeiten/">Siena-Reiseführer</a> hilft bei der Auswahl für einen Tagesbesuch.</p>
+          <h3>Lucca</h3>
+          <p>Lucca wirkt kompakter und ruhiger als Florenz. Die weitgehend erhaltene Stadtmauer prägt den Besuch; aktuelle Zugänge, Veranstaltungen und Verkehrsregeln sollten vor der Fahrt geprüft werden.</p>
+        </section>
+
+        <section id="lucca-siena">
+          <h2>Lucca oder Siena – welche Stadt passt besser?</h2>
+          <p><strong>Siena passt besser zu Reisenden, die eine dramatische mittelalterliche Stadt und die zentrale Toskana erleben möchten; Lucca eignet sich eher für einen ruhigeren Rundgang in einer von Mauern umgebenen Altstadt.</strong> Die Wahl hängt auch von Ihrer Route ab.</p>
+          <p>Siena lässt sich sinnvoll mit Zielen südlich von Florenz verbinden. Lucca liegt westlich und passt eher zu einer Reise, die Pisa, die nördliche Toskana oder die Küstenrichtung einbezieht. Beide an einem einzigen Tag zu kombinieren, würde unnötig viel Fahrzeit erzeugen.</p>
+        </section>
+
+        <section id="geheimtipps">
+          <h2>Welche Orte in der Toskana sind Geheimtipps?</h2>
+          <p><strong>Figline Valdarno, die Balze im oberen Valdarno und kleinere Dörfer wie Montefioralle sind gute Alternativen zu den meistbesuchten Städten.</strong> Sie sind keine unentdeckten Orte, ermöglichen aber oft einen stärker lokal geprägten Reisetag.</p>
+          <h3>Figline Valdarno</h3>
+          <p>Das historische Zentrum rund um die Piazza Marsilio Ficino lässt sich kompakt erkunden. Informationen zu Rundgang, Markt und praktischer Planung stehen im <a href="/de/reisefuehrer/figline-valdarno-sehenswuerdigkeiten/">Reiseführer für Figline Valdarno</a>.</p>
+          <h3>Balze und oberes Valdarno</h3>
+          <p>Die markanten Erosionsformationen und die Landschaft zwischen Florenz und Arezzo geben dem Gebiet einen eigenen Charakter. Der <a href="/de/reisefuehrer/valdarno-sehenswuerdigkeiten/">Valdarno-Reiseführer</a> bündelt Orte und Landschaftsideen.</p>
+          <h3>Montefioralle und weitere kleine Orte</h3>
+          <p>Montefioralle verbindet ein kleines historisches Ortsbild mit der Chianti-Landschaft. Weitere dokumentierte Vorschläge finden Sie in unserem Reiseführer zu <a href="/de/reisefuehrer/geheimtipps-toskana-doerfer/">weniger bekannten Dörfern der Toskana</a>.</p>
+          <p>Auch bei einem Geheimtipp gilt: Wochenenden, Ferien und Veranstaltungen können das Besucheraufkommen verändern. Aktuelle Zufahrt, Parkregeln und Öffnungszeiten sollten immer separat geprüft werden.</p>
+        </section>
+
+        <section id="valdarno" class="feature-section">
+          <figure>
+            <img src="/images/places/balze-del-valdarno.webp" alt="Felder und Felsformationen der Balze im oberen Valdarno" width="1920" height="1280" loading="lazy" decoding="async" />
+            <figcaption>Das Valdarno verbindet ländliche Landschaft mit einer Lage zwischen Florenz und Arezzo.</figcaption>
+          </figure>
+          <h2>Warum das Valdarno eine interessante Basis für die Toskana ist</h2>
+          <p><strong>Das Valdarno eignet sich für Reisende, die Florenz, Chianti, Dörfer und Landschaft von einer Unterkunft aus kombinieren möchten.</strong> Es ist besonders dann interessant, wenn nicht jeder Urlaubstag in einer Großstadt stattfinden soll.</p>
+          <p>Figline e Incisa Valdarno liegt im florentinischen Valdarno. Von hier können verschiedene Tagesausflüge geplant werden, ohne bei jedem Ortswechsel neu einzuchecken. Das funktioniert am besten, wenn Ziele geografisch gruppiert und aktuelle Verbindungen jeweils vor dem Reisetag geprüft werden.</p>
+          <p>Die Region ersetzt keine sorgfältige Routenplanung: Manche Orte sind mit der Bahn erreichbar, für ländliche Ziele und individuelle Rundfahrten ist ein Auto häufig hilfreicher.</p>
+        </section>
+
+        <section id="land-florenz">
+          <h2>Florenz besuchen, aber auf dem Land übernachten?</h2>
+          <p><strong>Ja, Florenz lässt sich als Tagesausflug besuchen, ohne im historischen Zentrum zu übernachten.</strong> Diese Variante passt vor allem zu Autoreisenden, die zusätzlich Chianti, Valdarno und kleinere Orte sehen möchten.</p>
+          <p>Für den Florenz-Tag kann eine Kombination aus Auto und Bahn sinnvoll sein: Das Auto bleibt an der Unterkunft oder an einem geeigneten Bahnhof, während die Stadt ohne Parkplatzsuche und ZTL-Risiko besucht wird. Fahrpläne, Streiks, Parkbedingungen und die letzte Rückfahrt müssen für das konkrete Datum geprüft werden.</p>
+          <p>Wer dagegen mehrere Museumstage und Abende in der Altstadt plant, spart mit einer Unterkunft in Florenz tägliche Wege. Für einen einzelnen Stadttag aus dem Valdarno hilft unser <a href="/de/reiseplaene/toskana-1-tag/">Toskana-Reiseplan für einen Tag</a> bei der Priorisierung.</p>
+        </section>
+
+        <section id="kurtaxe-florenz" class="tax-section card">
+          <h2>Was kostet ein Aufenthalt in Florenz zusätzlich?</h2>
+          <p><strong>Für touristische Vermietungen in Florenz nennt die Stadt seit dem 1. Februar 2025 eine Kurtaxe von 6,00&nbsp;€ pro steuerpflichtiger Person und Nacht.</strong> Sie wird für höchstens sieben aufeinanderfolgende Übernachtungen erhoben; Minderjährige bis zur Vollendung des 12. Lebensjahres sind befreit.</p>
+          <div class="calculation" aria-label="Rechenbeispiel zur Kurtaxe in Florenz">
+            <p><strong>Vierköpfige Reisegruppe, wenn alle vier Personen steuerpflichtig sind:</strong></p>
+            <p>6,00&nbsp;€ × 4 Personen = <strong>24,00&nbsp;€ pro Nacht</strong></p>
+            <p>6,00&nbsp;€ × 4 Personen × 7 Nächte = <strong>168,00&nbsp;€</strong></p>
+          </div>
+          <p>Das Beispiel gilt nicht automatisch für eine Familie mit Kindern, weil Kinder unter 12 Jahren befreit sein können. Weitere Befreiungen und Ermäßigungen gelten nur unter den von der Stadt genannten Voraussetzungen und können Nachweise verlangen.</p>
+          <p><strong>Stand der Prüfung: 27. September 2026.</strong> Vor der Buchung sollten Reisende die aktuelle Regelung auf der <a href="https://servizi.comune.fi.it/servizi/imposta-di-soggiorno-informati" target="_blank" rel="noopener noreferrer">offiziellen Informationsseite der Stadt Florenz</a> kontrollieren.</p>
+        </section>
+
+        <section id="kurtaxe-perla">
+          <h2>Kurtaxe bei Perla Toscana</h2>
+          <p><strong>Der Comune di Figline e Incisa Valdarno verfügt über eine kommunale Kurtaxe; deshalb wäre die pauschale Aussage „Bei Perla Toscana gibt es keine Kurtaxe“ nicht ausreichend belegt.</strong> Die konkret anwendbare Kategorie und der aktuelle Betrag sollten vor der Buchung direkt bestätigt werden.</p>
+          <p>Die kommunalen Unterlagen nennen Beherbergungskategorien, Befreiungen und eine Begrenzung auf sieben aufeinanderfolgende Nächte. Aus den öffentlich im Projekt verfügbaren Angaben lässt sich jedoch nicht rechtssicher ableiten, welche Tarifkategorie im Jahr 2026 auf Perla Toscana anzuwenden ist.</p>
+          <p>Aktuelle Informationen stellt der <a href="https://www.comunefiv.it/documento_pubblico/regolamento-imposta-di-soggiorno/" target="_blank" rel="noopener noreferrer">Comune di Figline e Incisa Valdarno</a> bereit. Gäste sollten den für ihre Buchung geltenden Betrag bei der Unterkunft erfragen.</p>
+        </section>
+
+        <section id="reisezeit">
+          <h2>Wann ist die beste Zeit, in die Toskana zu reisen?</h2>
+          <p><strong>Frühling und Herbst sind für viele Rundreisen besonders angenehm, während der Sommer zu langen Tagen und der Winter zu einer ruhigeren Städtereise passt.</strong> Die beste Reisezeit hängt von Aktivitäten, Hitzeempfinden und gewünschter Atmosphäre ab.</p>
+          <h3>Frühling</h3>
+          <p>Der Frühling eignet sich für Stadtbesuche, Gärten, Spaziergänge und Landschaftstage. Rund um Feiertage und Wochenenden sollten Unterkünfte und bekannte Museen früh geprüft werden.</p>
+          <h3>Sommer</h3>
+          <p>Im Sommer ermöglichen lange Tage ausgedehnte Ausflüge. Planen Sie Pausen, ausreichend Wasser und weniger Programmpunkte zur heißesten Tageszeit; beliebte Orte können stärker besucht sein.</p>
+          <h3>Herbst</h3>
+          <p>Der Herbst verbindet Städte und Landschaft mit Weinlese, neuen saisonalen Produkten und Veranstaltungen. Öffnungszeiten, Wetter und Straßenverhältnisse sollten kurzfristig geprüft werden.</p>
+          <h3>Winter</h3>
+          <p>Der Winter kann sich für Museen und ruhigere Städte eignen. Kürzere Tage und eingeschränkte Öffnungen in ländlichen Gebieten verlangen jedoch einen flexibleren Plan.</p>
+        </section>
+
+        <section id="urlaubstyp">
+          <h2>Wo macht man am besten Urlaub in der Toskana?</h2>
+          <p><strong>Die passende Urlaubsregion ergibt sich aus dem wichtigsten Reiseinteresse.</strong> Eine klare Priorität führt meist zu einem entspannteren Aufenthalt als der Versuch, die gesamte Toskana von einer Basis aus abzudecken.</p>
+          <ul class="decision-list">
+            <li><strong>Kultur und Museen → Florenz:</strong> kurze Wege zu Kunst, Kirchen und Stadtleben.</li>
+            <li><strong>Wein und Landschaft → Chianti:</strong> Dörfer, Weinberge und ländliche Straßen.</li>
+            <li><strong>Historische Städte → Siena oder Lucca:</strong> je nach Route mittelalterliche Mitte oder kompakte Stadt im Nordwesten.</li>
+            <li><strong>Florenz, Landschaft und Tagesausflüge → Valdarno:</strong> eine mögliche Basis für unterschiedliche Reisetage.</li>
+          </ul>
+        </section>
+
+        <section id="perla-toscana" class="property card">
+          <figure>
+            <img src="/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg" alt="Wohnbereich und ausgestattete Küche der Perla Toscana in Figline e Incisa Valdarno" width="1024" height="683" loading="lazy" decoding="async" />
+          </figure>
+          <h2>Übernachten bei Perla Toscana</h2>
+          <p><strong>Perla Toscana ist ein Ferienhaus in Figline e Incisa Valdarno für bis zu acht Gäste.</strong> Die Unterkunft kann als Basis dienen, wenn Florenz mit Landschaftstagen und weiteren Ausflügen in der Toskana kombiniert werden soll.</p>
+          <p>Zum Haus gehören eine Küche, WLAN, Klimaanlage in den Schlafzimmern und ein privater Parkplatz. Diese Ausstattung kann für Familien und Gruppen praktisch sein, die gemeinsam wohnen und nicht bei jedem Reisetag die Unterkunft wechseln möchten.</p>
+          <p>Perla Toscana liegt nicht im historischen Zentrum von Florenz. Gäste sollten daher die Anreise in die Stadt sowie ihre übrigen Tagesrouten im Voraus planen und variable Angaben wie Fahrpläne und Zufahrtsregeln aktuell prüfen.</p>
+          <p><a class="button button--secondary" href="/de/">Ferienhaus ansehen</a></p>
+          <CTAButtons lang="de" />
+        </section>
+
+        <section id="faq">
+          <p class="eyebrow">Häufige Fragen</p>
+          <h2>FAQ: Die schönsten Orte und Regionen der Toskana</h2>
+          <FAQBlock items={faqs} />
+        </section>
+
+        <p class="editorial-signature">Dieser Reiseführer wurde vom Team der Perla Toscana erstellt und wird regelmäßig geprüft, um Reisenden hilfreiche und nachvollziehbare Informationen zu bieten.</p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .guide-hero{position:relative;display:grid;min-height:clamp(510px,72vh,740px);align-items:end;overflow:hidden;background:var(--color-espresso);color:var(--color-warm-white)}
+  .guide-hero>img,.guide-hero__overlay{position:absolute;inset:0;width:100%;height:100%}
+  .guide-hero>img{object-fit:cover;object-position:center 52%}
+  .guide-hero__overlay{background:linear-gradient(180deg,rgba(30,22,17,.1) 8%,rgba(30,22,17,.85) 100%)}
+  .guide-hero__content{position:relative;z-index:1;display:grid;gap:15px;padding-block:64px}
+  .guide-hero h1{max-width:980px;color:var(--color-warm-white);font-size:clamp(2.35rem,5.8vw,5rem);line-height:.98;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+  .guide-hero .lead{max-width:800px;font-size:clamp(1.05rem,2vw,1.24rem)}
+  .guide-hero .eyebrow{color:#fff}
+  .breadcrumb,.article-dates{display:flex;flex-wrap:wrap;gap:8px 12px;color:rgba(255,255,255,.9);font-size:.88rem}
+  .breadcrumb a{color:#fff;font-weight:700;text-decoration:none}
+  .guide-layout{display:grid;grid-template-columns:255px minmax(0,800px);gap:54px;align-items:start}
+  .toc{position:sticky;top:96px;padding:20px}
+  .toc h2{font-size:1.32rem;margin-bottom:12px}
+  .toc ol{display:grid;gap:8px;padding-left:20px}
+  .toc a{color:var(--color-olive);font-size:.89rem;text-decoration:none}
+  .content{display:grid;gap:42px;font-size:1.04rem}
+  .content section{display:grid;gap:16px;scroll-margin-top:100px}
+  .content h2{max-width:25ch;font-size:clamp(1.8rem,4vw,2.55rem);line-height:1.08;text-wrap:balance}
+  .content h3{margin-top:8px;font-size:clamp(1.32rem,2.5vw,1.72rem)}
+  .content p,.content li{max-width:72ch;line-height:1.7}
+  .content a:not(.button){color:var(--color-terracotta-dark);font-weight:700}
+  .intro-copy{display:grid;gap:14px;font-size:1.12rem}
+  figure{display:grid;gap:9px;margin:4px 0 10px}
+  figure img{width:100%;height:auto;border-radius:18px;object-fit:cover}
+  figcaption{color:rgba(47,42,36,.7);font-size:.84rem;line-height:1.45}
+  .choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .choice-grid article{display:grid;align-content:start;gap:8px;padding:22px}
+  .choice-grid h3{margin:0}
+  .choice-grid p{font-size:.96rem}
+  .tax-section,.property{padding:28px;border-color:rgba(166,83,50,.28)}
+  .tax-section{background:linear-gradient(135deg,rgba(102,114,77,.08),rgba(247,241,232,.82))}
+  .calculation{display:grid;gap:6px;border-left:4px solid var(--color-olive);padding:14px 18px;background:rgba(255,255,255,.62)}
+  .calculation p{margin:0}
+  .decision-list{display:grid;gap:12px;padding-left:22px}
+  .property{background:linear-gradient(135deg,rgba(166,83,50,.07),rgba(247,241,232,.74))}
+  .property figure img{aspect-ratio:3/2}
+  .editorial-signature{border-top:1px solid var(--color-border);color:rgba(51,37,29,.68);font-size:.9rem;font-style:italic;padding-top:18px}
+  @media(max-width:850px){.guide-layout{grid-template-columns:1fr;gap:30px}.toc{position:static}.guide-hero__content{padding-block:48px}}
+  @media(max-width:620px){.guide-hero{min-height:620px}.choice-grid{grid-template-columns:1fr}.tax-section,.property{padding:22px}.property .button{width:100%;text-align:center}}
+</style>

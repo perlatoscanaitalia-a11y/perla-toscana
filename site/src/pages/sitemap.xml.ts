@@ -32,6 +32,7 @@ export function GET() {
     { path: '/en/', alternatePath: '/it/' },
     { path: '/de/', alternatePath: '/it/' },
     { path: '/de/reisefuehrer/', alternatePaths: { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' } },
+    { path: '/de/reisefuehrer/wo-ist-es-in-der-toskana-am-schoensten/' },
     { path: '/it/casa-vacanze-vicino-firenze/' },
     { path: '/it/noleggio-auto/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
     { path: '/en/car-rental/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },

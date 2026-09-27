@@ -8,7 +8,17 @@ import { guideBlockFourDe } from '../../../data/guideBlockFourDe';
 import { hiddenVillagesDe } from '../../../data/guideHiddenVillages';
 import { itineraryBlockFiveDe } from '../../../data/itineraryBlockFiveDe';
 import { autumnia2026PageDe } from '../../../data/guideAutumnia2026De';
-const guides = [montecchioVesponiPages.de, autumnia2026PageDe, hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe, ...guideBlockFourDe];
+const newGuide = {
+  slug: 'wo-ist-es-in-der-toskana-am-schoensten',
+  path: '/de/reisefuehrer/wo-ist-es-in-der-toskana-am-schoensten/',
+  h1: 'Wo ist es in der Toskana am schönsten? Die schönsten Orte & Geheimtipps',
+  description: 'Florenz, Chianti, Siena, Lucca und Valdarno im Vergleich – mit weniger bekannten Orten, Reisezeit und praktischen Entscheidungshilfen.',
+  socialImage: '/images/places/balze-del-valdarno.webp',
+  socialImageAlt: 'Die Balze im oberen Valdarno zwischen Feldern und grüner Landschaft',
+  socialImageWidth: 1920,
+  socialImageHeight: 1280
+};
+const guides = [newGuide, montecchioVesponiPages.de, autumnia2026PageDe, hiddenVillagesDe, ...guideBlockOneDe, ...guideBlockTwoDe, ...guideBlockThreeDe, ...guideBlockFourDe];
 const alternatePaths = { it: '/it/guide/', en: '/en/guides/', de: '/de/reisefuehrer/' };
 ---
 <BaseLayout lang="de" title="Toskana-Reiseführer und Ausflüge | Perla Toscana" description="Praktische deutschsprachige Reiseführer für Florenz, Siena, Chianti, Val d’Orcia, Dörfer, Natur und Tagesausflüge ab Figline Valdarno." path="/de/reisefuehrer/" alternatePaths={alternatePaths} socialImage="/images/places/montefioralle-chianti-panorama.webp" socialImageAlt="Montefioralle und die Hügellandschaft der Toskana" socialImageWidth={1280} socialImageHeight={853}>
