@@ -38,6 +38,7 @@ export function GET() {
     { path: '/de/mietwagen/', alternatePaths: { it: '/it/noleggio-auto/', en: '/en/car-rental/', de: '/de/mietwagen/' } },
     { path: '/it/guide/', alternatePath: '/en/guides/' },
     { path: '/en/guides/', alternatePath: '/it/guide/' },
+    { path: '/en/guides/where-to-stay-in-tuscany-florence-or-countryside/' },
     { path: '/guide/', alternatePath: '/en/guides/' },
     { path: '/guide/dove-dormire-vicino-the-mall-firenze/', alternatePaths: { it: '/guide/dove-dormire-vicino-the-mall-firenze/', de: '/de/reisefuehrer/uebernachten-nahe-the-mall-firenze/' } },
     { path: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', alternatePaths: { it: '/guide/dove-fermarsi-lungo-a1-tra-roma-e-milano/', de: '/de/reisefuehrer/zwischenstopp-a1-rom-mailand/' } },

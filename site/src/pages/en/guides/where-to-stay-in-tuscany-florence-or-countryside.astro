@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQBlock from '../../../components/FAQBlock.astro';
+import EditorialSignature from '../../../components/EditorialSignature.astro';
+import { faqSchema, guideSchema } from '../../../data/schema';
+
+const page = {
+  slug: 'where-to-stay-in-tuscany-florence-or-countryside',
+  path: '/en/guides/where-to-stay-in-tuscany-florence-or-countryside/',
+  title: 'Where to Stay in Tuscany: Florence or Countryside?',
+  description: 'Should you stay in Florence or the Tuscan countryside? Compare both options and discover the best base for exploring Florence, Chianti and Tuscany.',
+  h1: 'Where to Stay in Tuscany: Florence or the Countryside?',
+  publishedAt: '2026-09-27',
+  updatedAt: '2026-09-27',
+  socialImage: '/images/places/montefioralle-chianti-panorama.webp'
+};
+
+const faqs = [
+  {
+    question: 'Is it better to stay in Florence or the Tuscan countryside?',
+    answer: 'Florence is usually better for a short, museum-focused visit without a car. The countryside is usually better for space, landscapes, villages and a road trip. A countryside base near Florence can combine both, provided you plan how you will reach the city.'
+  },
+  {
+    question: 'Can I stay outside Florence and visit Florence for the day?',
+    answer: 'Yes. Choose accommodation with practical access to a railway station or a suitable park-and-ride plan, check the current timetable, and avoid driving into Florence’s restricted historic centre unless you fully understand the rules.'
+  },
+  {
+    question: 'What is a good base for exploring Florence and Tuscany?',
+    answer: 'A useful base balances the places on your itinerary with the transport you intend to use. Figline e Incisa Valdarno can work for travellers who want Florence, Chianti and other Tuscan day trips while keeping one countryside accommodation.'
+  },
+  {
+    question: 'Do I need a car if I stay outside Florence?',
+    answer: 'Often, but not always. A car is useful for rural accommodation, wineries and smaller villages; travellers staying near a well-connected station can visit Florence by train and use tours or transfers for selected countryside days.'
+  },
+  {
+    question: 'How many nights should I spend in Tuscany?',
+    answer: 'Four or five nights give first-time visitors enough time for Florence and two or three contrasting Tuscan experiences without changing accommodation every day. Add more nights if you want a slower pace or several full museum and wine-country days.'
+  }
+];
+
+const schema = [...guideSchema('en', page), faqSchema(faqs)].filter(Boolean);
+---
+
+<BaseLayout
+  lang="en"
+  title={page.title}
+  description={page.description}
+  path={page.path}
+  schema={schema}
+  ogType="article"
+  socialImage={page.socialImage}
+  socialImageAlt="Montefioralle village among vineyards and olive groves in the Tuscan countryside"
+  socialImageWidth={1280}
+  socialImageHeight={960}
+>
+  <article class="stay-guide">
+    <header class="guide-hero">
+      <img src={page.socialImage} alt="Montefioralle village among vineyards and olive groves in the Tuscan countryside" width="1280" height="960" fetchpriority="high" decoding="async" />
+      <div class="guide-hero__overlay" aria-hidden="true"></div>
+      <div class="container guide-hero__content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a><span aria-hidden="true">/</span><a href="/en/guides/">Guides</a><span aria-hidden="true">/</span><span aria-current="page">Where to stay in Tuscany</span></nav>
+        <p class="eyebrow">Tuscany trip planning</p>
+        <h1>{page.h1}</h1>
+        <p class="lead">Florence puts museums, monuments and city life at your door. The Tuscan countryside offers space, scenery and easier access to smaller towns—while a rural base near Florence can give you a practical version of both.</p>
+        <p class="article-dates"><span>Published: <time datetime={page.publishedAt}>27 September 2026</time></span><span>Updated: <time datetime={page.updatedAt}>27 September 2026</time></span></p>
+      </div>
+    </header>
+
+    <div class="container guide-layout section">
+      <aside class="toc card">
+        <h2>In this guide</h2>
+        <ol>
+          <li><a href="#florence-or-tuscany">Florence or Tuscany?</a></li>
+          <li><a href="#difference">The main differences</a></li>
+          <li><a href="#outside-florence">Staying outside Florence</a></li>
+          <li><a href="#best-base">Choosing a base</a></li>
+          <li><a href="#first-time">First-time visits</a></li>
+          <li><a href="#third-option">Countryside near Florence</a></li>
+          <li><a href="#car">Car or no car</a></li>
+          <li><a href="#days">How many days</a></li>
+          <li><a href="#families">Families and groups</a></li>
+          <li><a href="#perla-toscana">Perla Toscana</a></li>
+          <li><a href="#decision">How to decide</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </aside>
+
+      <div class="content">
+        <div class="intro-copy">
+          <p>The choice is not simply between “Florence” and “Tuscany”: Florence is in Tuscany, but staying in its historic centre creates a very different trip from sleeping among vineyards, hills and smaller towns.</p>
+          <p>There is also a useful third option: stay in the countryside within reach of Florence. This can suit travellers who want a city day, a Chianti day and quieter evenings without moving their luggage between several hotels.</p>
+        </div>
+
+        <section id="florence-or-tuscany">
+          <h2>Is it better to stay in Florence or Tuscany?</h2>
+          <p><strong>Stay in Florence if the city is the main purpose of your trip; choose the wider Tuscan countryside if landscapes, villages and driving are central to it.</strong> Neither is universally better—the right answer depends on your priorities, transport and number of nights.</p>
+          <p>Florence is the simpler choice for travellers planning consecutive museum visits, evening walks in the centre and a trip without a rental car. A countryside stay makes more sense when you want outdoor space, scenic roads, winery visits or several smaller destinations.</p>
+          <p>For a broader city plan, see our <a href="/en/guides/florence/">Florence guide</a>. If your mental picture of Tuscany involves vineyards and hill towns, our <a href="/en/guides/chianti/">Chianti guide</a> shows the kind of day that usually benefits from a car or an organised tour.</p>
+        </section>
+
+        <section id="difference" class="comparison-section">
+          <h2>Florence vs Tuscan countryside: what’s the difference?</h2>
+          <p><strong>Florence offers density and convenience; the countryside offers space and a slower, more dispersed experience.</strong> Your daily routine, not just the view from your room, will change depending on which you choose.</p>
+          <figure>
+            <img src="/images/places/firenze-centro.jpg" alt="Ponte Vecchio crossing the Arno in Florence" width="1280" height="852" loading="lazy" decoding="async" />
+            <figcaption>Florence works well for travellers who want to explore the historic centre mainly on foot.</figcaption>
+          </figure>
+          <h3>Staying in Florence</h3>
+          <p>You can walk between many of the city’s major sights, return to your room during the day and enjoy the centre after day visitors leave. Rail connections also make Florence a useful base for some city-to-city excursions.</p>
+          <p>The trade-off is that driving and parking require more planning. Central Florence includes restricted-traffic areas, so visitors arriving by car need to understand current access rules and confirm parking with their accommodation.</p>
+          <h3>Staying in the Tuscan countryside</h3>
+          <p>You gain more space, quieter surroundings and easier departures for villages, landscapes and rural activities. Self-catering accommodation can also make longer family or group stays more flexible.</p>
+          <p>The trade-off is distance between places. Rural bus and rail coverage varies, so a countryside itinerary often works best with a car, a private transfer or pre-booked tours. Restaurants and shops may also be less convenient on foot.</p>
+        </section>
+
+        <section id="outside-florence">
+          <h2>Is it worth staying outside Florence?</h2>
+          <p><strong>Yes, if Florence is one part of a wider Tuscany itinerary and you value space, parking or quieter evenings.</strong> It is less useful if you expect to spend almost every day and evening in Florence.</p>
+          <p>Staying outside the city can reduce hotel changes and make road trips easier, especially for families and groups. The decision works best when the accommodation has a clear connection to the places you actually plan to visit—not merely a “near Florence” label.</p>
+          <p>Before booking, check the route to the nearest station, the last practical return option for your dates, and whether you will need a car to reach the accommodation itself.</p>
+        </section>
+
+        <section id="visit-florence">
+          <h2>Can you stay in Tuscany and visit Florence?</h2>
+          <p><strong>Yes. Many travellers stay outside Florence and visit the city for a day, using a regional train or a planned drive to parking outside the restricted centre.</strong> The best method depends on where you stay.</p>
+          <p>For a countryside base around Figline e Incisa Valdarno, a practical approach is often to drive to a suitable station and continue by train. This separates the rural part of the trip from Florence’s traffic, parking and ZTL rules. Always check the current timetable, service notices and parking conditions for the day you travel.</p>
+          <p>Our <a href="/en/guides/florence-in-one-day/">one-day Florence itinerary</a> helps you prioritise a city visit without trying to fit every museum and viewpoint into the same day.</p>
+        </section>
+
+        <section id="best-base">
+          <h2>What is the best town to use as a base in Tuscany?</h2>
+          <p><strong>There is no single best base for all of Tuscany.</strong> Choose the place that minimises travel to the two or three areas at the top of your itinerary.</p>
+          <div class="base-grid">
+            <article class="card"><h3>Florence</h3><p>Choose Florence for art, museums, evening city life and a trip centred on public transport. It is the strongest base when the city itself deserves most of your time.</p></article>
+            <article class="card"><h3>Siena</h3><p>Choose Siena for a medieval city experience and for itineraries weighted toward central and southern Tuscany. Read our <a href="/en/guides/siena/">Siena guide</a> before deciding how much driving your wider plan involves.</p></article>
+            <article class="card"><h3>Chianti</h3><p>Choose Chianti for vineyard landscapes, small villages and winery visits. A car or arranged transport is normally the practical option; anyone tasting wine should plan a sober driver.</p></article>
+            <article class="card"><h3>Figline Valdarno / Valdarno</h3><p>Choose the Valdarno when you want to balance Florence with Chianti and other day trips from one base. Compare our guides to <a href="/en/guides/figline-valdarno/">Figline Valdarno</a> and the wider <a href="/en/guides/valdarno/">Valdarno</a>.</p></article>
+          </div>
+          <h3>What is the best area of Tuscany to stay in?</h3>
+          <p><strong>Florence is the most practical area for a city-led, car-free trip; Chianti suits a wine-country stay; Siena supports a central or southern Tuscany itinerary; and Valdarno can balance Florence with countryside excursions.</strong> The best area is the one closest to your highest-priority experiences, not the one with the longest list of possible day trips.</p>
+        </section>
+
+        <section id="first-time">
+          <h2>Where should you stay in Tuscany for the first time?</h2>
+          <p><strong>For a first visit, stay in Florence if you have only a few nights and the Renaissance city is your priority.</strong> With four or more nights and an interest in both cities and countryside, a split stay or a well-connected rural base becomes more attractive.</p>
+          <p>A split stay gives each setting its own rhythm, but costs time for check-out, travel and check-in. One base is simpler for families and groups, provided everyone accepts that some days will involve travel.</p>
+          <p>Do not choose a base from a map alone. List your non-negotiable sights, mark which ones require a car, and then compare the resulting routes.</p>
+        </section>
+
+        <section id="third-option" class="feature-section">
+          <figure>
+            <img src="/images/places/balze-del-valdarno.webp" alt="The Balze landscape among fields and vegetation in the Upper Valdarno" width="1920" height="1280" loading="lazy" decoding="async" />
+            <figcaption>The Valdarno offers a countryside setting between Florence and other Tuscan destinations.</figcaption>
+          </figure>
+          <h2>A third option: stay in the countryside near Florence</h2>
+          <p><strong>A countryside base near Florence can combine a dedicated city day with Chianti, Valdarno and other Tuscan excursions.</strong> It is a compromise for travellers who want rural space without treating Florence as a separate overnight stay.</p>
+          <p>Figline e Incisa Valdarno is useful in this type of itinerary because it belongs to the Florentine Valdarno and has a railway station in Figline. You can plan Florence by train, use a car for countryside days and return to the same accommodation.</p>
+          <p>This does not remove the need to plan. Confirm how you will reach the station, check the live railway timetable, and group day trips geographically rather than zigzagging across Tuscany.</p>
+        </section>
+
+        <section id="car">
+          <h2>Do you need a car in Tuscany?</h2>
+          <p><strong>You do not need a car for Florence, and it can be a disadvantage in the historic centre; a car is highly useful for many rural stays, villages and winery visits.</strong> A mixed itinerary often works best with different transport on different days.</p>
+          <p>For Florence, consider leaving the car at your accommodation or at an appropriate station and continuing by train. For Chianti and rural Valdarno, a car gives you more control over routes and stops. Always verify ZTL rules, parking signs and access conditions locally.</p>
+          <p>If you rent a car, choose accommodation with confirmed parking and ask about the final approach. If you plan a wine tasting, designate a driver who will not drink or arrange transport.</p>
+        </section>
+
+        <section id="without-car">
+          <h2>Where to stay in Tuscany without a car?</h2>
+          <p><strong>Without a car, stay in Florence or another town with the rail connections you need and accommodation within practical reach of the station.</strong> Florence is the simplest answer for a city-led first trip.</p>
+          <p>A smaller rail town can work when your itinerary is deliberately limited to train-accessible destinations. It is usually less suitable if you want remote farm stays, spontaneous winery visits or a long list of hill towns.</p>
+          <p>Check the complete door-to-door journey—not only the train line. A property described as being “near a station” may still require a taxi or a long walk, and evening transport can be different from daytime options.</p>
+        </section>
+
+        <section id="days">
+          <h2>How many days should you stay in Tuscany?</h2>
+          <p><strong>Plan at least four or five nights for a first trip that includes Florence and the countryside.</strong> Fewer nights can work for one city or one compact area; more time lets you slow down and adapt to weather or closures.</p>
+          <h3>A simple five-day example</h3>
+          <ol class="itinerary-list">
+            <li><strong>Day 1 — Arrive and settle in.</strong> Explore the immediate town or neighbourhood rather than scheduling a major attraction.</li>
+            <li><strong>Day 2 — Florence.</strong> Choose one major museum or timed attraction, then explore the historic centre on foot.</li>
+            <li><strong>Day 3 — Chianti.</strong> Plan a small number of villages or a pre-booked winery experience, with a sober driver or arranged transport.</li>
+            <li><strong>Day 4 — Valdarno or another nearby area.</strong> Keep the route local and include time for lunch, landscapes and an unhurried return.</li>
+            <li><strong>Day 5 — Siena or a second Florence day.</strong> Decide according to your interests, energy and onward route.</li>
+          </ol>
+          <p>This is a planning framework, not a checklist. Removing one day trip often creates a better trip than adding another distant highlight.</p>
+        </section>
+
+        <section id="family-friendly">
+          <h2>Is Tuscany good for families?</h2>
+          <p><strong>Yes. Tuscany can work very well for families when the itinerary leaves room for meals, rest and shorter travel days.</strong> A kitchen, separate bedrooms and parking can matter as much as proximity to a famous square.</p>
+          <p>In Florence, central accommodation reduces daily walking logistics but may offer less space. In the countryside, families often gain room and flexibility but need a safe, realistic transport plan. Check stairs, pool rules, road access and sleeping arrangements directly with each property.</p>
+        </section>
+
+        <section id="families">
+          <h2>Where should a family or group stay near Florence?</h2>
+          <p><strong>Look for a base with enough real beds, a kitchen, air conditioning where needed, reliable Wi-Fi, confirmed parking and a workable route to Florence.</strong> For groups, one shared house can simplify meals and time together.</p>
+          <p>Balance space against transport. A remote property may look attractive but add unnecessary driving; a town-centre apartment may simplify Florence while making countryside days harder. The best choice is the one that fits the group’s actual daily plan.</p>
+          <p>For local dining considerations, including group bookings and current opening information, see our guide to <a href="/en/where-to-eat/">where to eat near Perla Toscana</a>.</p>
+        </section>
+
+        <section id="perla-toscana" class="property card">
+          <figure>
+            <img src="/images/perla-toscana/perla-toscana-soggiorno-cucina-figline-valdarno.jpg" alt="Living area and equipped kitchen at Perla Toscana in Figline e Incisa Valdarno" width="1024" height="683" loading="lazy" decoding="async" />
+          </figure>
+          <h2>Staying at Perla Toscana near Florence</h2>
+          <p><strong>Perla Toscana is a holiday home in Figline e Incisa Valdarno for up to eight guests.</strong> It can serve as one base for travellers planning Florence alongside countryside days elsewhere in Tuscany.</p>
+          <p>The house includes a kitchen, Wi-Fi, air conditioning in the bedrooms and private parking. These features are particularly useful for families or groups who prefer to unpack once and organise day trips from the same accommodation.</p>
+          <p>Perla Toscana is not in Florence’s historic centre, so guests should plan the city journey in advance. Explore <a href="/en/the-apartment/">the house</a> and <a href="/en/rooms-amenities/">rooms and amenities</a> before deciding whether the location and setup fit your itinerary.</p>
+          <div class="button-row"><a class="button button--secondary" href="/en/rooms-amenities/">View rooms and amenities</a><a class="button button--primary" href="/en/book/">Check availability</a></div>
+        </section>
+
+        <section id="decision">
+          <h2>Florence or countryside: how to decide</h2>
+          <p><strong>Choose Florence for a city-first, museum-rich trip without a car; choose the countryside for space, landscapes, villages and a road trip.</strong> Choose countryside near Florence when you want both experiences from one accommodation and are comfortable planning transport.</p>
+          <ul class="decision-list">
+            <li><strong>Florence:</strong> mainly city sights, museums, evening walks and travel without a car.</li>
+            <li><strong>Tuscan countryside:</strong> more space, scenic drives, villages, wineries and a slower road-trip rhythm.</li>
+            <li><strong>Countryside near Florence:</strong> a practical compromise for a Florence day plus Chianti, Valdarno and other excursions.</li>
+          </ul>
+          <p>Whichever option you choose, build the itinerary around a few priorities and verify live transport, access and opening information shortly before travel.</p>
+        </section>
+
+        <section id="faq">
+          <p class="eyebrow">FAQ</p>
+          <h2>Frequently asked questions about where to stay in Tuscany</h2>
+          <FAQBlock items={faqs} />
+        </section>
+
+        <EditorialSignature />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .guide-hero{position:relative;display:grid;min-height:clamp(500px,70vh,720px);align-items:end;overflow:hidden;background:var(--color-espresso);color:var(--color-warm-white)}
+  .guide-hero>img,.guide-hero__overlay{position:absolute;inset:0;width:100%;height:100%}
+  .guide-hero>img{object-fit:cover;object-position:center 48%}
+  .guide-hero__overlay{background:linear-gradient(180deg,rgba(30,22,17,.12) 8%,rgba(30,22,17,.84) 100%)}
+  .guide-hero__content{position:relative;z-index:1;display:grid;gap:15px;padding-block:64px}
+  .guide-hero h1{max-width:900px;color:var(--color-warm-white);font-size:clamp(2.45rem,6.2vw,5.25rem);line-height:.96;text-shadow:0 2px 20px rgba(0,0,0,.28)}
+  .guide-hero .lead{max-width:760px;font-size:clamp(1.05rem,2vw,1.24rem)}
+  .breadcrumb,.article-dates{display:flex;flex-wrap:wrap;gap:8px 12px;color:rgba(255,255,255,.88);font-size:.88rem}
+  .breadcrumb a{color:#fff;font-weight:700;text-decoration:none}
+  .guide-hero .eyebrow{color:#fff}
+  .guide-layout{display:grid;grid-template-columns:250px minmax(0,800px);gap:54px;align-items:start}
+  .toc{position:sticky;top:96px;padding:20px}
+  .toc h2{font-size:1.35rem;margin-bottom:12px}
+  .toc ol{display:grid;gap:8px;padding-left:20px}
+  .toc a{color:var(--color-olive);font-size:.9rem;text-decoration:none}
+  .content{display:grid;gap:42px;font-size:1.04rem}
+  .content section{display:grid;gap:16px;scroll-margin-top:100px}
+  .content h2{max-width:24ch;font-size:clamp(1.8rem,4vw,2.55rem);line-height:1.08;text-wrap:balance}
+  .content h3{margin-top:8px;font-size:clamp(1.35rem,2.5vw,1.75rem)}
+  .content p,.content li{max-width:72ch;line-height:1.7}
+  .content a:not(.button){color:var(--color-terracotta-dark);font-weight:700}
+  .intro-copy{display:grid;gap:14px;font-size:1.12rem}
+  figure{display:grid;gap:9px;margin:4px 0 10px}
+  figure img{width:100%;height:auto;border-radius:18px;object-fit:cover}
+  figcaption{color:rgba(47,42,36,.7);font-size:.84rem;line-height:1.45}
+  .comparison-section>figure img{aspect-ratio:16/9}
+  .feature-section{overflow:hidden}
+  .base-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .base-grid article{display:grid;align-content:start;gap:8px;padding:22px}
+  .base-grid h3{margin:0}
+  .base-grid p{font-size:.96rem}
+  .itinerary-list,.decision-list{display:grid;gap:12px;padding-left:22px}
+  .property{padding:28px;border-color:rgba(166,83,50,.28);background:linear-gradient(135deg,rgba(166,83,50,.07),rgba(247,241,232,.74))}
+  .property figure img{aspect-ratio:3/2}
+  .button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+  @media(max-width:850px){.guide-layout{grid-template-columns:1fr;gap:30px}.toc{position:static}.guide-hero__content{padding-block:48px}}
+  @media(max-width:620px){.guide-hero{min-height:590px}.base-grid{grid-template-columns:1fr}.property{padding:22px}.button-row .button{width:100%;text-align:center}}
+</style>
