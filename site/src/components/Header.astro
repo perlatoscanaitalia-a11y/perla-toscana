@@ -1,6 +1,6 @@
 ---
 import { nav } from '../data/navigation';
-import { siteConfig } from '../data/siteConfig';
+import { getAvaiBookUrl } from '../data/siteConfig';
 
 interface Props {
   lang: 'it' | 'en' | 'de';
@@ -12,7 +12,7 @@ interface Props {
 const { lang, alternateHrefs, showSalesCtas = true } = Astro.props;
 const pathname = Astro.url.pathname;
 const homeHref = `/${lang}/`;
-const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? siteConfig.placeholders.avaiBookUrl : '/en/book/';
+const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? getAvaiBookUrl(lang) : '/en/book/';
 const navItems = nav[lang].filter((item) => item.href !== bookingHref);
 const languageLinks = [
   { code: 'IT', href: alternateHrefs?.it || '/it/', label: 'Vai alla versione italiana' },

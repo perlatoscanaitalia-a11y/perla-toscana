@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '../data/siteConfig';
+import { getAvaiBookUrl } from '../data/siteConfig';
 import PhoneIcon from './PhoneIcon.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 
@@ -101,7 +101,7 @@ const copy = content[lang];
     <article class="online-booking-box">
       <h2>{copy.onlineTitle}</h2>
       <p>{copy.onlineText}</p>
-      <a class="button button--primary online-booking-button" href={siteConfig.placeholders.avaiBookUrl} target="_blank" rel="noopener noreferrer" data-track="availability_click">
+      <a class="button button--primary online-booking-button" href={getAvaiBookUrl(lang)} target="_blank" rel="noopener noreferrer" data-track="availability_click">
         {copy.onlineButton}
       </a>
     </article>

@@ -38,6 +38,13 @@ export const siteConfig = {
   }
 };
 
+// EN and DE interfaces verified on the live booking engine; only the UI language changes.
+export function getAvaiBookUrl(lang: 'it' | 'en' | 'de') {
+  const url = new URL(siteConfig.placeholders.avaiBookUrl);
+  url.searchParams.set('lang', lang);
+  return url.toString();
+}
+
 export function getWhatsAppLinks(lang: 'it' | 'en' | 'de') {
   const text =
     lang === 'it'

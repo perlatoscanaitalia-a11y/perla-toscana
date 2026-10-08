@@ -1,4 +1,4 @@
-import { siteConfig } from './siteConfig';
+import { getAvaiBookUrl } from './siteConfig';
 
 export const nav = {
   it: [
@@ -36,7 +36,7 @@ export const nav = {
     { label: 'Reisepläne', href: '/de/reisefuehrer/#reiseplaene-heading' },
     { label: 'Für wen?', href: '/de/#gaeste' },
     { label: 'FAQ', href: '/de/#faq' },
-    { label: 'Verfügbarkeit', href: siteConfig.placeholders.avaiBookUrl }
+    { label: 'Verfügbarkeit', href: getAvaiBookUrl('de') }
   ]
 };
 

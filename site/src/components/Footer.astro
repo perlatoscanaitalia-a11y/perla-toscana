@@ -1,6 +1,6 @@
 ---
 import { footerLinks, guideLinks } from '../data/navigation';
-import { getWhatsAppLinks, siteConfig } from '../data/siteConfig';
+import { getAvaiBookUrl, getWhatsAppLinks, siteConfig } from '../data/siteConfig';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 import SocialLinks from './SocialLinks.astro';
 
@@ -11,7 +11,7 @@ interface Props {
 
 const { lang, showSalesCtas = true } = Astro.props;
 const whatsappLinks = getWhatsAppLinks(lang);
-const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? siteConfig.placeholders.avaiBookUrl : '/en/book/';
+const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? getAvaiBookUrl(lang) : '/en/book/';
 ---
 <footer class="site-footer">
   <div class="container footer-grid">

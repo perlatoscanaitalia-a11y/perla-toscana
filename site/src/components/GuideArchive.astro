@@ -94,7 +94,9 @@ const distance = (item: CardItem) => item.slug === 'where-to-stay-in-tuscany-flo
   ? '12 villages to discover from Perla Toscana'
   : item.slug === 'borghi-toscani-poco-conosciuti'
     ? '12 borghi da scoprire partendo da Perla Toscana'
-    : meta(item).distanceKm === 0 ? (lang === 'it' ? 'Partenza da Perla Toscana' : 'Starts at Perla Toscana') : `${meta(item).distanceKm} km • ${meta(item).distanceMinutes} min ${lang === 'it' ? 'da' : 'from'} Perla Toscana`;
+    : meta(item).distanceKm === 0 ? (lang === 'it' ? 'Partenza da Perla Toscana' : 'Starts at Perla Toscana') : ['castello-montecchio-vesponi', 'montecchio-vesponi-castle'].includes(item.slug)
+      ? (lang === 'it' ? 'In auto fino al Castello di Montecchio Vesponi; percorso nella guida' : 'Drive to Montecchio Vesponi Castle; route in the guide')
+      : (lang === 'it' ? 'Da Perla Toscana: organizza il percorso in base alle tappe' : 'From Perla Toscana: plan the route around your stops');
 const visit = (item: CardItem) => item.slug === 'where-to-stay-in-tuscany-florence-or-countryside' ? `Reading time: ${meta(item).visitTime}` : item.slug === 'autumnia-figline-valdarno-2026' ? `${lang === 'it' ? 'Date' : 'Dates'}: ${meta(item).visitTime}` : `${lang === 'it' ? 'Visita consigliata' : 'Recommended visit'}: ${meta(item).visitTime}`;
 ---
 <div class="archive-stack">

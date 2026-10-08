@@ -1,5 +1,5 @@
 ---
-import { getWhatsAppLinks, siteConfig } from '../data/siteConfig';
+import { getAvaiBookUrl, getWhatsAppLinks, siteConfig } from '../data/siteConfig';
 import PhoneIcon from './PhoneIcon.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 
@@ -11,7 +11,7 @@ interface Props {
 
 const { lang, bookingPage = false } = Astro.props;
 const whatsappLinks = getWhatsAppLinks(lang);
-const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? siteConfig.placeholders.avaiBookUrl : '/en/book/';
+const bookingHref = lang === 'it' ? '/it/prenota/' : lang === 'de' ? getAvaiBookUrl(lang) : '/en/book/';
 const labels = {
   it: {
     availability: bookingPage ? 'Verifica disponibilità online' : 'Verifica disponibilità',
@@ -34,7 +34,7 @@ const labels = {
 };
 const callHref = bookingPage ? siteConfig.placeholders.secondaryPhoneHref : siteConfig.placeholders.phoneHref;
 const linksDirectlyToBookingEngine = bookingPage || lang === 'de';
-const availabilityHref = linksDirectlyToBookingEngine ? siteConfig.placeholders.avaiBookUrl : bookingHref;
+const availabilityHref = linksDirectlyToBookingEngine ? getAvaiBookUrl(lang) : bookingHref;
 ---
 <div class="cta-button-group">
   <div class:list={['button-row', bookingPage && 'button-row--booking-page']}>

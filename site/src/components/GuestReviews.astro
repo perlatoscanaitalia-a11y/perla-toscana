@@ -1,4 +1,8 @@
 ---
+import { verifiedSameAs } from '../data/propertyFacts.mjs';
+
+const airbnbSource = verifiedSameAs.find((url) => new URL(url).hostname === 'www.airbnb.it');
+
 interface Props {
   lang: 'it' | 'en';
 }
@@ -104,7 +108,7 @@ const t = content[lang];
             <p class="guest-review-card__quote">“{review.quote[lang]}”</p>
             <footer class="guest-review-card__meta">
               <span>{review.guest?.[lang] ?? (lang === 'it' ? 'Ospite' : 'Guest')}</span>
-              <span>{review.platform}{review.rating ? ` · ${lang === 'en' && review.rating === '5 stelle' ? '5 stars' : review.rating}` : ''}</span>
+              <a href={airbnbSource} target="_blank" rel="noopener noreferrer" aria-label={lang === 'it' ? 'Consulta l’annuncio originale su Airbnb' : 'View the original listing on Airbnb'}>{review.platform}{review.rating ? ` · ${lang === 'en' && review.rating === '5 stelle' ? '5 stars' : review.rating}` : ''}</a>
             </footer>
           </article>
         ))}
