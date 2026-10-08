@@ -16,4 +16,7 @@ export const vacationRentalPaths = [
 
 // Populate only after a profile can be independently associated with this property.
 // Existing social links are not, by themselves, sufficient verification.
-export const verifiedSameAs = [];
+export const verifiedSameAs = [
+  'https://www.booking.com/hotel/it/perlatoscana.it.html',
+  'https://www.airbnb.it/rooms/1321967839226753505'
+];

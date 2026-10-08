@@ -30,7 +30,7 @@ test('SEO gate validates generated output and rejects technical regressions', as
     const cases = [
       ['missing property schema', 'en/index.html', (html) => html.replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/, ''), /expected exactly one VacationRental/],
       ['inconsistent capacity', 'en/index.html', (html) => html.replace('"value":8', '"value":9'), /occupancy, bedrooms or bathrooms inconsistent/],
-      ['unverified social identity', 'en/index.html', (html) => html.replace('"@type":"VacationRental"', '"@type":"VacationRental","sameAs":["https://example.com/unverified"]'), /unverified sameAs/],
+      ['unverified social identity', 'en/index.html', (html) => html.replace(/"sameAs":\[[^\]]*\]/, '"sameAs":["https://example.com/unverified"]'), /unverified sameAs/],
       ['nonreciprocal archive hreflang', 'en/guides/index.html', (html) => html.replace('hreflang="it" href="https://perla-toscana.it/it/guide/"', 'hreflang="it" href="https://perla-toscana.it/guide/"'), /nonreciprocal hreflang group/],
       ['wrong canonical', 'en/index.html', (html) => html.replace('rel="canonical" href="https://perla-toscana.it/en/"', 'rel="canonical" href="https://perla-toscana.it/it/"'), /incorrect or duplicate canonical/],
       ['incorrect image dimensions', 'en/index.html', (html) => html.replace('property="og:image:width" content="1800"', 'property="og:image:width" content="1"'), /OG dimensions do not match file/],
