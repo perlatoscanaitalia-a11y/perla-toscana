@@ -1174,11 +1174,11 @@ const en: PageContent[] = [
     socialImage: '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg',
     socialImageWidth: 1800,
     socialImageHeight: 1200,
-    title: 'Holiday home near Florence | Perla Toscana apartment',
-    description: 'Holiday home near Florence for up to 8 guests in Figline Valdarno, with 3 bedrooms, Wi-Fi, air conditioning, equipped kitchen and private parking.',
+    title: 'Family holiday home in Figline Valdarno | Perla Toscana',
+    description: 'Stay together near Florence in Figline e Incisa Valdarno, Tuscany: an entire 3-bedroom holiday home for up to 8 guests, with 1 bathroom and free private parking.',
     eyebrow: 'The apartment',
-    h1: 'An elegant apartment for a calmer stay in Tuscany',
-    intro: '<strong>Perla Toscana</strong> is a refined <strong>holiday home in Figline Valdarno</strong> that <strong>sleeps up to 8 guests</strong>, convenient for <strong>Florence</strong>, <strong>Chianti</strong> and The Mall Firenze. It is designed for families, groups and business stays looking for comfort, practical spaces and a simple availability request.',
+    h1: 'An entire holiday home for families and groups in Figline Valdarno',
+    intro: '<strong>Perla Toscana</strong> is an <strong>entire holiday home near Florence</strong> in Figline e Incisa Valdarno, Tuscany. Families and groups of 6–8 guests can stay together in <strong>3 bedrooms</strong>, with 1 bathroom, a fully equipped kitchen, air conditioning in every bedroom and free private parking for 3 cars. The maximum occupancy is 8 guests.',
     sections: [
       {
         title: 'Main spaces',
@@ -1206,11 +1206,11 @@ const en: PageContent[] = [
     socialImage: '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg',
     socialImageWidth: 1800,
     socialImageHeight: 1200,
-    title: 'Rooms and amenities Perla Toscana | Apartment for up to 8 guests',
-    description: 'Rooms, beds and amenities at Perla Toscana: up to 8 guests, 3 bedrooms, equipped kitchen, Wi-Fi, TV in every bedroom, garden and private parking.',
+    title: '3-bedroom holiday home with free parking | Perla Toscana',
+    description: '3 bedrooms for up to 8 guests near Florence, with a fully equipped kitchen, air conditioning in every bedroom and free private parking for 3 cars.',
     eyebrow: 'Rooms & amenities',
-    h1: 'Comfortable bedrooms and practical amenities near Florence',
-    intro: '<strong>Perla Toscana</strong> is a <strong>holiday home in Figline Valdarno</strong>, near Florence, with <strong>3 bedrooms</strong> and comfortable spaces for families, groups and business stays up to 8 guests. Practical amenities such as <strong>Wi-Fi</strong>, air conditioning, an equipped kitchen, Smart TV in every bedroom and private parking make the stay simple and comfortable.',
+    h1: '3 bedrooms and practical amenities for up to 8 guests',
+    intro: 'The entire <strong>Perla Toscana holiday home</strong> in Figline e Incisa Valdarno, Tuscany, has <strong>3 bedrooms for up to 8 guests</strong> and 1 bathroom. A fully equipped kitchen, air conditioning in every bedroom and <strong>free private parking for 3 cars</strong> make it a practical base near Florence for families and small groups.',
     sections: [
       {
         title: 'Beds available',

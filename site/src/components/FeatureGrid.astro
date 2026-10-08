@@ -15,6 +15,7 @@ const { lang } = Astro.props;
     </div>
   ))}
 </div>
+<p>{lang === 'it' ? 'La casa non dispone di una piscina privata.' : lang === 'de' ? 'Das Ferienhaus verfügt über keinen privaten Pool.' : 'The holiday home does not have a private pool.'}</p>
 
 <style>
   .feature {

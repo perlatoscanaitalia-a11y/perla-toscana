@@ -1,5 +1,8 @@
 ---
 import { siteConfig } from '../data/siteConfig';
+import { seoAlternates } from '../data/seoRoutes.mjs';
+import { socialImageMetadata } from '../utils/socialImage.mjs';
+import { socialImageAlt as imageAlt } from '../data/socialImageAlts.mjs';
 
 interface Props {
   title: string;
@@ -19,15 +22,14 @@ interface Props {
 
 const { title, description, path, lang, alternatePath, alternatePaths, schema, noindex = false, ogType = 'website', socialImage: socialImagePath, socialImageAlt, socialImageWidth, socialImageHeight } = Astro.props;
 const canonical = new URL(path, siteConfig.siteUrl).toString();
-const alternateLang = lang === 'it' ? 'en' : 'it';
-const alternateUrl = alternatePath ? new URL(alternatePath, siteConfig.siteUrl).toString() : undefined;
 const socialImage = new URL(socialImagePath || '/images/perla-toscana/perla-toscana-hero-camera-principale-9.jpg', siteConfig.siteUrl).toString();
-const resolvedSocialAlt = socialImageAlt || (lang === 'it' ? 'Camera matrimoniale di Perla Toscana a Figline Valdarno' : 'Double bedroom at Perla Toscana in Figline Valdarno');
-const isHome = ['/it/', '/en/', '/de/'].includes(path);
-const homeAlternates = ['it', 'en', 'de'] as const;
-const localizedAlternates = alternatePaths
-  ? Object.entries(alternatePaths).filter((entry): entry is ['it' | 'en' | 'de', string] => Boolean(entry[1]))
-  : [];
+const dimensions = await socialImageMetadata(socialImage, siteConfig.siteUrl);
+if ((socialImageWidth !== undefined && socialImageWidth !== dimensions.width)
+  || (socialImageHeight !== undefined && socialImageHeight !== dimensions.height)) {
+  throw new Error(`Incorrect social image dimensions on ${path}: ${socialImage}`);
+}
+const resolvedSocialAlt = socialImageAlt || imageAlt(socialImage, lang);
+const localizedAlternates = Object.entries(seoAlternates(path, alternatePath, alternatePaths));
 ---
 <title>{title}</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
@@ -41,16 +43,14 @@ const localizedAlternates = alternatePaths
 <meta property="og:url" content={canonical} />
 <meta property="og:site_name" content={siteConfig.name} />
 <meta property="og:locale" content={lang === 'it' ? 'it_IT' : lang === 'de' ? 'de_DE' : 'en_US'} />
-{isHome ? homeAlternates.filter((code) => code !== lang).map((code) => <meta property="og:locale:alternate" content={code === 'it' ? 'it_IT' : code === 'de' ? 'de_DE' : 'en_US'} />) : <meta property="og:locale:alternate" content={lang === 'it' ? 'en_US' : 'it_IT'} />}
+{localizedAlternates.filter(([code]) => code !== lang && code !== 'x-default').map(([code]) => <meta property="og:locale:alternate" content={code === 'it' ? 'it_IT' : code === 'de' ? 'de_DE' : 'en_US'} />)}
 <meta property="og:image" content={socialImage} />
-{socialImageWidth && <meta property="og:image:width" content={socialImageWidth} />}
-{socialImageHeight && <meta property="og:image:height" content={socialImageHeight} />}
+<meta property="og:image:width" content={dimensions.width} />
+<meta property="og:image:height" content={dimensions.height} />
 <meta property="og:image:alt" content={resolvedSocialAlt} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={socialImage} />
-{isHome ? homeAlternates.map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, siteConfig.siteUrl).toString()} />) : localizedAlternates.length ? localizedAlternates.map(([code, href]) => <link rel="alternate" hreflang={code} href={new URL(href, siteConfig.siteUrl).toString()} />) : <link rel="alternate" hreflang={lang} href={canonical} />}
-{isHome ? <link rel="alternate" hreflang="x-default" href={new URL('/it/', siteConfig.siteUrl).toString()} /> : localizedAlternates.length ? <link rel="alternate" hreflang="x-default" href={new URL(alternatePaths?.it || path, siteConfig.siteUrl).toString()} /> : alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
-{!isHome && !localizedAlternates.length && alternateUrl && <link rel="alternate" hreflang="x-default" href={lang === 'it' ? canonical : alternateUrl} />}
+{localizedAlternates.map(([code, href]) => <link rel="alternate" hreflang={code} href={new URL(href, siteConfig.siteUrl).toString()} />)}
 {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}

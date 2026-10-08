@@ -1,6 +1,7 @@
 import { siteConfig } from './siteConfig';
 import type { Lang } from './pages';
 import { structuredDataGalleryImages } from './galleryImages';
+import { propertyFacts, vacationRentalPaths, verifiedSameAs } from './propertyFacts.mjs';
 
 const stripHtml = (value: string) => value.replace(/<[^>]*>/g, '');
 
@@ -15,21 +16,14 @@ export const schemaEntityIds = {
   organization: `${siteConfig.siteUrl}/#organization`
 } as const;
 
-// Google requires every LocationFeatureSpecification to carry an explicit
-// value and supports these English feature names for VacationRental markup.
+// Only confirmed amenities; general Schema.org names need not imply Google support.
 const amenityFeature = [
-  { '@type': 'LocationFeatureSpecification', name: 'wifi', value: true },
   { '@type': 'LocationFeatureSpecification', name: 'ac', value: true },
   { '@type': 'LocationFeatureSpecification', name: 'parkingType', value: 'Free' },
-  { '@type': 'LocationFeatureSpecification', name: 'tv', value: true }
+  { '@type': 'LocationFeatureSpecification', name: 'Fully equipped kitchen', value: true },
+  { '@type': 'LocationFeatureSpecification', name: 'Private parking spaces', value: propertyFacts.parkingSpaces },
+  { '@type': 'LocationFeatureSpecification', name: 'Private pool', value: false }
 ] as const;
-
-const vacationRentalPaths = new Set([
-  '/it/appartamento/',
-  '/it/casa-vacanze-vicino-firenze/',
-  '/en/rooms-amenities/',
-  '/de/'
-]);
 
 const address = {
   '@type': 'PostalAddress',
@@ -47,7 +41,7 @@ const geo = {
 };
 
 export function lodgingSchema(lang: Lang | 'de', path: string) {
-  if (!vacationRentalPaths.has(path)) return undefined;
+  if (!vacationRentalPaths.includes(path)) return undefined;
 
   const pageUrl = new URL(path, siteConfig.siteUrl).toString();
   const vacationRental = {
@@ -55,7 +49,7 @@ export function lodgingSchema(lang: Lang | 'de', path: string) {
     '@id': schemaEntityIds.vacationRental,
     // The Italian CIN is stable, property-specific and identical in every language.
     identifier: siteConfig.placeholders.cin,
-    name: siteConfig.name,
+    name: propertyFacts.name,
     additionalType: 'House',
     url: pageUrl,
     mainEntityOfPage: pageUrl,
@@ -66,31 +60,21 @@ export function lodgingSchema(lang: Lang | 'de', path: string) {
     longitude: geo.longitude,
     email: siteConfig.placeholders.email,
     telephone: siteConfig.placeholders.phone,
-    checkinTime: siteConfig.houseRules.checkInTime,
-    checkoutTime: siteConfig.houseRules.checkOutTime,
-    knowsLanguage: ['it-IT', 'en-GB', 'de-DE'],
+    ...(verifiedSameAs.length ? { sameAs: verifiedSameAs } : {}),
     description:
       lang === 'it'
-        ? 'Casa vacanza a Figline Valdarno con 3 camere, fino a 8 ospiti, parcheggio privato gratuito, Wi-Fi, aria condizionata e posizione comoda per Firenze, Chianti e The Mall Firenze.'
+        ? 'Intera casa vacanze a Figline e Incisa Valdarno, Toscana, vicino a Firenze: 3 camere, fino a 8 ospiti, 1 bagno, cucina attrezzata, aria condizionata in ogni camera e parcheggio privato gratuito per 3 auto. Nessuna piscina privata.'
         : lang === 'de'
-          ? 'Ferienhaus in Figline e Incisa Valdarno in der Toskana mit 3 Schlafzimmern für bis zu 8 Personen, kostenlosem Privatparkplatz, WLAN, Klimaanlage und guter Lage für Florenz und das Chianti.'
-          : 'Holiday home in Figline Valdarno with 3 bedrooms, sleeps up to 8 guests, free private parking, Wi-Fi, air conditioning and a convenient location for Florence, Chianti and The Mall Firenze.',
+          ? 'Ganzes Ferienhaus in Figline e Incisa Valdarno, Toskana, nahe Florenz: 3 Schlafzimmer für bis zu 8 Gäste, 1 Bad, ausgestattete Küche, Klimaanlage in jedem Schlafzimmer und kostenloser Privatparkplatz für 3 Autos. Kein privater Pool.'
+          : 'Entire holiday home near Florence in Figline e Incisa Valdarno, Tuscany: 3 bedrooms for up to 8 guests, 1 bathroom, a fully equipped kitchen, air conditioning in every bedroom and free private parking for 3 cars. No private pool.',
     containsPlace: {
       '@type': 'Accommodation',
       '@id': schemaEntityIds.accommodation,
       additionalType: 'EntirePlace',
       name: lang === 'it' ? 'Intera casa vacanza Perla Toscana' : lang === 'de' ? 'Ganzes Ferienhaus Perla Toscana' : 'Entire Perla Toscana holiday home',
-      occupancy: { '@type': 'QuantitativeValue', value: 8 },
-      numberOfBedrooms: 3,
-      numberOfBathroomsTotal: 1,
-      bed: [
-        { '@type': 'BedDetails', numberOfBeds: 1, typeOfBed: 'King' },
-        { '@type': 'BedDetails', numberOfBeds: 1, typeOfBed: 'Queen' },
-        { '@type': 'BedDetails', numberOfBeds: 2, typeOfBed: 'Single' },
-        { '@type': 'BedDetails', numberOfBeds: 1, typeOfBed: 'Double' }
-      ],
-      petsAllowed: false,
-      smokingAllowed: false,
+      occupancy: { '@type': 'QuantitativeValue', value: propertyFacts.maxGuests },
+      numberOfBedrooms: propertyFacts.bedrooms,
+      numberOfBathroomsTotal: propertyFacts.bathrooms,
       amenityFeature
     }
   };
