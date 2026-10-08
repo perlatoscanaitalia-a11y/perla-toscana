@@ -63,7 +63,6 @@ export const services = [
   { it: 'Cucina attrezzata', en: 'Equipped kitchen', de: 'Ausgestattete Küche' },
   { it: 'Smart TV in ogni camera', en: 'Smart TV in every bedroom', de: 'Smart-TV in jedem Schlafzimmer' },
   { it: 'Doccia idromassaggio', en: 'Hydromassage shower', de: 'Hydromassage-Dusche' },
-  { it: 'Giardino', en: 'Garden', de: 'Garten' },
   { it: 'Casa vacanza intera', en: 'Entire holiday home', de: 'Ganzes Ferienhaus' },
   { it: 'Lenzuola, asciugamani e kit ospiti inclusi', en: 'Bed linen, towels and guest essentials included', de: 'Bettwäsche, Handtücher und Gäste-Grundausstattung inklusive' }
 ];

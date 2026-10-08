@@ -14,11 +14,11 @@ const path = '/de/';
 const faqs = [
   { question: 'Wo liegt Perla Toscana?', answer: 'Perla Toscana liegt in Figline e Incisa Valdarno in der Toskana, Italien, an der Via Aretina 108. Florenz und das Chianti sind von hier aus gut mit dem Auto erreichbar.' },
   { question: 'Für wie viele Personen ist das Ferienhaus geeignet?', answer: 'Das gesamte Ferienhaus ist für bis zu 8 Personen geeignet. Es verfügt über 3 Schlafzimmer, ein Schlafsofa im Wohnbereich und auf Anfrage ein Klappbett.' },
-  { question: 'Ist Perla Toscana für Familien geeignet?', answer: 'Ja. Die Unterkunft eignet sich mit 3 getrennten Schlafzimmern, ausgestatteter Küche, Wohnbereich und Garten für Familien und kleine Gruppen.' },
+  { question: 'Ist das Ferienhaus auch für eine vierköpfige Familie geeignet?', answer: 'Ja. Auch eine vierköpfige Familie oder ein Paar mietet das gesamte Haus mit 3 Schlafzimmern und ausgestatteter Küche. Die maximale Belegung beträgt 8 Gäste.' },
   { question: 'Gibt es private Parkplätze?', answer: 'Ja. Direkt am Haus stehen kostenlose private Parkplätze für bis zu 3 Autos zur Verfügung.' },
-  { question: 'Wie kann man von Perla Toscana Florenz besuchen?', answer: 'Florenz liegt etwa 30 km entfernt und kann mit dem Auto besucht werden. Perla Toscana bietet dabei eine ruhigere Ausgangsbasis im Valdarno mit privatem Parkplatz an der Unterkunft.' },
+  { question: 'Wie kann man von Perla Toscana Florenz besuchen?', answer: 'Florenz kann mit dem Auto oder mit dem Zug ab Figline Valdarno besucht werden. Planen Sie den Transfer zum Bahnhof separat und prüfen Sie Fahrplan, Parkmöglichkeiten und ZTL vor der Fahrt. Perla Toscana bietet dabei eine ruhigere Ausgangsbasis im Valdarno mit privatem Parkplatz an der Unterkunft.' },
   { question: 'Ist Perla Toscana ein guter Ausgangspunkt für das Chianti?', answer: 'Ja. Von Figline e Incisa Valdarno lassen sich Orte, Weingebiete und Hügellandschaften des Chianti gut mit dem Auto erreichen.' },
-  { question: 'Welche Ausstattung bietet das Ferienhaus?', answer: 'Zur Ausstattung gehören 3 Schlafzimmer, 1 Bad mit Hydromassage-Dusche, eine ausgestattete Küche, Wohnbereich, Garten, Smart-TV in jedem Schlafzimmer, Bettwäsche, Handtücher und Gäste-Grundausstattung.' },
+  { question: 'Welche Ausstattung bietet das Ferienhaus?', answer: 'Zur Ausstattung gehören 3 Schlafzimmer, 1 Bad mit Hydromassage-Dusche, eine ausgestattete Küche, Wohnbereich, Smart-TV in jedem Schlafzimmer, Bettwäsche, Handtücher und Gäste-Grundausstattung.' },
   { question: 'Ist WLAN vorhanden?', answer: 'Ja, WLAN ist im Ferienhaus vorhanden.' },
   { question: 'Gibt es eine Klimaanlage?', answer: 'Ja. Jedes der 3 Schlafzimmer ist klimatisiert.' }
 ];
@@ -63,7 +63,7 @@ const schema = {
     lang="de"
     eyebrow="Ferienhaus in der Toskana nahe Florenz"
     title="Perla Toscana – Ferienhaus in der Toskana für bis zu 8 Personen"
-    subtitle="<strong>Perla Toscana</strong> ist ein ganzes <strong>Ferienhaus in Figline e Incisa Valdarno, Toskana, Italien</strong>. Die Unterkunft bietet 3 Schlafzimmer für bis zu 8 Personen, kostenlosen Privatparkplatz, WLAN und Klimaanlage und eignet sich für Familien und kleine Gruppen, die Florenz und das Chianti entdecken möchten."
+    subtitle="<strong>Perla Toscana</strong> ist ein ganzes <strong>Ferienhaus in Figline e Incisa Valdarno, Toskana, Italien</strong>. Die Unterkunft bietet 3 Schlafzimmer für bis zu 8 Personen, kostenlosen Privatparkplatz, WLAN und Klimaanlage und steht Paaren, vierköpfigen Familien und Gruppen bis zu 8 Gästen zur Alleinnutzung zur Verfügung, die Florenz und das Chianti entdecken möchten."
     audienceLine="Eine praktische Unterkunft zwischen Florenz, Valdarno und Chianti – mit Platz, Küche und Parkplatz am Haus."
     ctaPrompt="Verfügbarkeit direkt per WhatsApp oder Telefon anfragen."
     slides={[
@@ -80,7 +80,7 @@ const schema = {
       <div class="answer-block">
         <p class="eyebrow">Kurz erklärt</p>
         <h2 id="was-ist-perla">Was ist Perla Toscana?</h2>
-        <p class="lead-small"><strong>Perla Toscana ist ein Ferienhaus beziehungsweise eine Ferienwohnung zur Alleinnutzung in Figline e Incisa Valdarno.</strong> Das Haus liegt in der Toskana, etwa 30 km von Florenz entfernt, und ist ein geeigneter Ausgangspunkt für Florenz und das Chianti. Bis zu 8 Personen wohnen in 3 Schlafzimmern mit Küche, Garten, WLAN, Klimaanlage und kostenlosem Privatparkplatz.</p>
+        <p class="lead-small"><strong>Perla Toscana ist ein Ferienhaus beziehungsweise eine Ferienwohnung zur Alleinnutzung in Figline e Incisa Valdarno.</strong> Das Haus liegt in der Toskana außerhalb des Stadtzentrums von Florenz und ist ein geeigneter Ausgangspunkt für Florenz und das Chianti. Bis zu 8 Personen wohnen in 3 Schlafzimmern mit Küche, WLAN, Klimaanlage und kostenlosem Privatparkplatz.</p>
       </div>
       <div id="ausstattung"><h2>Ausstattung des Ferienhauses</h2><FeatureGrid lang="de" /></div>
     </div>
@@ -91,9 +91,9 @@ const schema = {
       <div>
         <p class="eyebrow">Lage im Valdarno</p>
         <h2 id="lage-title">Ferienhaus zwischen Florenz und Chianti</h2>
-        <p>Die Lage in <strong>Figline e Incisa Valdarno</strong> verbindet eine ruhigere Unterkunft mit der Möglichkeit, Florenz und das Chianti mit dem Auto zu besuchen. Florenz liegt etwa 30 km entfernt; auch die Orte und Hügellandschaften des Chianti sind gut erreichbar.</p>
+        <p>Die Lage in <strong>Figline e Incisa Valdarno</strong> verbindet eine ruhigere Unterkunft mit der Möglichkeit, Florenz und das Chianti mit dem Auto zu besuchen. Für Florenz können Sie mit dem Auto zu einem Parkplatz außerhalb der ZTL fahren oder ab Figline Valdarno den Zug nehmen. Den Transfer vom Haus zum Bahnhof planen Sie separat. Für Orte wie Greve und Panzano im Chianti prüfen Sie die jeweilige Autoroute.</p>
         <p>Wer ein <strong>Ferienhaus nahe Florenz mit Parkplatz</strong> sucht, kann das Auto kostenlos direkt an der Unterkunft abstellen. Damit eignet sich Perla Toscana als Ausgangspunkt für Tagesausflüge und die Rückkehr in eine ruhigere Umgebung.</p>
-        <p><a href="/de/mietwagen/">Reisen Sie ohne Auto an? Vergleichen Sie Mietwagenangebote in Florenz.</a></p>
+        <p><a href="/de/reisefuehrer/florenz-sehenswuerdigkeiten/">Florenz planen</a> · <a href="/de/reisefuehrer/chianti-sehenswuerdigkeiten/">Chianti entdecken</a> · <a href="/de/reisefuehrer/arezzo-sehenswuerdigkeiten/">Arezzo</a> · <a href="/de/reisefuehrer/siena-sehenswuerdigkeiten/">Siena</a> · <a href="/de/reisefuehrer/the-mall-firenze-shopping/">The Mall Firenze</a> · <a href="/en/location/" lang="en">Anreise (Englisch)</a></p><p><a href="/de/mietwagen/">Reisen Sie ohne Auto an? Vergleichen Sie Mietwagenangebote in Florenz.</a></p>
       </div>
       <img class="content-photo" src="/images/perla-toscana/perla-toscana-strada-setteponti.webp" alt="Toskanische Landschaft bei Figline Valdarno auf dem Weg zwischen Florenz und Chianti" width="1280" height="853" loading="lazy" decoding="async" />
     </div>
@@ -104,7 +104,7 @@ const schema = {
       <p class="eyebrow">Für wen eignet sich das Haus?</p>
       <h2 id="gaeste-title">Unterkunft für Familien und kleine Gruppen nahe Florenz</h2>
       <div class="grid grid-3 cards-top">
-        <article class="card"><h3>Familien</h3><p>Drei getrennte Schlafzimmer, Küche, Wohnbereich und Garten schaffen praktische Räume für einen gemeinsamen Urlaub in der Toskana.</p></article>
+        <article class="card"><h3>Paare und vierköpfige Familien</h3><p>Auch zu zweit oder zu viert steht Ihnen das gesamte Haus mit 3 Schlafzimmern, ausgestatteter Küche und Wohnbereich zur Verfügung. Die maximale Belegung beträgt 8 Gäste.</p></article>
         <article class="card"><h3>Kleine Gruppen</h3><p>Das Ferienhaus bietet Schlafplätze für bis zu 8 Personen sowie Bettwäsche, Handtücher und Gäste-Grundausstattung.</p></article>
         <article class="card"><h3>Florenz und Chianti</h3><p>Die Unterkunft ist ein sinnvoller Ausgangspunkt für Gäste, die Stadtbesuch, Dörfer, Weinlandschaften und ruhiges Wohnen verbinden möchten.</p></article>
       </div>
