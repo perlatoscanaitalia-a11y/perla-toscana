@@ -1,0 +1,25 @@
+---
+import { siteConfig } from '../../../data/siteConfig';
+
+// GitHub Pages serves this static fallback as HTTP 200, never as HTTP 301.
+// Only an external HTTP redirect rule can change that status; see docs/SEO-FASE-3B-REDIRECTS.md.
+const destination = '/guide/cosa-vedere-figline-valdarno/';
+const canonical = new URL(destination, siteConfig.siteUrl).toString();
+---
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guida a Figline Valdarno — pagina trasferita</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={canonical} />
+    <meta http-equiv="refresh" content={`0; url=${destination}`} />
+  </head>
+  <body>
+    <main>
+      <h1>La guida a Figline Valdarno si trova a un nuovo indirizzo</h1>
+      <p><a href={destination}>Leggi la guida: cosa vedere a Figline Valdarno</a>.</p>
+    </main>
+  </body>
+</html>

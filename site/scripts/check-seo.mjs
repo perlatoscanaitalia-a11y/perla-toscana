@@ -51,7 +51,18 @@ export async function checkSeo(root = resolve('dist'), publicRoot = root) {
       catch { fail(route, 'invalid JSON-LD'); }
     }
     if (robots.some((value) => /\bnoindex\b/i.test(value))) {
-      if (route !== '/404.html') fail(route, 'public page unexpectedly noindex');
+      // One explicit legacy fallback, not a blanket exemption for noindex pages.
+      if (route === '/it/guide/figline-valdarno/') {
+        const destination = '/guide/cosa-vedere-figline-valdarno/';
+        const refresh = metas.filter((meta) => meta['http-equiv'] === 'refresh');
+        if (robots.length !== 1 || robots[0] !== 'noindex, follow'
+          || canonical.length !== 1 || canonical[0].href !== site + destination
+          || refresh.length !== 1 || refresh[0].content !== `0; url=${destination}`
+          || !html.includes(`href="${destination}"`) || schemas.length !== 0
+          || links.some((link) => link.hreflang)) {
+          fail(route, 'invalid legacy redirect fallback');
+        }
+      } else if (route !== '/404.html') fail(route, 'public page unexpectedly noindex');
       continue;
     }
     if (route === '/404.html') { fail(route, '404 must be noindex'); continue; }

@@ -43,6 +43,7 @@ export const nav = {
 export const footerLinks = {
   it: [
     { label: 'Guide', href: '/guide/' },
+    { label: 'Contatti', href: '/it/contatti/' },
     { label: 'Privacy Policy', href: '/it/privacy-policy/' },
     { label: 'Cookie Policy', href: '/it/cookie-policy/' },
     { label: 'Termini e condizioni', href: '/it/termini-condizioni/' },
@@ -51,6 +52,7 @@ export const footerLinks = {
   ],
   en: [
     { label: 'Guides', href: '/en/guides/' },
+    { label: 'Contact', href: '/en/contact/' },
     { label: 'Privacy Policy', href: '/en/privacy-policy/' },
     { label: 'Cookie Policy', href: '/en/cookie-policy/' },
     { label: 'Terms and Conditions', href: '/en/terms-and-conditions/' },
@@ -82,8 +84,8 @@ export const guideLinks = {
     { label: '1–3 day itineraries', href: '/en/itineraries/3-days/' }
   ],
   de: [
-    { label: 'Florenz-Reiseführer (Englisch)', href: '/en/guides/florence/' },
-    { label: 'Chianti-Reiseführer (Englisch)', href: '/en/guides/chianti/' },
-    { label: 'Figline-Valdarno-Reiseführer (Englisch)', href: '/en/guides/figline-valdarno/' }
+    { label: 'Florenz-Reiseführer', href: '/de/reisefuehrer/florenz-sehenswuerdigkeiten/' },
+    { label: 'Chianti-Reiseführer', href: '/de/reisefuehrer/chianti-sehenswuerdigkeiten/' },
+    { label: 'Figline-Valdarno-Reiseführer', href: '/de/reisefuehrer/figline-valdarno-sehenswuerdigkeiten/' }
   ]
 };

@@ -28,6 +28,7 @@ test('SEO gate validates generated output and rejects technical regressions', as
       assert.equal(result.rentalCount, 7);
     });
     const cases = [
+      ['wrong legacy fallback destination', 'it/guide/figline-valdarno/index.html', (html) => html.replace('http-equiv="refresh" content="0; url=/guide/cosa-vedere-figline-valdarno/"', 'http-equiv="refresh" content="0; url=/it/"'), /invalid legacy redirect fallback/],
       ['missing property schema', 'en/index.html', (html) => html.replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/, ''), /expected exactly one VacationRental/],
       ['inconsistent capacity', 'en/index.html', (html) => html.replace('"value":8', '"value":9'), /occupancy, bedrooms or bathrooms inconsistent/],
       ['unverified social identity', 'en/index.html', (html) => html.replace(/"sameAs":\[[^\]]*\]/, '"sameAs":["https://example.com/unverified"]'), /unverified sameAs/],
